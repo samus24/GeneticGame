@@ -1,0 +1,48 @@
+{
+	“nCC” : 2,
+	“CCs” : [
+	{	
+		“nnCC” : 3,
+		“nodes” : [
+		{	
+			“idNode” : 1,
+			“width” : 15,
+			“height” : 20,
+			“nNeighbours” : 1,
+			“neighbours” : [
+				{ “idNeigh” : 2}
+			]},
+		
+		{	
+			“idNode” : 2,
+			“width” : 22,
+			“height” : 10,
+			“nNeighbours” : 2,
+			“neighbours” : [
+				{ “idNeigh” : 1},
+				{ “idNeigh” : 3}
+			]},
+		{	
+			“idNode” : 3,
+			“width” : 17,
+			“height” : 13,
+			“nNeighbours” : 1,
+			“neighbours” : [
+				{ “idNeigh” : 2}
+			]}	
+		]
+	},
+	{	
+		“nnCC” : 1,
+		“nodes” : [
+		{	
+			“idNode” : 4,
+			“width” : 35,
+			“height” : 30,
+			“nNeighbours” : 0,
+			“neighbours” : [
+			]}
+		]
+	}
+	]
+}
