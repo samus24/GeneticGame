@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de código fuente">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo">
+      <UniqueIdentifier>{ffa5f5ad-e851-4fe3-8aaa-98d47680019f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\modelo">
+      <UniqueIdentifier>{1194fdb2-74e3-4705-813d-7aaff3d8af85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\controlador">
+      <UniqueIdentifier>{fcda80f6-dd1f-44f2-bf7c-5f8f1087faa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\vista">
+      <UniqueIdentifier>{094225af-add0-47f7-9484-9f3ef5b9ea06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\controlador">
+      <UniqueIdentifier>{4e7640fb-0b13-4754-9fe0-b368564dd5e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\vista">
+      <UniqueIdentifier>{5fcc19d0-34ba-49f7-b2b4-2e1e93fccc37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\cromosomas">
+      <UniqueIdentifier>{a3a51260-8315-428d-9775-9f664a417c75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\graph">
+      <UniqueIdentifier>{e4c4e022-d03a-4ba1-bc32-e101973d2ed4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cromosoma.hpp">
+      <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen.hpp">
+      <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
+    </ClInclude>
+    <ClInclude Include="Grafo.hpp">
+      <Filter>Archivos de encabezado\modelo\graph</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
