@@ -34,7 +34,7 @@
     <Filter Include="Archivos de encabezado\modelo\cromosomas">
       <UniqueIdentifier>{a3a51260-8315-428d-9775-9f664a417c75}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado\modelo\graph">
+    <Filter Include="Archivos de encabezado\modelo\grafo">
       <UniqueIdentifier>{e4c4e022-d03a-4ba1-bc32-e101973d2ed4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -51,7 +51,7 @@
       <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
     </ClInclude>
     <ClInclude Include="Grafo.hpp">
-      <Filter>Archivos de encabezado\modelo\graph</Filter>
+      <Filter>Archivos de encabezado\modelo\grafo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
