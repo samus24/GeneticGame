@@ -84,6 +84,7 @@
     <ClInclude Include="Cromosoma.hpp" />
     <ClInclude Include="Gen.hpp" />
     <ClInclude Include="Grafo.hpp" />
+    <ClInclude Include="Pair.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

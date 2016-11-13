@@ -1,15 +1,20 @@
-﻿Build started 08/11/2016 12:42:51.
-     1>Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" on node 2 (Build target(s)).
+﻿Compilación iniciada a las 13/11/2016 19:37:32.
+     1>Proyecto "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
          Main.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\grafo.hpp(35): warning C4715: 'Grafo<tNode>::anadeArista' : not all control paths return a value
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\grafo.hpp(56): warning C4715: 'Grafo<tNode>::borraNodo' : not all control paths return a value
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(19): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+                 c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(17) : durante la compilación de la función miembro de plantilla de clase 'Grafo<tNode>::Grafo(void)'
+                 c:\users\alvaro\documents\github\geneticgame\ag\ag\main.cpp(11) : vea la referencia a la creación de instancias de plantilla de función 'Grafo<tNode>::Grafo(void)' que se está compilando
+                 c:\users\alvaro\documents\github\geneticgame\ag\ag\main.cpp(11) : vea la referencia a la creación de instancias de plantilla de clase 'Grafo<tNode>' que se está compilando
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(32): warning C4244: 'return' : conversión de 'float' a 'int'; posible pérdida de datos
+                 c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(30) : durante la compilación de la función miembro de plantilla de clase 'int Grafo<tNode>::getRandom(int,int)'
+                 c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(220) : vea la referencia a la creación de instancias de plantilla de función 'int Grafo<tNode>::getRandom(int,int)' que se está compilando
        Link:
-         C:\software\programacion\MSVStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\Debug\AG.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\Debug\AG.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\Debug\AG.lib" /MACHINE:X86 Debug\Main.obj
-         AG.vcxproj -> C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\Debug\AG.exe
-     1>Done Building Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" (Build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\Debug\AG.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\Debug\AG.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\Debug\AG.lib" /MACHINE:X86 Debug\Main.obj
+         AG.vcxproj -> C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\Debug\AG.exe
+     1>Compilación del proyecto terminada "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" (Build destinos).
 
-Build succeeded.
+Compilación correcta.
 
-Time Elapsed 00:00:00.61
+Tiempo transcurrido 00:00:01.27
