@@ -60,4 +60,9 @@
       <Filter>Archivos de encabezado\utiles</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="TODO.txt">
+      <Filter>Archivos de encabezado\utiles</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

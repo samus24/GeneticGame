@@ -27,9 +27,8 @@ public:
 		return _nodos;
 	}
 
-	int getRandom(int from, int to){
-		float random = (float)(rand() / (float)RAND_MAX);
-		return from + random * (to - from);
+	unsigned int size(){
+		return _nodos.size();
 	}
 
 	/**
@@ -224,20 +223,31 @@ public:
 				ret.push_back(aux[1]);
 			}
 			else{
-				if (aux[0].getNodos().size() < aux[1].getNodos().size()){
+				if (aux[0].size() < aux[1].size()){
 					ret.push_back(aux[0]);
-					aux = aux.at(1).divideGrafo(getRandom(0, aux[1].getNodos().size()));
+					aux = aux.at(1).divideGrafo(getRandom(0, aux[1].size()));
 				}
 				else{
 					ret.push_back(aux[1]);
-					aux = aux.at(0).divideGrafo(getRandom(0, aux[0].getNodos().size()));
+					aux = aux.at(0).divideGrafo(getRandom(0, aux[0].size()));
 				}
 			}
 		}
 
 		return ret;
 	}
+
+	std::vector<std::set<unsigned int>> getComponentesConexas(){
+		return;
+	}
+
 private:
+
+	int getRandom(int from, int to){
+		float random = (float)(rand() / (float)RAND_MAX);
+		return from + random * (to - from);
+	}
+
 	std::vector<std::set<unsigned int>> _ady;
 	std::vector<N> _nodos;
 };
