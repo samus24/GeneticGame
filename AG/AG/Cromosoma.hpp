@@ -6,6 +6,17 @@
 
 class Cromosoma {
 public:
+	Cromosoma(){
+		_punt = 0;
+		_puntAcum = 0;
+		_adaptacion = 0;
+	}
+
+	Cromosoma(unsigned int minNodos, unsigned int maxNodos, double densidad) :
+		_grafo(minNodos, maxNodos, densidad)
+	{
+		
+	}
 
 	double getPunt(){
 		return _punt;
@@ -43,6 +54,18 @@ public:
 
 		/*for (std::size_t i = 0;){
 		}*/
+	}
+
+	void bloating(unsigned int maxNodos){
+		/*
+		TO-DO Implmentar l bloating de un grafo
+		Posible implementacion:
+			Basarse en divide grafo, asignando el punto de corte en maxNodos, y quedandose con el subgrafo 0
+
+			if (_grafo.size() > maxNodos)
+				_grafo = _grafo.divideGrafo(maxNodos).at(0);
+		*/
+		
 	}
 
 private:

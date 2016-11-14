@@ -40,6 +40,9 @@
     <Filter Include="Archivos de encabezado\utiles">
       <UniqueIdentifier>{2abda756-ee34-49f0-b33e-27ba61c64f6e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\modelo\ag">
+      <UniqueIdentifier>{fba5fc84-007a-4b0b-ad47-16413c0f8d8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -58,6 +61,15 @@
     </ClInclude>
     <ClInclude Include="Pair.hpp">
       <Filter>Archivos de encabezado\utiles</Filter>
+    </ClInclude>
+    <ClInclude Include="AG.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
+    </ClInclude>
+    <ClInclude Include="Poblacion.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
+    </ClInclude>
+    <ClInclude Include="Parametros.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

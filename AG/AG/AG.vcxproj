@@ -81,10 +81,13 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AG.hpp" />
     <ClInclude Include="Cromosoma.hpp" />
     <ClInclude Include="Gen.hpp" />
     <ClInclude Include="Grafo.hpp" />
     <ClInclude Include="Pair.hpp" />
+    <ClInclude Include="Parametros.hpp" />
+    <ClInclude Include="Poblacion.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

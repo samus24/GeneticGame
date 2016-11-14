@@ -19,6 +19,15 @@ public:
 		std::srand(time(NULL));
 	}
 
+	Grafo<N>(unsigned int minNodos, unsigned int maxNodos, double densidad)
+	{
+		std::srand(time(NULL));
+		/*
+			IMPLEMENTAR LA CREACION ALEATORIA DE UN GRAFO CON LOS PARAMETROS DADOS
+		*/
+
+	}
+
 	std::vector<std::set<unsigned int>> getAdyacencia(){
 		return _ady;
 	}
