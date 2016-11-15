@@ -19,7 +19,7 @@ public:
 	void generaPoblacionAleatoria(unsigned int tam, unsigned int minNodos, unsigned int maxNodos, double densidad){
 		_tam = tam;
 		for (std::size_t i = 0; i < tam; ++i){
-			individuos.push_back(Cromosoma(minNodos, maxNodos, densidad);
+			individuos.push_back(Cromosoma(minNodos, maxNodos, densidad));
 		}
 	}
 
