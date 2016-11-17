@@ -1,8 +1,9 @@
-#ifndef CROMOSOMA_HPP
+ï»¿#ifndef CROMOSOMA_HPP
 #define CROMOSOMA_HPP
 
 #include "Grafo.hpp"
 #include "Gen.hpp"
+#include <cmath>
 
 class Cromosoma {
 public:
@@ -43,19 +44,58 @@ public:
 	}
 
 	double evalua(){
-		//[NumNodos, Media - Grado - CC, media - tamaño - sala, penalizar - ciclos]
-		//[25, 2.5, 30x20(favorece la resolución), min(ciclos)]
-		double pesos[] = {0.25, 0.25, 0.25, 0.25}; // {NumNodos,  MediaGrad, MediaTam, Ciclos}
-		std::vector<double> puntuaciones;
-		unsigned int numNodosCC;
-		unsigned int mejorCC;
-		unsigned int mejorPunt;
+		double mejorCC = -1;
+		double componente;
 		std::vector<std::set<unsigned int>> CC = _grafo.getComponentesConexas();
-
-		/*for (std::size_t i = 0;){
-		}*/
+		for (std::size_t i = 0; i < CC.size(); ++i) {
+			componente = evaluaCC(CC[i]);
+			if (componente > mejorCC)
+				mejorCC = componente;
+		}
+		return mejorCC;
 	}
 
+	double evaluaCC(std::set<unsigned int> CC) {
+		//[NumNodos, Media - Grado - CC, media - tamaï¿½o - sala, penalizar - ciclos]
+		//[25, 2.5, 30x20(favorece la resoluciï¿½n), min(ciclos)]
+		double pesos[] = { 0.3, 0.4, 0.05, 0.05, 0.2 }; // {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos} //me los he inventado los pesos
+		double evaluacion = 1;
+
+		int numNodos = CC.size();
+		double mediaGrado = 0;
+		int sumaAdy = 0;
+		int altoTotal = 0;
+		int anchoTotal = 0;
+		double mediaAlto;
+		double mediaAncho;
+		double diferencias[5];
+		int ciclosActuales;
+
+		for (std::size_t i = 0; i < numNodos; ++i) {
+			//sumaAdy += CC.getAdyacencia();
+			//altoTotal += CC[i]._alto;
+			//anchoTotal += CC[i]._ancho;
+		}
+		mediaGrado = sumaAdy / numNodos;
+		mediaAlto = altoTotal / numNodos;
+		mediaAncho = anchoTotal / numNodos;
+		//ciclosActuales = CC.getCiclos(); //o funciÃ³n que devuelva los ciclos
+
+		(numNodos < _NODOS_OPTIMOS_CC) ? diferencias[0] = std::abs(numNodos - _NODOS_OPTIMOS_CC) / _NODOS_OPTIMOS_CC :	diferencias[0] = std::abs(numNodos - _NODOS_OPTIMOS_CC) / numNodos;
+
+		(mediaGrado < _NODOS_OPTIMOS_CC) ? diferencias[1] = std::abs(mediaGrado - _GRADO_OPTIMO_CC) / _GRADO_OPTIMO_CC : diferencias[1] = std::abs(mediaGrado - _GRADO_OPTIMO_CC) / mediaGrado;
+
+		(mediaAlto < _ALTO_OPTIMO) ? diferencias[2] = std::abs(mediaAlto - _ALTO_OPTIMO) / _ALTO_OPTIMO :	diferencias[2] = std::abs(mediaAlto - _ALTO_OPTIMO) / mediaAlto;
+
+		(mediaAncho < _ANCHO_OPTIMO) ? diferencias[3] = std::abs(mediaAncho - _ANCHO_OPTIMO) / _ANCHO_OPTIMO : diferencias[3] = std::abs(mediaAncho - _ANCHO_OPTIMO) / mediaAncho;
+
+		(ciclosActuales < _CICLOS_OPTIMOS) ? diferencias[4] = std::abs(ciclosActuales - _CICLOS_OPTIMOS) / _CICLOS_OPTIMOS : diferencias[4] = std::abs(ciclosActuales - _CICLOS_OPTIMOS) / ciclosActuales;
+
+		for (std::size_t i = 0; i < 5; ++i) {
+			evaluacion -= diferencias[i] * pesos[i];
+		}
+		return evaluacion;
+	}
 	void bloating(unsigned int maxNodos){
 		/*
 		TO-DO Implmentar l bloating de un grafo
@@ -75,10 +115,11 @@ private:
 	double _puntAcum;
 	double _adaptacion;
 
-	const unsigned int _NODOS_OPTIMOS_CC = 25;
+	const int _NODOS_OPTIMOS_CC = 25;
 	const double _GRADO_OPTIMO_CC = 2.5;
-	const unsigned int _ANCHO_OPTIMO = 30;
-	const unsigned int _ALTO_OPTIMO = 20;
+	const int _ANCHO_OPTIMO = 30;
+	const int _ALTO_OPTIMO = 20;
+	const int _CICLOS_OPTIMOS = 3
 };
 
 #endif
