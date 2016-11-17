@@ -22,9 +22,22 @@ public:
 	Grafo<N>(unsigned int minNodos, unsigned int maxNodos, double densidad)
 	{
 		std::srand(time(NULL));
-		/*
-			IMPLEMENTAR LA CREACION ALEATORIA DE UN GRAFO CON LOS PARAMETROS DADOS
-		*/
+		unsigned int nNodos = getRandom(minNodos, maxNodos);
+		for (std::size_t i = 0; i < nNodos; ++i){
+			N nodo;				
+			// El contructor por defecto de Gen inicializa ancho y alto random
+			this->anadeNodo(nodo);		
+		}
+		unsigned int nAristas = factorial(nNodos) * densidad;
+		unsigned int nodoA, nodoB;
+		while (nAristas > 0){
+			nodoA = getRandom(0, nNodos - 1);
+			nodoB = getRandom(0, nNodos - 1);
+			if ((nodoA != nodoB) && !hayAristaEntre(nodoA, nodoB)){
+				this->anadeArista(nodoA, nodoB);
+				--nAristas;
+			}
+		}
 
 	}
 
@@ -255,6 +268,29 @@ private:
 	int getRandom(int from, int to){
 		float random = (float)(rand() / (float)RAND_MAX);
 		return from + random * (to - from);
+	}
+
+	int factorial(int n)
+	{
+		return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
+	}
+
+	bool hayAristaEntre(unsigned int a, unsigned int b){
+		if (_ady[a].find(b) != _ady[a].end()){
+			// Hay arista entre a y b (con esto bastaría, pero por consistencia, se comprueba en la otra direccion
+			if (_ady[b].find(a) != _ady[b].end()){
+				// La arista también la contiene b
+				return true;
+			}
+			else{
+				throw std::exception("Inconsistencia en las aristas (entre " + a + " y " + b + ")");
+			}
+		}
+		else if (_ady[b].find(a) != _ady[b].end()){
+			// En este caso, a no contempla esa arista, pero b sí
+			throw std::exception("Inconsistencia en las aristas (entre " + a + " y " + b + ")");
+		}
+		return false;
 	}
 
 	std::vector<std::set<unsigned int>> _ady;
