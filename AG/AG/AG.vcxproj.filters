@@ -89,6 +89,9 @@
     <ClInclude Include="MetodoCruce.hpp">
       <Filter>Archivos de encabezado\modelo\cruce</Filter>
     </ClInclude>
+    <ClInclude Include="Cronometro.hpp">
+      <Filter>Archivos de encabezado\utiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt">

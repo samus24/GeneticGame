@@ -260,7 +260,7 @@ public:
 	}
 
 	std::vector<std::set<unsigned int>> getComponentesConexas(){
-		return;
+		return std::vector<std::set<unsigned int>>();
 	}
 
 private:
@@ -283,12 +283,12 @@ private:
 				return true;
 			}
 			else{
-				throw std::exception("Inconsistencia en las aristas (entre " + a + " y " + b + ")");
+				throw std::runtime_error("Inconsistencia en las aristas (entre " + std::to_string(a) + " y " + std::to_string(b) + ")");
 			}
 		}
 		else if (_ady[b].find(a) != _ady[b].end()){
 			// En este caso, a no contempla esa arista, pero b sí
-			throw std::exception("Inconsistencia en las aristas (entre " + a + " y " + b + ")");
+			throw std::runtime_error("Inconsistencia en las aristas (entre " + std::to_string(a) + " y " + std::to_string(b) + ")");
 		}
 		return false;
 	}

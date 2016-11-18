@@ -108,6 +108,8 @@ public:
 		
 	}
 
+
+
 private:
 	Grafo<Gen> _grafo;
 
@@ -119,7 +121,7 @@ private:
 	const double _GRADO_OPTIMO_CC = 2.5;
 	const int _ANCHO_OPTIMO = 30;
 	const int _ALTO_OPTIMO = 20;
-	const int _CICLOS_OPTIMOS = 3
+	const int _CICLOS_OPTIMOS = 3;
 };
 
 #endif

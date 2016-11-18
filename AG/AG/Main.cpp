@@ -1,13 +1,10 @@
 #include <iostream>
 
-#include "Grafo.hpp"
-
-typedef struct {
-	int size;
-} tNode;
-
+#include "AG.hpp"
+#include "Cromosoma.hpp"
 
 int main(){
+	/*
 	Grafo<tNode> g;
 	tNode n[10];
 	for (int i = 0; i < 10; ++i){
@@ -17,7 +14,7 @@ int main(){
 	/*
 	for (int i = 0; i < 1; ++i){
 		g.anadeArista(i, 4-i);
-	}*/
+	}*
 	g.anadeArista(0, 1);
 	g.anadeArista(0, 2);
 	g.anadeArista(1, 3);
@@ -30,7 +27,21 @@ int main(){
 
 	//Grafo<tNode> h = g.unirGrafo(subs[0], subs[1]);
 
-	std::vector<Grafo<tNode>> subs = g.divideEnGrafos(3);
+	std::vector<Grafo<tNode>> subs = g.divideEnGrafos(3);*/
+	Parametros p;
+	p.tamPob = 50;
+	p.iteraciones = 100;
+	p.minNodos = 10;
+	p.maxNodos = 50;
+	p.densidad = 0.03;
+	p.elitismo = false;
+	p.bloating = false;
+	p.contractividad = false;
+	p.probCruce = 0.6;
+	p.probMutacion = 0.02;
+
+	AG ag(p);
+	Cromosoma mejor = ag.ejecuta();
 
 	return 0;
 }

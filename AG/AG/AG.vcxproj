@@ -83,6 +83,7 @@
   <ItemGroup>
     <ClInclude Include="AG.hpp" />
     <ClInclude Include="Cromosoma.hpp" />
+    <ClInclude Include="Cronometro.hpp" />
     <ClInclude Include="Gen.hpp" />
     <ClInclude Include="Grafo.hpp" />
     <ClInclude Include="MetodoCruce.hpp" />
