@@ -50,6 +50,8 @@ public:
 		else{
 			Lapso l = *(_medidas[nombre].end()-1);
 			l.fin = t;
+			_medidas[nombre].pop_back();
+			_medidas[nombre].push_back(l);
 			return true;
 		}
 	}

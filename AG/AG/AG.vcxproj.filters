@@ -57,6 +57,9 @@
     <ClCompile Include="Main.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="ScrollBar.cpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cromosoma.hpp">
@@ -92,10 +95,25 @@
     <ClInclude Include="Cronometro.hpp">
       <Filter>Archivos de encabezado\utiles</Filter>
     </ClInclude>
+    <ClInclude Include="Button.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollBar.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="Components.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="Plotter.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt">
       <Filter>Archivos de encabezado\utiles</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

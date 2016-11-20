@@ -18,9 +18,10 @@ public:
 	double probCruce;
 	double probMutacion;
 	int seed;
+	/*
 	MetodoCruce cruce;
 	MetodoMutacion mutacion;
-	MetodoSeleccion seleccion;
+	MetodoSeleccion seleccion;*/
 
 	Parametros(){
 
@@ -42,9 +43,10 @@ public:
 		this->probCruce = probCruce;
 		this->probMutacion = probMutacion;
 		this->seed = seed;
+		/*
 		this->cruce = cruce;
 		this->mutacion = mutacion;
-		this->seleccion = seleccion;
+		this->seleccion = seleccion;*/
 	}
 };
 

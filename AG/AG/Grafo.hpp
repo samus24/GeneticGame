@@ -28,7 +28,7 @@ public:
 			// El contructor por defecto de Gen inicializa ancho y alto random
 			this->anadeNodo(nodo);		
 		}
-		unsigned int nAristas = factorial(nNodos) * densidad;
+		unsigned int nAristas = sumatorio(nNodos) * densidad;
 		unsigned int nodoA, nodoB;
 		while (nAristas > 0){
 			nodoA = getRandom(0, nNodos - 1);
@@ -259,6 +259,13 @@ public:
 		return ret;
 	}
 
+	Grafo getCopia(){
+		Grafo ret;
+		ret._nodos = this->getNodos();
+		ret._ady = this->getAdyacencia();
+		return ret;
+	}
+
 	std::vector<std::set<unsigned int>> getComponentesConexas(){
 		return std::vector<std::set<unsigned int>>();
 	}
@@ -270,9 +277,9 @@ private:
 		return from + random * (to - from);
 	}
 
-	int factorial(int n)
+	int sumatorio(int n)
 	{
-		return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
+		return (n == 0) ? 0 : sumatorio(n - 1) + n;
 	}
 
 	bool hayAristaEntre(unsigned int a, unsigned int b){

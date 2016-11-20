@@ -69,7 +69,7 @@ public:
 		double mediaAlto;
 		double mediaAncho;
 		double diferencias[5];
-		int ciclosActuales;
+		int ciclosActuales = 0;
 
 		for (std::size_t i = 0; i < numNodos; ++i) {
 			//sumaAdy += CC.getAdyacencia();
@@ -83,7 +83,7 @@ public:
 
 		(numNodos < _NODOS_OPTIMOS_CC) ? diferencias[0] = std::abs(numNodos - _NODOS_OPTIMOS_CC) / _NODOS_OPTIMOS_CC :	diferencias[0] = std::abs(numNodos - _NODOS_OPTIMOS_CC) / numNodos;
 
-		(mediaGrado < _NODOS_OPTIMOS_CC) ? diferencias[1] = std::abs(mediaGrado - _GRADO_OPTIMO_CC) / _GRADO_OPTIMO_CC : diferencias[1] = std::abs(mediaGrado - _GRADO_OPTIMO_CC) / mediaGrado;
+		(mediaGrado < _GRADO_OPTIMO_CC) ? diferencias[1] = std::abs(mediaGrado - _GRADO_OPTIMO_CC) / _GRADO_OPTIMO_CC : diferencias[1] = std::abs(mediaGrado - _GRADO_OPTIMO_CC) / mediaGrado;
 
 		(mediaAlto < _ALTO_OPTIMO) ? diferencias[2] = std::abs(mediaAlto - _ALTO_OPTIMO) / _ALTO_OPTIMO :	diferencias[2] = std::abs(mediaAlto - _ALTO_OPTIMO) / mediaAlto;
 
@@ -97,18 +97,17 @@ public:
 		return evaluacion;
 	}
 	void bloating(unsigned int maxNodos){
-		/*
-		TO-DO Implmentar l bloating de un grafo
-		Posible implementacion:
-			Basarse en divide grafo, asignando el punto de corte en maxNodos, y quedandose con el subgrafo 0
-
-			if (_grafo.size() > maxNodos)
-				_grafo = _grafo.divideGrafo(maxNodos).at(0);
-		*/
-		
+		if (_grafo.size() > maxNodos)
+			_grafo = _grafo.divideGrafo(maxNodos).at(0);
 	}
 
-
+	Cromosoma& operator=(Cromosoma other){
+		std::swap(_grafo, other._grafo);
+		_adaptacion = other.getAdaptacion();
+		_punt = other.getPunt();
+		_puntAcum = other.getPuntAcum();
+		return *this;
+	}
 
 private:
 	Grafo<Gen> _grafo;

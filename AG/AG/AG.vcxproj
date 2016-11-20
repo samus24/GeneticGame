@@ -79,9 +79,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ScrollBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AG.hpp" />
+    <ClInclude Include="Button.hpp" />
+    <ClInclude Include="Components.hpp" />
     <ClInclude Include="Cromosoma.hpp" />
     <ClInclude Include="Cronometro.hpp" />
     <ClInclude Include="Gen.hpp" />
@@ -91,12 +94,23 @@
     <ClInclude Include="MetodoSeleccion.hpp" />
     <ClInclude Include="Pair.hpp" />
     <ClInclude Include="Parametros.hpp" />
+    <ClInclude Include="Plotter.hpp" />
     <ClInclude Include="Poblacion.hpp" />
+    <ClInclude Include="ScrollBar.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\sfml-system.redist.2.4.0.0\build\native\sfml-system.redist.targets" Condition="Exists('..\packages\sfml-system.redist.2.4.0.0\build\native\sfml-system.redist.targets')" />
+    <Import Project="..\packages\sfml-system.2.4.0.0\build\native\sfml-system.targets" Condition="Exists('..\packages\sfml-system.2.4.0.0\build\native\sfml-system.targets')" />
+    <Import Project="..\packages\sfml-window.redist.2.4.0.0\build\native\sfml-window.redist.targets" Condition="Exists('..\packages\sfml-window.redist.2.4.0.0\build\native\sfml-window.redist.targets')" />
+    <Import Project="..\packages\sfml-window.2.4.0.0\build\native\sfml-window.targets" Condition="Exists('..\packages\sfml-window.2.4.0.0\build\native\sfml-window.targets')" />
+    <Import Project="..\packages\sfml-graphics.redist.2.4.0.0\build\native\sfml-graphics.redist.targets" Condition="Exists('..\packages\sfml-graphics.redist.2.4.0.0\build\native\sfml-graphics.redist.targets')" />
+    <Import Project="..\packages\sfml-graphics.2.4.0.0\build\native\sfml-graphics.targets" Condition="Exists('..\packages\sfml-graphics.2.4.0.0\build\native\sfml-graphics.targets')" />
   </ImportGroup>
 </Project>

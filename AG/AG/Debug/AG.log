@@ -1,57 +1,35 @@
-﻿Compilación iniciada a las 18/11/2016 17:21:02.
-     1>Proyecto "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" en el nodo 2 (Rebuild destinos).
+﻿Compilación iniciada a las 20/11/2016 18:36:47.
+     1>Proyecto "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
          Main.cpp
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\gen.hpp(10): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\gen.hpp(19): warning C4244: 'return' : conversión de 'float' a 'int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\gen.hpp(24): warning C4244: 'return' : conversión de 'float' a 'int'; posible pérdida de datos
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(74): warning C4018: '<' : no coinciden signed/unsigned
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\ag.hpp(31): warning C4018: '<' : no coinciden signed/unsigned
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\ag.hpp(52): warning C4018: '<' : no coinciden signed/unsigned
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\ag.hpp(55): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(69): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(70): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(71): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(72): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(19): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
                  c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(17) : durante la compilación de la función miembro de plantilla de clase 'Grafo<Gen>::Grafo(void)'
                  c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(10) : vea la referencia a la creación de instancias de plantilla de función 'Grafo<Gen>::Grafo(void)' que se está compilando
-                 c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(112) : vea la referencia a la creación de instancias de plantilla de clase 'Grafo<Gen>' que se está compilando
+                 c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(113) : vea la referencia a la creación de instancias de plantilla de clase 'Grafo<Gen>' que se está compilando
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(24): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
                  c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(22) : durante la compilación de la función miembro de plantilla de clase 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)'
                  c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(18) : vea la referencia a la creación de instancias de plantilla de función 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)' que se está compilando
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(31): warning C4244: 'inicializando' : conversión de 'double' a 'unsigned int'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(270): warning C4244: 'return' : conversión de 'float' a 'int'; posible pérdida de datos
-                 c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(268) : durante la compilación de la función miembro de plantilla de clase 'int Grafo<Gen>::getRandom(int,int)'
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(277): warning C4244: 'return' : conversión de 'float' a 'int'; posible pérdida de datos
+                 c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(275) : durante la compilación de la función miembro de plantilla de clase 'int Grafo<Gen>::getRandom(int,int)'
                  c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(25) : vea la referencia a la creación de instancias de plantilla de función 'int Grafo<Gen>::getRandom(int,int)' que se está compilando
-     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\algorithm(3009): error C2582: La función 'operator =' no está disponible en 'Cromosoma'
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\algorithm(3026) : vea la referencia a la creación de instancias de plantilla de función 'void std::_Insertion_sort1<_BidIt,_Pr,Cromosoma>(_BidIt,_BidIt,_Pr,_Ty *)' que se está compilando
-                 with
-                 [
-                     _BidIt=Cromosoma *
-         ,            _Pr=Poblacion::ordenar::<lambda_c5e6b8510ad62a1ee3fb72cc8cfc589b>
-         ,            _Ty=Cromosoma
-                 ]
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\algorithm(3148) : vea la referencia a la creación de instancias de plantilla de función 'void std::_Insertion_sort<_RanIt,_Pr>(_BidIt,_BidIt,_Pr)' que se está compilando
-                 with
-                 [
-                     _RanIt=Cromosoma *
-         ,            _Pr=Poblacion::ordenar::<lambda_c5e6b8510ad62a1ee3fb72cc8cfc589b>
-         ,            _BidIt=Cromosoma *
-                 ]
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\algorithm(3157) : vea la referencia a la creación de instancias de plantilla de función 'void std::_Sort<Cromosoma*,__w64 int,_Pr>(_RanIt,_RanIt,_Diff,_Pr)' que se está compilando
-                 with
-                 [
-                     _Pr=Poblacion::ordenar::<lambda_c5e6b8510ad62a1ee3fb72cc8cfc589b>
-         ,            _RanIt=Cromosoma *
-         ,            _Diff=__w64 int
-                 ]
-                 c:\users\alvaro\documents\github\geneticgame\ag\ag\poblacion.hpp(33) : vea la referencia a la creación de instancias de plantilla de función 'void std::sort<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Cromosoma>>>,Poblacion::ordenar::<lambda_c5e6b8510ad62a1ee3fb72cc8cfc589b>>(_RanIt,_RanIt,_Pr)' que se está compilando
-                 with
-                 [
-                     _RanIt=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Cromosoma>>>
-         ,            _Pr=Poblacion::ordenar::<lambda_c5e6b8510ad62a1ee3fb72cc8cfc589b>
-                 ]
-     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\algorithm(3016): error C2582: La función 'operator =' no está disponible en 'Cromosoma'
-     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\algorithm(3017): error C2582: La función 'operator =' no está disponible en 'Cromosoma'
-     1>Compilación del proyecto terminada "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" (Rebuild destinos) -- ERROR.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\Debug\AG.exe" /INCREMENTAL /NOLOGO "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-graphics-d.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-window.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-window-d.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisfile.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisenc.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbis.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\openal32.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\ogg.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\jpeg.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\freetype.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\flac.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-system-d.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\sfml-main-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\Debug\AG.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\Debug\AG.lib" /MACHINE:X86 Debug\Main.obj
+         Debug\ScrollBar.obj
+         AG.vcxproj -> C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\Debug\AG.exe
+     1>Compilación del proyecto terminada "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" (Build destinos).
 
-ERROR al compilar.
+Compilación correcta.
 
-Tiempo transcurrido 00:00:00.68
+Tiempo transcurrido 00:00:01.41

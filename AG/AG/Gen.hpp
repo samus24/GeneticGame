@@ -12,6 +12,11 @@ public:
 		_alto = getRandom(_MINSIZE, _MAXSIZE);
 	}
 
+	Gen& operator=(Gen other){
+		_ancho = other._ancho;
+		_alto = other._alto;
+		return *this;
+	}
 private:
 
 	int getRandom(int from, int to){

@@ -77,6 +77,16 @@ public:
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
 		return _elMejor;
 	}
+
+	std::string getDatos(){
+		std::string ret = "";
+		ret += "Datos de ejecucion:\n";
+		ret += "\tTiempo total de ejecucion: " + std::to_string(_crono.getMediaAsMilli("global")) + "ms\n";
+		ret += "\tTiempo medio de Seleccion: " + std::to_string(_crono.getMediaAsMilli("seleccion")) + "ms\n";
+		ret += "\tTiempo medio de Cruce: " + std::to_string(_crono.getMediaAsMilli("cruce")) + "ms\n";
+		ret += "\tTiempo medio de Mutacion: " + std::to_string(_crono.getMediaAsMilli("mutacion")) + "ms\n";
+		return ret;
+	}
 private:
 
 	double evaluarPoblacion(){
