@@ -17,12 +17,17 @@ int main(){
 	t.setPosition(620, 0);
 	t.setFillColor(sf::Color::White);
 	std::vector<double> data;
+	std::vector<double> dataY;
 
 	for (size_t i = 0; i < 50; ++i){
 		data.push_back(i);
+		dataY.push_back(i);
 	}
 
 	p.setEjeX(data);
+	p.pushEjeY(dataY, sf::Color::Red, "X=Y");
+	p.setNombreEjeX("Generacion");
+	p.setNombreEjeY("Adaptacion");
 
 	while (window.isOpen())
 	{
