@@ -6,9 +6,9 @@
 #include "Plotter.hpp"
 
 int main(){
-	sf::RenderWindow window(sf::VideoMode(1000, 800), "Graph Generator");
+	sf::RenderWindow window(sf::VideoMode(800, 800), "Graph Generator");
 
-	Plotter p(sf::Vector2f(0, 0), sf::Vector2f(1000, 800));
+	Plotter p(sf::Vector2f(0, 0), sf::Vector2f(600, 600));
 
 	sf::Font f;
 	f.loadFromFile("arial.ttf");
@@ -18,14 +18,20 @@ int main(){
 	t.setFillColor(sf::Color::White);
 	std::vector<double> data;
 	std::vector<double> dataY;
+	std::vector<double> dataY2;
+	std::vector<double> dataY3;
 
-	for (size_t i = 0; i < 50; ++i){
+	for (size_t i = 0; i <= 50; ++i){
 		data.push_back(i);
-		dataY.push_back(i);
+		dataY.push_back(2*i);
+		dataY2.push_back(i);
+		dataY3.push_back(i % 10);
 	}
 
 	p.setEjeX(data);
-	p.pushEjeY(dataY, sf::Color::Red, "X=Y");
+	p.pushEjeY(dataY, sf::Color::Red, "Y = X");
+	p.pushEjeY(dataY2, sf::Color::Blue, "Y = 2*X");
+	p.pushEjeY(dataY3, sf::Color::Green, "Y = X mod 10");
 	p.setNombreEjeX("Generacion");
 	p.setNombreEjeY("Adaptacion");
 
