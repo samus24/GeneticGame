@@ -17,7 +17,17 @@ public:
 	}
 
 	void run(){
-		
+		std::vector<double> ejeX;
+		std::vector<double> ejeY;
+		srand(time(NULL));
+		for (size_t i = 0; i < 100; ++i){
+			ejeX.push_back(i);
+			double y = rand() % 100;
+			ejeY.push_back(y);
+		}
+
+		_plotter.setEjeX(ejeX);
+		_plotter.pushEjeY(ejeY, sf::Color::Blue, "Random");
 
 		while (_window.isOpen())
 		{

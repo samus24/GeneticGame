@@ -56,12 +56,6 @@ public:
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
-		/*
-			Probar a cambiarlo, fijando el numero de divisiones por eje (en Java son 10 siempre)
-			y en base a eso determinar los valores que se escriben en los ejes
-		*/
-		
-
 		int margin = 50;
 		int exceso = 15;
 

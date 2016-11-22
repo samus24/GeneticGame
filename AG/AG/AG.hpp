@@ -89,15 +89,17 @@ public:
 		return ret;
 	}
 
-	void addObserver(AGObserver& o){
-		_obs.emplace(o);
+	void addObserver(AGObserver o){
+		_obs.push_back(o);
 	}
 
-	void removeObserver(AGObserver& o){
-		auto it = _obs.find(&o);
-		if (it != _obs.cend())
+	/*
+	void removeObserver(AGObserver o){
+		auto it = std::find(_obs.begin(), _obs.end(), &o);
+		if (it != _obs.end())
 			_obs.erase(it);
-	}
+	}*/
+
 private:
 
 	double evaluarPoblacion(){
@@ -160,14 +162,14 @@ private:
 	}
 
 	void notifyGeneracionTerminada(){
-		for (AGObserver* o : _obs){
-			o->onGeneracionTerminada();
+		for (AGObserver o : _obs){
+			o.onGeneracionTerminada();
 		}
 	}
 
 	void notifyAGTerminado(){
-		for (AGObserver* o : _obs){
-			o->onAGTerminado();
+		for (AGObserver o : _obs){
+			o.onAGTerminado();
 		}
 	}
 
@@ -179,7 +181,7 @@ private:
 	Cromosoma _elMejor;
 	Cronometro _crono;
 
-	std::set<AGObserver *> _obs;
+	std::vector<AGObserver> _obs;
 };
 
 #endif
