@@ -61,8 +61,9 @@ private:
 
 		int divisiones = 10;
 		double factorXY = 1;
-		double tamDiv = (_size.x - 2 * margin) / divisiones;
-		double tamUnidadX = (_size.x - 2 * margin) / _dataX.size();
+		double tamDivX = (_size.x - 2 * margin) / divisiones;
+		double tamDivY = (_size.y - 2 * margin) / divisiones;
+		double tamUnidadX = (_size.x - 2 * margin) / _dataX.back();
 		double tamUnidadY = 1;
 		states.transform *= getTransform();
 		sf::Vector2f punto00 (_pos.x + margin, _pos.y + _size.y - margin);
@@ -79,35 +80,37 @@ private:
 		std::vector<sf::VertexArray> graficas;
 		std::vector<sf::Text> nombres;
 		try{
-			int mayorX = _dataX.at(_dataX.size() - 1);
-			int mayorY = -1;
-			int actual;
+			double mayorX = _dataX.back();
+			double mayorY = -1;
+			double actual;
 			for (size_t i = 0; i < _datasY.size(); ++i){
-				actual = _datasY[i].at(_datasY[i].size() - 1);
-				if (actual > mayorY){
-					mayorY = actual;
+				for (size_t j = 0; j < _datasY[i].size(); ++j){
+					actual = _datasY[i][j];
+					if (actual > mayorY){
+						mayorY = actual;
+					}
 				}
 			}
-			factorXY = (float)mayorX / (float)mayorY;
-			tamUnidadY = tamUnidadX * factorXY;
-
+			factorXY = mayorX / mayorY;
+			tamUnidadY = (_size.y - 2 * margin) / mayorY;
+			if(factorXY > 1 && tamUnidadY < 1) tamUnidadY *= factorXY;
 			double top = _pos.y + margin;
 			double bot = _pos.y + _size.y - margin;
 			double left = _pos.x + margin;
 			double right = _pos.x + _size.x - margin;
-			for (size_t i = 0; i < divisiones; ++i){
-				sf::Vertex a(sf::Vector2f(left + (i*tamDiv), top), sf::Color(200, 200, 200));
-				sf::Vertex b(sf::Vector2f(left + (i*tamDiv), bot + exceso), sf::Color(200, 200, 200));
+			for (size_t i = 0; i <= divisiones; ++i){
+				sf::Vertex a(sf::Vector2f(left + (i*tamDivX), top), sf::Color(200, 200, 200));
+				sf::Vertex b(sf::Vector2f(left + (i*tamDivX), bot + exceso), sf::Color(200, 200, 200));
 				ejes.append(a);
 				ejes.append(b);
-				if (bot - (i*tamDiv) > top){
-					sf::Vertex c(sf::Vector2f(left - exceso, bot - (i*tamDiv)), sf::Color(200, 200, 200));
-					sf::Vertex d(sf::Vector2f(right, bot - (i*tamDiv)), sf::Color(200, 200, 200));
+				if (bot - (i*tamDivY) >= top-1){	// el -1 es para que entre en la ultima vuelta (por temas de redondeo no entraba)
+					sf::Vertex c(sf::Vector2f(left - exceso, bot - (i*tamDivY)), sf::Color(200, 200, 200));
+					sf::Vertex d(sf::Vector2f(right, bot - (i*tamDivY)), sf::Color(200, 200, 200));
 					ejes.append(c);
 					ejes.append(d);
 
-					sf::Text t2(std::to_string(((float)i / (float)divisiones) * mayorY), _font, 9);
-					/* No hay manera de dejarlo en 2 (o 1) decimales, asi que trunco la cadena */
+					sf::Text t2(std::to_string(std::ceil(((float)i / (float)divisiones) * mayorY)), _font, 9);
+					/* No hay manera de dejarlo sin decimales, asi que trunco la cadena */
 					std::string s = t2.getString();
 					size_t posPunto = s.find_first_of(".");
 					s = s.substr(0, posPunto);
@@ -118,11 +121,11 @@ private:
 					datosEjeY.push_back(t2);
 				}
 
-				sf::Text t(std::to_string(((float)i / (float)divisiones) * mayorX), _font, 9);
-				/* No hay manera de dejarlo en 2 (o 1) decimales, asi que trunco la cadena */
+				sf::Text t(std::to_string(std::ceil(((double)i / (double)divisiones) * mayorX)), _font, 9);
+				/* No hay manera de dejarlo sin decimales, asi que trunco la cadena */
 				std::string s = t.getString();
 				size_t posPunto = s.find_first_of(".");
-				s = s.substr(0, posPunto + 2);
+				s = s.substr(0, posPunto);
 				t.setString(s);
 				/***********/
 				t.setFillColor(sf::Color::Black);

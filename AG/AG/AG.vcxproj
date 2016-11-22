@@ -83,8 +83,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AG.hpp" />
+    <ClInclude Include="AGObserver.hpp" />
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="Components.hpp" />
+    <ClInclude Include="Controlador.hpp" />
     <ClInclude Include="Cromosoma.hpp" />
     <ClInclude Include="Cronometro.hpp" />
     <ClInclude Include="Gen.hpp" />
@@ -97,6 +99,7 @@
     <ClInclude Include="Plotter.hpp" />
     <ClInclude Include="Poblacion.hpp" />
     <ClInclude Include="ScrollBar.hpp" />
+    <ClInclude Include="Ventana.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

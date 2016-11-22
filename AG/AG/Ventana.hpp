@@ -19,15 +19,21 @@ public:
 	void run(){
 		std::vector<double> ejeX;
 		std::vector<double> ejeY;
+		std::vector<double> ejeY2;
+		std::vector<double> ejeY3;
 		srand(time(NULL));
 		for (size_t i = 0; i < 100; ++i){
 			ejeX.push_back(i);
 			double y = rand() % 100;
 			ejeY.push_back(y);
+			ejeY2.push_back(i);
+			ejeY3.push_back(y*2);
 		}
 
 		_plotter.setEjeX(ejeX);
 		_plotter.pushEjeY(ejeY, sf::Color::Blue, "Random");
+		//_plotter.pushEjeY(ejeY2, sf::Color::Red, "i");
+		_plotter.pushEjeY(ejeY3, sf::Color::Magenta, "log");
 
 		while (_window.isOpen())
 		{

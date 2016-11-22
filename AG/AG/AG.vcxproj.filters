@@ -107,6 +107,15 @@
     <ClInclude Include="Plotter.hpp">
       <Filter>Archivos de encabezado\vista</Filter>
     </ClInclude>
+    <ClInclude Include="Ventana.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="Controlador.hpp">
+      <Filter>Archivos de encabezado\controlador</Filter>
+    </ClInclude>
+    <ClInclude Include="AGObserver.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt">
