@@ -1,6 +1,7 @@
 #ifndef AG_HPP
 #define AG_HPP
 
+#include "AGObserver.hpp"
 #include "Poblacion.hpp"
 #include "Cromosoma.hpp"
 #include "Parametros.hpp"
@@ -87,6 +88,16 @@ public:
 		ret += "\tTiempo medio de Mutacion: " + std::to_string(_crono.getMediaAsMilli("mutacion")) + "ms\n";
 		return ret;
 	}
+
+	void addObserver(AGObserver& o){
+		_obs.emplace(o);
+	}
+
+	void removeObserver(AGObserver& o){
+		auto it = _obs.find(&o);
+		if (it != _obs.cend())
+			_obs.erase(it);
+	}
 private:
 
 	double evaluarPoblacion(){
@@ -148,6 +159,18 @@ private:
 		}
 	}
 
+	void notifyGeneracionTerminada(){
+		for (AGObserver* o : _obs){
+			o->onGeneracionTerminada();
+		}
+	}
+
+	void notifyAGTerminado(){
+		for (AGObserver* o : _obs){
+			o->onAGTerminado();
+		}
+	}
+
 	unsigned int _generacion;
 	unsigned int _genDescartadas;
 	Poblacion _pob;
@@ -156,6 +179,7 @@ private:
 	Cromosoma _elMejor;
 	Cronometro _crono;
 
+	std::set<AGObserver *> _obs;
 };
 
 #endif

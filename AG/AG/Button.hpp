@@ -32,6 +32,49 @@ private:
 
 };
 
+class TextButton : public Button{
+public:
+	TextButton(sf::Vector2f pos, sf::Vector2f size, std::string text, sf::Color fillColor = sf::Color::Blue) :
+		Button(pos, size),
+		m_rect(size)
+	{
+		if (!m_font.loadFromFile("arial.ttf")){
+			exit(1);
+		}
+		m_rect.setPosition(pos);
+		m_rect.setFillColor(fillColor);
+		m_text.setFont(m_font);
+		m_text.setFillColor(invertColor(fillColor));
+		m_text.setCharacterSize(15);
+		m_text.setString(text);
+		// La doble llamada es necesaria por temas de sfml y la posicion del texto
+		m_text.setPosition(0, 0);
+		m_text.setPosition(sf::Vector2f((pos.x + (size.x - m_text.getLocalBounds().width) / 2), (pos.y + (size.y - m_text.getLocalBounds().height) / 2)));
+		
+
+	}
+private:
+
+	sf::Color invertColor(sf::Color c){
+		sf::Color ret;
+		ret.r = 255 - c.r;
+		ret.g = 255 - c.g;
+		ret.b = 255 - c.b;
+		return ret;
+	}
+
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
+	{
+		states.transform *= getTransform();
+		target.draw(m_rect);
+		target.draw(m_text, states);
+	}
+	sf::Font m_font;
+	sf::Text m_text;
+	sf::RectangleShape m_rect;
+};
+
+
 class ReLoadButton : public Button{
 public:
 	ReLoadButton(sf::Vector2f pos, sf::Vector2f size) :

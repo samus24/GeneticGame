@@ -4,59 +4,11 @@
 #include "AG.hpp"
 #include "Cromosoma.hpp"
 #include "Plotter.hpp"
+#include "Ventana.hpp"
 
 int main(){
-	sf::RenderWindow window(sf::VideoMode(800, 800), "Graph Generator");
-
-	Plotter p(sf::Vector2f(0, 0), sf::Vector2f(600, 600));
-
-	sf::Font f;
-	f.loadFromFile("arial.ttf");
-	sf::Text t;
-	t.setCharacterSize(15);
-	t.setPosition(620, 0);
-	t.setFillColor(sf::Color::White);
-	std::vector<double> data;
-	std::vector<double> dataY;
-	std::vector<double> dataY2;
-	std::vector<double> dataY3;
-
-	for (size_t i = 0; i <= 50; ++i){
-		data.push_back(i);
-		dataY.push_back(2*i);
-		dataY2.push_back(i);
-		dataY3.push_back(i % 10);
-	}
-
-	p.setEjeX(data);
-	p.pushEjeY(dataY, sf::Color::Red, "Y = X");
-	p.pushEjeY(dataY2, sf::Color::Blue, "Y = 2*X");
-	p.pushEjeY(dataY3, sf::Color::Green, "Y = X mod 10");
-	p.setNombreEjeX("Generacion");
-	p.setNombreEjeY("Adaptacion");
-
-	while (window.isOpen())
-	{
-		// handle events
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-			else if (event.type == sf::Event::MouseButtonPressed){
-
-			}
-			else if (event.type == sf::Event::MouseButtonReleased){
-
-			}
-		}
-
-
-		// draw the map
-		window.clear(sf::Color::White);
-		window.draw(p);
-		window.display();
-	}
+	Ventana v;
+	v.run();
 	return 0;
 }
 

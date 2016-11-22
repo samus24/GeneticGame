@@ -84,9 +84,7 @@ private:
 
 		std::vector<sf::VertexArray> graficas;
 		std::vector<sf::Text> nombres;
-
-		if ((_size.x - 2 * margin) > _dataX.size()){
-			// Hay mas espacio que datos
+		try{
 			int mayorX = _dataX.at(_dataX.size() - 1);
 			int mayorY = -1;
 			int actual;
@@ -104,7 +102,7 @@ private:
 			double left = _pos.x + margin;
 			double right = _pos.x + _size.x - margin;
 			for (size_t i = 0; i < divisiones; ++i){
-				sf::Vertex a(sf::Vector2f(left + (i*tamDiv),top), sf::Color(200,200,200));
+				sf::Vertex a(sf::Vector2f(left + (i*tamDiv), top), sf::Color(200, 200, 200));
 				sf::Vertex b(sf::Vector2f(left + (i*tamDiv), bot + exceso), sf::Color(200, 200, 200));
 				ejes.append(a);
 				ejes.append(b);
@@ -125,7 +123,7 @@ private:
 					t2.setPosition(c.position);
 					datosEjeY.push_back(t2);
 				}
-				
+
 				sf::Text t(std::to_string(((float)i / (float)divisiones) * mayorX), _font, 9);
 				/* No hay manera de dejarlo en 2 (o 1) decimales, asi que trunco la cadena */
 				std::string s = t.getString();
@@ -137,26 +135,21 @@ private:
 				t.setPosition(b.position.x, b.position.y - exceso);
 				datosEjeX.push_back(t);
 			}
-
-			
-
-
-
-		}
-		else{
-			// Es necesario omitir datos para representarlos en pantalla
-
-		}
-		graficas.clear();
-		for (size_t i = 0; i < _datasY.size(); ++i){
-			graficas.push_back(sf::VertexArray());
-			graficas[i].setPrimitiveType(sf::LinesStrip);
-			for (size_t j = 0; j < _datasY[i].size(); ++j){
-				sf::Vector2f pos(_dataX[j]*tamUnidadX, -_datasY[i][j]*tamUnidadY);
-				sf::Vertex v(punto00 + pos, _colorsY[i]);
-				graficas[i].append(v);
+			graficas.clear();
+			for (size_t i = 0; i < _datasY.size(); ++i){
+				graficas.push_back(sf::VertexArray());
+				graficas[i].setPrimitiveType(sf::LinesStrip);
+				for (size_t j = 0; j < _datasY[i].size(); ++j){
+					sf::Vector2f pos(_dataX[j] * tamUnidadX, -_datasY[i][j] * tamUnidadY);
+					sf::Vertex v(punto00 + pos, _colorsY[i]);
+					graficas[i].append(v);
+				}
 			}
 		}
+		catch (std::out_of_range e){
+
+		}
+		
 
 		int offsetTexto = 25;
 		int k = 0;
