@@ -7,7 +7,21 @@
 #include "Ventana.hpp"
 
 int main(){
-	Ventana v;
+	Parametros p;
+	p.tamPob = 50;
+	p.iteraciones = 100;
+	p.minNodos = 10;
+	p.maxNodos = 50;
+	p.densidad = 0.03;
+	p.elitismo = false;
+	p.bloating = false;
+	p.contractividad = false;
+	p.probCruce = 0.6;
+	p.probMutacion = 0.02;
+
+	AG ag(p);
+	Controlador c(ag);
+	Ventana v(c);
 	v.run();
 	return 0;
 }

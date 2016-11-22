@@ -17,13 +17,12 @@ public:
 		_alto = other._alto;
 		return *this;
 	}
-private:
 
-	int getRandom(int from, int to){
+	static int getRandom(int from, int to){
 		float random = (float)(rand() / (float)RAND_MAX);
 		return from + random * (to - from);
 	}
-
+private:
 	unsigned int _ancho;
 	unsigned int _alto;
 	const unsigned int _MAXSIZE = 40;

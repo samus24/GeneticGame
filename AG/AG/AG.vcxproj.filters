@@ -113,7 +113,7 @@
     <ClInclude Include="Controlador.hpp">
       <Filter>Archivos de encabezado\controlador</Filter>
     </ClInclude>
-    <ClInclude Include="AGObserver.hpp">
+    <ClInclude Include="IAGObserver.hpp">
       <Filter>Archivos de encabezado\modelo\ag</Filter>
     </ClInclude>
   </ItemGroup>

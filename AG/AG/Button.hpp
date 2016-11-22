@@ -34,7 +34,7 @@ private:
 
 class TextButton : public Button{
 public:
-	TextButton(sf::Vector2f pos, sf::Vector2f size, std::string text, sf::Color fillColor = sf::Color::Blue) :
+	TextButton(sf::Vector2f pos, sf::Vector2f size, std::string text, sf::Color fillColor = sf::Color::Black) :
 		Button(pos, size),
 		m_rect(size)
 	{
@@ -43,9 +43,11 @@ public:
 		}
 		m_rect.setPosition(pos);
 		m_rect.setFillColor(fillColor);
+		m_rect.setOutlineThickness(2);
+		m_rect.setOutlineColor(invertColor(fillColor));
 		m_text.setFont(m_font);
 		m_text.setFillColor(invertColor(fillColor));
-		m_text.setCharacterSize(15);
+		m_text.setCharacterSize(20);
 		m_text.setString(text);
 		// La doble llamada es necesaria por temas de sfml y la posicion del texto
 		m_text.setPosition(0, 0);

@@ -44,6 +44,7 @@ public:
 	}
 
 	double evalua(){
+		// IMPORTANTE, contamos con que la funcion evalua establece automaticamente el valor de _adaptacion
 		double mejorCC = -1;
 		double componente;
 		std::vector<std::set<unsigned int>> CC = _grafo.getComponentesConexas();
@@ -52,7 +53,9 @@ public:
 			if (componente > mejorCC)
 				mejorCC = componente;
 		}
-		return mejorCC;
+		this->_adaptacion = (double)Gen::getRandom(0, 100) / 100;
+		return _adaptacion;
+		//return mejorCC;
 	}
 
 	double evaluaCC(std::set<unsigned int> CC) {

@@ -24,8 +24,8 @@ public:
 	}
 
 	void evalua(){
-		for (Cromosoma i : individuos){
-			i.evalua();
+		for (size_t i = 0; i < individuos.size(); ++i){
+			individuos[i].evalua();
 		}
 	}
 
@@ -36,8 +36,8 @@ public:
 	}
 
 	void bloating(unsigned int maxNodos){
-		for (Cromosoma i : individuos){
-			i.bloating(maxNodos);
+		for (size_t i = 0; i < individuos.size(); ++i){
+			individuos[i].bloating(maxNodos);
 		}
 	}
 

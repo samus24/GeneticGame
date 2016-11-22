@@ -1,7 +1,7 @@
 #ifndef AG_HPP
 #define AG_HPP
 
-#include "AGObserver.hpp"
+#include "IAGObserver.hpp"
 #include "Poblacion.hpp"
 #include "Cromosoma.hpp"
 #include "Parametros.hpp"
@@ -62,6 +62,7 @@ public:
 			if (_param.contractividad){
 				if (mediaAnterior < mediaActual){
 					_generacion++;
+					notifyGeneracionTerminada(_elMejor.getAdaptacion(), _pob.individuos[_indexMejor].getAdaptacion(), mediaActual);
 				}
 				else{
 					_genDescartadas++;
@@ -72,10 +73,13 @@ public:
 			}
 			else{
 				_generacion++;
+				notifyGeneracionTerminada(_elMejor.getAdaptacion(), _pob.individuos[_indexMejor].getAdaptacion(), mediaActual);
 			}
+
 		}	// Fin while generaciones
 		//_elMejor.evalua();
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
+		notifyAGTerminado();
 		return _elMejor;
 	}
 
@@ -89,12 +93,12 @@ public:
 		return ret;
 	}
 
-	void addObserver(AGObserver o){
-		_obs.push_back(o);
+	void addObserver(IAGObserver& o){
+		_obs.push_back(&o);
 	}
 
 	/*
-	void removeObserver(AGObserver o){
+	void removeObserver(IAGObserver o){
 		auto it = std::find(_obs.begin(), _obs.end(), &o);
 		if (it != _obs.end())
 			_obs.erase(it);
@@ -161,15 +165,15 @@ private:
 		}
 	}
 
-	void notifyGeneracionTerminada(){
-		for (AGObserver o : _obs){
-			o.onGeneracionTerminada();
+	void notifyGeneracionTerminada(double mejor, double mejorGen, double media){
+		for (IAGObserver* o : _obs){
+			o->onGeneracionTerminada(mejor, mejorGen, media);
 		}
 	}
 
 	void notifyAGTerminado(){
-		for (AGObserver o : _obs){
-			o.onAGTerminado();
+		for (IAGObserver* o : _obs){
+			o->onAGTerminado();
 		}
 	}
 
@@ -181,7 +185,7 @@ private:
 	Cromosoma _elMejor;
 	Cronometro _crono;
 
-	std::vector<AGObserver> _obs;
+	std::vector<IAGObserver*> _obs;
 };
 
 #endif

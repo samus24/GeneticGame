@@ -1,28 +1,28 @@
-﻿Compilación iniciada a las 22/11/2016 19:34:34.
+﻿Compilación iniciada a las 22/11/2016 20:45:51.
      1>Proyecto "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
          Main.cpp
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\gen.hpp(10): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\gen.hpp(24): warning C4244: 'return' : conversión de 'float' a 'int'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(74): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\gen.hpp(23): warning C4244: 'return' : conversión de 'float' a 'int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(77): warning C4018: '<' : no coinciden signed/unsigned
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\ag.hpp(32): warning C4018: '<' : no coinciden signed/unsigned
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\ag.hpp(53): warning C4018: '<' : no coinciden signed/unsigned
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\ag.hpp(56): warning C4018: '<' : no coinciden signed/unsigned
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(101): warning C4018: '<=' : no coinciden signed/unsigned
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(102): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(103): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(105): warning C4018: '<=' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(106): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(107): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(108): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(140): warning C4244: 'argumento' : conversión de 'const double' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\ventana.hpp(13): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\ventana.hpp(13): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(111): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(112): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\plotter.hpp(144): warning C4244: 'argumento' : conversión de 'const double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\ventana.hpp(14): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\ventana.hpp(14): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\ventana.hpp(15): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\ventana.hpp(24): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(19): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
                  c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(17) : durante la compilación de la función miembro de plantilla de clase 'Grafo<Gen>::Grafo(void)'
                  c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(10) : vea la referencia a la creación de instancias de plantilla de función 'Grafo<Gen>::Grafo(void)' que se está compilando
-                 c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(113) : vea la referencia a la creación de instancias de plantilla de clase 'Grafo<Gen>' que se está compilando
+                 c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(116) : vea la referencia a la creación de instancias de plantilla de clase 'Grafo<Gen>' que se está compilando
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(24): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
                  c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(22) : durante la compilación de la función miembro de plantilla de clase 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)'
                  c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(18) : vea la referencia a la creación de instancias de plantilla de función 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)' que se está compilando
@@ -38,4 +38,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:01.26
+Tiempo transcurrido 00:00:01.42

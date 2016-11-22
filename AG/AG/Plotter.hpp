@@ -56,30 +56,34 @@ public:
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
-		int margin = 50;
-		int exceso = 15;
-
-		int divisiones = 10;
-		double factorXY = 1;
-		double tamDivX = (_size.x - 2 * margin) / divisiones;
-		double tamDivY = (_size.y - 2 * margin) / divisiones;
-		double tamUnidadX = (_size.x - 2 * margin) / _dataX.back();
-		double tamUnidadY = 1;
-		states.transform *= getTransform();
-		sf::Vector2f punto00 (_pos.x + margin, _pos.y + _size.y - margin);
-		sf::VertexArray ejes;
-		ejes.setPrimitiveType(sf::Lines);
-		sf::Vertex topY(sf::Vector2f(_pos.x + margin, _pos.y + margin), sf::Color::Black);
-		sf::Vertex bottomY(sf::Vector2f(_pos.x + margin, _pos.y + _size.y - margin), sf::Color::Black);
-		sf::Vertex leftX(sf::Vector2f(_pos.x + margin, _pos.y + _size.y - margin), sf::Color::Black);
-		sf::Vertex rightX(sf::Vector2f(_pos.x + _size.x - margin, _pos.y + _size.y - margin), sf::Color::Black);
-		
-		std::vector<sf::Text> datosEjeX;
-		std::vector<sf::Text> datosEjeY;
-
-		std::vector<sf::VertexArray> graficas;
-		std::vector<sf::Text> nombres;
 		try{
+			if (_dataX.size() == 0){
+				return;
+			}
+			int margin = 50;
+			int exceso = 15;
+
+			int divisiones = 10;
+			double factorXY = 1;
+			double tamDivX = (_size.x - 2 * margin) / divisiones;
+			double tamDivY = (_size.y - 2 * margin) / divisiones;
+			double tamUnidadX = (_size.x - 2 * margin) / _dataX.back();
+			double tamUnidadY = 1;
+			states.transform *= getTransform();
+			sf::Vector2f punto00 (_pos.x + margin, _pos.y + _size.y - margin);
+			sf::VertexArray ejes;
+			ejes.setPrimitiveType(sf::Lines);
+			sf::Vertex topY(sf::Vector2f(_pos.x + margin, _pos.y + margin), sf::Color::Black);
+			sf::Vertex bottomY(sf::Vector2f(_pos.x + margin, _pos.y + _size.y - margin), sf::Color::Black);
+			sf::Vertex leftX(sf::Vector2f(_pos.x + margin, _pos.y + _size.y - margin), sf::Color::Black);
+			sf::Vertex rightX(sf::Vector2f(_pos.x + _size.x - margin, _pos.y + _size.y - margin), sf::Color::Black);
+		
+			std::vector<sf::Text> datosEjeX;
+			std::vector<sf::Text> datosEjeY;
+
+			std::vector<sf::VertexArray> graficas;
+			std::vector<sf::Text> nombres;
+		
 			double mayorX = _dataX.back();
 			double mayorY = -1;
 			double actual;
@@ -109,11 +113,11 @@ private:
 					ejes.append(c);
 					ejes.append(d);
 
-					sf::Text t2(std::to_string(std::ceil(((float)i / (float)divisiones) * mayorY)), _font, 9);
+					sf::Text t2(std::to_string(((float)i / (float)divisiones) * mayorY), _font, 9);
 					/* No hay manera de dejarlo sin decimales, asi que trunco la cadena */
 					std::string s = t2.getString();
 					size_t posPunto = s.find_first_of(".");
-					s = s.substr(0, posPunto);
+					s = s.substr(0, posPunto+2);
 					t2.setString(s);
 					/***********/
 					t2.setFillColor(sf::Color::Black);
@@ -142,44 +146,42 @@ private:
 					graficas[i].append(v);
 				}
 			}
+			int offsetTexto = 25;
+			int k = 0;
+			nombres.clear();
+			for (std::string n : _namesY){
+				sf::Text t(n, _font, 15);
+				t.setFillColor(_colorsY[k]);
+				t.setPosition(_pos.x + _size.x - margin + offsetTexto, _pos.y + margin + k*offsetTexto);
+				++k;
+				nombres.push_back(t);
+			}
+			ejes.append(topY);
+			ejes.append(bottomY);
+			ejes.append(leftX);
+			ejes.append(rightX);
+			sf::Text textEjeX(_nombreX, _font, 15);
+			textEjeX.setFillColor(sf::Color::Black);
+			textEjeX.setPosition(_pos.x + (_size.x / 2), _pos.y + (_size.y - 25));
+			sf::Text textEjeY(_nombreY, _font, 15);
+			textEjeY.setFillColor(sf::Color::Black);
+			textEjeY.setPosition(_pos.x + 3, _pos.y + (_size.y / 2));
+			textEjeY.rotate(-90);
+			target.draw(ejes, states);
+			target.draw(textEjeX, states);
+			target.draw(textEjeY, states);
+			for (sf::Text t : datosEjeX)
+				target.draw(t, states);
+			for (sf::Text t : datosEjeY)
+				target.draw(t, states);
+			for (sf::VertexArray v : graficas)
+				target.draw(v, states);
+			for (sf::Text t : nombres)
+				target.draw(t, states);
 		}
 		catch (std::out_of_range e){
 
 		}
-		
-
-		int offsetTexto = 25;
-		int k = 0;
-		nombres.clear();
-		for (std::string n : _namesY){
-			sf::Text t(n, _font, 10);
-			t.setFillColor(_colorsY[k]);
-			t.setPosition(_pos.x + _size.x - margin, _pos.y + margin + k*offsetTexto);
-			++k;
-			nombres.push_back(t);
-		}
-		ejes.append(topY);
-		ejes.append(bottomY);
-		ejes.append(leftX);
-		ejes.append(rightX);
-		sf::Text textEjeX(_nombreX, _font, 15);
-		textEjeX.setFillColor(sf::Color::Black);
-		textEjeX.setPosition(_pos.x + (_size.x / 2), _pos.y + (_size.y - 25));
-		sf::Text textEjeY(_nombreY, _font, 15);
-		textEjeY.setFillColor(sf::Color::Black);
-		textEjeY.setPosition(_pos.x + 3, _pos.y + (_size.y / 2));
-		textEjeY.rotate(-90);
-		target.draw(ejes, states);
-		target.draw(textEjeX, states);
-		target.draw(textEjeY, states);
-		for (sf::Text t : datosEjeX)
-			target.draw(t, states);
-		for (sf::Text t : datosEjeY)
-			target.draw(t, states);
-		for (sf::VertexArray v : graficas)
-			target.draw(v, states);
-		for (sf::Text t : nombres)
-			target.draw(t, states);
 	}
 
 	sf::Vector2f _pos;

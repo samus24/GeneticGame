@@ -5,35 +5,28 @@
 #include "Plotter.hpp"
 #include "Button.hpp"
 #include "ScrollBar.hpp"
+#include "Controlador.hpp"
 
-class Ventana {
+class Ventana : public IAGObserver{
 public:
-	Ventana() :
+	Ventana(Controlador& c) :
 		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
-		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 0), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN")
+		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color::Green)
 	{
 		_font.loadFromFile("arial.ttf");
+		_ctrl = &c;
+		_generacion = 0;
+		_ctrl->addObserver(*(this));
 	}
 
 	void run(){
-		std::vector<double> ejeX;
-		std::vector<double> ejeY;
-		std::vector<double> ejeY2;
-		std::vector<double> ejeY3;
 		srand(time(NULL));
-		for (size_t i = 0; i < 100; ++i){
-			ejeX.push_back(i);
-			double y = rand() % 100;
-			ejeY.push_back(y);
-			ejeY2.push_back(i);
-			ejeY3.push_back(y*2);
+		for (size_t i = 0; i < 10; ++i){
+			_ejeX.push_back(i);
 		}
 
-		_plotter.setEjeX(ejeX);
-		_plotter.pushEjeY(ejeY, sf::Color::Blue, "Random");
-		//_plotter.pushEjeY(ejeY2, sf::Color::Red, "i");
-		_plotter.pushEjeY(ejeY3, sf::Color::Magenta, "log");
+		_plotter.setEjeX(_ejeX);
 
 		while (_window.isOpen())
 		{
@@ -44,7 +37,15 @@ public:
 				if (event.type == sf::Event::Closed)
 					_window.close();
 				else if (event.type == sf::Event::MouseButtonPressed){
-
+					sf::Vector2f point = sf::Vector2f(sf::Mouse::getPosition(_window));
+					if (_botonRun.contains(point)){
+						_plotter.removeAllData();
+						_ejeX.clear();
+						_valorMedia.clear();
+						_valorMejor.clear();
+						_valorMejorGen.clear();
+						_ctrl->run();
+					}
 				}
 				else if (event.type == sf::Event::MouseButtonReleased){
 
@@ -56,11 +57,36 @@ public:
 			_window.display();
 		}
 	}
+
+	void onGeneracionTerminada(double mejor, double mejorGen, double media){
+		_ejeX.push_back(_generacion);
+		_valorMejor.push_back(mejor);
+		_valorMejorGen.push_back(mejorGen);
+		_valorMedia.push_back(media);
+		_generacion++;
+	}
+
+	void onAGTerminado(){
+		_plotter.setEjeX(_ejeX);
+		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");
+		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
+		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media");
+		
+		
+	}
 private:
+	
+
 	sf::RenderWindow _window;
 	sf::Font _font;
 	Plotter _plotter;
 	TextButton _botonRun;
+	Controlador* _ctrl;
+	unsigned int _generacion;
+	std::vector<double> _ejeX;
+	std::vector<double> _valorMejor;
+	std::vector<double> _valorMejorGen;
+	std::vector<double> _valorMedia;
 };
 
 #endif
