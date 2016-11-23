@@ -3,6 +3,7 @@
 
 #include <SFML\Graphics.hpp>
 #include "Plotter.hpp"
+#include "Logger.hpp"
 #include "Button.hpp"
 #include "ScrollBar.hpp"
 #include "Controlador.hpp"
@@ -12,6 +13,7 @@ public:
 	Ventana(Controlador& c) :
 		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
+		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.15, 400)),
 		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200))
 	{
 		_font.loadFromFile("arial.ttf");
@@ -56,6 +58,7 @@ public:
 			}
 			_window.clear(sf::Color::White);
 			_window.draw(_plotter);
+			_window.draw(_logger);
 			_window.draw(_botonRun);
 			_window.display();
 		}
@@ -75,7 +78,8 @@ public:
 		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
 		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media");
 		
-		
+		_logger.clearLog();
+		_logger.append("Valor mejor: " + std::to_string(_valorMejor.back()) + "\n");
 	}
 private:
 	
@@ -83,6 +87,7 @@ private:
 	sf::RenderWindow _window;
 	sf::Font _font;
 	Plotter _plotter;
+	Logger _logger;
 	TextButton _botonRun;
 	Controlador* _ctrl;
 	unsigned int _generacion;
