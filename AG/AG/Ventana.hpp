@@ -12,7 +12,7 @@ public:
 	Ventana(Controlador& c) :
 		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
-		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color::Green)
+		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200))
 	{
 		_font.loadFromFile("arial.ttf");
 		_ctrl = &c;
@@ -26,6 +26,8 @@ public:
 			_ejeX.push_back(i);
 		}
 
+		_plotter.setNombreEjeX("Generación");
+		_plotter.setNombreEjeY("Adaptación");
 		_plotter.setEjeX(_ejeX);
 
 		while (_window.isOpen())
@@ -44,6 +46,7 @@ public:
 						_valorMedia.clear();
 						_valorMejor.clear();
 						_valorMejorGen.clear();
+						_generacion = 0;
 						_ctrl->run();
 					}
 				}

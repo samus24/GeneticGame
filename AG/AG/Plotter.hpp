@@ -95,6 +95,7 @@ private:
 					}
 				}
 			}
+			if (mayorY < 1) mayorY = 1;		// Ajuste sólo necesario para que el eje Y quede al menos entre 0 y 1
 			factorXY = mayorX / mayorY;
 			tamUnidadY = (_size.y - 2 * margin) / mayorY;
 			if(factorXY > 1 && tamUnidadY < 1) tamUnidadY *= factorXY;

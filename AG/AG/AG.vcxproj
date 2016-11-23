@@ -91,6 +91,7 @@
     <ClInclude Include="Cronometro.hpp" />
     <ClInclude Include="Gen.hpp" />
     <ClInclude Include="Grafo.hpp" />
+    <ClInclude Include="Logger.hpp" />
     <ClInclude Include="MetodoCruce.hpp" />
     <ClInclude Include="MetodoMutacion.hpp" />
     <ClInclude Include="MetodoSeleccion.hpp" />
