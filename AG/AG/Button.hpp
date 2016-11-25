@@ -34,7 +34,7 @@ private:
 
 class TextButton : public Button{
 public:
-	TextButton(sf::Vector2f pos, sf::Vector2f size, std::string text, sf::Color fillColor = sf::Color::Black) :
+	TextButton(sf::Vector2f pos, sf::Vector2f size, std::string text, sf::Color fillColor = sf::Color::Black, unsigned int charSize = 20) :
 		Button(pos, size),
 		m_rect(size)
 	{
@@ -45,19 +45,29 @@ public:
 		m_rect.setFillColor(fillColor);
 		m_rect.setOutlineThickness(2);
 		m_rect.setOutlineColor(invertColor(fillColor));
-		m_text.setFont(m_font);
-		m_text.setFillColor(invertColor(fillColor));
-		m_text.setCharacterSize(20);
-		m_text.setString(text);
-		// La doble llamada es necesaria por temas de sfml y la posicion del texto
-		m_text.setPosition(0, 0);
-		m_text.setPosition(sf::Vector2f((pos.x + (size.x - m_text.getLocalBounds().width) / 2), (pos.y + (size.y - m_text.getLocalBounds().height) / 2)));
-		
+		m_fillColor = fillColor;
+		m_text = text;
+		_charSize = charSize;
+	}
 
+	std::string getString(){
+		return this->getString();
+	}
+
+	void setString(std::string s){
+		m_text = s;
+	}
+
+	sf::Color getColor(){
+		return m_fillColor;
+	}	
+
+	void setColor(sf::Color c){
+		m_fillColor = c;
 	}
 private:
 
-	sf::Color invertColor(sf::Color c){
+	sf::Color invertColor(sf::Color c) const{
 		sf::Color ret;
 		ret.r = 255 - c.r;
 		ret.g = 255 - c.g;
@@ -68,11 +78,21 @@ private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
 		states.transform *= getTransform();
+		sf::Text text;
+		text.setFont(m_font);
+		text.setFillColor(invertColor(m_fillColor));
+		text.setCharacterSize(_charSize);
+		text.setString(m_text);
+		// La doble llamada es necesaria por temas de sfml y la posicion del texto
+		text.setPosition(0, 0);
+		text.setPosition(sf::Vector2f((this->getPos().x + (this->getSize().x - text.getLocalBounds().width) / 2), (this->getPos().y + (this->getSize().y - text.getLocalBounds().height) / 2)));
 		target.draw(m_rect);
-		target.draw(m_text, states);
+		target.draw(text, states);
 	}
 	sf::Font m_font;
-	sf::Text m_text;
+	std::string m_text;
+	unsigned int _charSize;
+	sf::Color m_fillColor;
 	sf::RectangleShape m_rect;
 };
 

@@ -119,6 +119,9 @@
     <ClInclude Include="Logger.hpp">
       <Filter>Archivos de encabezado\vista</Filter>
     </ClInclude>
+    <ClInclude Include="TabPane.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt">

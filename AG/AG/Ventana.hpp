@@ -7,11 +7,13 @@
 #include "Button.hpp"
 #include "ScrollBar.hpp"
 #include "Controlador.hpp"
+#include "TabPane.hpp"
 
 class Ventana : public IAGObserver{
 public:
 	Ventana(Controlador& c) :
 		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),
+		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.15, 400)),
 		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200))
@@ -20,6 +22,7 @@ public:
 		_ctrl = &c;
 		_generacion = 0;
 		_ctrl->addObserver(*(this));
+		_tabPane.addTab("Plotter", _plotter);
 	}
 
 	void run(){
@@ -51,13 +54,16 @@ public:
 						_generacion = 0;
 						_ctrl->run();
 					}
+					else if (_tabPane.contains(point)){
+						_tabPane.handleClick(point);
+					}
 				}
 				else if (event.type == sf::Event::MouseButtonReleased){
 
 				}
 			}
 			_window.clear(sf::Color::White);
-			_window.draw(_plotter);
+			_window.draw(_tabPane);
 			_window.draw(_logger);
 			_window.draw(_botonRun);
 			_window.display();
@@ -86,6 +92,7 @@ private:
 
 	sf::RenderWindow _window;
 	sf::Font _font;
+	TabPane _tabPane;
 	Plotter _plotter;
 	Logger _logger;
 	TextButton _botonRun;
