@@ -12,8 +12,8 @@
 class Ventana : public IAGObserver{
 public:
 	Ventana(Controlador& c) :
-		//_window(sf::VideoMode::getFullscreenModes()[3], "AG"),		// Comentar esta linea y
-		_window(sf::VideoMode(1300,600), "AG"),					// descomentar esta si no se representa bien en pantalla
+		_window(sf::VideoMode::getFullscreenModes()[3], "AG"),		// Comentar esta linea y
+		//_window(sf::VideoMode(1300,600), "AG"),					// descomentar esta si no se representa bien en pantalla
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.15, 400)),
@@ -58,6 +58,9 @@ public:
 					else if (_tabPane.contains(point)){
 						_tabPane.handleClick(point);
 					}
+					else if (_logger.contains(point)){
+						_logger.handleClick(point);
+					}
 				}
 				else if (event.type == sf::Event::MouseButtonReleased){
 
@@ -85,7 +88,7 @@ public:
 		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
 		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media");
 		
-		_logger.clearLog();
+		//_logger.clearLog();
 		_logger.append("Valor mejor: " + std::to_string(mejor.getAdaptacion()) + "\n");
 		_logger.append("T. ejec.: " + std::to_string(total) + "ms\n");
 		_logger.append("T. m. sel.: " + std::to_string(tmSel) + "ms\n");

@@ -2,35 +2,24 @@
 
 
 namespace sf{
-	ScrollBar::ScrollBar(sf::Vector2f position, sf::Vector2f size, std::vector<std::string> elements, sf::Orientation orientation) :
-		position(position),
-		size(size),
-		elements(elements),
-		cursor(sf::Vector2f(CURSOR_WIDTH, size.y + 4)),
-		box(size)
+	ScrollBar::ScrollBar(sf::Vector2f position, sf::Vector2f size, sf::Color bgColor, sf::Color cursorColor, sf::Color textColor) :
+		sf::Rect<float>(position, size),
+		_size(size),
+		_cursor(sf::Vector2f(std::min(size.x,size.y), std::min(size.x,size.y))),
+		_box(size)
 	{
-		textBox.setFillColor(sf::Color::Black);
-		box.setFillColor(sf::Color(63, 63, 63, 255));
-		box.setOutlineColor(sf::Color::Black);
-		box.setOutlineThickness(4);
-		cursor.setPosition(position);
-		cursor.setFillColor(sf::Color(127, 127, 127, 255));
-		selectedIndex = 0;
-		steps = elements.size();
-		this->orientation = orientation;
-		if (orientation == sf::Orientation::HORIZONTAL){
-			textBox.setSize(sf::Vector2f(size.x*1.1, 20));
-			box.setPosition(sf::Vector2f(position.x, position.y + 2));
-			stepSize = size.x / float(steps);
-			cursor.setSize(sf::Vector2f(stepSize, size.y + 4));
-		}
-		else{
-			textBox.setSize(sf::Vector2f(20, size.y*1.1));
-			box.setPosition(sf::Vector2f(position.x + 2, position.y));
-			stepSize = size.y / float(steps);
-			cursor.setSize(sf::Vector2f(size.x + 4, stepSize));
-		}
-		f.loadFromFile("arial.ttf");
+		this->setPosition(position);
+		_bgColor = bgColor;
+		_cursorColor = cursorColor;
+		_textColor = textColor;
+		_box.setPosition(position);
+		_box.setFillColor(_bgColor);
+		_box.setOutlineColor(sf::Color::Black);
+		_box.setOutlineThickness(2);
+		_cursor.setPosition(position);
+		_cursor.setFillColor(_cursorColor);
+		_selectedIndex = 0;
+		_f.loadFromFile("arial.ttf");
 	}
 
 
@@ -38,62 +27,71 @@ namespace sf{
 	{
 	}
 
+	void ScrollBar::setElements(std::vector<std::string> e){
+		_elements = e;
+	}
+
+	std::vector<std::string> ScrollBar::getElements() const{
+		return _elements;
+	}
+	void ScrollBar::addElement(std::string s){
+		_elements.push_back(s);
+	}
+	void ScrollBar::clearElements(){
+		_elements.clear();
+	}
+
 
 	std::string ScrollBar::getSelectedElement()
 	{
-		return elements[selectedIndex];
+		return _elements[_selectedIndex];
 	}
 
 
 	int ScrollBar::getSelectedIndex()
 	{
-		return selectedIndex;
+		return _selectedIndex;
 	}
 
 
-	int ScrollBar::getIndexFromPointer(sf::Vector2i pointer)
+	int ScrollBar::getIndexFromPointer(sf::Vector2f pointer)
 	{
-		if (pointer.x < position.x || pointer.x > position.x + size.x || pointer.y < position.y || pointer.y > position.y + size.y){
+		if (!this->contains(pointer)){
 			return -1;
 		}
 		else{
 			float percentage;
-			if (orientation == sf::Orientation::HORIZONTAL){
-				percentage = (pointer.x - position.x) / size.x;
+			if (std::max(_size.x, _size.y) == _size.x){
+				// Horizontal scrollBar
+				percentage = (pointer.x - this->getPosition().x) / _size.x;
 				
 			}
 			else{
-				percentage = (pointer.y - position.y) / size.y;
+				// Vertical scrollBar
+				percentage = (pointer.y - this->getPosition().y) / _size.y;
 			}
-			return  percentage * elements.size();
+			return  percentage * _elements.size();
 		}
 	}
 
 	void ScrollBar::setSelectedIndex(int index){
-		selectedIndex = index;
-	}
+		_selectedIndex = index;
+		sf::Vector2f pos;
+		if (_elements.size() > 0){
+			if (std::max(_size.x, _size.y) == _size.x){
+				// Horizontal scrollBar
+				pos = sf::Vector2f(this->getPosition().x + _size.x*((float)_selectedIndex / _elements.size()), this->getPosition().y);
 
-	void ScrollBar::draw(sf::RenderTarget* target){
-		sf::Text t(elements[selectedIndex], f);
-		target->draw(box);
-		if (orientation == sf::Orientation::HORIZONTAL){
-			sf::Vector2f pos(position.x + stepSize*selectedIndex, position.y);
-			cursor.setPosition(pos);
-			pos.y = pos.y + cursor.getSize().y;
-			textBox.setPosition(sf::Vector2f(position.x, pos.y));
-			t.setPosition(pos);
+			}
+			else{
+				// Vertical scrollBar
+				pos = sf::Vector2f(this->getPosition().x, std::min(this->getPosition().y + _size.y*((float)_selectedIndex / _elements.size()), this->getPosition().y + _size.y - _cursor.getSize().y));
+			}
+			_cursor.setPosition(pos);
 		}
-		else
-		{
-			sf::Vector2f pos(position.x, position.y + stepSize*selectedIndex);
-			cursor.setPosition(pos);
-			pos.x = pos.x + cursor.getSize().x;
-			textBox.setPosition(sf::Vector2f(pos.x, position.y));
-			t.setPosition(pos);
+		else{
+			_cursor.setPosition(this->getPosition());
 		}
-		t.setCharacterSize(15);
-		target->draw(textBox);
-		target->draw(cursor);
-		target->draw(t);
+		
 	}
 }
