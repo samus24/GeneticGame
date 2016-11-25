@@ -12,7 +12,8 @@
 class Ventana : public IAGObserver{
 public:
 	Ventana(Controlador& c) :
-		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),
+		//_window(sf::VideoMode::getFullscreenModes()[6], "AG"),
+		_window(sf::VideoMode(1000,600), "AG"),
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.15, 400)),

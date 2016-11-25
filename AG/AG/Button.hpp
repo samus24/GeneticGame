@@ -64,6 +64,8 @@ public:
 
 	void setColor(sf::Color c){
 		m_fillColor = c;
+		m_rect.setFillColor(c);
+		m_rect.setOutlineColor(invertColor(c));
 	}
 private:
 

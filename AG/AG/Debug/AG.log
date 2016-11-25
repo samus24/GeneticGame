@@ -1,4 +1,4 @@
-﻿Build started 25/11/2016 11:03:15.
+﻿Build started 25/11/2016 11:23:47.
      1>Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
@@ -22,12 +22,12 @@
      1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\tabpane.hpp(13): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
      1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\tabpane.hpp(20): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
      1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\tabpane.hpp(21): warning C4244: '+=' : conversion from 'const float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(16): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(16): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
      1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(17): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
      1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(17): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(18): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
      1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(18): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
      1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(19): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(20): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
      1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(30): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
      1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\grafo.hpp(19): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
                  c:\users\usuario_local\documents\github\geneticgame\ag\ag\grafo.hpp(17) : while compiling class template member function 'Grafo<Gen>::Grafo(void)'
@@ -48,4 +48,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.22
+Time Elapsed 00:00:01.43
