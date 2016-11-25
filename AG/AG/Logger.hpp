@@ -35,25 +35,24 @@ public:
 	void append(std::string s){
 		size_t actualPos = 0;
 		auto it = s.begin();
-		while (_actualLines < _linesToShow && it != s.cend()){
-				if (*it == '\n'){
-					_actualCharsInLine = 0;
-					_actualLines++;
-				}
-				else{
-					_actualCharsInLine++;
-				}
-				if (_actualCharsInLine >= _charsPerLine){
-					s.insert(actualPos, 1, '\n');
-					_actualCharsInLine = 0;
-					_actualLines++;
-				}
-				actualPos++;
-				it++;
+		while ((_actualLines < _linesToShow) && it != s.cend()){
+			if (*it == '\n'){
+				_actualCharsInLine = 0;
+				_actualLines++;
+			}
+			else{
+				_actualCharsInLine++;
+			}
+			if (_actualCharsInLine >= _charsPerLine){
+				it = s.insert(it, '\n');
+				_actualCharsInLine = 0;
+				_actualLines++;
+			}
+			actualPos++;
+			it++;
 		}
 		if (_actualLines < _linesToShow)
 			_log.append(s);
-		
 	}
 
 private:

@@ -79,7 +79,7 @@ public:
 		}	// Fin while generaciones
 		//_elMejor.evalua();
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
-		notifyAGTerminado();
+		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"));
 		return _elMejor;
 	}
 
@@ -171,9 +171,9 @@ private:
 		}
 	}
 
-	void notifyAGTerminado(){
+	void notifyAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut){
 		for (IAGObserver* o : _obs){
-			o->onAGTerminado();
+			o->onAGTerminado(mejor, total, tmSel, tmCruce, tmMut);
 		}
 	}
 

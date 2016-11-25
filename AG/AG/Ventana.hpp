@@ -12,8 +12,8 @@
 class Ventana : public IAGObserver{
 public:
 	Ventana(Controlador& c) :
-		//_window(sf::VideoMode::getFullscreenModes()[6], "AG"),
-		_window(sf::VideoMode(1000,600), "AG"),
+		//_window(sf::VideoMode::getFullscreenModes()[3], "AG"),		// Comentar esta linea y
+		_window(sf::VideoMode(1300,600), "AG"),					// descomentar esta si no se representa bien en pantalla
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.15, 400)),
@@ -79,18 +79,20 @@ public:
 		_generacion++;
 	}
 
-	void onAGTerminado(){
+	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut){
 		_plotter.setEjeX(_ejeX);
 		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");
 		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
 		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media");
 		
 		_logger.clearLog();
-		_logger.append("Valor mejor: " + std::to_string(_valorMejor.back()) + "\n");
+		_logger.append("Valor mejor: " + std::to_string(mejor.getAdaptacion()) + "\n");
+		_logger.append("T. ejec.: " + std::to_string(total) + "ms\n");
+		_logger.append("T. m. sel.: " + std::to_string(tmSel) + "ms\n");
+		_logger.append("T. m. cruce: " + std::to_string(tmCruce) + "ms\n");
+		_logger.append("T. m. mut.: " + std::to_string(tmMut) + "ms\n");
 	}
 private:
-	
-
 	sf::RenderWindow _window;
 	sf::Font _font;
 	TabPane _tabPane;
