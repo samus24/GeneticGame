@@ -4,11 +4,11 @@
 namespace sf{
 	ScrollBar::ScrollBar(sf::Vector2f position, sf::Vector2f size, sf::Color bgColor, sf::Color cursorColor, sf::Color textColor) :
 		sf::Rect<float>(position, size),
+		_pos(position),
 		_size(size),
 		_cursor(sf::Vector2f(std::min(size.x,size.y), std::min(size.x,size.y))),
 		_box(size)
 	{
-		this->setPosition(position);
 		_bgColor = bgColor;
 		_cursorColor = cursorColor;
 		_textColor = textColor;
@@ -63,12 +63,12 @@ namespace sf{
 			float percentage;
 			if (std::max(_size.x, _size.y) == _size.x){
 				// Horizontal scrollBar
-				percentage = (pointer.x - this->getPosition().x) / _size.x;
+				percentage = (pointer.x - _pos.x) / _size.x;
 				
 			}
 			else{
 				// Vertical scrollBar
-				percentage = (pointer.y - this->getPosition().y) / _size.y;
+				percentage = (pointer.y - _pos.y) / _size.y;
 			}
 			return  percentage * _elements.size();
 		}
@@ -80,17 +80,17 @@ namespace sf{
 		if (_elements.size() > 0){
 			if (std::max(_size.x, _size.y) == _size.x){
 				// Horizontal scrollBar
-				pos = sf::Vector2f(this->getPosition().x + _size.x*((float)_selectedIndex / _elements.size()), this->getPosition().y);
+				pos = sf::Vector2f(std::min(_pos.x + _size.x*((float)_selectedIndex / _elements.size()), _pos.x + _size.x - _cursor.getSize().x), _pos.y);
 
 			}
 			else{
 				// Vertical scrollBar
-				pos = sf::Vector2f(this->getPosition().x, std::min(this->getPosition().y + _size.y*((float)_selectedIndex / _elements.size()), this->getPosition().y + _size.y - _cursor.getSize().y));
+				pos = sf::Vector2f(_pos.x, std::min(_pos.y + _size.y*((float)_selectedIndex / _elements.size()), _pos.y + _size.y - _cursor.getSize().y));
 			}
 			_cursor.setPosition(pos);
 		}
 		else{
-			_cursor.setPosition(this->getPosition());
+			_cursor.setPosition(_pos);
 		}
 		
 	}
