@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Grafo.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ScrollBar.cpp" />
   </ItemGroup>

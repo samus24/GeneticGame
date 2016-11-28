@@ -47,7 +47,7 @@ public:
 		// IMPORTANTE, contamos con que la funcion evalua establece automaticamente el valor de _adaptacion
 		double mejorCC = -1;
 		double componente;
-		std::vector<std::set<unsigned int>> CC = _grafo.getComponentesConexas();
+		std::vector<Grafo<Gen>> CC = _grafo.getComponentesConexas();
 		for (std::size_t i = 0; i < CC.size(); ++i) {
 			componente = evaluaCC(CC[i]);
 			if (componente > mejorCC)
@@ -58,7 +58,7 @@ public:
 		//return mejorCC;
 	}
 
-	double evaluaCC(std::set<unsigned int> CC) {
+	double evaluaCC(Grafo<Gen> CC) {
 		//[NumNodos, Media - Grado - CC, media - tama�o - sala, penalizar - ciclos]
 		//[25, 2.5, 30x20(favorece la resoluci�n), min(ciclos)]
 		double pesos[] = { 0.3, 0.4, 0.05, 0.05, 0.2 }; // {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos} //me los he inventado los pesos
