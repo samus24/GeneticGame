@@ -18,10 +18,9 @@ public:
 	double probCruce;
 	double probMutacion;
 	int seed;
-	/*
-	MetodoCruce cruce;
-	MetodoMutacion mutacion;
-	MetodoSeleccion seleccion;*/
+	MetodoCruce* cruce;
+	//MetodoMutacion mutacion;
+	MetodoSeleccion* seleccion;
 
 	Parametros(){
 
@@ -31,7 +30,7 @@ public:
 				unsigned int minNodos, unsigned int maxNodos, double densidad,
 				bool elitismo, bool bloating, bool contractividad,
 				double probCruce, double probMutacion, int seed,
-				MetodoCruce cruce, MetodoMutacion mutacion, MetodoSeleccion seleccion){
+				MetodoCruce* cruce, MetodoMutacion mutacion, MetodoSeleccion* seleccion){
 		this->tamPob = tam;
 		this->iteraciones = iter;
 		this->minNodos = minNodos;
@@ -45,8 +44,8 @@ public:
 		this->seed = seed;
 		/*
 		this->cruce = cruce;
-		this->mutacion = mutacion;
-		this->seleccion = seleccion;*/
+		this->mutacion = mutacion;*/
+		this->seleccion = seleccion;
 	}
 };
 

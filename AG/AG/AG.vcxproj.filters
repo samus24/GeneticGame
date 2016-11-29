@@ -83,9 +83,6 @@
     <ClInclude Include="Parametros.hpp">
       <Filter>Archivos de encabezado\modelo\ag</Filter>
     </ClInclude>
-    <ClInclude Include="MetodoSeleccion.hpp">
-      <Filter>Archivos de encabezado\modelo\seleccion</Filter>
-    </ClInclude>
     <ClInclude Include="MetodoMutacion.hpp">
       <Filter>Archivos de encabezado\modelo\mutacion</Filter>
     </ClInclude>
@@ -122,11 +119,9 @@
     <ClInclude Include="TabPane.hpp">
       <Filter>Archivos de encabezado\vista</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="TODO.txt">
-      <Filter>Archivos de encabezado\utiles</Filter>
-    </Text>
+    <ClInclude Include="MetodoSeleccion.hpp">
+      <Filter>Archivos de encabezado\modelo\seleccion</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

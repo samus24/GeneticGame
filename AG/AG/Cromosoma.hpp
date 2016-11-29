@@ -19,6 +19,10 @@ public:
 		
 	}
 
+	Grafo<Gen> getGenotipo(){
+		return _grafo;
+	}
+
 	double getPunt(){
 		return _punt;
 	}
@@ -29,6 +33,11 @@ public:
 
 	double getAdaptacion(){
 		return _adaptacion;
+	}
+
+	void setGenotipo(Grafo<Gen> g){
+		_grafo = g;
+		evalua();
 	}
 
 	void setPunt(double punt){
@@ -58,8 +67,10 @@ public:
 	}
 	
 	void bloating(unsigned int maxNodos){
-		if (_grafo.size() > maxNodos)
+		if (_grafo.size() > maxNodos){
 			_grafo = _grafo.divideGrafo(maxNodos).at(0);
+			evalua();
+		}
 	}
 
 	Cromosoma& operator=(Cromosoma other){

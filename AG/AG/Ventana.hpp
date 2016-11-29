@@ -84,9 +84,10 @@ public:
 
 	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval){
 		_plotter.setEjeX(_ejeX);
-		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");
-		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
 		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media");
+		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
+		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");
+		
 		
 		//_logger.clearLog();
 		_logger.append("Valor mejor: " + std::to_string(mejor.getAdaptacion()) + "\n");

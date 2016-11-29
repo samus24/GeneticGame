@@ -5,11 +5,12 @@
 #include "Cromosoma.hpp"
 #include "Plotter.hpp"
 #include "Ventana.hpp"
+#include "MetodoSeleccion.hpp"
 
 int main(){
 	Parametros p;
-	p.tamPob = 50;
-	p.iteraciones = 20;
+	p.tamPob = 30;
+	p.iteraciones = 100;
 	p.minNodos = 10;
 	p.maxNodos = 50;
 	p.densidad = 0.03;
@@ -18,6 +19,8 @@ int main(){
 	p.contractividad = false;
 	p.probCruce = 0.6;
 	p.probMutacion = 0.02;
+	p.seleccion = new SeleccionRuleta();
+	p.cruce = new CruceMonopunto();
 
 	AG ag(p);
 	Controlador c(ag);

@@ -1,7 +1,0 @@
-Pendiente de realizar:
-- Calcular las componentes conexas	--> Ivan
-- Funcion de evaluacion				--> Samu
-- Estructura general del AG			--> Alvaro
-- Metodos de cruce
-- Metodos de mutacion
-- Metodos de seleccion

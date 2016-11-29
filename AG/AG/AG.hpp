@@ -173,10 +173,27 @@ private:
 	}
 
 	void seleccion(){
-		
+		_param.seleccion->seleccionar(&_pob);
 	}
 
 	void cruce(){
+		int* seleccionados = new int[_pob._tam];
+		int numSeleCruce = 0;
+		double prob;
+		for (int i = 0; i < _pob._tam; ++i){
+			prob = getRandom(0, 1);
+			if (prob < _param.probCruce){
+				seleccionados[numSeleCruce] = i;
+				numSeleCruce++;
+			}
+		}
+
+		if (numSeleCruce % 2 == 1){
+			numSeleCruce--;
+		}
+		for (int i = 0; i < numSeleCruce; i += 2){
+			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]]);
+		}
 		
 	}
 
@@ -194,6 +211,13 @@ private:
 		for (IAGObserver* o : _obs){
 			o->onAGTerminado(mejor, total, tmSel, tmCruce, tmMut, tInit, tmEval);
 		}
+	}
+
+	double getRandom(double from, double to){
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		std::uniform_real_distribution<> dis(from, to);
+		return dis(gen);
 	}
 
 	unsigned int _generacion;

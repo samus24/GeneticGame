@@ -191,40 +191,64 @@ public:
 	\param b subgrafo b
 	\return Grafo unido
 	*/
-	Grafo<N> unirGrafo(Grafo<N> a, Grafo<N> b){
+	static Grafo<N> unirGrafo(Grafo<N> a, Grafo<N> b){
 		Grafo<N> ret;
-		std::vector<N> nodosA = a.getNodos();
-		std::vector<N> nodosB = b.getNodos();
+		std::unordered_map< unsigned int, N > nodosA = a.getNodos();
+		std::unordered_map< unsigned int, N > nodosB = b.getNodos();
 		unsigned int sizeA = nodosA.size();
-		for (std::size_t i = 0; i < sizeA; ++i){
-			ret.anadeNodo(nodosA[i]);
+		auto itA = nodosA.begin();
+		while (itA != nodosA.cend()){
+			ret.anadeNodo(itA->second);
+			itA++;
 		}
-		for (std::size_t i = 0; i < nodosB.size(); ++i){
-			ret.anadeNodo(nodosB[i]);
+		auto itB = nodosB.begin();
+		while (itB != nodosB.cend()){
+			ret.anadeNodo(itB->second);
+			itB++;
 		}
 
-		std::vector<std::set<unsigned int>> adyA = a.getAdyacencia();
-		std::vector<std::set<unsigned int>> adyB = b.getAdyacencia();
-		for (std::size_t i = 0; i < sizeA; ++i){
-			auto it = adyA[i].begin();
+		std::unordered_map< unsigned int, std::set<unsigned int> > adyA = a.getAdyacencia();
+		std::unordered_map< unsigned int, std::set<unsigned int> > adyB = b.getAdyacencia();
+
+		itA = nodosA.begin();
+		while (itA != nodosA.cend()){
+			auto it = adyA[itA->first].begin();
 			unsigned int elem;
-			for (std::size_t j = 0; j < adyA[i].size(); ++j){
+			while (it != adyA[itA->first].cend()){
 				elem = *(it);
-				ret.anadeArista(i, elem);
+				ret.anadeArista(itA->first, elem);
 				it++;
 			}
+			itA++;
 		}
-		for (std::size_t i = 0; i < adyB.size(); ++i){
-			auto it = adyB[i].begin();
+		itB = nodosB.begin();
+		while (itB != nodosB.cend()){
+			auto it = adyB[itB->first].begin();
 			unsigned int elem;
-			for (std::size_t j = 0; j < adyB[i].size(); ++j){
+			while (it != adyB[itB->first].cend()){
 				elem = *(it);
-				ret.anadeArista(i + sizeA, elem + sizeA);
+				ret.anadeArista(itB->first + sizeA, elem + sizeA);
 				// Cuando se añaden las aristas del subgrafo B, todos los nodos de B en el grafo de retorno estan desplazados sizeA posiciones a la derecha
 				// por tanto, es necesario referirse a estos nodos sumandoles el tamaño del subgrafo A
 				it++;
 			}
+			itB++;
 		}
+
+		unsigned int nuevas = Grafo<N>::getRandom(1, (sizeA * nodosB.size() * 0.75));	// Para evitar demasiada densidad, se limita al 75% de las posibles nuevas aristas
+		std::vector<Pair<unsigned int, unsigned int>> uniones;
+		for (std::size_t i = 0; i < sizeA; ++i){
+			for (std::size_t j = 0; j < nodosB.size(); ++j){
+				uniones.push_back(Pair<unsigned int, unsigned int>(i, j + sizeA));
+			}
+		}
+
+		std::random_shuffle(uniones.begin(), uniones.end());
+		for (std::size_t i = 0; i < nuevas; ++i){
+			ret.anadeArista(uniones[i].first, uniones[i].second);
+		}
+
+		return ret;
 	}
 
 	/**
@@ -233,7 +257,7 @@ public:
 	@throws Invalid Argument si el vector no tiene al menos 2 grafos
 	\return Grafo unido
 	*/
-	Grafo<N> unirGrafos(std::vector<Grafo<N>> subs){
+	static Grafo<N> unirGrafos(std::vector<Grafo<N>> subs){
 		if (subs.size() < 2)
 			throw std::invalid_argument("Subgrafos insuficientes");
 		Grafo<N> ret = unirGrafo(subs[0], subs[1]);
@@ -316,7 +340,7 @@ private:
 		}
 	}
 
-	int getRandom(int from, int to){
+	static int getRandom(int from, int to){
 		std::random_device rd;
 		std::mt19937 gen(rd());
 		std::uniform_int_distribution<> dis(from, to);

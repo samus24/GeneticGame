@@ -11,6 +11,7 @@
 class Poblacion {
 public:
 	std::vector<Cromosoma> individuos;
+	unsigned int _tam;
 
 	Poblacion(){
 
@@ -40,10 +41,7 @@ public:
 		for (size_t i = 0; i < individuos.size(); ++i){
 			individuos[i].bloating(maxNodos);
 		}
-	}
-
-private:
-	unsigned int _tam;
+	}	
 	
 };
 
