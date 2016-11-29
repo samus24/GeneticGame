@@ -60,9 +60,6 @@
     <ClCompile Include="ScrollBar.cpp">
       <Filter>Archivos de encabezado\vista</Filter>
     </ClCompile>
-    <ClCompile Include="Grafo.cpp">
-      <Filter>Archivos de encabezado\modelo\grafo</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cromosoma.hpp">
