@@ -148,19 +148,19 @@ private:
 	}
 
 	void seleccion(){
-		for (size_t i = 0; i < 800000; ++i){
+		for (size_t i = 0; i < 800; ++i){
 			__nop();
 		}
 	}
 
 	void cruce(){
-		for (size_t i = 0; i < 1600000; ++i){
+		for (size_t i = 0; i < 1600; ++i){
 			__nop();
 		}
 	}
 
 	void mutacion(){
-		for (size_t i = 0; i < 3200000; ++i){
+		for (size_t i = 0; i < 3200; ++i){
 			__nop();
 		}
 	}
