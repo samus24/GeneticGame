@@ -82,7 +82,7 @@ public:
 		_generacion++;
 	}
 
-	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut){
+	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval){
 		_plotter.setEjeX(_ejeX);
 		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");
 		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
@@ -94,6 +94,8 @@ public:
 		_logger.append("T. m. sel.: " + std::to_string(tmSel) + "ms\n");
 		_logger.append("T. m. cruce: " + std::to_string(tmCruce) + "ms\n");
 		_logger.append("T. m. mut.: " + std::to_string(tmMut) + "ms\n");
+		_logger.append("T. init: " + std::to_string(tInit) + "ms\n");
+		_logger.append("T. m. eval.: " + std::to_string(tmEval) + "ms\n");
 	}
 private:
 	sf::RenderWindow _window;

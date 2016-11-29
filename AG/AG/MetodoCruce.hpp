@@ -8,8 +8,6 @@ public:
 
 	virtual void cruzar(Cromosoma &a, Cromosoma &b);
 
-private:
-
 };
 
 #endif

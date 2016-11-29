@@ -9,8 +9,8 @@ public:
 
 	virtual void onGeneracionTerminada(double, double, double) = 0;	// mejor, mejorGen, media
 
-	virtual void onAGTerminado(Cromosoma, double, double, double, double) = 0; 
-	//cromosoma mejor,tiempo total ej,  tiempo medio seleccion, cruce, mutacion
+	virtual void onAGTerminado(Cromosoma, double, double, double, double, double, double) = 0; 
+	//cromosoma mejor,tiempo total ej,  tiempo medio seleccion, cruce, mutacion, inicializacion, evaluacion
 };
 
 #endif

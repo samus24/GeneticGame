@@ -27,6 +27,12 @@ public:
 
 	}
 
+	void limpiaMedida(std::string nombre){
+		if (_medidas.find(nombre) != _medidas.end()){
+			_medidas[nombre].clear();
+		}
+	}
+
 	void creaMedida(std::string nombre){
 		_medidas.emplace(nombre, std::vector<Lapso>());
 	}

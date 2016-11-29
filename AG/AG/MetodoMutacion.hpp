@@ -8,8 +8,6 @@ public:
 
 	virtual void mutar(Cromosoma &c);
 
-private:
-
 };
 
 #endif

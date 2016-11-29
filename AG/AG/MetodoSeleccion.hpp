@@ -8,8 +8,6 @@ public:
 
 	virtual void seleccionar(Poblacion &pob);
 
-private:
-
 };
 
 #endif

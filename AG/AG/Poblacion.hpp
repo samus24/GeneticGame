@@ -17,6 +17,7 @@ public:
 	}
 
 	void generaPoblacionAleatoria(unsigned int tam, unsigned int minNodos, unsigned int maxNodos, double densidad){
+		individuos.clear();
 		_tam = tam;
 		for (std::size_t i = 0; i < tam; ++i){
 			individuos.push_back(Cromosoma(minNodos, maxNodos, densidad));
@@ -31,7 +32,7 @@ public:
 
 	void ordenar(){
 		std::sort(individuos.begin(), individuos.end(), [](Cromosoma a, Cromosoma b){
-			return a.evalua() > b.evalua();
+			return a.getAdaptacion() > b.getAdaptacion();
 		});
 	}
 

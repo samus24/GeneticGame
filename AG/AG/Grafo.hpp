@@ -317,8 +317,10 @@ private:
 	}
 
 	int getRandom(int from, int to){
-		float random = (float)(rand() / (float)RAND_MAX);
-		return from + random * (to - from);
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		std::uniform_int_distribution<> dis(from, to);
+		return dis(gen);
 	}
 
 	int sumatorio(int n)

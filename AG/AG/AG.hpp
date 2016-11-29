@@ -15,15 +15,36 @@ public:
 		_crono.creaMedida("seleccion");
 		_crono.creaMedida("cruce");
 		_crono.creaMedida("mutacion");
+
+		_crono.creaMedida("init");
+		_crono.creaMedida("eval");
 	}
 
 	Cromosoma ejecuta(){
+		_crono.limpiaMedida("global");
+		_crono.limpiaMedida("seleccion");
+		_crono.limpiaMedida("cruce");
+		_crono.limpiaMedida("mutacion");
+
+		_crono.limpiaMedida("init");
+		_crono.limpiaMedida("eval");
+		_elMejor = Cromosoma();
+
 		double mediaActual, mediaAnterior;
 		_generacion = 0;
 		_genDescartadas = 0;
 		_crono.iniciaMedida("global", std::chrono::high_resolution_clock::now());
+
+		_crono.iniciaMedida("init", std::chrono::high_resolution_clock::now());
 		_pob.generaPoblacionAleatoria(_param.tamPob, _param.minNodos, _param.maxNodos, _param.densidad);
+		_crono.finalizaMedida("init", std::chrono::high_resolution_clock::now());
+
+		_pob.evalua();	// Lo ideal sería evaluar una vez al principio, y que de cada grafo se actualice su adaptacion solo si cambia
+
+		_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
 		mediaAnterior = evaluarPoblacion();
+		_crono.finalizaMedida("eval", std::chrono::high_resolution_clock::now());
+
 		while (_generacion < _param.iteraciones){
 			int nElite = (int)(_param.tamPob * 0.02);
 			std::vector<Cromosoma> elite;
@@ -58,7 +79,10 @@ public:
 				}
 			}
 
+			_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
 			mediaActual = evaluarPoblacion();
+			_crono.finalizaMedida("eval", std::chrono::high_resolution_clock::now());
+
 			if (_param.contractividad){
 				if (mediaAnterior < mediaActual){
 					_generacion++;
@@ -79,7 +103,7 @@ public:
 		}	// Fin while generaciones
 		//_elMejor.evalua();
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
-		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"));
+		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("eval"));
 		return _elMejor;
 	}
 
@@ -108,12 +132,13 @@ private:
 
 	double evaluarPoblacion(){
 		double maximo = -50000;
-		double minimo = +50000;
 		double aux = 0;
 		double sumaAptitud = 0;
 		double puntAcum = 0;
 		double media = 0;
-		_pob.evalua();	// Esto asegura que la adaptacion esta actualizada
+		//_pob.evalua();	
+		// Si los grafos mantienen actualizada su adaptacion al cambiar, esta llamada se puede evitar, lo cual es ideal, porque sin ella la evaluacion
+		// tarda muchisimo menos.
 
 		// Busqueda del mejor
 		for (std::size_t i = 0; i < _param.tamPob; ++i){
@@ -148,21 +173,15 @@ private:
 	}
 
 	void seleccion(){
-		for (size_t i = 0; i < 800; ++i){
-			__nop();
-		}
+		
 	}
 
 	void cruce(){
-		for (size_t i = 0; i < 1600; ++i){
-			__nop();
-		}
+		
 	}
 
 	void mutacion(){
-		for (size_t i = 0; i < 3200; ++i){
-			__nop();
-		}
+		
 	}
 
 	void notifyGeneracionTerminada(double mejor, double mejorGen, double media){
@@ -171,9 +190,9 @@ private:
 		}
 	}
 
-	void notifyAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut){
+	void notifyAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval){
 		for (IAGObserver* o : _obs){
-			o->onAGTerminado(mejor, total, tmSel, tmCruce, tmMut);
+			o->onAGTerminado(mejor, total, tmSel, tmCruce, tmMut, tInit, tmEval);
 		}
 	}
 
