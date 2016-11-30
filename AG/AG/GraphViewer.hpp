@@ -45,6 +45,17 @@ private:
 			target.draw(r, states);
 		}
 		target.draw(_drawableLinks, states);
+		sf::VertexArray grid;
+		grid.setPrimitiveType(sf::Lines);
+		for (size_t i = 0; i < _cols; ++i){
+			grid.append(sf::Vertex(sf::Vector2f(_gridSize*i, 25), sf::Color(200,200,200)));
+			grid.append(sf::Vertex(sf::Vector2f(_gridSize*i, _size.y), sf::Color(200, 200, 200)));
+		}
+		for (size_t i = 0; i < _rows; ++i){
+			grid.append(sf::Vertex(sf::Vector2f(this->getPosition().x, 25 + _gridSize*i), sf::Color(200, 200, 200)));
+			grid.append(sf::Vertex(sf::Vector2f(this->getPosition().x + _size.x, 25 + _gridSize*i), sf::Color(200, 200, 200)));
+		}
+		target.draw(grid, states);
 	}
 
 	void update(){
@@ -73,39 +84,49 @@ private:
 
 	void drawNode(Grafo<Gen> g, unsigned int idNodo, std::set<unsigned int> &drawn, sf::Vector2i parentCoord){
 		drawn.insert(idNodo);
+		bool farNeighbour = false;
 		sf::RectangleShape n;
 		sf::Vector2i myCoords = findNearestPositionTo(parentCoord);
-		if (myCoords != parentCoord){
+		if (!drawn.size() == 1 && myCoords == parentCoord){
 			_virtualGrid[myCoords.x][myCoords.y] = true;
-			sf::Vector2f mySize(g.getNodos()[idNodo].getAncho(), g.getNodos()[idNodo].getAlto());
-			sf::Vector2f myPos((myCoords.x * _gridSize) + (mySize.x / 2), (myCoords.y * _gridSize) + (mySize.y / 2));
-			n.setPosition(myPos);
-			n.setSize(mySize);
-			n.setOutlineColor(sf::Color::Blue);
-			n.setOutlineThickness(2);
-			n.setFillColor(sf::Color::Transparent);
-			_drawableNodes.push_back(n);
-			sf::Vector2f myMidPoint(myPos.x + (_gridSize / 2), myPos.y + (_gridSize /2));
-			sf::Vector2f myParentPos(parentCoord.x * _gridSize, parentCoord.y * _gridSize);
-			sf::Vector2f myParentMidPoint(myParentPos.x + (_gridSize / 2), myParentPos.y + (_gridSize / 2));
-			sf::Vertex v1(myMidPoint, sf::Color::Green);
-			sf::Vertex v2(myParentMidPoint, sf::Color::Green);
-			_drawableLinks.append(v1);
-			_drawableLinks.append(v2);
-
-			auto ady = g.getAdyacencia()[idNodo];
-			auto it = ady.begin();
-			while (it != ady.cend()){
-				if (drawn.find(*it) == drawn.cend()){
-					drawNode(g, *it, drawn, myCoords);
-				}
-				it++;
-			}
+			myCoords = findFreePos();
+			farNeighbour = true;
 		}
+		_virtualGrid[myCoords.x][myCoords.y] = true;
+		sf::Vector2f mySize(g.getNodos()[idNodo].getAncho(), g.getNodos()[idNodo].getAlto());
+		sf::Vector2f myPos((myCoords.x * _gridSize) + ((_gridSize - mySize.x) / 2), (myCoords.y * _gridSize) + ((_gridSize - mySize.y) / 2));
+		n.setPosition(myPos);
+		n.setSize(mySize);
+		n.setOutlineColor(sf::Color::Blue);
+		n.setOutlineThickness(2);
+		n.setFillColor(sf::Color::Transparent);
+		if (_drawableNodes.size() > 0 && myPos == _drawableNodes.back().getPosition()){
+			int a = 0;
+		}
+		_drawableNodes.push_back(n);
+		sf::Vector2f myMidPoint((myCoords.x * _gridSize) + (_gridSize / 2), (myCoords.y * _gridSize) + (_gridSize / 2));
+		sf::Vector2f myParentPos(parentCoord.x * _gridSize, parentCoord.y * _gridSize);
+		sf::Vector2f myParentMidPoint(myParentPos.x + (_gridSize / 2), myParentPos.y + (_gridSize / 2));
+		sf::Vertex v1(myMidPoint, (farNeighbour) ? sf::Color::Red : sf::Color::Green);
+		sf::Vertex v2(myParentMidPoint, (farNeighbour) ? sf::Color::Red : sf::Color::Green);
+		_drawableLinks.append(v1);
+		_drawableLinks.append(v2);
+		auto ady = g.getAdyacencia()[idNodo];
+		auto it = ady.begin();
+		while (it != ady.cend()){
+			if (drawn.find(*it) == drawn.cend()){
+				drawNode(g, *it, drawn, myCoords);
+			}
+			it++;
+		}
+		
 	}
 
 	sf::Vector2i findNearestPositionTo(sf::Vector2i coord){
 		if (coord.x < _cols && coord.y < _rows){
+			if (!_virtualGrid[coord.x][coord.y]){
+				return coord;
+			}
 			///////////////////////////////////////////
 			// First check for North - East - South - West position
 			if (coord.y > 0 && !_virtualGrid[coord.x][coord.y - 1]){

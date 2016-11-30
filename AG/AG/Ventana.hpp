@@ -18,7 +18,7 @@ public:
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_graphViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
-		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.15, 400)),
+		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.2, 400)),
 		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200))
 	{
 		_font.loadFromFile("arial.ttf");
