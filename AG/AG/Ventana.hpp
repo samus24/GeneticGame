@@ -93,9 +93,9 @@ public:
 		
 		_graphViewer.setModel(mejor);
 		
-		//_logger.clearLog();
+		_logger.clearLog();
 		_logger.append("Valor mejor: " + std::to_string(mejor.getAdaptacion()) + "\n");
-		_logger.append("T. ejec.: " + std::to_string(total) + "ms\n");
+		_logger.append("T. ejec.: " + std::to_string(total / 1000) + "s\n");
 		_logger.append("T. m. sel.: " + std::to_string(tmSel) + "ms\n");
 		_logger.append("T. m. cruce: " + std::to_string(tmCruce) + "ms\n");
 		_logger.append("T. m. mut.: " + std::to_string(tmMut) + "ms\n");

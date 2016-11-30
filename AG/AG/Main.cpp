@@ -12,8 +12,8 @@ int main(){
 	p.tamPob = 30;
 	p.iteraciones = 20;
 	p.minNodos = 10;
-	p.maxNodos = 50;
-	p.densidad = 0.03;
+	p.maxNodos = 40;
+	p.densidad = 0.02;
 	p.elitismo = false;
 	p.bloating = true;
 	p.contractividad = false;

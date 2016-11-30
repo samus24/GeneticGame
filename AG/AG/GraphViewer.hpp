@@ -2,6 +2,7 @@
 #define GRAPHVIEWER_HPP
 
 #include <SFML\Graphics.hpp>
+#include <queue>
 #include "Cromosoma.hpp"
 
 class GraphViewer : public sf::Rect<float>, public sf::Drawable, public sf::Transformable{
@@ -10,6 +11,7 @@ public:
 		sf::Rect<float>(pos, size)
 	{
 		_size = size;
+		_font.loadFromFile("arial.ttf");
 
 		_gridSize = 50;
 		_cols = (int)_size.x / _gridSize;
@@ -41,21 +43,25 @@ public:
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
+		sf::VertexArray grid;
+		grid.setPrimitiveType(sf::Lines);
+		for (size_t i = 0; i <= _cols; ++i){
+			grid.append(sf::Vertex(sf::Vector2f(_gridSize*i, 25), sf::Color(200, 200, 200)));
+			grid.append(sf::Vertex(sf::Vector2f(_gridSize*i, this->getPosition().y + _gridSize*_rows), sf::Color(200, 200, 200)));
+		}
+		for (size_t i = 0; i < _rows; ++i){
+			grid.append(sf::Vertex(sf::Vector2f(this->getPosition().x, 25 + _gridSize*i), sf::Color(200, 200, 200)));
+			grid.append(sf::Vertex(sf::Vector2f(this->getPosition().x + _gridSize*_cols, 25 + _gridSize*i), sf::Color(200, 200, 200)));
+		}
+		target.draw(grid, states);
+
 		for (sf::RectangleShape r : _drawableNodes){
 			target.draw(r, states);
 		}
 		target.draw(_drawableLinks, states);
-		sf::VertexArray grid;
-		grid.setPrimitiveType(sf::Lines);
-		for (size_t i = 0; i < _cols; ++i){
-			grid.append(sf::Vertex(sf::Vector2f(_gridSize*i, 25), sf::Color(200,200,200)));
-			grid.append(sf::Vertex(sf::Vector2f(_gridSize*i, _size.y), sf::Color(200, 200, 200)));
-		}
-		for (size_t i = 0; i < _rows; ++i){
-			grid.append(sf::Vertex(sf::Vector2f(this->getPosition().x, 25 + _gridSize*i), sf::Color(200, 200, 200)));
-			grid.append(sf::Vertex(sf::Vector2f(this->getPosition().x + _size.x, 25 + _gridSize*i), sf::Color(200, 200, 200)));
-		}
-		target.draw(grid, states);
+		for (sf::Text t : _drawableIDs){
+			target.draw(t, states);
+		}		
 	}
 
 	void update(){
@@ -70,95 +76,104 @@ private:
 		while (it != nodos.cend()){
 			if (drawn.find(it->first) == drawn.cend()){
 				// the node hasn't benn drawn yet
-				drawNode(g, it->first, drawn, findFreePos());
+				//drawNode(g, it->first, drawn, findFreePos());
+				drawNode(g, it->first, drawn, findNearestPositionTo(sf::Vector2i(_cols/2, _rows/2)));
 			}
 			it++;
 		}
 		for (size_t i = 0; i < _drawableNodes.size(); ++i){
 			_drawableNodes[i].move(0, 25);
+			_drawableNodes[i].setOutlineThickness(2);
+		}
+		for (size_t i = 0; i < _drawableIDs.size(); ++i){
+			_drawableIDs[i].move(0, 25);
 		}
 		for (size_t i = 0; i < _drawableLinks.getVertexCount(); ++i){
 			_drawableLinks[i].position.y += 25;
 		}
+
 	}
 
 	void drawNode(Grafo<Gen> g, unsigned int idNodo, std::set<unsigned int> &drawn, sf::Vector2i parentCoord){
 		drawn.insert(idNodo);
-		bool farNeighbour = false;
 		sf::RectangleShape n;
 		sf::Vector2i myCoords = findNearestPositionTo(parentCoord);
-		if (!drawn.size() == 1 && myCoords == parentCoord){
+		if (myCoords != sf::Vector2i(-1,-1)){
 			_virtualGrid[myCoords.x][myCoords.y] = true;
-			myCoords = findFreePos();
-			farNeighbour = true;
-		}
-		_virtualGrid[myCoords.x][myCoords.y] = true;
-		sf::Vector2f mySize(g.getNodos()[idNodo].getAncho(), g.getNodos()[idNodo].getAlto());
-		sf::Vector2f myPos((myCoords.x * _gridSize) + ((_gridSize - mySize.x) / 2), (myCoords.y * _gridSize) + ((_gridSize - mySize.y) / 2));
-		n.setPosition(myPos);
-		n.setSize(mySize);
-		n.setOutlineColor(sf::Color::Blue);
-		n.setOutlineThickness(2);
-		n.setFillColor(sf::Color::Transparent);
-		if (_drawableNodes.size() > 0 && myPos == _drawableNodes.back().getPosition()){
-			int a = 0;
-		}
-		_drawableNodes.push_back(n);
-		sf::Vector2f myMidPoint((myCoords.x * _gridSize) + (_gridSize / 2), (myCoords.y * _gridSize) + (_gridSize / 2));
-		sf::Vector2f myParentPos(parentCoord.x * _gridSize, parentCoord.y * _gridSize);
-		sf::Vector2f myParentMidPoint(myParentPos.x + (_gridSize / 2), myParentPos.y + (_gridSize / 2));
-		sf::Vertex v1(myMidPoint, (farNeighbour) ? sf::Color::Red : sf::Color::Green);
-		sf::Vertex v2(myParentMidPoint, (farNeighbour) ? sf::Color::Red : sf::Color::Green);
-		_drawableLinks.append(v1);
-		_drawableLinks.append(v2);
-		auto ady = g.getAdyacencia()[idNodo];
-		auto it = ady.begin();
-		while (it != ady.cend()){
-			if (drawn.find(*it) == drawn.cend()){
-				drawNode(g, *it, drawn, myCoords);
+			sf::Vector2f mySize(g.getNodos()[idNodo].getAncho(), g.getNodos()[idNodo].getAlto());
+			sf::Vector2f myPos((myCoords.x * _gridSize) + ((_gridSize - mySize.x) / 2), (myCoords.y * _gridSize) + ((_gridSize - mySize.y) / 2));
+			n.setPosition(myPos);
+			n.setSize(mySize);
+			n.setOutlineColor(sf::Color::Blue);
+			n.setOutlineThickness(idNodo);			
+			// ^ Por evitar mucho cambio, voy a usar este parametro para identificar cada nodo en _drawableNodes
+			// Luego se cambia al terminar
+			n.setFillColor(sf::Color::Transparent);
+			_drawableNodes.push_back(n);
+			
+			sf::Vector2f myMidPoint((myCoords.x * _gridSize) + (_gridSize / 2), (myCoords.y * _gridSize) + (_gridSize / 2));
+			sf::Vector2f myParentPos(parentCoord.x * _gridSize, parentCoord.y * _gridSize);
+			sf::Vector2f myParentMidPoint(myParentPos.x + (_gridSize / 2), myParentPos.y + (_gridSize / 2));
+			sf::Vertex v1(myMidPoint, sf::Color::Magenta);
+			sf::Vertex v2(myParentMidPoint, sf::Color::Magenta);
+			_drawableLinks.append(v1);
+			_drawableLinks.append(v2);
+
+			sf::Text t(std::to_string(idNodo), _font);
+			t.setCharacterSize(10);
+			t.setFillColor(sf::Color::Black);
+			t.setPosition(myMidPoint);
+			_drawableIDs.push_back(t);
+
+			auto ady = g.getAdyacencia()[idNodo];
+			auto it = ady.begin();
+			while (it != ady.cend()){
+				if (drawn.find(*it) == drawn.cend()){
+					drawNode(g, *it, drawn, myCoords);
+				}
+				else{
+					for (size_t i = 0; i < _drawableNodes.size(); ++i){
+						if (_drawableNodes[i].getOutlineThickness() == *it){
+							sf::RectangleShape r = _drawableNodes[i];
+							sf::Vector2f myNeighborMidPoint(r.getPosition().x + (r.getSize().x / 2), r.getPosition().y + (r.getSize().y / 2));
+							sf::Vertex v1(myMidPoint, sf::Color::Magenta);
+							sf::Vertex v2(myNeighborMidPoint, sf::Color::Magenta);
+							_drawableLinks.append(v1);
+							_drawableLinks.append(v2);
+							break;
+						}
+					}
+				}
+				it++;
 			}
-			it++;
 		}
-		
 	}
 
 	sf::Vector2i findNearestPositionTo(sf::Vector2i coord){
-		if (coord.x < _cols && coord.y < _rows){
-			if (!_virtualGrid[coord.x][coord.y]){
-				return coord;
+		std::queue<sf::Vector2i> q;
+		sf::Vector2i sol;
+		q.push(coord);
+		while (!q.empty()){
+			sol = q.front();
+			q.pop();
+			if (!_virtualGrid[sol.x][sol.y]){
+				return sol;
 			}
-			///////////////////////////////////////////
-			// First check for North - East - South - West position
-			if (coord.y > 0 && !_virtualGrid[coord.x][coord.y - 1]){
-				return sf::Vector2i(coord.x, coord.y - 1);
-			}
-			if (coord.x < _cols-1 &&  !_virtualGrid[coord.x + 1][coord.y]){
-				return sf::Vector2i(coord.x + 1, coord.y);
-			}
-			if (coord.y < _rows - 1 && !_virtualGrid[coord.x][coord.y + 1]){
-				return sf::Vector2i(coord.x, coord.y + 1);
-			}
-			if (coord.x > 0 && !_virtualGrid[coord.x - 1][coord.y]){
-				return sf::Vector2i(coord.x - 1, coord.y);
-			}
-			//
-			//////////////////////////////////////////
-			//////////////////////////////////////////
-			// Now checking for combinated ones
-			if (coord.x < _cols - 1 && coord.y > 0 && !_virtualGrid[coord.x + 1][coord.y - 1]){
-				return sf::Vector2i(coord.x + 1, coord.y - 1);
-			}
-			if (coord.x < _cols - 1 && coord.y < _rows - 1 && !_virtualGrid[coord.x + 1][coord.y + 1]){
-				return sf::Vector2i(coord.x + 1, coord.y + 1);
-			}
-			if (coord.x > 0 && coord.y < _rows - 1 && !_virtualGrid[coord.x - 1][coord.y + 1]){
-				return sf::Vector2i(coord.x - 1, coord.y + 1);
-			}
-			if (coord.x > 0 && coord.y > 0 && !_virtualGrid[coord.x - 1][coord.y - 1]){
-				return sf::Vector2i(coord.x - 1, coord.y -1);
+			else{
+				std::vector<sf::Vector2i> offsets;
+				if (sol.y > 0)			offsets.push_back(sf::Vector2i(0, -1));		// North
+				if (sol.x < _cols - 1)	offsets.push_back(sf::Vector2i(+1, 0));		// East
+				if (sol.y < _rows - 1)	offsets.push_back(sf::Vector2i(0, +1));		// South
+				if (sol.x > 0)			offsets.push_back(sf::Vector2i(-1, 0));		// West
+				std::random_shuffle(offsets.begin(), offsets.end());
+				for (size_t i = 0; i < offsets.size(); ++i){
+					if (!_virtualGrid[sol.x + offsets[i].x][sol.y + offsets[i].y]){
+						q.push(sf::Vector2i(sol.x + offsets[i].x, sol.y + offsets[i].y));
+					}
+				}
 			}
 		}
-		return coord;
+		return sf::Vector2i(-1, -1);
 	}
 
 	sf::Vector2i findFreePos(){
@@ -169,6 +184,7 @@ private:
 				}
 			}
 		}
+		return sf::Vector2i(-1, -1);
 	}
 
 	void clearGrid(){
@@ -188,6 +204,8 @@ private:
 	unsigned int _cols;
 	unsigned int _rows;
 	std::vector<sf::RectangleShape> _drawableNodes;
+	std::vector<sf::Text> _drawableIDs;
+	sf::Font _font;
 	sf::VertexArray _drawableLinks;
 };
 
