@@ -19,7 +19,7 @@ public:
 		
 	}
 
-	Grafo<Gen> getGenotipo(){
+	Grafo<Gen> getGenotipo() const{
 		return _grafo;
 	}
 

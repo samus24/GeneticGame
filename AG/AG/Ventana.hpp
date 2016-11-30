@@ -8,14 +8,16 @@
 #include "ScrollBar.hpp"
 #include "Controlador.hpp"
 #include "TabPane.hpp"
+#include "GraphViewer.hpp"
 
 class Ventana : public IAGObserver{
 public:
 	Ventana(Controlador& c) :
-		_window(sf::VideoMode::getFullscreenModes()[3], "AG"),		// Comentar esta linea y
+		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
 		//_window(sf::VideoMode(1300,600), "AG"),					// descomentar esta si no se representa bien en pantalla
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
+		_graphViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.15, 400)),
 		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200))
 	{
@@ -24,6 +26,7 @@ public:
 		_generacion = 0;
 		_ctrl->addObserver(*(this));
 		_tabPane.addTab("Plotter", _plotter);
+		_tabPane.addTab("Graph", _graphViewer);
 	}
 
 	void run(){
@@ -88,6 +91,7 @@ public:
 		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
 		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");
 		
+		_graphViewer.setModel(mejor);
 		
 		//_logger.clearLog();
 		_logger.append("Valor mejor: " + std::to_string(mejor.getAdaptacion()) + "\n");
@@ -103,6 +107,7 @@ private:
 	sf::Font _font;
 	TabPane _tabPane;
 	Plotter _plotter;
+	GraphViewer _graphViewer;
 	Logger _logger;
 	TextButton _botonRun;
 	Controlador* _ctrl;

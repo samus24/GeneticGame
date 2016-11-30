@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AG.hpp" />
+    <ClInclude Include="GraphViewer.hpp" />
     <ClInclude Include="IAGObserver.hpp" />
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="Components.hpp" />
