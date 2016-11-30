@@ -9,14 +9,14 @@
 
 int main(){
 	Parametros p;
-	p.tamPob = 30;
-	p.iteraciones = 20;
+	p.tamPob = 20;
+	p.iteraciones = 30;
 	p.minNodos = 10;
 	p.maxNodos = 40;
-	p.densidad = 0.02;
+	p.densidad = 0.03;
 	p.elitismo = false;
 	p.bloating = true;
-	p.contractividad = false;
+	p.contractividad = true;
 	p.probCruce = 0.6;
 	p.probMutacion = 0.02;
 	p.seleccion = new SeleccionRuleta();

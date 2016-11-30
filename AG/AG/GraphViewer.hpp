@@ -69,6 +69,7 @@ private:
 		Grafo<Gen> g = _model.getGenotipo();
 		_drawableLinks.clear();
 		_drawableNodes.clear();
+		_drawableIDs.clear();
 
 		std::set<unsigned int> drawn;
 		auto nodos = g.getNodos();
@@ -150,24 +151,24 @@ private:
 	}
 
 	sf::Vector2i findNearestPositionTo(sf::Vector2i coord){
-		std::queue<sf::Vector2i> q;
-		sf::Vector2i sol;
-		q.push(coord);
-		while (!q.empty()){
-			sol = q.front();
-			q.pop();
-			if (!_virtualGrid[sol.x][sol.y]){
-				return sol;
-			}
-			else{
-				std::vector<sf::Vector2i> offsets;
-				if (sol.y > 0)			offsets.push_back(sf::Vector2i(0, -1));		// North
-				if (sol.x < _cols - 1)	offsets.push_back(sf::Vector2i(+1, 0));		// East
-				if (sol.y < _rows - 1)	offsets.push_back(sf::Vector2i(0, +1));		// South
-				if (sol.x > 0)			offsets.push_back(sf::Vector2i(-1, 0));		// West
-				std::random_shuffle(offsets.begin(), offsets.end());
-				for (size_t i = 0; i < offsets.size(); ++i){
-					if (!_virtualGrid[sol.x + offsets[i].x][sol.y + offsets[i].y]){
+		if (coord.x >= 0 && coord.x < _cols && coord.y >= 0 && coord.y < _rows){
+			std::queue<sf::Vector2i> q;
+			sf::Vector2i sol;
+			q.push(coord);
+			while (!q.empty()){
+				sol = q.front();
+				q.pop();
+				if (!_virtualGrid[sol.x][sol.y]){
+					return sol;
+				}
+				else{
+					std::vector<sf::Vector2i> offsets;
+					if (sol.y > 0)			offsets.push_back(sf::Vector2i(0, -1));		// North
+					if (sol.x < _cols - 1)	offsets.push_back(sf::Vector2i(+1, 0));		// East
+					if (sol.y < _rows - 1)	offsets.push_back(sf::Vector2i(0, +1));		// South
+					if (sol.x > 0)			offsets.push_back(sf::Vector2i(-1, 0));		// West
+					std::random_shuffle(offsets.begin(), offsets.end());
+					for (size_t i = 0; i < offsets.size(); ++i){
 						q.push(sf::Vector2i(sol.x + offsets[i].x, sol.y + offsets[i].y));
 					}
 				}

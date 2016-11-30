@@ -18,7 +18,7 @@ public:
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_graphViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
-		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.2, 400)),
+		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.19, 400)),
 		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200))
 	{
 		_font.loadFromFile("arial.ttf");
@@ -68,6 +68,12 @@ public:
 				else if (event.type == sf::Event::MouseButtonReleased){
 
 				}
+				else if (event.type == sf::Event::KeyPressed){
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)){
+						//_graphViewer.getModel().evalua();
+						_graphViewer.setModel(_graphViewer.getModel());
+					}
+				}
 			}
 			_window.clear(sf::Color::White);
 			_window.draw(_tabPane);
@@ -95,12 +101,14 @@ public:
 		
 		_logger.clearLog();
 		_logger.append("Valor mejor: " + std::to_string(mejor.getAdaptacion()) + "\n");
+		_logger.append("Nodos: " + std::to_string(mejor.getGenotipo().size()) + "\n");
 		_logger.append("T. ejec.: " + std::to_string(total / 1000) + "s\n");
 		_logger.append("T. m. sel.: " + std::to_string(tmSel) + "ms\n");
 		_logger.append("T. m. cruce: " + std::to_string(tmCruce) + "ms\n");
 		_logger.append("T. m. mut.: " + std::to_string(tmMut) + "ms\n");
 		_logger.append("T. init: " + std::to_string(tInit) + "ms\n");
 		_logger.append("T. m. eval.: " + std::to_string(tmEval) + "ms\n");
+
 	}
 private:
 	sf::RenderWindow _window;

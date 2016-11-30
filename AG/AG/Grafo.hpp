@@ -332,6 +332,9 @@ private:
 					calculateConnectedComponentFromNode(_ady.find(*it2), processed, cc);
 					cc.anadeArista(it->first, *it2);
 				}
+				else{
+					cc.anadeArista(it->first, *it2);
+				}
 				it2++;
 			}
 		}
