@@ -22,6 +22,35 @@ public:
 		ComponenteConexa<N>(){
 
 		}
+
+		unsigned int tieneCiclos(){
+			unsigned int ciclos = 0;
+			std::set<unsigned int> explorados;
+			auto it = _nodos.begin();
+			while (it != _nodos.cend()){
+				if (explorados.find(it->first) == explorados.cend()){
+					ciclos += exploraNodo(it->first, explorados);
+				}
+				it++;
+			}
+			return ciclos;
+		}
+	private:
+		unsigned int exploraNodo(unsigned int idNodo, std::set<unsigned int> &explorados){
+			unsigned int ciclos = 0;
+			explorados.insert(idNodo);
+			auto it = _ady[idNodo].begin();
+			while (it != _ady[idNodo].cend()){
+				if (explorados.find(*it) == explorados.cend()){
+					ciclos += exploraNodo(*it, explorados);
+				}
+				else{
+					ciclos++;
+				}
+				it++;
+			}
+			return ciclos;
+		}
 	};
 
 	Grafo<N>() 

@@ -85,7 +85,7 @@ private:
 	double evaluaCC(Grafo<Gen>::ComponenteConexa<Gen> CC) {
 		//[NumNodos, Media - Grado - CC, media - tama�o - sala, penalizar - ciclos]
 		//[25, 2.5, 30x20(favorece la resoluci�n), min(ciclos)]
-		double pesos[] = { 0.3, 0.55, 0.05, 0.05, 0.05 }; // {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos} //me los he inventado los pesos
+		double pesos[] = { 0.3, 0.5, 0.05, 0.05, 0.1 }; // {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos} //me los he inventado los pesos
 		double valores[5];
 		double evaluacion = 0;
 
@@ -94,7 +94,7 @@ private:
 		double mediaAlto = 0;
 		double mediaAncho = 0;
 		double diferencias[5];
-		int ciclosActuales = _CICLOS_OPTIMOS;
+		int ciclosActuales;
 		//double diferencias[5];
 		auto adyacencia = CC.getAdyacencia();
 		auto itAdy = adyacencia.begin();
@@ -114,6 +114,7 @@ private:
 		}
 		mediaAlto /= numNodos;
 		mediaAncho /= numNodos;
+		ciclosActuales = CC.tieneCiclos();
 		// 1 - abs(x - ideal) / ideal;
 		//[NumNodos, Media - Grado - CC, media - tama�o - sala, penalizar - ciclos]
 		valores[0] = 1 - (abs(numNodos - _NODOS_OPTIMOS_CC) / (float)_NODOS_OPTIMOS_CC);
@@ -165,7 +166,7 @@ private:
 	const double _GRADO_OPTIMO_CC = 2.5;
 	const int _ANCHO_OPTIMO = 30;
 	const int _ALTO_OPTIMO = 20;
-	const int _CICLOS_OPTIMOS = 3;
+	const int _CICLOS_OPTIMOS = 2;
 };
 
 #endif

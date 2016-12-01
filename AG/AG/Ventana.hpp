@@ -73,6 +73,15 @@ public:
 						//_graphViewer.getModel().evalua();
 						_graphViewer.setModel(_graphViewer.getModel());
 					}
+					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
+						_plotter.removeAllData();
+						_ejeX.clear();
+						_valorMedia.clear();
+						_valorMejor.clear();
+						_valorMejorGen.clear();
+						_generacion = 0;
+						_ctrl->run();
+					}
 				}
 			}
 			_window.clear(sf::Color::White);
