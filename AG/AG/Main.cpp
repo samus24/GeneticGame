@@ -14,7 +14,7 @@ int main(){
 	p.minNodos = 10;
 	p.maxNodos = 40;
 	p.densidad = 0.03;
-	p.elitismo = true;
+	p.elitismo = false;
 	p.bloating = true;
 	p.contractividad = false;
 	p.probCruce = 0.6;

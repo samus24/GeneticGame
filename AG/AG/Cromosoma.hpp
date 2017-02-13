@@ -85,7 +85,7 @@ private:
 	double evaluaCC(Grafo<Gen>::ComponenteConexa<Gen> CC) {
 		//[NumNodos, Media - Grado - CC, media - tama�o - sala, penalizar - ciclos]
 		//[25, 2.5, 30x20(favorece la resoluci�n), min(ciclos)]
-		double pesos[] = { 0.3, 0.5, 0.05, 0.05, 0.1 }; // {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos} //me los he inventado los pesos
+		double pesos[] = { 0.3, 0.5, 0.05, 0.05, 0.1 }; // {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos}
 		double valores[5];
 		double evaluacion = 0;
 
