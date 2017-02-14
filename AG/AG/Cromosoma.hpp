@@ -11,6 +11,7 @@ public:
 		_punt = 0;
 		_puntAcum = 0;
 		_adaptacion = 0;
+		_indexMejorCC = 0;
 	}
 
 	Cromosoma(unsigned int minNodos, unsigned int maxNodos, double densidad) :
@@ -21,6 +22,10 @@ public:
 
 	Grafo<Gen> getGenotipo() const{
 		return _grafo;
+	}
+
+	Grafo<Gen> getMejorCC() const{
+		return _grafo.getComponentesConexas()[_indexMejorCC];
 	}
 
 	double getPunt(){
@@ -55,12 +60,15 @@ public:
 	double evalua(){
 		// IMPORTANTE, contamos con que la funcion evalua establece automaticamente el valor de _adaptacion
 		double mejorCC = -1;
+		_indexMejorCC = -1;
 		double componente;
 		std::vector<Grafo<Gen>::ComponenteConexa<Gen>> CC = _grafo.getComponentesConexas();
 		for (std::size_t i = 0; i < CC.size(); ++i) {
 			componente = evaluaCC(CC[i]);
-			if (componente > mejorCC)
+			if (componente > mejorCC){
 				mejorCC = componente;
+				_indexMejorCC = i;
+			}
 		}
 		this->_adaptacion = mejorCC;
 		return _adaptacion;
@@ -161,6 +169,7 @@ private:
 	double _punt;
 	double _puntAcum;
 	double _adaptacion;
+	unsigned int _indexMejorCC;
 
 	const int _NODOS_OPTIMOS_CC = 25;
 	const double _GRADO_OPTIMO_CC = 2.5;

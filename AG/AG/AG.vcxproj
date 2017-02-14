@@ -93,6 +93,7 @@
     <ClInclude Include="Gen.hpp" />
     <ClInclude Include="Grafo.hpp" />
     <ClInclude Include="Logger.hpp" />
+    <ClInclude Include="Mazmorra.hpp" />
     <ClInclude Include="MetodoCruce.hpp" />
     <ClInclude Include="MetodoMutacion.hpp" />
     <ClInclude Include="MetodoSeleccion.hpp" />
@@ -100,6 +101,8 @@
     <ClInclude Include="Parametros.hpp" />
     <ClInclude Include="Plotter.hpp" />
     <ClInclude Include="Poblacion.hpp" />
+    <ClInclude Include="Rellenador.hpp" />
+    <ClInclude Include="Sala.hpp" />
     <ClInclude Include="ScrollBar.hpp" />
     <ClInclude Include="TabPane.hpp" />
     <ClInclude Include="Ventana.hpp" />

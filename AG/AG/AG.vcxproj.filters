@@ -43,6 +43,9 @@
     <Filter Include="Archivos de encabezado\modelo\mutacion">
       <UniqueIdentifier>{9923e2e9-8435-4c46-9218-63149431357e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\modelo\mapas">
+      <UniqueIdentifier>{ea521534-e599-4b7f-a7bc-a8cdb0f9cbde}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -115,6 +118,15 @@
     </ClInclude>
     <ClInclude Include="GraphViewer.hpp">
       <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="Rellenador.hpp">
+      <Filter>Archivos de encabezado\modelo\mapas</Filter>
+    </ClInclude>
+    <ClInclude Include="Mazmorra.hpp">
+      <Filter>Archivos de encabezado\modelo\mapas</Filter>
+    </ClInclude>
+    <ClInclude Include="Sala.hpp">
+      <Filter>Archivos de encabezado\modelo\mapas</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,7 @@
 #include "Plotter.hpp"
 #include "Ventana.hpp"
 #include "MetodoSeleccion.hpp"
+#include "Rellenador.hpp"
 
 int main(){
 	Parametros p;

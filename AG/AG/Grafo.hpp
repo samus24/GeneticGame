@@ -332,7 +332,7 @@ public:
 		return ret;
 	}
 	
-	std::vector< ComponenteConexa<N> > getComponentesConexas(){
+	std::vector< ComponenteConexa<N> > getComponentesConexas() const{
 		std::vector< ComponenteConexa<N> > ret;
 		std::set<unsigned int> processed;
 		auto it = _ady.begin();
