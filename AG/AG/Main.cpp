@@ -11,7 +11,7 @@
 int main(){
 	Parametros p;
 	p.tamPob = 30;
-	p.iteraciones = 100;
+	p.iteraciones = 30;
 	p.minNodos = 10;
 	p.maxNodos = 40;
 	p.densidad = 0.03;

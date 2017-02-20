@@ -67,6 +67,9 @@ public:
 					else if (_logger.contains(point)){
 						_logger.handleClick(point);
 					}
+					else if (_roomViewer.contains(point)){
+						_roomViewer.handleClick(point);
+					}
 				}
 				else if (event.type == sf::Event::MouseButtonReleased){
 
@@ -74,6 +77,7 @@ public:
 				else if (event.type == sf::Event::KeyPressed){
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)){
 						_graphViewer.setModel(_graphViewer.getModel());
+						_roomViewer.setModel(_roomViewer.getModel());
 					}
 					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
 						_plotter.removeAllData();
@@ -109,6 +113,7 @@ public:
 		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");
 		
 		_graphViewer.setModel(mejor);
+		_roomViewer.setModel(mejor);
 		
 		_logger.clearLog();
 		_logger.append("Valor mejor: " + std::to_string(mejor.getAdaptacion()) + "\n");

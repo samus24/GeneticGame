@@ -104,6 +104,7 @@ public:
 		}	// Fin while generaciones
 		//_elMejor.evalua();
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
+		_elMejor.evalua(_paramEval);	// Se aegura que el mejor tiene todo actualizado
 		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("eval"));
 		return _elMejor;
 	}
