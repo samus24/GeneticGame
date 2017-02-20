@@ -350,19 +350,20 @@ public:
 
 private:
 
-	void calculateConnectedComponentFromNode(std::unordered_map<unsigned int, std::set<unsigned int>>::iterator it, std::set<unsigned int> &processed, ComponenteConexa<N> &cc){
-		processed.emplace(it->first);
-		cc.anadeNodo(_nodos[it->first], it->first);
+	void calculateConnectedComponentFromNode(std::unordered_map<unsigned int, std::set<unsigned int>>::const_iterator it, std::set<unsigned int> &processed, ComponenteConexa<N> &cc) const{
+		unsigned int idNodo = it->first;
+		processed.emplace(idNodo);
+		cc.anadeNodo(_nodos.at(idNodo), idNodo);
 		try{
-			auto it2 = _ady[it->first].begin();
-			while(it2 != _ady[it->first].end()){
+			auto it2 = _ady.at(idNodo).begin();
+			while (it2 != _ady.at(idNodo).cend()){
 				if (processed.find(*it2) == processed.end()){
 					// next node hasn't been processed yet
 					calculateConnectedComponentFromNode(_ady.find(*it2), processed, cc);
-					cc.anadeArista(it->first, *it2);
+					cc.anadeArista(idNodo, *it2);
 				}
 				else{
-					cc.anadeArista(it->first, *it2);
+					cc.anadeArista(idNodo, *it2);
 				}
 				it2++;
 			}

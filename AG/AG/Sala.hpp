@@ -5,14 +5,16 @@
 
 class Sala {
 public:
-	static const int VACIO = 0;
-	static const int COFRE = 1;
-	static const int MURO = 2;
+	static const int VACIO = -1;
+	static const int COFRE = -2;
+	static const int MURO = -3;
 
-	// Podemos considerar los numeros de 0 a 9 reservados, y comenzar a codificar las puertas con los numeros de 10 en adelante
+	// Podemos considerar los numeros negativos como elementos de las salas,
+	// y comenzar a codificar las puertas con los numeros de sala con la que estan conectados
 
 public:
-	Sala(unsigned int ancho, unsigned int alto){
+	Sala(unsigned int id, unsigned int ancho, unsigned int alto){
+		_id = id;
 		_ancho = ancho;
 		_alto = alto;
 		for (size_t i = 0; i < _ancho; ++i){
@@ -31,6 +33,7 @@ public:
 	}
 
 private:
+	unsigned int _id;
 	unsigned int _ancho;
 	unsigned int _alto;
 	std::vector<std::vector<int>> _celdas;

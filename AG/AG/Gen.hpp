@@ -26,6 +26,14 @@ public:
 		return _ancho;
 	}
 
+	unsigned int getEnemigos(){
+		return _nEnemigos;
+	}
+
+	unsigned int getCofres(){
+		return _nCofres;
+	}
+
 	static int getRandom(int from, int to){
 		std::random_device rd;
 		std::mt19937 gen(rd());
@@ -35,6 +43,8 @@ public:
 private:
 	unsigned int _ancho;
 	unsigned int _alto;
+	unsigned int _nEnemigos;
+	unsigned int _nCofres;
 	const unsigned int _MAXSIZE = 40;
 	const unsigned int _MINSIZE = 5;
 };

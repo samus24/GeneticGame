@@ -23,7 +23,7 @@ public:
 	Grafo<Gen> getGenotipo() const{
 		return _grafo;
 	}
-
+	
 	Grafo<Gen> getMejorCC() const{
 		return _grafo.getComponentesConexas()[_indexMejorCC];
 	}
