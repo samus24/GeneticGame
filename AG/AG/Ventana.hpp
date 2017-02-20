@@ -9,6 +9,7 @@
 #include "Controlador.hpp"
 #include "TabPane.hpp"
 #include "GraphViewer.hpp"
+#include "RoomViewer.hpp"
 
 class Ventana : public IAGObserver{
 public:
@@ -18,6 +19,7 @@ public:
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_graphViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
+		_roomViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.19, 400)),
 		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200))
 	{
@@ -27,6 +29,7 @@ public:
 		_ctrl->addObserver(*(this));
 		_tabPane.addTab("Plotter", _plotter);
 		_tabPane.addTab("Graph", _graphViewer);
+		_tabPane.addTab("Rooms", _roomViewer);
 	}
 
 	void run(){
@@ -70,7 +73,6 @@ public:
 				}
 				else if (event.type == sf::Event::KeyPressed){
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)){
-						//_graphViewer.getModel().evalua();
 						_graphViewer.setModel(_graphViewer.getModel());
 					}
 					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
@@ -125,6 +127,7 @@ private:
 	TabPane _tabPane;
 	Plotter _plotter;
 	GraphViewer _graphViewer;
+	RoomViewer _roomViewer;
 	Logger _logger;
 	TextButton _botonRun;
 	Controlador* _ctrl;

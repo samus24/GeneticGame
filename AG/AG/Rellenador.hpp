@@ -20,15 +20,18 @@ public:
 			Sala s(itSalas->first, itSalas->second.getAncho(), itSalas->second.getAlto());	// Las salas se crean vacias
 			unsigned int nUniones = uniones[itSalas->first].size();
 			auto itUniones = uniones[itSalas->first].begin();
-			while (itUniones != uniones[itSalas->first].cend()){
-				
+			std::vector<Pair<int, int>> puertas = posicionesPuertas(itSalas->second.getAncho(), itSalas->second.getAlto(), nUniones);
+			for (Pair<int, int> p : puertas){
+				s.setCelda(p.first, p.second, *itUniones);
 				++itUniones;
 			}
+			m.anadeSala(s);
 			++itSalas;
 		}
+		return m;
 	}
 private:
-	std::vector<Pair<int, int>> posicionesPreferidas(unsigned int ancho, unsigned int alto, unsigned int nUniones){
+	std::vector<Pair<int, int>> posicionesPuertas(unsigned int ancho, unsigned int alto, unsigned int nUniones){
 		std::vector<Pair<int, int>> ret;
 		// Las dimensiones de las salas son min=5 y max=40 (por como se generan en el grafo)
 
@@ -47,6 +50,20 @@ private:
 			resto--;
 		}
 
+		unsigned int step = ancho / puertasPorLado[UP];
+		for (size_t i = 0; i < puertasPorLado[UP]; ++i)
+			ret.push_back(Pair<int, int>(step*(i+1), 0));
+		step = ancho / puertasPorLado[DOWN];
+		for (size_t i = 0; i < puertasPorLado[DOWN]; ++i)
+			ret.push_back(Pair<int, int>(step*(i + 1), alto-1));
+		step = alto / puertasPorLado[LEFT];
+		for (size_t i = 0; i < puertasPorLado[LEFT]; ++i)
+			ret.push_back(Pair<int, int>(0,step*(i + 1)));
+		step = alto / puertasPorLado[RIGHT];
+		for (size_t i = 0; i < puertasPorLado[RIGHT]; ++i)
+			ret.push_back(Pair<int, int>(ancho-1,step*(i + 1)));
+
+		return ret;
 	}
 
 	static int getRandom(int from, int to){

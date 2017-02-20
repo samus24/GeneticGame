@@ -49,15 +49,6 @@ public:
 	}
 };
 
-class ParametrosEval {
-public:
-	unsigned int nodosOptimos = 25;
-	double gradoOptimo = 2.5;
-	unsigned int anchoOptimo = 30;
-	unsigned int altoOptimos = 20;
-	unsigned int cicloOptimos = 2;
-	unsigned int enemigosOptimos = 35;
-	unsigned int cofresOptimos = 15;
-};
+
 
 #endif

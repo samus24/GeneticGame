@@ -25,9 +25,9 @@ public:
 		}
 	}
 
-	void evalua(){
+	void evalua(ParametrosEval pEval){
 		for (size_t i = 0; i < individuos.size(); ++i){
-			individuos[i].evalua();
+			individuos[i].evalua(pEval);
 		}
 	}
 
@@ -37,9 +37,9 @@ public:
 		});
 	}
 
-	void bloating(unsigned int maxNodos){
+	void bloating(unsigned int maxNodos, ParametrosEval pEval){
 		for (size_t i = 0; i < individuos.size(); ++i){
-			individuos[i].bloating(maxNodos);
+			individuos[i].bloating(maxNodos, pEval);
 		}
 	}	
 	

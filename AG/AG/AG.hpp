@@ -9,8 +9,9 @@
 
 class AG {
 public:
-	AG(Parametros p){
+	AG(Parametros p, ParametrosEval pEval){
 		_param = p;
+		_paramEval = pEval;
 		_crono.creaMedida("global");
 		_crono.creaMedida("seleccion");
 		_crono.creaMedida("cruce");
@@ -39,7 +40,7 @@ public:
 		_pob.generaPoblacionAleatoria(_param.tamPob, _param.minNodos, _param.maxNodos, _param.densidad);
 		_crono.finalizaMedida("init", std::chrono::high_resolution_clock::now());
 
-		_pob.evalua();	// Lo ideal sería evaluar una vez al principio, y que de cada grafo se actualice su adaptacion solo si cambia
+		_pob.evalua(_paramEval);	// Lo ideal sería evaluar una vez al principio, y que de cada grafo se actualice su adaptacion solo si cambia
 
 		_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
 		mediaAnterior = evaluarPoblacion();
@@ -67,7 +68,7 @@ public:
 			_crono.finalizaMedida("mutacion", std::chrono::high_resolution_clock::now());
 
 			if (_param.bloating){
-				_pob.bloating(_param.maxNodos);
+				_pob.bloating(_param.maxNodos, _paramEval);
 			}
 			if (_param.elitismo){
 				_pob.ordenar();
@@ -192,7 +193,7 @@ private:
 			numSeleCruce--;
 		}
 		for (int i = 0; i < numSeleCruce; i += 2){
-			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]]);
+			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]], _paramEval);
 		}
 		
 	}
@@ -224,6 +225,7 @@ private:
 	unsigned int _genDescartadas;
 	Poblacion _pob;
 	Parametros _param;
+	ParametrosEval _paramEval;
 	unsigned int _indexMejor;
 	Cromosoma _elMejor;
 	Cronometro _crono;

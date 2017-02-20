@@ -99,9 +99,11 @@
     <ClInclude Include="MetodoSeleccion.hpp" />
     <ClInclude Include="Pair.hpp" />
     <ClInclude Include="Parametros.hpp" />
+    <ClInclude Include="ParametrosEval.hpp" />
     <ClInclude Include="Plotter.hpp" />
     <ClInclude Include="Poblacion.hpp" />
     <ClInclude Include="Rellenador.hpp" />
+    <ClInclude Include="RoomViewer.hpp" />
     <ClInclude Include="Sala.hpp" />
     <ClInclude Include="ScrollBar.hpp" />
     <ClInclude Include="TabPane.hpp" />

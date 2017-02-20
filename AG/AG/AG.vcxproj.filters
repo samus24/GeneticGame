@@ -128,6 +128,12 @@
     <ClInclude Include="Sala.hpp">
       <Filter>Archivos de encabezado\modelo\mapas</Filter>
     </ClInclude>
+    <ClInclude Include="ParametrosEval.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomViewer.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

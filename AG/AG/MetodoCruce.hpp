@@ -6,13 +6,13 @@
 class MetodoCruce {
 public:
 
-	virtual void cruzar(Cromosoma*, Cromosoma*) = 0;
+	virtual void cruzar(Cromosoma*, Cromosoma*, ParametrosEval p) = 0;
 
 };
 
 class CruceMonopunto : public MetodoCruce{
 public:
-	void cruzar(Cromosoma* a, Cromosoma* b){
+	void cruzar(Cromosoma* a, Cromosoma* b, ParametrosEval p){
 		Grafo<Gen> grafoA = a->getGenotipo();
 		Grafo<Gen> grafoB = a->getGenotipo();
 		std::vector<Grafo<Gen>> subsA = grafoA.divideGrafo(getRandom(1, grafoA.size() - 2));	// comienza en 1 y termina en size-2 para evitar subgrafos sin nodos
@@ -23,8 +23,8 @@ public:
 
 		// Valorar si se debe comprabar que los hijos sean mejores que los padres.
 
-		a->setGenotipo(hijo1);
-		b->setGenotipo(hijo2);
+		a->setGenotipo(hijo1,p);
+		b->setGenotipo(hijo2,p);
 	}
 
 private:

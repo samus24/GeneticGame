@@ -3,6 +3,7 @@
 
 #include "Grafo.hpp"
 #include "Gen.hpp"
+#include "ParametrosEval.hpp"
 #include <cmath>
 
 class Cromosoma {
@@ -40,9 +41,9 @@ public:
 		return _adaptacion;
 	}
 
-	void setGenotipo(Grafo<Gen> g){
+	void setGenotipo(Grafo<Gen> g, ParametrosEval param){
 		_grafo = g;
-		evalua();
+		evalua(param);
 	}
 
 	void setPunt(double punt){
@@ -57,14 +58,14 @@ public:
 		_adaptacion = adaptacion;
 	}
 
-	double evalua(){
+	double evalua(ParametrosEval param){
 		// IMPORTANTE, contamos con que la funcion evalua establece automaticamente el valor de _adaptacion
 		double mejorCC = -1;
 		_indexMejorCC = -1;
 		double componente;
 		std::vector<Grafo<Gen>::ComponenteConexa<Gen>> CC = _grafo.getComponentesConexas();
 		for (std::size_t i = 0; i < CC.size(); ++i) {
-			componente = evaluaCC(CC[i]);
+			componente = evaluaCC(CC[i], param);
 			if (componente > mejorCC){
 				mejorCC = componente;
 				_indexMejorCC = i;
@@ -74,10 +75,10 @@ public:
 		return _adaptacion;
 	}
 	
-	void bloating(unsigned int maxNodos){
+	void bloating(unsigned int maxNodos, ParametrosEval param){
 		if (_grafo.size() > maxNodos){
 			_grafo = _grafo.divideGrafo(maxNodos).at(0);
-			evalua();
+			evalua(param);
 		}
 	}
 
@@ -90,11 +91,11 @@ public:
 	}
 
 private:
-	double evaluaCC(Grafo<Gen>::ComponenteConexa<Gen> CC) {
+	double evaluaCC(Grafo<Gen>::ComponenteConexa<Gen> CC, ParametrosEval param) {
 		//[NumNodos, Media - Grado - CC, media - tama�o - sala, penalizar - ciclos]
 		//[25, 2.5, 30x20(favorece la resoluci�n), min(ciclos)]
-		double pesos[] = { 0.3, 0.5, 0.05, 0.05, 0.1 }; // {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos}
-		double valores[5];
+		double pesos[] = { 0.275, 0.45, 0.05, 0.05, 0.075, 0.05, 0.05 }; // {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
+		double valores[7];
 		double evaluacion = 0;
 
 		int numNodos = CC.size();
@@ -103,6 +104,8 @@ private:
 		double mediaAncho = 0;
 		double diferencias[5];
 		int ciclosActuales;
+		int enemigosActuales = 0;
+		int cofresActuales = 0;
 		//double diferencias[5];
 		auto adyacencia = CC.getAdyacencia();
 		auto itAdy = adyacencia.begin();
@@ -118,29 +121,38 @@ private:
 		while (itNodos != nodos.cend()){
 			mediaAlto += itNodos->second.getAlto();
 			mediaAncho += itNodos->second.getAncho();
+			enemigosActuales += itNodos->second.getEnemigos();
+			cofresActuales += itNodos->second.getCofres();
 			itNodos++;
 		}
 		mediaAlto /= numNodos;
 		mediaAncho /= numNodos;
 		ciclosActuales = CC.tieneCiclos();
+
 		// 1 - abs(x - ideal) / ideal;
 		//[NumNodos, Media - Grado - CC, media - tama�o - sala, penalizar - ciclos]
-		valores[0] = 1 - (abs(numNodos - _NODOS_OPTIMOS_CC) / (float)_NODOS_OPTIMOS_CC);
+		valores[0] = 1 - (abs(int(numNodos - param.nodosOptimos)) / (float)param.nodosOptimos);
 		if (valores[0] < 0)	valores[0] = 0;
 
-		valores[1] = 1 - (abs(mediaGrado - _GRADO_OPTIMO_CC) / _GRADO_OPTIMO_CC);
+		valores[1] = 1 - (abs(mediaGrado - param.gradoOptimo) / param.gradoOptimo);
 		if (valores[1] < 0)	valores[1] = 0;
 
-		valores[2] = 1 - (abs(mediaAlto - _ALTO_OPTIMO) / (float)_ALTO_OPTIMO);
+		valores[2] = 1 - (abs(mediaAlto - param.altoOptimo) / (float)param.altoOptimo);
 		if (valores[2] < 0)	valores[2] = 0;
 
-		valores[3] = 1 - (abs(mediaAncho - _ANCHO_OPTIMO) / (float)_ANCHO_OPTIMO);
+		valores[3] = 1 - (abs(mediaAncho - param.anchoOptimo) / (float)param.anchoOptimo);
 		if (valores[3] < 0)	valores[3] = 0;
 
-		valores[4] = 1 - (abs(ciclosActuales - _CICLOS_OPTIMOS) / (float)_CICLOS_OPTIMOS);
+		valores[4] = 1 - (abs(int(ciclosActuales - param.ciclosOptimos)) / (float)param.ciclosOptimos);
 		if (valores[4] < 0)	valores[4] = 0;
 
-		for (int i = 0; i < 5; ++i){
+		valores[5] = 1 - (abs(int(enemigosActuales - param.enemigosOptimos)) / (float)param.enemigosOptimos);
+		if (valores[5] < 0)	valores[5] = 0;
+
+		valores[6] = 1 - (abs(int(cofresActuales - param.cofresOptimos)) / (float)param.cofresOptimos);
+		if (valores[6] < 0)	valores[6] = 0;
+
+		for (int i = 0; i < 7; ++i){
 			evaluacion += valores[i] * pesos[i];
 		}
 		//ciclosActuales = CC.getCiclos(); //o función que devuelva los ciclos
@@ -170,12 +182,6 @@ private:
 	double _puntAcum;
 	double _adaptacion;
 	unsigned int _indexMejorCC;
-
-	const int _NODOS_OPTIMOS_CC = 25;
-	const double _GRADO_OPTIMO_CC = 2.5;
-	const int _ANCHO_OPTIMO = 30;
-	const int _ALTO_OPTIMO = 20;
-	const int _CICLOS_OPTIMOS = 2;
 };
 
 #endif

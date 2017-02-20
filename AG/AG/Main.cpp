@@ -23,7 +23,16 @@ int main(){
 	p.seleccion = new SeleccionRuleta();
 	p.cruce = new CruceMonopunto();
 
-	AG ag(p);
+	ParametrosEval pEval;
+	pEval.nodosOptimos = 25;
+	pEval.gradoOptimo = 2.5;
+	pEval.anchoOptimo = 30;
+	pEval.altoOptimo = 20;
+	pEval.ciclosOptimos = 1;
+	pEval.enemigosOptimos = 35;
+	pEval.cofresOptimos = 10;
+
+	AG ag(p,pEval);
 	Controlador c(ag);
 	Ventana v(c);
 	v.run();
