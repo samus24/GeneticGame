@@ -17,9 +17,10 @@ public:
 		_id = id;
 		_ancho = ancho;
 		_alto = alto;
+		_celdas.resize(ancho);
 		for (size_t i = 0; i < _ancho; ++i){
 			for (size_t j = 0; j < alto; ++j){
-				_celdas[i][j] = VACIO;
+				_celdas[i].push_back(VACIO);
 			}
 		}
 	}
@@ -32,12 +33,20 @@ public:
 		_celdas[x][y] = valor;
 	}
 
+	int getCelda(unsigned int i, unsigned int j){
+		return _celdas[i][j];
+	}
+
+	std::vector<int> operator[](unsigned int i){
+		return _celdas[i];
+	}
+
 private:
 	unsigned int _id;
 	unsigned int _ancho;
 	unsigned int _alto;
 	std::vector<std::vector<int>> _celdas;
-	std::unordered_map<int, int> _puertas;	// Este array indica para una puerta (id puerta), a qué sala (id sala) conduce
+	//std::unordered_map<int, int> _puertas;	// Este array indica para una puerta (id puerta), a qué sala (id sala) conduce
 
 	
 

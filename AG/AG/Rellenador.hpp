@@ -10,7 +10,7 @@ public:
 
 	}
 
-	Mazmorra rellenaMazmorra(Grafo<Gen> grafo){
+	static Mazmorra rellenaMazmorra(Grafo<Gen> grafo){
 		// La entrada de este metodo se considera la MEJOR COMPONENTE CONEXA
 		Mazmorra m;
 		std::unordered_map< unsigned int, Gen > salas = grafo.getNodos();
@@ -31,7 +31,7 @@ public:
 		return m;
 	}
 private:
-	std::vector<Pair<int, int>> posicionesPuertas(unsigned int ancho, unsigned int alto, unsigned int nUniones){
+	static std::vector<Pair<int, int>> posicionesPuertas(unsigned int ancho, unsigned int alto, unsigned int nUniones){
 		std::vector<Pair<int, int>> ret;
 		// Las dimensiones de las salas son min=5 y max=40 (por como se generan en el grafo)
 
@@ -50,16 +50,17 @@ private:
 			resto--;
 		}
 
-		unsigned int step = ancho / puertasPorLado[UP];
+		unsigned int step;
+		if (puertasPorLado[UP] != 0)	step = ancho / (puertasPorLado[UP] + 1);
 		for (size_t i = 0; i < puertasPorLado[UP]; ++i)
 			ret.push_back(Pair<int, int>(step*(i+1), 0));
-		step = ancho / puertasPorLado[DOWN];
+		if(puertasPorLado[DOWN] != 0)	step = ancho / (puertasPorLado[DOWN] + 1);
 		for (size_t i = 0; i < puertasPorLado[DOWN]; ++i)
 			ret.push_back(Pair<int, int>(step*(i + 1), alto-1));
-		step = alto / puertasPorLado[LEFT];
+		if (puertasPorLado[LEFT] != 0)	step = alto / (puertasPorLado[LEFT] + 1); 
 		for (size_t i = 0; i < puertasPorLado[LEFT]; ++i)
 			ret.push_back(Pair<int, int>(0,step*(i + 1)));
-		step = alto / puertasPorLado[RIGHT];
+		if (puertasPorLado[RIGHT] != 0)	step = alto / (puertasPorLado[RIGHT] + 1);
 		for (size_t i = 0; i < puertasPorLado[RIGHT]; ++i)
 			ret.push_back(Pair<int, int>(ancho-1,step*(i + 1)));
 

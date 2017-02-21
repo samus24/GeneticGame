@@ -29,6 +29,10 @@ public:
 		return _grafo.getComponentesConexas()[_indexMejorCC];
 	}
 
+	unsigned int getIndexElMejor() const{
+		return _indexMejorCC;
+	}
+
 	double getPunt(){
 		return _punt;
 	}
@@ -39,6 +43,10 @@ public:
 
 	double getAdaptacion(){
 		return _adaptacion;
+	}
+
+	void setIndexElMejor(unsigned int i){
+		_indexMejorCC = i;
 	}
 
 	void setGenotipo(Grafo<Gen> g, ParametrosEval param){

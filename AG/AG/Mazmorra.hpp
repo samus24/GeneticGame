@@ -18,6 +18,20 @@ public:
 		_salas.clear();
 	}
 
+	Sala getSala(unsigned int i){
+		if (i < _salas.size())
+			return _salas[i];
+		else
+			throw std::exception("Sala inexistente");
+	}
+	std::vector<Sala> getSalas(){
+		return _salas;
+	}
+
+	Sala operator[](unsigned int i){
+		return getSala(i);
+	}
+
 private:
 	std::vector<Sala> _salas;
 };

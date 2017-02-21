@@ -5,6 +5,7 @@
 #include <queue>
 #include "Cromosoma.hpp"
 #include "Button.hpp"
+#include "Mazmorra.hpp"
 
 class RoomViewer : public sf::Rect<float>, public sf::Drawable, public sf::Transformable{
 public:
@@ -23,7 +24,7 @@ public:
 		_roomInfo.setString(std::to_string(_currentRoom));
 		_roomInfo.setPosition(this->getPosition());
 		_roomInfo.move(_size.x - 75, 10);
-		if (!_texture.loadFromFile("images/suelo1.png"))
+		if (!_texture.loadFromFile("images/textures.png"))
 			exit(-1);
 
 	}
@@ -39,8 +40,9 @@ public:
 		_model = model;
 	}
 
-	void setModel(Cromosoma model){
+	void setModel(Cromosoma model, Mazmorra mazmorra){
 		_model = model;
+		_mazmorra = mazmorra;
 		_currentRoom = 0;
 		update();
 	}
@@ -97,6 +99,18 @@ private:
 			{
 				// get the current tile number
 				int tileNumber = 0;
+				switch (_mazmorra[_currentRoom][i][j]){
+				case Sala::VACIO:
+					tileNumber = Gen::getRandom(0, 1);
+					break;
+				case Sala::MURO:
+					tileNumber = Gen::getRandom(3, 6);
+					break;
+				case Sala::COFRE:
+					break;
+				default:
+					tileNumber = 2;
+				}
 
 				// find its position in the tileset texture
 				int tu = tileNumber % (_texture.getSize().x / _TILESIZE);
@@ -130,6 +144,7 @@ private:
 
 	sf::Vector2f _size;
 	Cromosoma _model;
+	Mazmorra _mazmorra;
 	sf::Font _font;
 	sf::Texture _texture;
 	sf::VertexArray m_vertices;

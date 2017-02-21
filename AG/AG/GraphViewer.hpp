@@ -32,6 +32,8 @@ public:
 
 	void setModel(Cromosoma model){
 		_model = model;
+		_model.setIndexElMejor(model.getIndexElMejor());	// This attribute doesn't copy on asignment
+		_mejorCC = model.getMejorCC().getNodos();
 		update();
 	}
 
@@ -100,7 +102,7 @@ private:
 		}
 		for (size_t i = 0; i < _drawableIDs.size(); ++i){
 			_drawableIDs[i].move(0, 25);
-			_drawableEnemies[i].move(_gridSize - 15, 0);
+			_drawableEnemies[i].move(_gridSize - 12, 0);
 			_drawableLoots[i].move(_gridSize - 5, 0);
 		}
 		for (size_t i = 0; i < _drawableLinks.getVertexCount(); ++i){
@@ -120,7 +122,12 @@ private:
 			sf::Vector2f myPos((myCoords.x * _gridSize) + ((_gridSize - mySize.x) / 2), (myCoords.y * _gridSize) + ((_gridSize - mySize.y) / 2));
 			n.setPosition(myPos);
 			n.setSize(mySize);
-			n.setOutlineColor(sf::Color::Blue);
+			if (_mejorCC.find(idNodo) != _mejorCC.cend()){
+				n.setOutlineColor(sf::Color::Cyan);
+			}
+			else{
+				n.setOutlineColor(sf::Color::Blue);
+			}
 			n.setOutlineThickness(idNodo);			
 			// ^ Por evitar mucho cambio, voy a usar este parametro para identificar cada nodo en _drawableNodes
 			// Luego se cambia al terminar
@@ -234,6 +241,7 @@ private:
 
 	sf::Vector2f _size;
 	Cromosoma _model;
+	std::unordered_map<unsigned int, Gen> _mejorCC;
 
 	bool** _virtualGrid;
 	unsigned int _gridSize = 50;
