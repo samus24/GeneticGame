@@ -157,13 +157,13 @@ private:
 
 			sf::Text t2(std::to_string(nodo.getEnemigos()), _font);
 			t2.setCharacterSize(10);
-			t2.setFillColor(sf::Color(34,177,76));
+			t2.setFillColor(sf::Color::Red);
 			t2.setPosition(myGridPos);
 			_drawableEnemies.push_back(t2);
 
 			sf::Text t3(std::to_string(nodo.getCofres()), _font);
 			t3.setCharacterSize(10);
-			t3.setFillColor(sf::Color::Red);
+			t3.setFillColor(sf::Color(34, 177, 76));
 			t3.setPosition(myGridPos);
 			_drawableLoots.push_back(t3);
 

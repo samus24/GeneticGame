@@ -107,6 +107,10 @@ private:
 					tileNumber = Gen::getRandom(3, 6);
 					break;
 				case Sala::COFRE:
+					tileNumber = Gen::getRandom(7, 18);
+					break;
+				case Sala::ENEMIGO:
+					tileNumber = 19;
 					break;
 				default:
 					tileNumber = 2;

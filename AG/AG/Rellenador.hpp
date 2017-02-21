@@ -25,6 +25,14 @@ public:
 				s.setCelda(p.first, p.second, *itUniones);
 				++itUniones;
 			}
+			std::vector<Pair<int, int>> cofres = posicionesCofres(itSalas->second.getAncho(), itSalas->second.getAlto(), s, itSalas->second.getCofres());
+			for (Pair<int, int> p : cofres){
+				s.setCelda(p.first, p.second, Sala::COFRE);
+			}
+			std::vector<Pair<int, int>> enemigos = posicionesEnemigos(itSalas->second.getAncho(), itSalas->second.getAlto(), s, itSalas->second.getEnemigos());
+			for (Pair<int, int> p : enemigos){
+				s.setCelda(p.first, p.second, Sala::ENEMIGO);
+			}
 			m.anadeSala(s);
 			++itSalas;
 		}
@@ -51,19 +59,69 @@ private:
 		}
 
 		unsigned int step;
-		if (puertasPorLado[UP] != 0)	step = ancho / (puertasPorLado[UP] + 1);
+		if (puertasPorLado[UP] != 0)	step = std::ceil((double)ancho / (puertasPorLado[UP] + 1));
 		for (size_t i = 0; i < puertasPorLado[UP]; ++i)
-			ret.push_back(Pair<int, int>(step*(i+1), 0));
-		if(puertasPorLado[DOWN] != 0)	step = ancho / (puertasPorLado[DOWN] + 1);
+			ret.push_back(Pair<int, int>((step*(i+1))%ancho, 0));
+		if (puertasPorLado[DOWN] != 0)	step = std::ceil((double)ancho / (puertasPorLado[DOWN] + 1));
 		for (size_t i = 0; i < puertasPorLado[DOWN]; ++i)
-			ret.push_back(Pair<int, int>(step*(i + 1), alto-1));
-		if (puertasPorLado[LEFT] != 0)	step = alto / (puertasPorLado[LEFT] + 1); 
+			ret.push_back(Pair<int, int>((step*(i + 1)) % ancho, alto - 1));
+		if (puertasPorLado[LEFT] != 0)	step = std::ceil((double)alto / (puertasPorLado[LEFT] + 1));
 		for (size_t i = 0; i < puertasPorLado[LEFT]; ++i)
-			ret.push_back(Pair<int, int>(0,step*(i + 1)));
-		if (puertasPorLado[RIGHT] != 0)	step = alto / (puertasPorLado[RIGHT] + 1);
+			ret.push_back(Pair<int, int>(0,(step*(i + 1)%alto)));
+		if (puertasPorLado[RIGHT] != 0)	step = std::ceil((double)alto / (puertasPorLado[RIGHT] + 1));
 		for (size_t i = 0; i < puertasPorLado[RIGHT]; ++i)
-			ret.push_back(Pair<int, int>(ancho-1,step*(i + 1)));
+			ret.push_back(Pair<int, int>(ancho - 1, (step*(i + 1) % alto)));
 
+		return ret;
+	}
+
+	static std::vector<Pair<int, int>> posicionesCofres(unsigned int ancho, unsigned int alto, Sala s, unsigned int nCofres){
+		std::vector<Pair<int, int>> ret;
+		int rand;
+		while (nCofres > 0){
+			rand = getRandom(0, 3);	// random wall
+			switch (rand){
+			case UP:
+				do{
+					rand = getRandom(0, ancho-1);
+				} while (s[rand][0] >= 0);	// while there was a door in that pos
+				ret.push_back(Pair<int, int>(rand, 0));
+				break;
+			case DOWN:
+				do{
+					rand = getRandom(0, ancho-1);
+				} while (s[rand][alto - 1] >= 0);	// while there was a door in that pos
+				ret.push_back(Pair<int, int>(rand, alto - 1));
+				break;
+			case LEFT:
+				do{
+					rand = getRandom(0, alto-1);
+				} while (s[0][rand] >= 0);	// while there was a door in that pos
+				ret.push_back(Pair<int, int>(0,rand));
+				break;
+			case RIGHT:
+				do{
+					rand = getRandom(0, alto - 1);
+				} while (s[ancho-1][rand] >= 0);	// while there was a door in that pos
+				ret.push_back(Pair<int, int>(ancho-1, rand));
+				break;
+			}
+			--nCofres;
+		}
+		return ret;
+	}
+
+	static std::vector<Pair<int, int>> posicionesEnemigos(unsigned int ancho, unsigned int alto, Sala s, unsigned int nEnemigos){
+		std::vector<Pair<int, int>> ret;
+		int randX, randY;
+		while (nEnemigos > 0){
+			do{
+				randX = getRandom(0, ancho - 1);
+				randY = getRandom(0, alto - 1);
+			} while ((s[randX][randY] >= 0) || (s[randX][randY] == Sala::COFRE));	// while there was a door or chest in that pos
+			ret.push_back(Pair<int, int>(randX, randY));
+			--nEnemigos;
+		}
 		return ret;
 	}
 

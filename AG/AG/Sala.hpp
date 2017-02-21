@@ -8,6 +8,7 @@ public:
 	static const int VACIO = -1;
 	static const int COFRE = -2;
 	static const int MURO = -3;
+	static const int ENEMIGO = -4;		// Potencialmente esto NO va aquí, pero es para pruebas
 
 	// Podemos considerar los numeros negativos como elementos de las salas,
 	// y comenzar a codificar las puertas con los numeros de sala con la que estan conectados

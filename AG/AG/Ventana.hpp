@@ -2,6 +2,7 @@
 #define VENTANA_HPP
 
 #include <SFML\Graphics.hpp>
+#include <thread>
 #include "Plotter.hpp"
 #include "Logger.hpp"
 #include "Button.hpp"
@@ -15,8 +16,8 @@
 class Ventana : public IAGObserver{
 public:
 	Ventana(Controlador& c) :
-		//_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
-		_window(sf::VideoMode(1300,600), "AG"),					// descomentar esta si no se representa bien en pantalla
+		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
+		//_window(sf::VideoMode(1300,600), "AG"),					// descomentar esta si no se representa bien en pantalla
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, 25)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_graphViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
@@ -60,7 +61,10 @@ public:
 						_valorMejor.clear();
 						_valorMejorGen.clear();
 						_generacion = 0;
+						_logger.clearLog();
 						_logger.append("Ejecutando AG\n");
+						_window.draw(_logger);
+						_window.display();
 						_ctrl->run();
 					}
 					else if (_tabPane.contains(point)){
@@ -88,7 +92,10 @@ public:
 						_valorMejor.clear();
 						_valorMejorGen.clear();
 						_generacion = 0;
+						_logger.clearLog();
 						_logger.append("Ejecutando AG\n");
+						_window.draw(_logger);
+						_window.display();
 						_ctrl->run();
 					}
 				}
@@ -118,7 +125,6 @@ public:
 		_graphViewer.setModel(mejor);
 		_roomViewer.setModel(mejor, Rellenador::rellenaMazmorra(mejor.getMejorCC()));
 		
-		_logger.clearLog();
 		_logger.append("Valor mejor: " + std::to_string(mejor.getAdaptacion()) + "\n");
 		_logger.append("Nodos: " + std::to_string(mejor.getGenotipo().size()) + "\n");
 		_logger.append("T. ejec.: " + std::to_string(total / 1000) + "s\n");
