@@ -61,7 +61,10 @@ private:
 		target.draw(_drawableLinks, states);
 		for (sf::Text t : _drawableIDs){
 			target.draw(t, states);
-		}		
+		}	
+		for (sf::Text t : _drawableSizes){
+			target.draw(t, states);
+		}
 		for (sf::Text t : _drawableEnemies){
 			target.draw(t, states);
 		}
@@ -76,6 +79,7 @@ private:
 		_drawableLinks.clear();
 		_drawableNodes.clear();
 		_drawableIDs.clear();
+		_drawableSizes.clear();
 		_drawableEnemies.clear();
 		_drawableLoots.clear();
 
@@ -86,7 +90,7 @@ private:
 			if (drawn.find(it->first) == drawn.cend()){
 				// the node hasn't benn drawn yet
 				// drawNode(g, it->first, drawn, findFreePos());
-				drawNode(g, it->first, it->second.getEnemigos(), it->second.getCofres(), drawn, findNearestPositionTo(sf::Vector2i(_cols / 2, _rows / 2)));
+				drawNode(g, it->first, drawn, findNearestPositionTo(sf::Vector2i(_cols / 2, _rows / 2)));
 			}
 			it++;
 		}
@@ -96,8 +100,8 @@ private:
 		}
 		for (size_t i = 0; i < _drawableIDs.size(); ++i){
 			_drawableIDs[i].move(0, 25);
-			_drawableEnemies[i].move(0, 35);
-			_drawableLoots[i].move(15, 35);
+			_drawableEnemies[i].move(_gridSize - 15, 0);
+			_drawableLoots[i].move(_gridSize - 5, 0);
 		}
 		for (size_t i = 0; i < _drawableLinks.getVertexCount(); ++i){
 			_drawableLinks[i].position.y += 25;
@@ -105,8 +109,9 @@ private:
 
 	}
 
-	void drawNode(Grafo<Gen> g, unsigned int idNodo, unsigned int nEnemies, unsigned int nLoot, std::set<unsigned int> &drawn, sf::Vector2i parentCoord){
+	void drawNode(Grafo<Gen> g, unsigned int idNodo, std::set<unsigned int> &drawn, sf::Vector2i parentCoord){
 		drawn.insert(idNodo);
+		Gen nodo = g.getNodos()[idNodo];
 		sf::RectangleShape n;
 		sf::Vector2i myCoords = findNearestPositionTo(parentCoord);
 		if (myCoords != sf::Vector2i(-1,-1)){
@@ -122,6 +127,7 @@ private:
 			n.setFillColor(sf::Color::Transparent);
 			_drawableNodes.push_back(n);
 			
+			sf::Vector2f myGridPos((myCoords.x * _gridSize), (myCoords.y * _gridSize) + (_gridSize/2));
 			sf::Vector2f myMidPoint((myCoords.x * _gridSize) + (_gridSize / 2), (myCoords.y * _gridSize) + (_gridSize / 2));
 			sf::Vector2f myParentPos(parentCoord.x * _gridSize, parentCoord.y * _gridSize);
 			sf::Vector2f myParentMidPoint(myParentPos.x + (_gridSize / 2), myParentPos.y + (_gridSize / 2));
@@ -136,26 +142,30 @@ private:
 			t.setPosition(myMidPoint);
 			_drawableIDs.push_back(t);
 
-			sf::Text t2(std::to_string(nEnemies), _font);
+			sf::Text t4(("(" + std::to_string(nodo.getAncho()) + "x" + std::to_string(nodo.getAlto()) + ")"), _font);
+			t4.setCharacterSize(10);
+			t4.setFillColor(sf::Color::Blue);
+			t4.setPosition(myGridPos);
+			_drawableSizes.push_back(t4);
+
+			sf::Text t2(std::to_string(nodo.getEnemigos()), _font);
 			t2.setCharacterSize(10);
-			t2.setFillColor(sf::Color::Green);
-			t2.setPosition(myMidPoint);
+			t2.setFillColor(sf::Color(34,177,76));
+			t2.setPosition(myGridPos);
 			_drawableEnemies.push_back(t2);
 
-			sf::Text t3(std::to_string(nLoot), _font);
+			sf::Text t3(std::to_string(nodo.getCofres()), _font);
 			t3.setCharacterSize(10);
 			t3.setFillColor(sf::Color::Red);
-			t3.setPosition(myMidPoint);
+			t3.setPosition(myGridPos);
 			_drawableLoots.push_back(t3);
 
 			auto ady = g.getAdyacencia()[idNodo];
 			auto it = ady.begin();
-			auto nodos = g.getNodos();
 
 			while (it != ady.cend()){
-				auto nodo = nodos.at(*it);
 				if (drawn.find(*it) == drawn.cend()){
-					drawNode(g, *it, nodo.getEnemigos(), nodo.getCofres(),drawn, myCoords);
+					drawNode(g, *it,drawn, myCoords);
 				}
 				else{
 					for (size_t i = 0; i < _drawableNodes.size(); ++i){
@@ -231,6 +241,7 @@ private:
 	unsigned int _rows;
 	std::vector<sf::RectangleShape> _drawableNodes;
 	std::vector<sf::Text> _drawableIDs;
+	std::vector<sf::Text> _drawableSizes;
 	std::vector<sf::Text> _drawableEnemies;
 	std::vector<sf::Text> _drawableLoots;
 	sf::Font _font;

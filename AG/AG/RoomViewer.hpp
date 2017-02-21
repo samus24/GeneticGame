@@ -17,6 +17,12 @@ public:
 	{
 		_size = size;
 		_font.loadFromFile("arial.ttf");
+		_roomInfo.setCharacterSize(15);
+		_roomInfo.setFillColor(sf::Color::Black);
+		_roomInfo.setFont(_font);
+		_roomInfo.setString(std::to_string(_currentRoom));
+		_roomInfo.setPosition(this->getPosition());
+		_roomInfo.move(_size.x - 75, 10);
 		if (!_texture.loadFromFile("images/suelo1.png"))
 			exit(-1);
 
@@ -68,21 +74,14 @@ private:
 
 		// draw the vertex array
 		target.draw(m_vertices, states);
-
-		sf::Text t;
-		t.setCharacterSize(20);
-		t.setFillColor(sf::Color::Black);
-		t.setFont(_font);
-		t.setString(std::to_string(_currentRoom));
-		t.setPosition(this->getPosition());
-		t.move(_size.x - 50, 10);
 		
-		target.draw(t);
+		target.draw(_roomInfo);
 		target.draw(_botonNext);
 		target.draw(_botonPrev);
 	}
 
 	void update(){
+		unsigned int realTileSize = std::min(_size.x, _size.y) / 40;	// 40 = maximum tiles for a room
 		auto nodos = _model.getMejorCC().getNodos();
 		auto it = nodos.begin();
 		std::advance(it, _currentRoom);
@@ -107,10 +106,10 @@ private:
 				sf::Vertex* quad = &m_vertices[(i + j * sala.getAncho()) * 4];
 
 				// define its 4 corners
-				quad[0].position = sf::Vector2f(i * _TILESIZE, j * _TILESIZE);
-				quad[1].position = sf::Vector2f((i + 1) * _TILESIZE, j * _TILESIZE);
-				quad[2].position = sf::Vector2f((i + 1) * _TILESIZE, (j + 1) * _TILESIZE);
-				quad[3].position = sf::Vector2f(i * _TILESIZE, (j + 1) * _TILESIZE);
+				quad[0].position = sf::Vector2f(i * realTileSize, j * realTileSize);
+				quad[1].position = sf::Vector2f((i + 1) * realTileSize, j * realTileSize);
+				quad[2].position = sf::Vector2f((i + 1) * realTileSize, (j + 1) * realTileSize);
+				quad[3].position = sf::Vector2f(i * realTileSize, (j + 1) * realTileSize);
 
 				// define its 4 texture coordinates
 				quad[0].texCoords = sf::Vector2f(tu * _TILESIZE, tv * _TILESIZE);
@@ -118,9 +117,15 @@ private:
 				quad[2].texCoords = sf::Vector2f((tu + 1) * _TILESIZE, (tv + 1) * _TILESIZE);
 				quad[3].texCoords = sf::Vector2f(tu * _TILESIZE, (tv + 1) * _TILESIZE);
 			}
+		// Move all tiles from (0,0) to (10,30) in order to avoid the tabPane
 		for (size_t i = 0; i < m_vertices.getVertexCount(); ++i){
-			m_vertices[i].position += this->getPosition();
+			m_vertices[i].position += sf::Vector2f(10,30);
 		}
+		std::string info = "Sala " + std::to_string(_currentRoom) + " (id " + std::to_string(it->first) + ")\n";
+		info += "Dim: (" + std::to_string(sala.getAncho()) + "x" + std::to_string(sala.getAlto()) + ")\n";
+		info += "Enemigos: " + std::to_string(sala.getEnemigos()) + "\n";
+		info += "Cofres: " + std::to_string(sala.getCofres()) + "\n";
+		_roomInfo.setString(info);
 	}
 
 	sf::Vector2f _size;
@@ -128,6 +133,7 @@ private:
 	sf::Font _font;
 	sf::Texture _texture;
 	sf::VertexArray m_vertices;
+	sf::Text _roomInfo;
 	TextButton _botonPrev;
 	TextButton _botonNext;
 	
