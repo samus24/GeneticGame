@@ -134,6 +134,9 @@
     <ClInclude Include="RoomViewer.hpp">
       <Filter>Archivos de encabezado\vista</Filter>
     </ClInclude>
+    <ClInclude Include="RandomGen.hpp">
+      <Filter>Archivos de encabezado\utiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

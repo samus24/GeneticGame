@@ -3,6 +3,8 @@
 
 #include <SFML\Graphics.hpp>
 #include <queue>
+
+#include "RandomGen.hpp"
 #include "Cromosoma.hpp"
 #include "Button.hpp"
 #include "Mazmorra.hpp"
@@ -101,13 +103,13 @@ private:
 				int tileNumber = 0;
 				switch (_mazmorra[_currentRoom][i][j]){
 				case Sala::VACIO:
-					tileNumber = Gen::getRandom(0, 1);
+					tileNumber = RandomGen::getRandom(0, 1);
 					break;
 				case Sala::MURO:
-					tileNumber = Gen::getRandom(3, 6);
+					tileNumber = RandomGen::getRandom(3, 6);
 					break;
 				case Sala::COFRE:
-					tileNumber = Gen::getRandom(7, 18);
+					tileNumber = RandomGen::getRandom(7, 18);
 					break;
 				case Sala::ENEMIGO:
 					tileNumber = 19;

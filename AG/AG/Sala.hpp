@@ -47,14 +47,6 @@ private:
 	unsigned int _ancho;
 	unsigned int _alto;
 	std::vector<std::vector<int>> _celdas;
-	//std::unordered_map<int, int> _puertas;	// Este array indica para una puerta (id puerta), a qué sala (id sala) conduce
-
-	
-
-	
-
-
-
 };
 
 #endif

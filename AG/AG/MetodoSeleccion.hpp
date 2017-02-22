@@ -1,6 +1,7 @@
 #ifndef METODOSELECCION_HPP
 #define METODOSELECCION_HPP
 
+#include "RandomGen.hpp"
 #include"Poblacion.hpp"
 
 class MetodoSeleccion {
@@ -17,7 +18,7 @@ public:
 		double prob;
 		int posSuper;
 		for (int i = 0; i < pob->_tam; ++i){
-			prob = getRandom(0, 1);
+			prob = RandomGen::getRandom(0.f, 1.f);
 			posSuper = 0;
 			while ((posSuper < pob->_tam) && (prob > pob->individuos[posSuper].getPuntAcum()))
 				posSuper++;
@@ -28,14 +29,6 @@ public:
 			nuevaPob.push_back(pob->individuos[seleccionados[i]]);
 		}
 		pob->individuos = nuevaPob;
-	}
-
-private:
-	double getRandom(double from, double to){
-		std::random_device rd;
-		std::mt19937 gen(rd());
-		std::uniform_real_distribution<> dis(from, to);
-		return dis(gen);
 	}
 
 };

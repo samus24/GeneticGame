@@ -54,7 +54,7 @@ private:
 		// Si hay puertas sobrantes, se asignan de forma aleatoria
 		int resto = nUniones % 4;
 		while (resto > 0){
-			puertasPorLado[getRandom(0, 3)]++;
+			puertasPorLado[RandomGen::getRandom(0u, 3u)]++;
 			resto--;
 		}
 
@@ -79,29 +79,29 @@ private:
 		std::vector<Pair<int, int>> ret;
 		int rand;
 		while (nCofres > 0){
-			rand = getRandom(0, 3);	// random wall
+			rand = RandomGen::getRandom(0, 3);	// random wall
 			switch (rand){
 			case UP:
 				do{
-					rand = getRandom(0, ancho-1);
+					rand = RandomGen::getRandom(0u, ancho - 1);
 				} while (s[rand][0] >= 0);	// while there was a door in that pos
 				ret.push_back(Pair<int, int>(rand, 0));
 				break;
 			case DOWN:
 				do{
-					rand = getRandom(0, ancho-1);
+					rand = RandomGen::getRandom(0u, ancho - 1);
 				} while (s[rand][alto - 1] >= 0);	// while there was a door in that pos
 				ret.push_back(Pair<int, int>(rand, alto - 1));
 				break;
 			case LEFT:
 				do{
-					rand = getRandom(0, alto-1);
+					rand = RandomGen::getRandom(0u, alto - 1);
 				} while (s[0][rand] >= 0);	// while there was a door in that pos
 				ret.push_back(Pair<int, int>(0,rand));
 				break;
 			case RIGHT:
 				do{
-					rand = getRandom(0, alto - 1);
+					rand = RandomGen::getRandom(0u, alto - 1);
 				} while (s[ancho-1][rand] >= 0);	// while there was a door in that pos
 				ret.push_back(Pair<int, int>(ancho-1, rand));
 				break;
@@ -116,20 +116,13 @@ private:
 		int randX, randY;
 		while (nEnemigos > 0){
 			do{
-				randX = getRandom(0, ancho - 1);
-				randY = getRandom(0, alto - 1);
+				randX = RandomGen::getRandom(0u, ancho - 1);
+				randY = RandomGen::getRandom(0u, alto - 1);
 			} while ((s[randX][randY] >= 0) || (s[randX][randY] == Sala::COFRE));	// while there was a door or chest in that pos
 			ret.push_back(Pair<int, int>(randX, randY));
 			--nEnemigos;
 		}
 		return ret;
-	}
-
-	static int getRandom(int from, int to){
-		std::random_device rd;
-		std::mt19937 gen(rd());
-		std::uniform_int_distribution<> dis(from, to);
-		return dis(gen);
 	}
 
 	static const int UP = 0;
