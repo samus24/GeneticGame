@@ -93,6 +93,14 @@ public:
 		return _nodos.size();
 	}
 
+	void setAdyacencia(std::unordered_map< unsigned int, std::set<unsigned int> > ady){
+		this->_ady = ady;
+	}
+
+	void setNodos(std::unordered_map< unsigned int, N > nodos){
+		this->_nodos = nodos;
+	}
+
 	/**
 		\brief Anade un nodo al grafo
 		\param nodo  Nuevo nodo a anadir

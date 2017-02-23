@@ -201,6 +201,19 @@ private:
 	}
 
 	void mutacion(){
+		std::vector<Cromosoma*> seleccionados;
+		auto it = _pob.individuos.begin();
+		double prob;
+		for (int i = 0; i < _pob._tam; ++i){
+			prob = RandomGen::getRandom(0.f, 1.f);
+			if (prob < _param.probMutacion){
+				seleccionados.push_back(&(*it));
+			}
+			++it;
+		}
+
+		for (Cromosoma* i : seleccionados)
+			_param.mutacion->mutar(i, _paramEval);
 		
 	}
 
