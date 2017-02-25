@@ -78,35 +78,42 @@ private:
 	static std::vector<Pair<int, int>> posicionesCofres(unsigned int ancho, unsigned int alto, Sala s, unsigned int nCofres){
 		std::vector<Pair<int, int>> ret;
 		int rand;
+		unsigned int tries = 5;
 		while (nCofres > 0){
+			tries = 5;
 			rand = RandomGen::getRandom(0, 3);	// random wall
 			switch (rand){
 			case UP:
 				do{
 					rand = RandomGen::getRandom(0u, ancho - 1);
-				} while (s[rand][0] >= 0);	// while there was a door in that pos
+					--tries;
+				} while ((s[rand][0] >= 0 || s[rand][0] == Sala::COFRE) && tries > 0);	// while there was a door or chest in that pos
 				ret.push_back(Pair<int, int>(rand, 0));
 				break;
 			case DOWN:
 				do{
 					rand = RandomGen::getRandom(0u, ancho - 1);
-				} while (s[rand][alto - 1] >= 0);	// while there was a door in that pos
+					--tries;
+				} while ((s[rand][alto - 1] >= 0 || s[rand][alto - 1] == Sala::COFRE) && tries > 0);	
 				ret.push_back(Pair<int, int>(rand, alto - 1));
 				break;
 			case LEFT:
 				do{
 					rand = RandomGen::getRandom(0u, alto - 1);
-				} while (s[0][rand] >= 0);	// while there was a door in that pos
+					--tries;
+				} while ((s[0][rand] >= 0 || s[0][rand] == Sala::COFRE) && tries > 0);	
 				ret.push_back(Pair<int, int>(0,rand));
 				break;
 			case RIGHT:
 				do{
 					rand = RandomGen::getRandom(0u, alto - 1);
-				} while (s[ancho-1][rand] >= 0);	// while there was a door in that pos
+					--tries;
+				} while ((s[ancho - 1][rand] >= 0 || s[ancho - 1][rand] == Sala::COFRE) && tries > 0);
 				ret.push_back(Pair<int, int>(ancho-1, rand));
 				break;
 			}
-			--nCofres;
+			if (tries > 0)
+				--nCofres;
 		}
 		return ret;
 	}

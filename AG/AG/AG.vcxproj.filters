@@ -137,6 +137,9 @@
     <ClInclude Include="RandomGen.hpp">
       <Filter>Archivos de encabezado\utiles</Filter>
     </ClInclude>
+    <ClInclude Include="ProgressBar.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
