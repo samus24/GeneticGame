@@ -102,6 +102,8 @@
     <ClInclude Include="ParametrosEval.hpp" />
     <ClInclude Include="Plotter.hpp" />
     <ClInclude Include="Poblacion.hpp" />
+    <ClInclude Include="ProgressBar.hpp" />
+    <ClInclude Include="RandomGen.hpp" />
     <ClInclude Include="Rellenador.hpp" />
     <ClInclude Include="RoomViewer.hpp" />
     <ClInclude Include="Sala.hpp" />

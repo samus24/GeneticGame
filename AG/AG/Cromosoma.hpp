@@ -45,6 +45,10 @@ public:
 		return _adaptacion;
 	}
 
+	double* getValores(){
+		return _mejoresValores;
+	}
+
 	void setIndexElMejor(unsigned int i){
 		_indexMejorCC = i;
 	}
@@ -77,6 +81,9 @@ public:
 			if (componente > mejorCC){
 				mejorCC = componente;
 				_indexMejorCC = i;
+				for (size_t i = 0; i < 7; ++i){
+					_mejoresValores[i] = _valores[i];
+				}
 			}
 		}
 		this->_adaptacion = mejorCC;
@@ -100,12 +107,17 @@ public:
 
 private:
 	double evaluaCC(Grafo<Gen>::ComponenteConexa<Gen> CC, ParametrosEval param) {
-		//[NumNodos, Media - Grado - CC, media - tama�o - sala, penalizar - ciclos]
-		//[25, 2.5, 30x20(favorece la resoluci�n), min(ciclos)]
-		double pesos[] = { 0.275, 0.45, 0.05, 0.05, 0.075, 0.05, 0.05 }; // {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
-		double valores[7];
+		double pesos[] = { 0.375, 0.35, 0.05, 0.05, 0.05, 0.07, 0.055 }; // {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
+		double sumaPesos = 0;
 		double evaluacion = 0;
 
+		for (size_t i = 0; i < 7; ++i){
+			sumaPesos += pesos[i];
+		}
+		double error = 0.00001;
+		if (sumaPesos > 1+error || sumaPesos < 1 - error){
+			throw std::exception("Balance de pesos incorrecto");
+		}
 		int numNodos = CC.size();
 		double mediaGrado = 0;
 		double mediaAlto = 0;
@@ -139,47 +151,30 @@ private:
 
 		// 1 - abs(x - ideal) / ideal;
 		//[NumNodos, Media - Grado - CC, media - tama�o - sala, penalizar - ciclos]
-		valores[0] = 1 - (abs(int(numNodos - param.nodosOptimos)) / (float)param.nodosOptimos);
-		if (valores[0] < 0)	valores[0] = 0;
+		_valores[0] = 1 - (abs(int(numNodos - param.nodosOptimos)) / (float)param.nodosOptimos);
+		if (_valores[0] < 0)	_valores[0] = 0;
 
-		valores[1] = 1 - (abs(mediaGrado - param.gradoOptimo) / param.gradoOptimo);
-		if (valores[1] < 0)	valores[1] = 0;
+		_valores[1] = 1 - (abs(mediaGrado - param.gradoOptimo) / param.gradoOptimo);
+		if (_valores[1] < 0)	_valores[1] = 0;
 
-		valores[2] = 1 - (abs(mediaAlto - param.altoOptimo) / (float)param.altoOptimo);
-		if (valores[2] < 0)	valores[2] = 0;
+		_valores[2] = 1 - (abs(mediaAlto - param.altoOptimo) / (float)param.altoOptimo);
+		if (_valores[2] < 0)	_valores[2] = 0;
 
-		valores[3] = 1 - (abs(mediaAncho - param.anchoOptimo) / (float)param.anchoOptimo);
-		if (valores[3] < 0)	valores[3] = 0;
+		_valores[3] = 1 - (abs(mediaAncho - param.anchoOptimo) / (float)param.anchoOptimo);
+		if (_valores[3] < 0)	_valores[3] = 0;
 
-		valores[4] = 1 - (abs(int(ciclosActuales - param.ciclosOptimos)) / (float)param.ciclosOptimos);
-		if (valores[4] < 0)	valores[4] = 0;
+		_valores[4] = 1 - (abs(int(ciclosActuales - param.ciclosOptimos)) / (float)param.ciclosOptimos);
+		if (_valores[4] < 0)	_valores[4] = 0;
 
-		valores[5] = 1 - (abs(int(enemigosActuales - param.enemigosOptimos)) / (float)param.enemigosOptimos);
-		if (valores[5] < 0)	valores[5] = 0;
+		_valores[5] = 1 - (abs(int(enemigosActuales - param.enemigosOptimos)) / (float)param.enemigosOptimos);
+		if (_valores[5] < 0)	_valores[5] = 0;
 
-		valores[6] = 1 - (abs(int(cofresActuales - param.cofresOptimos)) / (float)param.cofresOptimos);
-		if (valores[6] < 0)	valores[6] = 0;
+		_valores[6] = 1 - (abs(int(cofresActuales - param.cofresOptimos)) / (float)param.cofresOptimos);
+		if (_valores[6] < 0)	_valores[6] = 0;
 
 		for (int i = 0; i < 7; ++i){
-			evaluacion += valores[i] * pesos[i];
+			evaluacion += _valores[i] * pesos[i];
 		}
-		//ciclosActuales = CC.getCiclos(); //o función que devuelva los ciclos
-
-		/*
-		(numNodos < _NODOS_OPTIMOS_CC) ? diferencias[0] = std::abs(numNodos - _NODOS_OPTIMOS_CC) / _NODOS_OPTIMOS_CC :	diferencias[0] = std::abs(numNodos - _NODOS_OPTIMOS_CC) / numNodos;
-
-		(mediaGrado < _GRADO_OPTIMO_CC) ? diferencias[1] = std::abs(mediaGrado - _GRADO_OPTIMO_CC) / _GRADO_OPTIMO_CC : diferencias[1] = std::abs(mediaGrado - _GRADO_OPTIMO_CC) / mediaGrado;
-
-		(mediaAlto < _ALTO_OPTIMO) ? diferencias[2] = std::abs(mediaAlto - _ALTO_OPTIMO) / _ALTO_OPTIMO :	diferencias[2] = std::abs(mediaAlto - _ALTO_OPTIMO) / mediaAlto;
-
-		(mediaAncho < _ANCHO_OPTIMO) ? diferencias[3] = std::abs(mediaAncho - _ANCHO_OPTIMO) / _ANCHO_OPTIMO : diferencias[3] = std::abs(mediaAncho - _ANCHO_OPTIMO) / mediaAncho;
-
-		(ciclosActuales < _CICLOS_OPTIMOS) ? diferencias[4] = std::abs(ciclosActuales - _CICLOS_OPTIMOS) / _CICLOS_OPTIMOS : diferencias[4] = std::abs(ciclosActuales - _CICLOS_OPTIMOS) / ciclosActuales;
-
-		for (std::size_t i = 0; i < 5; ++i) {
-		evaluacion -= diferencias[i] * pesos[i];
-		}
-		*/
 
 		return evaluacion;
 	}
@@ -190,6 +185,8 @@ private:
 	double _puntAcum;
 	double _adaptacion;
 	unsigned int _indexMejorCC;
+	double _valores[7];
+	double _mejoresValores[7];
 };
 
 #endif

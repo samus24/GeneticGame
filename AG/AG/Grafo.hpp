@@ -10,6 +10,7 @@
 #include <random>
 #include <time.h>
 
+#include "RandomGen.hpp"
 #include "Pair.hpp"
 
 
@@ -61,7 +62,7 @@ public:
 	Grafo<N>(unsigned int minNodos, unsigned int maxNodos, double densidad)
 	{
 		std::srand(time(NULL));
-		unsigned int nNodos = getRandom(minNodos, maxNodos);
+		unsigned int nNodos = RandomGen::getRandom(minNodos, maxNodos);
 		for (std::size_t i = 0; i < nNodos; ++i){
 			N nodo;				
 			// El contructor por defecto de Gen inicializa ancho y alto random
@@ -70,8 +71,8 @@ public:
 		unsigned int nAristas = sumatorio(nNodos) * densidad;
 		unsigned int nodoA, nodoB;
 		while (nAristas > 0){
-			nodoA = getRandom(0, nNodos - 1);
-			nodoB = getRandom(0, nNodos - 1);
+			nodoA = RandomGen::getRandom(0u, nNodos - 1);
+			nodoB = RandomGen::getRandom(0u, nNodos - 1);
 			if ((nodoA != nodoB) && !hayAristaEntre(nodoA, nodoB)){
 				this->anadeArista(nodoA, nodoB);
 				--nAristas;
@@ -90,6 +91,14 @@ public:
 
 	unsigned int size(){
 		return _nodos.size();
+	}
+
+	void setAdyacencia(std::unordered_map< unsigned int, std::set<unsigned int> > ady){
+		this->_ady = ady;
+	}
+
+	void setNodos(std::unordered_map< unsigned int, N > nodos){
+		this->_nodos = nodos;
 	}
 
 	/**
@@ -264,7 +273,7 @@ public:
 			itB++;
 		}
 
-		unsigned int nuevas = Grafo<N>::getRandom(1, (sizeA * nodosB.size() * 0.75));	// Para evitar demasiada densidad, se limita al 75% de las posibles nuevas aristas
+		unsigned int nuevas = RandomGen::getRandom(1, (int)(sizeA * nodosB.size() * 0.75));	// Para evitar demasiada densidad, se limita al 75% de las posibles nuevas aristas
 		std::vector<Pair<unsigned int, unsigned int>> uniones;
 		for (std::size_t i = 0; i < sizeA; ++i){
 			for (std::size_t j = 0; j < nodosB.size(); ++j){
@@ -305,7 +314,7 @@ public:
 
 	std::vector<Grafo<N>> divideEnGrafos(unsigned int n){
 		std::vector<Grafo<N>> ret, aux;
-		aux = divideGrafo(getRandom(0, _nodos.size()));
+		aux = divideGrafo(RandomGen::getRandom(0, (int)_nodos.size()));
 		for (std::size_t i = 1; i < n; ++i){
 			if (i == n - 1){
 				ret.push_back(aux[0]);
@@ -314,11 +323,11 @@ public:
 			else{
 				if (aux[0].size() < aux[1].size()){
 					ret.push_back(aux[0]);
-					aux = aux.at(1).divideGrafo(getRandom(0, aux[1].size()));
+					aux = aux.at(1).divideGrafo(RandomGen::getRandom(0, (int)aux[1].size()));
 				}
 				else{
 					ret.push_back(aux[1]);
-					aux = aux.at(0).divideGrafo(getRandom(0, aux[0].size()));
+					aux = aux.at(0).divideGrafo(RandomGen::getRandom(0, (int)aux[0].size()));
 				}
 			}
 		}
@@ -371,13 +380,6 @@ private:
 		catch (std::out_of_range e){
 			return;
 		}
-	}
-
-	static int getRandom(int from, int to){
-		std::random_device rd;
-		std::mt19937 gen(rd());
-		std::uniform_int_distribution<> dis(from, to);
-		return dis(gen);
 	}
 
 	int sumatorio(int n)

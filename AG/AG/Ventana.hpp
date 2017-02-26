@@ -4,6 +4,7 @@
 #include <SFML\Graphics.hpp>
 #include <thread>
 #include "Plotter.hpp"
+#include "ProgressBar.hpp"
 #include "Logger.hpp"
 #include "Button.hpp"
 #include "ScrollBar.hpp"
@@ -23,7 +24,8 @@ public:
 		_graphViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_roomViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.19, 400)),
-		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200))
+		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200)),
+		_progress(sf::Vector2f(_window.getSize().x *0.8, _window.getSize().y * 0.75), sf::Vector2f(_window.getSize().x * 0.1, 30))
 	{
 		_font.loadFromFile("arial.ttf");
 		_ctrl = &c;
@@ -34,8 +36,8 @@ public:
 		_tabPane.addTab("Rooms", _roomViewer);
 	}
 
-	void run(){
-		srand(time(NULL));
+	void run(unsigned int maxIter){
+		_progress.setMaxProgress(maxIter);
 		for (size_t i = 0; i < 10; ++i){
 			_ejeX.push_back(i);
 		}
@@ -63,6 +65,8 @@ public:
 						_generacion = 0;
 						_logger.clearLog();
 						_logger.append("Ejecutando AG\n");
+						_progress.clearProgress();
+						_window.draw(_progress);
 						_window.draw(_logger);
 						_window.display();
 						_ctrl->run();
@@ -94,6 +98,8 @@ public:
 						_generacion = 0;
 						_logger.clearLog();
 						_logger.append("Ejecutando AG\n");
+						_progress.clearProgress();
+						_window.draw(_progress);
 						_window.draw(_logger);
 						_window.display();
 						_ctrl->run();
@@ -104,6 +110,7 @@ public:
 			_window.draw(_tabPane);
 			_window.draw(_logger);
 			_window.draw(_botonRun);
+			_window.draw(_progress);
 			_window.display();
 		}
 	}
@@ -113,6 +120,10 @@ public:
 		_valorMejor.push_back(mejor);
 		_valorMejorGen.push_back(mejorGen);
 		_valorMedia.push_back(media);
+		_window.draw(_logger);
+		_progress.updateProgress(_generacion);
+		_window.draw(_progress);
+		_window.display();
 		_generacion++;
 	}
 
@@ -126,18 +137,34 @@ public:
 		_roomViewer.setModel(mejor, Rellenador::rellenaMazmorra(mejor.getMejorCC()));
 		
 		_logger.append("Valor mejor: " + std::to_string(mejor.getAdaptacion()) + "\n");
-		_logger.append("Nodos: " + std::to_string(mejor.getGenotipo().size()) + "\n");
+		_logger.append("Nodos mejor CC: " + std::to_string(mejor.getMejorCC().size()) + "\n");
 		_logger.append("T. ejec.: " + std::to_string(total / 1000) + "s\n");
 		_logger.append("T. m. sel.: " + std::to_string(tmSel) + "ms\n");
 		_logger.append("T. m. cruce: " + std::to_string(tmCruce) + "ms\n");
 		_logger.append("T. m. mut.: " + std::to_string(tmMut) + "ms\n");
 		_logger.append("T. init: " + std::to_string(tInit) + "ms\n");
 		_logger.append("T. m. eval.: " + std::to_string(tmEval) + "ms\n");
+		std::string valoresText[] = {
+			"Nodos: ",
+			"Media Grado: ",
+			"Media Alto: ",
+			"Media Ancho: ",
+			"Ciclos: ",
+			"Enemigos: ",
+			"Cofres: "
+		};
+		_logger.append("-- Notas CC --\n");
+		double* valores = mejor.getValores();
+		for (size_t i = 0; i < 7; ++i){
+			_logger.append(valoresText[i] + std::to_string(valores[i]) + "\n");
+		}
+		
 
 	}
 private:
 	sf::RenderWindow _window;
 	sf::Font _font;
+	ProgressBar _progress;
 	TabPane _tabPane;
 	Plotter _plotter;
 	GraphViewer _graphViewer;

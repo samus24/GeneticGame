@@ -1,6 +1,7 @@
 #ifndef AG_HPP
 #define AG_HPP
 
+#include "RandomGen.hpp"
 #include "IAGObserver.hpp"
 #include "Poblacion.hpp"
 #include "Cromosoma.hpp"
@@ -183,7 +184,7 @@ private:
 		int numSeleCruce = 0;
 		double prob;
 		for (int i = 0; i < _pob._tam; ++i){
-			prob = getRandom(0, 1);
+			prob = RandomGen::getRandom(0.f, 1.f);
 			if (prob < _param.probCruce){
 				seleccionados[numSeleCruce] = i;
 				numSeleCruce++;
@@ -200,6 +201,19 @@ private:
 	}
 
 	void mutacion(){
+		std::vector<Cromosoma*> seleccionados;
+		auto it = _pob.individuos.begin();
+		double prob;
+		for (int i = 0; i < _pob._tam; ++i){
+			prob = RandomGen::getRandom(0.f, 1.f);
+			if (prob < _param.probMutacion){
+				seleccionados.push_back(&(*it));
+			}
+			++it;
+		}
+
+		for (Cromosoma* i : seleccionados)
+			_param.mutacion->mutar(i, _paramEval);
 		
 	}
 
@@ -213,13 +227,6 @@ private:
 		for (IAGObserver* o : _obs){
 			o->onAGTerminado(mejor, total, tmSel, tmCruce, tmMut, tInit, tmEval);
 		}
-	}
-
-	double getRandom(double from, double to){
-		std::random_device rd;
-		std::mt19937 gen(rd());
-		std::uniform_real_distribution<> dis(from, to);
-		return dis(gen);
 	}
 
 	unsigned int _generacion;

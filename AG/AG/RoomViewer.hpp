@@ -3,6 +3,8 @@
 
 #include <SFML\Graphics.hpp>
 #include <queue>
+
+#include "RandomGen.hpp"
 #include "Cromosoma.hpp"
 #include "Button.hpp"
 #include "Mazmorra.hpp"
@@ -43,6 +45,7 @@ public:
 	void setModel(Cromosoma model, Mazmorra mazmorra){
 		_model = model;
 		_mazmorra = mazmorra;
+		_model.setIndexElMejor(model.getIndexElMejor());	// This attribute doesn't copy on asignment
 		_currentRoom = 0;
 		update();
 	}
@@ -101,13 +104,13 @@ private:
 				int tileNumber = 0;
 				switch (_mazmorra[_currentRoom][i][j]){
 				case Sala::VACIO:
-					tileNumber = Gen::getRandom(0, 1);
+					tileNumber = RandomGen::getRandom(0, 1);
 					break;
 				case Sala::MURO:
-					tileNumber = Gen::getRandom(3, 6);
+					tileNumber = RandomGen::getRandom(3, 6);
 					break;
 				case Sala::COFRE:
-					tileNumber = Gen::getRandom(7, 18);
+					tileNumber = RandomGen::getRandom(7, 18);
 					break;
 				case Sala::ENEMIGO:
 					tileNumber = 19;
@@ -139,7 +142,7 @@ private:
 		for (size_t i = 0; i < m_vertices.getVertexCount(); ++i){
 			m_vertices[i].position += sf::Vector2f(10,30);
 		}
-		std::string info = "Sala " + std::to_string(_currentRoom) + " (id " + std::to_string(it->first) + ")\n";
+		std::string info = "Sala " + std::to_string(_currentRoom) + "/" + std::to_string(_model.getMejorCC().size()) +" (id " + std::to_string(it->first) + ")\n";
 		info += "Dim: (" + std::to_string(sala.getAncho()) + "x" + std::to_string(sala.getAlto()) + ")\n";
 		info += "Enemigos: " + std::to_string(sala.getEnemigos()) + "\n";
 		info += "Cofres: " + std::to_string(sala.getCofres()) + "\n";

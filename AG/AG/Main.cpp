@@ -22,19 +22,20 @@ int main(){
 	p.probMutacion = 0.02;
 	p.seleccion = new SeleccionRuleta();
 	p.cruce = new CruceMonopunto();
+	p.mutacion = new MutacionNodo();
 
 	ParametrosEval pEval;
 	pEval.nodosOptimos = 25;
 	pEval.gradoOptimo = 2.5;
 	pEval.anchoOptimo = 30;
 	pEval.altoOptimo = 20;
-	pEval.ciclosOptimos = 1;
+	pEval.ciclosOptimos = 4;
 	pEval.enemigosOptimos = 35;
 	pEval.cofresOptimos = 10;
 
 	AG ag(p,pEval);
 	Controlador c(ag);
 	Ventana v(c);
-	v.run();
+	v.run(p.iteraciones);
 	return 0;
 }

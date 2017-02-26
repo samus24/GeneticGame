@@ -1,17 +1,18 @@
 #ifndef GEN_HPP
 #define GEN_HPP
 
+
 #include <time.h>
-#include <random>
+#include "RandomGen.hpp"
 
 class Gen{
 public:
 	Gen(){
 		std::srand(time(NULL));
-		_ancho = getRandom(_MINSIZE, _MAXSIZE);
-		_alto = getRandom(_MINSIZE, _MAXSIZE);
-		_nEnemigos = getRandom(_MINENEMIGOS, _MAXENEMIGOS);
-		_nCofres = getRandom(_MINCOFRES, _MAXCOFRES);
+		_ancho = RandomGen::getRandom(_MINSIZE, _MAXSIZE);
+		_alto = RandomGen::getRandom(_MINSIZE, _MAXSIZE);
+		_nEnemigos = RandomGen::getRandom(_MINENEMIGOS, _MAXENEMIGOS);
+		_nCofres = RandomGen::getRandom(_MINCOFRES, _MAXCOFRES);
 	}
 
 	Gen& operator=(Gen other){
@@ -38,12 +39,6 @@ public:
 		return _nCofres;
 	}
 
-	static int getRandom(int from, int to){
-		std::random_device rd;
-		std::mt19937 gen(rd());
-		std::uniform_int_distribution<> dis(from, to);
-		return dis(gen);
-	}
 private:
 	unsigned int _ancho;
 	unsigned int _alto;
