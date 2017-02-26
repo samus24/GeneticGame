@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>sfml-graphics.redist</id>
+    <version>2.4.0.0</version>
+    <title>sfml-graphics Redist</title>
+    <authors>Laurent Gomila</authors>
+    <owners>Laurent Gomila</owners>
+    <licenseUrl>http://www.sfml-dev.org/license.php</licenseUrl>
+    <projectUrl>http://www.sfml-dev.org/</projectUrl>
+    <iconUrl>http://www.sfml-dev.org/images/sfml-icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Redistributable components for package 'sfml-graphics'. This package should only be installed as a dependency. 
+(This is not the package you are looking for).</description>
+    <summary>Redistributable components for for package 'sfml-graphics'</summary>
+    <releaseNotes>Release of SFML 2.4.0 libraries</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>sfml native CoApp nativepackage</tags>
+  </metadata>
+</package>
