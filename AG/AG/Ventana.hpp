@@ -17,8 +17,8 @@
 class Ventana : public IAGObserver{
 public:
 	Ventana(Controlador& c) :
-		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
-		//_window(sf::VideoMode(1300,600), "AG"),					// descomentar esta si no se representa bien en pantalla
+		//_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
+		_window(sf::VideoMode(1200,600), "AG"),					// descomentar esta si no se representa bien en pantalla
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, 25)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_graphViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
@@ -121,11 +121,12 @@ public:
 		}
 	}
 
-	void onGeneracionTerminada(double mejor, double mejorGen, double media){
+	void onGeneracionTerminada(double mejor, double mejorGen, double media, double mediaSel){
 		_ejeX.push_back(_generacion);
 		_valorMejor.push_back(mejor);
 		_valorMejorGen.push_back(mejorGen);
 		_valorMedia.push_back(media);
+		_valorMediaSel.push_back(mediaSel);
 		_window.draw(_logger);
 		_progress.updateProgress(_generacion);
 		_window.draw(_progress);
@@ -135,6 +136,9 @@ public:
 
 	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval){
 		_plotter.setEjeX(_ejeX);
+
+		_plotter.pushEjeY(_valorMediaSel, sf::Color::Magenta, "Media Seleccion");
+
 		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media");
 		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
 		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");

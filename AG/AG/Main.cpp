@@ -20,7 +20,7 @@ int main(){
 	p.contractividad = false;
 	p.probCruce = 0.6;
 	p.probMutacion = 0.02;
-	p.seleccion = new SeleccionRuleta();
+	p.seleccion = new SeleccionTorneo();
 	p.cruce = new CruceMonopunto();
 	p.mutacion = new MutacionNodo();
 
