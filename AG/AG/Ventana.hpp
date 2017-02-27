@@ -17,8 +17,8 @@
 class Ventana : public IAGObserver{
 public:
 	Ventana(Controlador& c) :
-		//_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
-		_window(sf::VideoMode(1200,600), "AG"),					// descomentar esta si no se representa bien en pantalla
+		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
+		//_window(sf::VideoMode(1200,600), "AG"),					// descomentar esta si no se representa bien en pantalla
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, 25)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_graphViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
@@ -139,7 +139,7 @@ public:
 
 		_plotter.pushEjeY(_valorMediaSel, sf::Color::Magenta, "Media Seleccion");
 
-		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media");
+		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media Poblacion");
 		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
 		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");
 		

@@ -23,8 +23,7 @@ public:
 	}
 
 	Cromosoma ejecuta(){
-		std::vector<double> mediasSel;
-
+		bool contractividadLocal = _param.contractividad;
 		_crono.limpiaMedida("global");
 		_crono.limpiaMedida("seleccion");
 		_crono.limpiaMedida("cruce");
@@ -49,7 +48,7 @@ public:
 		mediaAnterior = evaluarPoblacion();
 		_crono.finalizaMedida("eval", std::chrono::high_resolution_clock::now());
 
-		while (_generacion < _param.iteraciones){
+		while (_generacion < _param.iteraciones && _elMejor.getAdaptacion() < 0.85){
 			int nElite = (int)(_param.tamPob * 0.02);
 			std::vector<Cromosoma> elite;
 			if (_param.elitismo){
@@ -67,7 +66,6 @@ public:
 				mediaSel += _pob.individuos[i].getAdaptacion();
 			}
 			mediaSel /= _pob._tam;
-			mediasSel.push_back(mediaSel);
 
 			_crono.iniciaMedida("cruce", std::chrono::high_resolution_clock::now());
 			cruce();
@@ -94,16 +92,17 @@ public:
 			mediaActual = evaluarPoblacion();
 			_crono.finalizaMedida("eval", std::chrono::high_resolution_clock::now());
 
-			if (_param.contractividad){
+			if (contractividadLocal){
 				if (mediaAnterior < mediaActual){
+					mediaAnterior = mediaActual;
 					_generacion++;
 					notifyGeneracionTerminada(_elMejor.getAdaptacion(), _pob.individuos[_indexMejor].getAdaptacion(), mediaActual, mediaSel);
 				}
 				else{
 					_genDescartadas++;
 				}
-				if (_genDescartadas > 10 * _param.iteraciones){
-					_param.contractividad = false;
+				if (_genDescartadas > 2 * _param.iteraciones){
+					contractividadLocal = false;
 				}
 			}
 			else{
@@ -112,7 +111,6 @@ public:
 			}
 
 		}	// Fin while generaciones
-		//_elMejor.evalua();
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
 		_elMejor.evalua(_paramEval);	// Se aegura que el mejor tiene todo actualizado
 		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("eval"));

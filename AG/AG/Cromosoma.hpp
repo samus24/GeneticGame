@@ -107,7 +107,8 @@ public:
 
 private:
 	double evaluaCC(Grafo<Gen>::ComponenteConexa<Gen> CC, ParametrosEval param) {
-		double pesos[] = { 0.375, 0.35, 0.05, 0.05, 0.05, 0.07, 0.055 }; // {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
+		//double pesos[] = { 0.375, 0.35, 0.05, 0.05, 0.05, 0.07, 0.055 }; 
+		double pesos[] = { 0.45, 0.2, 0.03, 0.02, 0, 0.195, 0.105 };	// {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
 		double sumaPesos = 0;
 		double evaluacion = 0;
 
