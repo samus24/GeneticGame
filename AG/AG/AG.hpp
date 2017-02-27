@@ -23,6 +23,8 @@ public:
 	}
 
 	Cromosoma ejecuta(){
+		std::vector<double> mediasSel;
+
 		_crono.limpiaMedida("global");
 		_crono.limpiaMedida("seleccion");
 		_crono.limpiaMedida("cruce");
@@ -60,6 +62,13 @@ public:
 			seleccion();
 			_crono.finalizaMedida("seleccion", std::chrono::high_resolution_clock::now());
 
+			double mediaSel = 0;
+			for (std::size_t i = 0; i < _param.tamPob; ++i){
+				mediaSel += _pob.individuos[i].getAdaptacion();
+			}
+			mediaSel /= _pob._tam;
+			mediasSel.push_back(mediaSel);
+
 			_crono.iniciaMedida("cruce", std::chrono::high_resolution_clock::now());
 			cruce();
 			_crono.finalizaMedida("cruce", std::chrono::high_resolution_clock::now());
@@ -88,7 +97,7 @@ public:
 			if (_param.contractividad){
 				if (mediaAnterior < mediaActual){
 					_generacion++;
-					notifyGeneracionTerminada(_elMejor.getAdaptacion(), _pob.individuos[_indexMejor].getAdaptacion(), mediaActual);
+					notifyGeneracionTerminada(_elMejor.getAdaptacion(), _pob.individuos[_indexMejor].getAdaptacion(), mediaActual, mediaSel);
 				}
 				else{
 					_genDescartadas++;
@@ -99,7 +108,7 @@ public:
 			}
 			else{
 				_generacion++;
-				notifyGeneracionTerminada(_elMejor.getAdaptacion(), _pob.individuos[_indexMejor].getAdaptacion(), mediaActual);
+				notifyGeneracionTerminada(_elMejor.getAdaptacion(), _pob.individuos[_indexMejor].getAdaptacion(), mediaActual, mediaSel);
 			}
 
 		}	// Fin while generaciones
@@ -217,9 +226,9 @@ private:
 		
 	}
 
-	void notifyGeneracionTerminada(double mejor, double mejorGen, double media){
+	void notifyGeneracionTerminada(double mejor, double mejorGen, double media, double mediaSel){
 		for (IAGObserver* o : _obs){
-			o->onGeneracionTerminada(mejor, mejorGen, media);
+			o->onGeneracionTerminada(mejor, mejorGen, media, mediaSel);
 		}
 	}
 

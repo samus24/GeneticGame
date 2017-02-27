@@ -62,6 +62,9 @@ public:
 						_valorMedia.clear();
 						_valorMejor.clear();
 						_valorMejorGen.clear();
+
+						_valorMediaSel.clear();
+
 						_generacion = 0;
 						_logger.clearLog();
 						_logger.append("Ejecutando AG\n");
@@ -95,6 +98,9 @@ public:
 						_valorMedia.clear();
 						_valorMejor.clear();
 						_valorMejorGen.clear();
+
+						_valorMediaSel.clear();
+
 						_generacion = 0;
 						_logger.clearLog();
 						_logger.append("Ejecutando AG\n");
@@ -177,6 +183,7 @@ private:
 	std::vector<double> _valorMejor;
 	std::vector<double> _valorMejorGen;
 	std::vector<double> _valorMedia;
+	std::vector<double> _valorMediaSel;
 };
 
 #endif
