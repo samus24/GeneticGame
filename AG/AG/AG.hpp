@@ -103,7 +103,7 @@ public:
 				else{
 					_genDescartadas++;
 				}
-				if (_genDescartadas > 2 * _param.iteraciones){
+				if (_genDescartadas > 0.5 * _param.iteraciones){		// Valorar esta condicion (inicialmente era 10*iter)
 					contractividadLocal = false;
 				}
 			}

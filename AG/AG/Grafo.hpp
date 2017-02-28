@@ -23,7 +23,7 @@ public:
 		ComponenteConexa<N>(){
 
 		}
-
+		
 		unsigned int tieneCiclos(){
 			unsigned int ciclos = 0;
 			std::set<unsigned int> explorados;
@@ -187,7 +187,10 @@ public:
 	std::vector<Grafo<N>> divideGrafo(unsigned int v){
 		if (v >= _nodos.size())
 			throw std::invalid_argument("Punto de corte invalido");
-		std::vector<Grafo<N>> subGrafos(2);
+		std::vector<Grafo<N>> subGrafos;
+		Grafo<N> g1, g2;
+		subGrafos.push_back(g1);
+		subGrafos.push_back(g2);
 		for (std::size_t i = 0; i < _nodos.size(); ++i){
 			if (i <= v){
 				// Para el 1er subgrafo

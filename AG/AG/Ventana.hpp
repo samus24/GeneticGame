@@ -17,15 +17,15 @@
 class Ventana : public IAGObserver{
 public:
 	Ventana(Controlador& c) :
-		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
-		//_window(sf::VideoMode(1200,600), "AG"),					// descomentar esta si no se representa bien en pantalla
+		//_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
+		_window(sf::VideoMode(1200,600), "AG"),					// descomentar esta si no se representa bien en pantalla
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, 25)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_graphViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_roomViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.19, 400)),
 		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200)),
-		_progress(sf::Vector2f(_window.getSize().x *0.8, _window.getSize().y * 0.75), sf::Vector2f(_window.getSize().x * 0.1, 30))
+		_progress(sf::Vector2f(_window.getSize().x *0.8, _window.getSize().y -50), sf::Vector2f(_window.getSize().x * 0.1, 30))
 	{
 		_font.loadFromFile("arial.ttf");
 		_ctrl = &c;

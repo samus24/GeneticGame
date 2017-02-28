@@ -142,10 +142,17 @@ private:
 		for (size_t i = 0; i < m_vertices.getVertexCount(); ++i){
 			m_vertices[i].position += sf::Vector2f(10,30);
 		}
+		unsigned int totalEnemigos = 0;
+		unsigned int totalCofres = 0;
+		for (auto i : nodos){
+			totalEnemigos += i.second.getEnemigos();
+			totalCofres += i.second.getCofres();
+		}
+
 		std::string info = "Sala " + std::to_string(_currentRoom) + "/" + std::to_string(_model.getMejorCC().size()) +" (id " + std::to_string(it->first) + ")\n";
 		info += "Dim: (" + std::to_string(sala.getAncho()) + "x" + std::to_string(sala.getAlto()) + ")\n";
-		info += "Enemigos: " + std::to_string(sala.getEnemigos()) + "\n";
-		info += "Cofres: " + std::to_string(sala.getCofres()) + "\n";
+		info += "Enemigos: " + std::to_string(sala.getEnemigos()) + "/" + std::to_string(totalEnemigos) + "\n";
+		info += "Cofres: " + std::to_string(sala.getCofres()) + "/" + std::to_string(totalCofres) + "\n";
 		_roomInfo.setString(info);
 	}
 

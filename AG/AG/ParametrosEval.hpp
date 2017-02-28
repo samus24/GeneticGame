@@ -9,8 +9,8 @@ public:
 	unsigned int anchoOptimo;		// Media de ancho de sala optima
 	unsigned int altoOptimo;		// Media de alto de sala optima
 	unsigned int ciclosOptimos;		// Numero de ciclos optimo
-	double enemigosOptimos;			// Densidad de enemigos (en funcion del numero de salas)
-	double cofresOptimos;			// Densidad de cofres (en funcion del numero de salas)
+	unsigned int enemigosOptimos;	// Cantidad de enemigos optima
+	unsigned int cofresOptimos;		// Cantidad de cofres optima
 };
 
 #endif

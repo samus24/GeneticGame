@@ -1,106 +1,103 @@
-﻿Build started 28/02/2017 12:51:20.
-     1>Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" on node 2 (Build target(s)).
+﻿Build started 28/02/2017 17:47:24.
+     1>Project "C:\hlocal\GeneticGame\AG\AG\AG.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /I"C:\hlocal\GeneticGame\AG\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\hlocal\GeneticGame\AG\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\hlocal\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
          Main.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\gen.hpp(11): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\cromosoma.hpp(134): warning C4101: 'diferencias' : unreferenced local variable
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\metodocruce.hpp(19): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\metodocruce.hpp(20): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\metodocruce.hpp(31): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\metodocruce.hpp(32): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\metodomutacion.hpp(25): warning C4101: 'vecinos2' : unreferenced local variable
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\metodoseleccion.hpp(20): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\metodoseleccion.hpp(23): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\metodoseleccion.hpp(28): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\metodoseleccion.hpp(44): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\metodoseleccion.hpp(46): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\metodoseleccion.hpp(52): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\metodoseleccion.hpp(65): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\metodoseleccion.hpp(96): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ag.hpp(58): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ag.hpp(85): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ag.hpp(88): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ag.hpp(195): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ag.hpp(216): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\plotter.hpp(106): warning C4018: '<=' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\plotter.hpp(107): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\plotter.hpp(108): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\plotter.hpp(112): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\plotter.hpp(113): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\plotter.hpp(145): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\progressbar.hpp(15): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\progressbar.hpp(45): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\progressbar.hpp(56): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\logger.hpp(26): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\logger.hpp(27): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\logger.hpp(29): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\logger.hpp(30): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\logger.hpp(31): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\logger.hpp(44): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\logger.hpp(46): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\logger.hpp(87): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\logger.hpp(88): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\logger.hpp(93): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\logger.hpp(128): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\tabpane.hpp(13): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\tabpane.hpp(20): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\tabpane.hpp(21): warning C4244: '+=' : conversion from 'const float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(51): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(52): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(55): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(56): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(105): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(106): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(121): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(131): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(137): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(138): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(139): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(196): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(209): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\graphviewer.hpp(210): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\roomviewer.hpp(89): warning C4244: 'initializing' : conversion from 'const float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\roomviewer.hpp(130): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\roomviewer.hpp(131): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\roomviewer.hpp(132): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\roomviewer.hpp(133): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\roomviewer.hpp(136): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\roomviewer.hpp(137): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\roomviewer.hpp(138): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\roomviewer.hpp(139): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\rellenador.hpp(62): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\rellenador.hpp(63): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\rellenador.hpp(65): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\rellenador.hpp(66): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\rellenador.hpp(68): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\rellenador.hpp(69): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\rellenador.hpp(71): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\rellenador.hpp(72): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(22): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(23): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(23): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(24): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(24): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(25): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(25): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(26): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(27): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\ventana.hpp(28): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\grafo.hpp(59): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\ag\ag\grafo.hpp(57) : while compiling class template member function 'Grafo<Gen>::Grafo(void)'
-                 c:\users\usuario_local\documents\github\geneticgame\ag\ag\cromosoma.hpp(11) : see reference to function template instantiation 'Grafo<Gen>::Grafo(void)' being compiled
-                 c:\users\usuario_local\documents\github\geneticgame\ag\ag\cromosoma.hpp(109) : see reference to class template instantiation 'Grafo<Gen>' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\grafo.hpp(64): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\ag\ag\grafo.hpp(62) : while compiling class template member function 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)'
-                 c:\users\usuario_local\documents\github\geneticgame\ag\ag\cromosoma.hpp(20) : see reference to function template instantiation 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\ag\ag\grafo.hpp(71): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\gen.hpp(11): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\cromosoma.hpp(133): warning C4101: 'diferencias' : unreferenced local variable
+     1>c:\hlocal\geneticgame\ag\ag\metodomutacion.hpp(25): warning C4101: 'vecinos2' : unreferenced local variable
+     1>c:\hlocal\geneticgame\ag\ag\metodoseleccion.hpp(20): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\metodoseleccion.hpp(23): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\metodoseleccion.hpp(28): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\metodoseleccion.hpp(44): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\metodoseleccion.hpp(46): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\metodoseleccion.hpp(52): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\metodoseleccion.hpp(65): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\metodoseleccion.hpp(96): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\ag.hpp(58): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\ag.hpp(85): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\ag.hpp(88): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\ag.hpp(195): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\ag.hpp(216): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\plotter.hpp(106): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\plotter.hpp(107): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\plotter.hpp(108): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\plotter.hpp(112): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\plotter.hpp(113): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\plotter.hpp(145): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\progressbar.hpp(15): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\progressbar.hpp(45): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\progressbar.hpp(56): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\logger.hpp(26): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\logger.hpp(27): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\logger.hpp(29): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\logger.hpp(30): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\logger.hpp(31): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\logger.hpp(44): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\logger.hpp(46): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\logger.hpp(87): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\logger.hpp(88): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\logger.hpp(93): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\logger.hpp(128): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\tabpane.hpp(13): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\tabpane.hpp(20): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\tabpane.hpp(21): warning C4244: '+=' : conversion from 'const float' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(51): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(52): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(55): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(56): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(105): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(106): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(121): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(131): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(137): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(138): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(139): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(196): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(209): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\graphviewer.hpp(210): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\roomviewer.hpp(89): warning C4244: 'initializing' : conversion from 'const float' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\roomviewer.hpp(130): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\roomviewer.hpp(131): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\roomviewer.hpp(132): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\roomviewer.hpp(133): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\roomviewer.hpp(136): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\roomviewer.hpp(137): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\roomviewer.hpp(138): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\roomviewer.hpp(139): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\rellenador.hpp(62): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\rellenador.hpp(63): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\rellenador.hpp(65): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\rellenador.hpp(66): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\rellenador.hpp(68): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\rellenador.hpp(69): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\rellenador.hpp(71): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\rellenador.hpp(72): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\hlocal\geneticgame\ag\ag\ventana.hpp(22): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\ventana.hpp(23): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\ventana.hpp(23): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\ventana.hpp(24): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\ventana.hpp(24): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\ventana.hpp(25): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\ventana.hpp(25): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\ventana.hpp(26): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\ventana.hpp(27): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\ventana.hpp(28): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\ventana.hpp(28): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\hlocal\geneticgame\ag\ag\grafo.hpp(59): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+                 c:\hlocal\geneticgame\ag\ag\grafo.hpp(57) : while compiling class template member function 'Grafo<Gen>::Grafo(void)'
+                 c:\hlocal\geneticgame\ag\ag\cromosoma.hpp(11) : see reference to function template instantiation 'Grafo<Gen>::Grafo(void)' being compiled
+                 c:\hlocal\geneticgame\ag\ag\cromosoma.hpp(109) : see reference to class template instantiation 'Grafo<Gen>' being compiled
+     1>c:\hlocal\geneticgame\ag\ag\grafo.hpp(64): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+                 c:\hlocal\geneticgame\ag\ag\grafo.hpp(62) : while compiling class template member function 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)'
+                 c:\hlocal\geneticgame\ag\ag\cromosoma.hpp(20) : see reference to function template instantiation 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)' being compiled
+     1>c:\hlocal\geneticgame\ag\ag\grafo.hpp(71): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
        Link:
-         C:\software\programacion\MSVStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\Debug\AG.exe" /INCREMENTAL /NOLOGO "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-graphics-d.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-window.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-window-d.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisfile.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisenc.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbis.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\openal32.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\ogg.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\jpeg.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\freetype.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\flac.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-system-d.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\sfml-main-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\Debug\AG.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\Debug\AG.lib" /MACHINE:X86 Debug\Main.obj
+         C:\software\programacion\MSVStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\hlocal\GeneticGame\AG\Debug\AG.exe" /INCREMENTAL /NOLOGO "C:\hlocal\GeneticGame\AG\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-graphics-d.lib" "C:\hlocal\GeneticGame\AG\packages\sfml-window.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-window-d.lib" "C:\hlocal\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisfile.lib" "C:\hlocal\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisenc.lib" "C:\hlocal\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbis.lib" "C:\hlocal\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\openal32.lib" "C:\hlocal\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\ogg.lib" "C:\hlocal\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\jpeg.lib" "C:\hlocal\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\freetype.lib" "C:\hlocal\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\flac.lib" "C:\hlocal\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-system-d.lib" "C:\hlocal\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\sfml-main-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\hlocal\GeneticGame\AG\Debug\AG.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\hlocal\GeneticGame\AG\Debug\AG.lib" /MACHINE:X86 Debug\Main.obj
          Debug\ScrollBar.obj
-         AG.vcxproj -> C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\Debug\AG.exe
-     1>Done Building Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" (Build target(s)).
+         AG.vcxproj -> C:\hlocal\GeneticGame\AG\Debug\AG.exe
+     1>Done Building Project "C:\hlocal\GeneticGame\AG\AG\AG.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.02
+Time Elapsed 00:00:01.90
