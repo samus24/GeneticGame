@@ -24,6 +24,8 @@ public:
 
 	Cromosoma ejecuta(){
 		bool contractividadLocal = _param.contractividad;
+		// ContractividadLocal es la contractividad, pero asi no se modifica en los
+		// parametros (por futuras ejecuciones consecutivas)
 		_crono.limpiaMedida("global");
 		_crono.limpiaMedida("seleccion");
 		_crono.limpiaMedida("cruce");

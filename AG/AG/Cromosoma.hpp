@@ -107,8 +107,14 @@ public:
 
 private:
 	double evaluaCC(Grafo<Gen>::ComponenteConexa<Gen> CC, ParametrosEval param) {
-		//double pesos[] = { 0.375, 0.35, 0.05, 0.05, 0.05, 0.07, 0.055 }; 
+		//double pesos[] = { 0.45, 0.2, 0.03, 0.02, 0, 0.195, 0.105 };
 		double pesos[] = { 0.45, 0.2, 0.03, 0.02, 0, 0.195, 0.105 };	// {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
+		// Notese que el peso de los ciclos es 0. En ninguna de las ejecuciones he visto que alguno de los
+		// individuos sume algo de "nota" con los ciclos. Es decir, que se está limitando el fitness máximo
+		// que se puede lograr. Supongo que, en parte, esto está provocado por la forma de evaluar si una CC
+		// tiene ciclos. Mientras no se encuentre una forma más adecuada de hacerlo, sugiero dejarlo a 0, dado
+		// que tras algunas pruebas, los individuos resultantes son bastante buenos. Creo que haber bajado el
+		// parametro "Grado optimo" de 2.5 a 2 ayuda a reducir los ciclos en general. -- Alvaro.
 		double sumaPesos = 0;
 		double evaluacion = 0;
 
@@ -123,6 +129,8 @@ private:
 		double mediaGrado = 0;
 		double mediaAlto = 0;
 		double mediaAncho = 0;
+		double enemigosOptimos = 0;
+		double cofresOptimos = 0;
 		double diferencias[5];
 		int ciclosActuales;
 		int enemigosActuales = 0;
@@ -150,6 +158,9 @@ private:
 		mediaAncho /= numNodos;
 		ciclosActuales = CC.tieneCiclos();
 
+		enemigosOptimos = param.enemigosOptimos * nodos.size();
+		cofresOptimos = param.cofresOptimos * nodos.size();
+
 		// 1 - abs(x - ideal) / ideal;
 		//[NumNodos, Media - Grado - CC, media - tama�o - sala, penalizar - ciclos]
 		_valores[0] = 1 - (abs(int(numNodos - param.nodosOptimos)) / (float)param.nodosOptimos);
@@ -167,10 +178,10 @@ private:
 		_valores[4] = 1 - (abs(int(ciclosActuales - param.ciclosOptimos)) / (float)param.ciclosOptimos);
 		if (_valores[4] < 0)	_valores[4] = 0;
 
-		_valores[5] = 1 - (abs(int(enemigosActuales - param.enemigosOptimos)) / (float)param.enemigosOptimos);
+		_valores[5] = 1 - (abs(enemigosActuales - enemigosOptimos) / (float)enemigosOptimos);
 		if (_valores[5] < 0)	_valores[5] = 0;
 
-		_valores[6] = 1 - (abs(int(cofresActuales - param.cofresOptimos)) / (float)param.cofresOptimos);
+		_valores[6] = 1 - (abs(cofresActuales - cofresOptimos) / (float)cofresOptimos);
 		if (_valores[6] < 0)	_valores[6] = 0;
 
 		for (int i = 0; i < 7; ++i){
