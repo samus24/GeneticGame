@@ -17,7 +17,7 @@ int main(){
 	p.densidad = 0.03;						// Densidad de aristas inciales
 	p.elitismo = false;						// Elitismo (guarda a los mejores)
 	p.bloating = false;						// Bloating	(evita grafos demasiado grandes)
-	p.contractividad = true;				// Contractividad (descarta generaciones malas)
+	p.contractividad = false;				// Contractividad (descarta generaciones malas)
 	p.probCruce = 0.6;						// Probabilidad de cruce
 	p.probMutacion = 0.02;					// Probabilidad de mutacion
 	p.seleccion = new SeleccionTorneo();	// Metodo de seleccion (Ver "MetodoSeleccion.hpp")

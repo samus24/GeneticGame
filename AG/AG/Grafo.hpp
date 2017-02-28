@@ -275,18 +275,25 @@ public:
 			}
 			itB++;
 		}
-
-		unsigned int nuevas = RandomGen::getRandom(1, (int)(sizeA * nodosB.size() * 0.75));	// Para evitar demasiada densidad, se limita al 75% de las posibles nuevas aristas
-		std::vector<Pair<unsigned int, unsigned int>> uniones;
-		for (std::size_t i = 0; i < sizeA; ++i){
-			for (std::size_t j = 0; j < nodosB.size(); ++j){
-				uniones.push_back(Pair<unsigned int, unsigned int>(i, j + sizeA));
+		if (nodosA.size() > 0 && nodosB.size() > 0){
+			unsigned int nuevas;
+			if (sizeA == 1 && nodosB.size() == 1){
+				nuevas = 1;
 			}
-		}
+			else{
+				nuevas = RandomGen::getRandom(1, (int)(sizeA * nodosB.size() * 0.75));	// Para evitar demasiada densidad, se limita al 75% de las posibles nuevas aristas
+			}
+			std::vector<Pair<unsigned int, unsigned int>> uniones;
+			for (std::size_t i = 0; i < sizeA; ++i){
+				for (std::size_t j = 0; j < nodosB.size(); ++j){
+					uniones.push_back(Pair<unsigned int, unsigned int>(i, j + sizeA));
+				}
+			}
 
-		std::random_shuffle(uniones.begin(), uniones.end());
-		for (std::size_t i = 0; i < nuevas; ++i){
-			ret.anadeArista(uniones[i].first, uniones[i].second);
+			std::random_shuffle(uniones.begin(), uniones.end());
+			for (std::size_t i = 0; i < nuevas; ++i){
+				ret.anadeArista(uniones[i].first, uniones[i].second);
+			}
 		}
 
 		return ret;
@@ -317,7 +324,7 @@ public:
 
 	std::vector<Grafo<N>> divideEnGrafos(unsigned int n){
 		std::vector<Grafo<N>> ret, aux;
-		aux = divideGrafo(RandomGen::getRandom(0, (int)_nodos.size()));
+		aux = divideGrafo(RandomGen::getRandom(0, (int)_nodos.size()-1));
 		for (std::size_t i = 1; i < n; ++i){
 			if (i == n - 1){
 				ret.push_back(aux[0]);
@@ -326,11 +333,11 @@ public:
 			else{
 				if (aux[0].size() < aux[1].size()){
 					ret.push_back(aux[0]);
-					aux = aux.at(1).divideGrafo(RandomGen::getRandom(0, (int)aux[1].size()));
+					aux = aux.at(1).divideGrafo(RandomGen::getRandom(0, (int)aux[1].size()-1));
 				}
 				else{
 					ret.push_back(aux[1]);
-					aux = aux.at(0).divideGrafo(RandomGen::getRandom(0, (int)aux[0].size()));
+					aux = aux.at(0).divideGrafo(RandomGen::getRandom(0, (int)aux[0].size()-1));
 				}
 			}
 		}
