@@ -13,12 +13,20 @@ public:
 		_puntAcum = 0;
 		_adaptacion = 0;
 		_indexMejorCC = 0;
+
+		double auxpesos[] = { 0.5, 0.16, 0.029, 0.02, 0.001, 0.19, 0.10 };	// {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
+		for (size_t i = 0; i < 7; ++i){
+			_pesos[i] = auxpesos[i];
+		}
 	}
 
 	Cromosoma(unsigned int minNodos, unsigned int maxNodos, double densidad) :
 		_grafo(minNodos, maxNodos, densidad)
 	{
-		
+		double auxpesos[] = { 0.5, 0.16, 0.029, 0.02, 0.001, 0.19, 0.10 };	// {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
+		for (size_t i = 0; i < 7; ++i){
+			_pesos[i] = auxpesos[i];
+		}
 	}
 
 	Grafo<Gen> getGenotipo() const{
@@ -47,6 +55,10 @@ public:
 
 	double* getValores(){
 		return _mejoresValores;
+	}
+
+	double* getPesos(){
+		return _pesos;
 	}
 
 	void setIndexElMejor(unsigned int i){
@@ -107,34 +119,31 @@ public:
 
 private:
 	double evaluaCC(Grafo<Gen>::ComponenteConexa<Gen> CC, ParametrosEval param) {
-		//double pesos[] = { 0.375, 0.35, 0.05, 0.05, 0.05, 0.07, 0.055 }; 
-		//double pesos[] = { 0.45, 0.2, 0.03, 0.02, 0, 0.195, 0.105 };
-		double pesos[] = { 0.48, 0.18, 0.029, 0.02, 0.001, 0.19, 0.10 };	// {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
+		//double _pesos[] = { 0.375, 0.35, 0.05, 0.05, 0.05, 0.07, 0.055 }; 
+		//double _pesos[] = { 0.45, 0.2, 0.03, 0.02, 0, 0.195, 0.105 };
 		// Notese que el peso de los ciclos es 0. En ninguna de las ejecuciones he visto que alguno de los
 		// individuos sume algo de "nota" con los ciclos. Es decir, que se está limitando el fitness máximo
 		// que se puede lograr. Supongo que, en parte, esto está provocado por la forma de evaluar si una CC
 		// tiene ciclos. Mientras no se encuentre una forma más adecuada de hacerlo, sugiero dejarlo a 0, dado
 		// que tras algunas pruebas, los individuos resultantes son bastante buenos. Creo que haber bajado el
 		// parametro "Grado optimo" de 2.5 a 2 ayuda a reducir los ciclos en general. -- Alvaro.
-		double sumaPesos = 0;
+		double suma_pesos = 0;
 		double evaluacion = 0;
 
 		for (size_t i = 0; i < 7; ++i){
-			sumaPesos += pesos[i];
+			suma_pesos += _pesos[i];
 		}
 		double error = 0.00001;
-		if (sumaPesos > 1+error || sumaPesos < 1 - error){
-			throw std::exception("Balance de pesos incorrecto");
+		if (suma_pesos > 1+error || suma_pesos < 1 - error){
+			throw std::exception("Balance de _pesos incorrecto");
 		}
 		int numNodos = CC.size();
 		double mediaGrado = 0;
 		double mediaAlto = 0;
 		double mediaAncho = 0;
-		double diferencias[5];
 		int ciclosActuales;
 		int enemigosActuales = 0;
 		int cofresActuales = 0;
-		//double diferencias[5];
 		auto adyacencia = CC.getAdyacencia();
 		auto itAdy = adyacencia.begin();
 
@@ -181,7 +190,7 @@ private:
 		if (_valores[6] < 0)	_valores[6] = 0;
 
 		for (int i = 0; i < 7; ++i){
-			evaluacion += _valores[i] * pesos[i];
+			evaluacion += _valores[i] * _pesos[i];
 		}
 
 		return evaluacion;
@@ -195,6 +204,8 @@ private:
 	unsigned int _indexMejorCC;
 	double _valores[7];
 	double _mejoresValores[7];
+	
+	double _pesos[7];
 };
 
 #endif

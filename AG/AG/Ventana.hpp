@@ -165,8 +165,9 @@ public:
 		};
 		_logger.append("-- Notas CC --\n");
 		double* valores = mejor.getValores();
+		double* pesos = mejor.getPesos();
 		for (size_t i = 0; i < 7; ++i){
-			_logger.append(valoresText[i] + std::to_string(valores[i]) + "\n");
+			_logger.append(valoresText[i] + std::to_string(valores[i]) + "/" + std::to_string(valores[i]*pesos[i]) + "\n");
 		}
 		
 

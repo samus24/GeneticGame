@@ -109,6 +109,7 @@
     <ClInclude Include="Sala.hpp" />
     <ClInclude Include="ScrollBar.hpp" />
     <ClInclude Include="TabPane.hpp" />
+    <ClInclude Include="Testbench.hpp" />
     <ClInclude Include="Ventana.hpp" />
   </ItemGroup>
   <ItemGroup>

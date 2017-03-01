@@ -140,6 +140,9 @@
     <ClInclude Include="ProgressBar.hpp">
       <Filter>Archivos de encabezado\vista</Filter>
     </ClInclude>
+    <ClInclude Include="Testbench.hpp">
+      <Filter>Archivos de encabezado\utiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

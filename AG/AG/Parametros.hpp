@@ -7,8 +7,6 @@
 
 class Parametros{
 public:
-	
-
 	unsigned int tamPob;			// Tamano de la poblacion
 	unsigned int iteraciones;		// Numero maximo de generaciones
 	unsigned int minNodos;			// Numero minimo de nodos iniciales
@@ -48,6 +46,8 @@ public:
 		this->mutacion = mutacion;
 		this->seleccion = seleccion;
 	}
+
+
 };
 
 
