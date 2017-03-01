@@ -66,6 +66,15 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AG.hpp" />
+    <ClInclude Include="controlador.hpp" />
+    <ClInclude Include="cromosoma.hpp" />
+    <ClInclude Include="gen.hpp" />
+    <ClInclude Include="IAGObserver.hpp" />
+    <ClInclude Include="metodoCruce.hpp" />
+    <ClInclude Include="poblacion.hpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

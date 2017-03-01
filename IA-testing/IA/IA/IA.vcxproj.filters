@@ -13,10 +13,60 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de encabezado\modelo">
+      <UniqueIdentifier>{e8ac4508-45d6-42d0-af76-efb66bd9e057}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\vista">
+      <UniqueIdentifier>{c3425798-0449-4e0c-aab5-cefae28b28cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\controlador">
+      <UniqueIdentifier>{312a08fa-0e28-4735-92fc-a102c5165b8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\ag">
+      <UniqueIdentifier>{2acfd170-09f6-4bd1-ace7-4ac5c65d3854}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\cromosomas">
+      <UniqueIdentifier>{5e8bc8b9-b0b1-41bc-9b6b-740a1bd06e4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\cruce">
+      <UniqueIdentifier>{73eb4085-2d3b-4ec3-93c5-19e39de74eba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\mutacion">
+      <UniqueIdentifier>{17cb4504-598d-4925-855f-bab09e4b538d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\seleccion">
+      <UniqueIdentifier>{1d72f27a-4e60-4c32-851d-2a49aaf0fa70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\arbol">
+      <UniqueIdentifier>{25b9c0d7-2794-447e-b623-c26961769142}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="controlador.hpp">
+      <Filter>Archivos de encabezado\controlador</Filter>
+    </ClInclude>
+    <ClInclude Include="AG.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
+    </ClInclude>
+    <ClInclude Include="IAGObserver.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
+    </ClInclude>
+    <ClInclude Include="poblacion.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
+    </ClInclude>
+    <ClInclude Include="cromosoma.hpp">
+      <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
+    </ClInclude>
+    <ClInclude Include="gen.hpp">
+      <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
+    </ClInclude>
+    <ClInclude Include="metodoCruce.hpp">
+      <Filter>Archivos de encabezado\modelo\cruce</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
