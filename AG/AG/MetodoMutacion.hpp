@@ -9,6 +9,7 @@ public:
 
 	virtual void mutar(Cromosoma* c, ParametrosEval p) = 0;
 
+	virtual std::string toString() = 0;
 };
 
 class MutacionArista : public MetodoMutacion {
@@ -61,6 +62,10 @@ public:
 		g.setAdyacencia(ady);
 		c->setGenotipo(g,p);	
 	}
+
+	std::string toString(){
+		return "Mutacion Arista";
+	}
 };
 
 class MutacionNodo : public MetodoMutacion {
@@ -98,6 +103,10 @@ public:
 			g.setAdyacencia(ady);
 		}
 		c->setGenotipo(g, p);
+	}
+
+	std::string toString(){
+		return "Mutacion Nodo";
 	}
 };
 

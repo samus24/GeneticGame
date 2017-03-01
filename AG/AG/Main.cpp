@@ -7,6 +7,7 @@
 #include "Ventana.hpp"
 #include "MetodoSeleccion.hpp"
 #include "Rellenador.hpp"
+#include "Testbench.hpp"
 
 int main(){
 	Parametros p;
@@ -31,11 +32,21 @@ int main(){
 	pEval.altoOptimo = 20;
 	pEval.ciclosOptimos = 4;
 	pEval.enemigosOptimos = 35;			
-	pEval.cofresOptimos = 10;				
+	pEval.cofresOptimos = 10;	
+
+	AG ag(p, pEval);
+	Controlador c(ag);
+	Testbench tb(c);
+
+	tb.openFile("prueba.txt");
+
+	tb.launchTestbench();
+
+	/*
 
 	AG ag(p,pEval);
 	Controlador c(ag);
 	Ventana v(c);
-	v.run(p.iteraciones);
+	v.run(p.iteraciones);*/
 	return 0;
 }

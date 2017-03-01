@@ -9,6 +9,7 @@ public:
 
 	virtual void seleccionar(Poblacion*) = 0;
 
+	virtual std::string toString() = 0;
 };
 
 class SeleccionRuleta : public MetodoSeleccion {
@@ -29,6 +30,10 @@ public:
 			nuevaPob.push_back(pob->individuos[seleccionados[i]]);
 		}
 		pob->individuos = nuevaPob;
+	}
+
+	std::string toString(){
+		return "Seleccion Ruleta";
 	}
 
 };
@@ -53,6 +58,10 @@ public:
 			nuevaPob.push_back(pob->individuos[seleccionados[i]]);
 		}
 		pob->individuos = nuevaPob;
+	}
+
+	std::string toString(){
+		return "Seleccion Estocastica";
 	}
 };
 
@@ -97,6 +106,10 @@ public:
 			nuevaPob.push_back(pob->individuos[seleccionados[i]]);
 		}
 		pob->individuos = nuevaPob;
+	}
+
+	std::string toString(){
+		return "Seleccion Torneo";
 	}
 };
 

@@ -22,6 +22,11 @@ public:
 		_crono.creaMedida("eval");
 	}
 
+	void updateParam(Parametros p, ParametrosEval pEval){
+		_param = p;
+		_paramEval = pEval;
+	}
+
 	Cromosoma ejecuta(){
 		bool contractividadLocal = _param.contractividad;
 		// ContractividadLocal es la contractividad, pero asi no se modifica en los

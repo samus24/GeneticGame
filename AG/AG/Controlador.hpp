@@ -15,6 +15,10 @@ public:
 		return _ag->ejecuta();
 	}
 
+	void updateParam(Parametros p, ParametrosEval pEval){
+		_ag->updateParam(p, pEval);
+	}
+
 	void addObserver(IAGObserver& o){
 		_ag->addObserver(o);
 	}

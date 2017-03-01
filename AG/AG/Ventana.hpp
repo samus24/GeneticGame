@@ -169,9 +169,9 @@ public:
 		for (size_t i = 0; i < 7; ++i){
 			_logger.append(valoresText[i] + std::to_string(valores[i]) + "/" + std::to_string(valores[i]*pesos[i]) + "\n");
 		}
-		
-
 	}
+
+
 private:
 	sf::RenderWindow _window;
 	sf::Font _font;

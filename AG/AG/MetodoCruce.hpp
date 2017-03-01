@@ -2,13 +2,14 @@
 #define METODOCRUCE_HPP
 
 #include "RandomGen.hpp"
-#include"Cromosoma.hpp"
+#include "Cromosoma.hpp"
 
 class MetodoCruce {
 public:
 
 	virtual void cruzar(Cromosoma*, Cromosoma*, ParametrosEval p) = 0;
 
+	virtual std::string toString () = 0;
 };
 
 class CruceMonopunto : public MetodoCruce{
@@ -40,6 +41,10 @@ public:
 			}
 		}
 		
+	}
+
+	std::string toString(){
+		return "Cruce Monopunto";
 	}
 
 private:
@@ -85,6 +90,10 @@ public:
 			}
 		}
 
+	}
+
+	std::string toString(){
+		return "Cruce Multipunto";
 	}
 
 private:
