@@ -38,10 +38,11 @@ public:
 		_param.densidad = 0.03;
 		///
 
+		//// Prueba 1-0
 		_param.tamPob = 30;							
 		_param.iteraciones = 30;								
 		_param.elitismo = false;					
-		_param.bloating = true;						
+		_param.bloating = false;						
 		_param.contractividad = false;				
 		_param.probCruce = 0.6;						
 		_param.probMutacion = 0.02;					
@@ -53,6 +54,247 @@ public:
 		for (size_t i = 0; i < _repeticiones; ++i)
 			lanzaAG();
 
+		//// Prueba 1-1
+		_param.tamPob = 50;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 1-2
+		_param.tamPob = 75;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 1-3
+		_param.tamPob = 100;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 1-4
+		_param.tamPob = 130;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 1-5
+		_param.tamPob = 150;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+		
+		//// Prueba 1-6
+		_param.tamPob = 175;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+		
+		//// Prueba 1-7
+		_param.tamPob = 200;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 2-0	// 50-iteraciones
+		_param.tamPob = 30;
+		_param.iteraciones = 50;
+
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 2-1
+		_param.tamPob = 50;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 2-2
+		_param.tamPob = 75;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 2-3
+		_param.tamPob = 100;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 2-4
+		_param.tamPob = 130;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 2-5
+		_param.tamPob = 150;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 2-6
+		_param.tamPob = 175;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 2-7
+		_param.tamPob = 200;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 3-0	// 75-iteraciones
+		_param.tamPob = 30;
+		_param.iteraciones = 75;
+
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 3-1
+		_param.tamPob = 50;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 3-2
+		_param.tamPob = 75;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 3-3
+		_param.tamPob = 100;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 3-4
+		_param.tamPob = 130;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 3-5
+		_param.tamPob = 150;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 3-6
+		_param.tamPob = 175;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 3-7
+		_param.tamPob = 200;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-0	// 100-iteraciones
+		_param.tamPob = 30;
+		_param.iteraciones = 100;
+
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-1
+		_param.tamPob = 50;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-2
+		_param.tamPob = 75;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-3
+		_param.tamPob = 100;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-4
+		_param.tamPob = 130;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-5
+		_param.tamPob = 150;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-6
+		_param.tamPob = 175;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-7
+		_param.tamPob = 200;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-0	// 100-iteraciones
+		_param.tamPob = 30;
+		_param.iteraciones = 100;
+
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-1
+		_param.tamPob = 50;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-2
+		_param.tamPob = 75;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-3
+		_param.tamPob = 100;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-4
+		_param.tamPob = 130;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-5
+		_param.tamPob = 150;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-6
+		_param.tamPob = 175;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
+
+		//// Prueba 4-7
+		_param.tamPob = 200;
+		actualizaParametros();
+		for (size_t i = 0; i < _repeticiones; ++i)
+			lanzaAG();
 
 		_outfile.close();
 		return;
