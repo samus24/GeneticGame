@@ -2,6 +2,7 @@
 #define TESTBENCH_HPP
 
 #include <fstream>
+#include <iomanip>
 
 #include "IAGObserver.hpp"
 #include "Parametros.hpp"
@@ -38,7 +39,6 @@ public:
 		_param.densidad = 0.03;
 		///
 
-		//// Prueba 1-0
 		_param.tamPob = 30;							
 		_param.iteraciones = 30;								
 		_param.elitismo = false;					
@@ -48,253 +48,70 @@ public:
 		_param.probMutacion = 0.02;					
 		_param.seleccion = new SeleccionRuleta();	
 		_param.cruce = new CruceMonopunto();		
-		_param.mutacion = new MutacionNodo();		
+		_param.mutacion = new MutacionNodo();
 
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
+		// Es necesario reducir las posibles combinaciones de parametros.
+		// Originalmente habia planteado muchos mas casos, pero, estimando que cada
+		// AG se ejecuta en 1.5 minutos (una estimacion baja, creo yo), el total de 
+		// pruebas tardaria 14.7 años, claramente inviable.
+		// He reducido las combinaciones (y las repeticiones) hasta alcanzar un tiempo
+		// total de simulacion de aproximadamente 1 dia y medio (seguramente sean mas de 2 dias en realidad)
 
-		//// Prueba 1-1
-		_param.tamPob = 50;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
+		std::vector<unsigned int> tamanos = {30, 50, 100, 150};			// Posibles tamanos de poblacion
+		std::vector<unsigned int> generaciones = { 30, 50, 100, 200};	// Posibles numeros de generaciones
+		std::vector<bool> elitismos = { false, true };
+		std::vector<bool> bloatings = { false, true };
+		std::vector<bool> contracts = { false, true };
+		std::vector<double> probCruces = {0.6};
+		std::vector<double> probMutac = {0.02};
+		std::vector<MetodoSeleccion* > selecciones = {new SeleccionTorneo()};
+		std::vector<MetodoCruce* > cruces = { new CruceMonopunto(), new CruceMultipunto() };
+		std::vector<MetodoMutacion* > mutaciones = { new MutacionArista(), new MutacionNodo() };
 
-		//// Prueba 1-2
-		_param.tamPob = 75;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
+		_repeticiones = 3;
 
-		//// Prueba 1-3
-		_param.tamPob = 100;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
+		double combinaciones = tamanos.size() * generaciones.size() * 8 * probCruces.size() * probMutac.size() * 2 * 2;
+		double minutos = combinaciones * _repeticiones * 1.5;
+		double dias = (minutos / 60) / 24;
 
-		//// Prueba 1-4
-		_param.tamPob = 130;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
+		std::cout << "Combinaciones : " << combinaciones << std::endl;
+		std::cout << "Minutos : " << minutos << std::endl;
+		std::cout << "Dias : " << dias << std::endl;
 
-		//// Prueba 1-5
-		_param.tamPob = 150;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
+		for (auto i : tamanos){
+			_param.tamPob = i;
+			for (auto j : generaciones){
+				_param.iteraciones = j;
+				for (auto k : elitismos){
+					_param.elitismo = k;
+					for (auto l : bloatings){
+						_param.bloating = l;
+						for (auto m : contracts){
+							_param.contractividad = m;
+							for (auto n : probCruces){
+								_param.probCruce = n;
+								for (auto o : probMutac){
+									_param.probMutacion = o;
+									for (auto p : selecciones){
+										_param.seleccion = p;
+										for (auto q : cruces){
+											_param.cruce = q;
+											for (auto r : mutaciones){
+												_param.mutacion = r;
+												actualizaParametros();
+												for (size_t s = 0; s < _repeticiones; ++s)
+													lanzaAG();
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 		
-		//// Prueba 1-6
-		_param.tamPob = 175;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-		
-		//// Prueba 1-7
-		_param.tamPob = 200;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 2-0	// 50-iteraciones
-		_param.tamPob = 30;
-		_param.iteraciones = 50;
-
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 2-1
-		_param.tamPob = 50;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 2-2
-		_param.tamPob = 75;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 2-3
-		_param.tamPob = 100;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 2-4
-		_param.tamPob = 130;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 2-5
-		_param.tamPob = 150;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 2-6
-		_param.tamPob = 175;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 2-7
-		_param.tamPob = 200;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 3-0	// 75-iteraciones
-		_param.tamPob = 30;
-		_param.iteraciones = 75;
-
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 3-1
-		_param.tamPob = 50;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 3-2
-		_param.tamPob = 75;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 3-3
-		_param.tamPob = 100;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 3-4
-		_param.tamPob = 130;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 3-5
-		_param.tamPob = 150;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 3-6
-		_param.tamPob = 175;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 3-7
-		_param.tamPob = 200;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-0	// 100-iteraciones
-		_param.tamPob = 30;
-		_param.iteraciones = 100;
-
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-1
-		_param.tamPob = 50;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-2
-		_param.tamPob = 75;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-3
-		_param.tamPob = 100;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-4
-		_param.tamPob = 130;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-5
-		_param.tamPob = 150;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-6
-		_param.tamPob = 175;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-7
-		_param.tamPob = 200;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-0	// 100-iteraciones
-		_param.tamPob = 30;
-		_param.iteraciones = 100;
-
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-1
-		_param.tamPob = 50;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-2
-		_param.tamPob = 75;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-3
-		_param.tamPob = 100;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-4
-		_param.tamPob = 130;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-5
-		_param.tamPob = 150;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-6
-		_param.tamPob = 175;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
-
-		//// Prueba 4-7
-		_param.tamPob = 200;
-		actualizaParametros();
-		for (size_t i = 0; i < _repeticiones; ++i)
-			lanzaAG();
 
 		_outfile.close();
 		return;
@@ -306,10 +123,12 @@ public:
 		_mediaPob.push_back(media);
 		_mediaSel.push_back(mediaSel);
 		++_iteracion;
+
+		std::cout << "\r" << std::setprecision(3) << (_iteracion / (float)_param.iteraciones) * 100 << "%     ";
 	}
 
 	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval){
-		_outfile << "==== Resultados de ejecucion " << _ejec << " ====" << std::endl;
+		_outfile << "==== Resultados de ejecucion " <<_ejec / _repeticiones << "/" << _ejec % _repeticiones << " ====" << std::endl;
 		_outfile << "== Adap mejor: " << mejor.getAdaptacion() << std::endl;
 		_outfile << "== Nodos mejor CC: " << mejor.getMejorCC().size() << std::endl;
 		_outfile << "== T. ejec.: " << std::to_string(total / 1000) << "s" << std::endl;
@@ -380,12 +199,14 @@ public:
 		}
 
 		++_ejec;
+
+		std::cout << std::endl;
 	}
 
 private:
 	void actualizaParametros(){
 		_ctrl->updateParam(_param, _pEval);
-		_outfile << "#### Nuevos Parametros ####" << _ejec << std::endl;
+		_outfile << "#### Nuevos Parametros #### " << _ejec / _repeticiones << std::endl;
 		imprimeParam();
 	}
 
@@ -395,7 +216,13 @@ private:
 		_mediaPob.clear();
 		_mediaSel.clear();
 		_iteracion = 0;
+		time_t t = time(0);   // get time now
+		struct tm now;
+		localtime_s(&now, &t);
+		_outfile << "[" << now.tm_hour << ':' << now.tm_min << ':' << now.tm_sec << "] ";
 		_outfile << "--< Ejecucion " << _ejec / _repeticiones << "/" << _ejec % _repeticiones << " >--" << std::endl;
+		std::cout << "[" << now.tm_hour << ':' << now.tm_min << ':' << now.tm_sec << "] ";
+		std::cout << "--< Ejecucion " << _ejec / _repeticiones << "/" << _ejec % _repeticiones << " >--" << std::endl;
 		_ctrl->run();
 	}
 
