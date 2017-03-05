@@ -68,5 +68,17 @@
     <ClInclude Include="metodoCruce.hpp">
       <Filter>Archivos de encabezado\modelo\cruce</Filter>
     </ClInclude>
+    <ClInclude Include="MetodoMutacion.hpp">
+      <Filter>Archivos de encabezado\modelo\mutacion</Filter>
+    </ClInclude>
+    <ClInclude Include="MetodoSeleccion.hpp">
+      <Filter>Archivos de encabezado\modelo\seleccion</Filter>
+    </ClInclude>
+    <ClInclude Include="Arbol.hpp">
+      <Filter>Archivos de encabezado\modelo\arbol</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodo.hpp">
+      <Filter>Archivos de encabezado\modelo\arbol</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
