@@ -38,9 +38,9 @@ int main(){
 	Controlador c(ag);
 	Testbench tb(c);
 
-	tb.openFile("prueba.txt");
+	tb.openFile("Testbench01.txt");
 
-	tb.launchTestbench();
+	tb.launchTestbench(); // 247
 
 	/*
 
