@@ -20,95 +20,59 @@ enum Operacion {
 	Retroceder
 };
 
-template <class N> 
+static std::unordered_map<Operacion, int> GRADOS{
+	{ ProgN2, 2 },
+	{ ProgN3, 3 },
+	{ ProgN4, 4 },
+	{ SiJugador, 2 },
+	{ SiBloqueado, 2 },
+	{ Avanza, 0 },
+	{ GiraIz, 0 },
+	{ GiraDer, 0 },
+	{ CambiarEst, 0 },
+	{ SiRango, 2 },
+	{ SiDetectado, 2 },
+	{ BloquearN, 0 },
+	{ Atacar, 0 },
+	{ Retroceder, 0 }
+};
+
 class Nodo {
-public:
-	static const std::unordered_map<Operacion, int> grados{
-		{ ProgN2, 2 }
-		{ ProgN3, 3 }
-		{ ProgN4, 4 }
-		{ SiJugador, 2 }
-		{ SiBloqueado, 2 }
-		{ Avanza, 0 }
-		{ GiraIz, 0 }
-		{ GiraDer, 0 }
-		{ CambiarEst, 0 }
-		{ SiRango, 2 }
-		{ SiDetectado, 2 }
-		{ BloquearN, 0 }
-		{ Atacar, 0 }
-		{ Retroceder, 0 }
-	};
-	
+public:	
 
-	Nodo<N>(N _elem, Nodo<N> padre, int nHijos) {
-		this->_padre = padre;
-		this->_nHijos = nHijos;
-		this->_elem = elem
-	}
+	Nodo(Operacion _elem, Nodo* padre, int nHijos);
 
-	bool addHijo(N h, int pos) {
-		if (pos >= _nHijos) return false;
-		this->_hijos.at(pos) = Nodo<N>(h, this->, grados.get(h));
-		return true;
-	}
+	bool addHijo(Operacion h, int pos);
 
-	bool addHijo(Nodo<N> h, int pos) {
-		if (pos >= nHijos) return false;
-		this->_hijos.at(pos) = h;
-		return true;
-	}
+	bool addHijo(Nodo h, int pos);
 
-	void addHijo(N h) {
-		this->_hijos.push_back(Nodo<N>(h, this->, grados.get(h));
-		this->_nHijos++;
-	}
-	void addHijo(Nodo<N> h) {
-		this->_hijos.push_back(h);
-		this->_nHijos++;
-	}
+	void addHijo(Operacion h);
 
-	bool esTerminal() {
-		return (this->_nHijos == 0);
-	}
+	void addHijo(Nodo h);
 
-	N getElem() {
-		return _elem;
-	}
+	bool esTerminal();
 
-	void setElem(N elem) {
-		this->_elem = elem;
-	}
+	Operacion getElem();
 
-	std::vector<Nodo<N>> getHijos() {
-		return _hijos;
-	}
+	void setElem(Operacion elem);
 
-	void setHijos(std::vector<Nodo<N>> hijos) {
-		this->_hijos = hijos;
-	}
+	std::vector<Nodo> getHijos();
 
-	int getNhijos() {
-		return _nHijos;
-	}
+	void setHijos(std::vector<Nodo> hijos);
 
-	void setNhijos(int nHijos) {
-		this->_nHijos = nHijos;
-	}
+	int getNhijos();
 
-	Nodo<N> getPadre() {
-		return _padre;
-	}
+	void setNhijos(int nHijos);
 
-	void setPadre(Nodo<N> padre) {
-		this->_padre = padre;
-	}
+	Nodo* getPadre();
+
+	void setPadre(Nodo* padre);
 
 private:
-	Nodo<N> _padre;
+	Nodo* _padre;
 	int _nHijos;
-	N _elem;
-	std::vector<Nodo<N>> _hijos
+	Operacion _elem;
+	std::vector<Nodo> _hijos;
 };
 
 #endif

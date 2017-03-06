@@ -65,6 +65,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Nodo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AG.hpp" />
