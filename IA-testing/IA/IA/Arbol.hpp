@@ -13,24 +13,24 @@ template<class N>
 class Arbol {
 public:
 	Arbol(N raiz) {
-		this->_raiz = new Nodo<N>(raiz, this->_raiz, Nodo.grados.get(raiz));
+		this->_raiz = Nodo<N>(raiz, this->_raiz, Nodo<N>::grados.get(raiz));
 	}
 
 	void insertaNodo(int padre, N elem, int pos) {
 		Nodo<N> buscado = buscaNodo(this->_raiz, 0, padre);
 		if (buscado != nullptr) {
-			buscado.addHijo(elem, pos);
+			buscado->addHijo(elem, pos);
 		}
 	}
 
 	Nodo<N> buscaNodo(Nodo<N> origen, int numeroActual, int numeroBuscado) {
 		if (numeroActual == numeroBuscado) return origen;
-		else if (origen.esTerminal()) return nullptr;
+		else if (origen->esTerminal()) return nullptr;
 		else {
 			int i = 0;
 			Nodo<N> buscado = nullptr;
-			while (buscado == nullptr && i < origen.getnHijos()) {
-				buscado = buscaNodo(origen.getHijos().at(i), numeroActual + i + 1; numeroBuscado);
+			while (buscado == nullptr && i < origen->getnHijos()) {
+				buscado = buscaNodo(origen->getHijos().at(i), numeroActual + i + 1; numeroBuscado);
 				if (buscado == nullptr) ++i;
 			}
 		}

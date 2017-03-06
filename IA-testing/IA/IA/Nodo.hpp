@@ -22,22 +22,24 @@ enum Operacion {
 
 template <class N> 
 class Nodo {
-public: 
-	static std::unordered_map<Operacion, int> grados;
-	grados.insert({ ProgN2, 2 });
-	grados.insert({ ProgN3, 3 });
-	grados.insert({ ProgN4, 4 });
-	grados.insert({ SiJugador, 2 });
-	grados.insert({ SiBloqueado, 2 });
-	grados.insert({ Avanza, 0 });
-	grados.insert({ GiraIz, 0 });
-	grados.insert({ GiraDer, 0 });
-	grados.insert({ CambiarEst, 0 });
-	grados.insert({ SiRango, 2 });
-	grados.insert({ SiDetectado, 2 });
-	grados.insert({ BloquearN, 0 });
-	grados.insert({ Atacar, 0 });
-	grados.insert({ Retroceder, 0 })
+public:
+	static const std::unordered_map<Operacion, int> grados{
+		{ ProgN2, 2 }
+		{ ProgN3, 3 }
+		{ ProgN4, 4 }
+		{ SiJugador, 2 }
+		{ SiBloqueado, 2 }
+		{ Avanza, 0 }
+		{ GiraIz, 0 }
+		{ GiraDer, 0 }
+		{ CambiarEst, 0 }
+		{ SiRango, 2 }
+		{ SiDetectado, 2 }
+		{ BloquearN, 0 }
+		{ Atacar, 0 }
+		{ Retroceder, 0 }
+	};
+	
 
 	Nodo<N>(N _elem, Nodo<N> padre, int nHijos) {
 		this->_padre = padre;
@@ -47,7 +49,7 @@ public:
 
 	bool addHijo(N h, int pos) {
 		if (pos >= _nHijos) return false;
-		this->_hijos.at(pos) = new Nodo<N>(h, this->, grados.get(h));
+		this->_hijos.at(pos) = Nodo<N>(h, this->, grados.get(h));
 		return true;
 	}
 
@@ -58,7 +60,7 @@ public:
 	}
 
 	void addHijo(N h) {
-		this->_hijos.push_back(new Nodo<N>(h, this->, grados.get(h));
+		this->_hijos.push_back(Nodo<N>(h, this->, grados.get(h));
 		this->_nHijos++;
 	}
 	void addHijo(Nodo<N> h) {
