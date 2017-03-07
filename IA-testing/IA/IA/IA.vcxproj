@@ -65,6 +65,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Nodo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AG.hpp" />
+    <ClInclude Include="Arbol.hpp" />
+    <ClInclude Include="controlador.hpp" />
+    <ClInclude Include="cromosoma.hpp" />
+    <ClInclude Include="gen.hpp" />
+    <ClInclude Include="IAGObserver.hpp" />
+    <ClInclude Include="metodoCruce.hpp" />
+    <ClInclude Include="MetodoMutacion.hpp" />
+    <ClInclude Include="MetodoSeleccion.hpp" />
+    <ClInclude Include="Nodo.hpp" />
+    <ClInclude Include="poblacion.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
