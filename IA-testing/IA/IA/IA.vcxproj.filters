@@ -83,5 +83,8 @@
     <ClInclude Include="Nodo.hpp">
       <Filter>Archivos de encabezado\modelo\arbol</Filter>
     </ClInclude>
+    <ClInclude Include="npc.hpp">
+      <Filter>Archivos de encabezado\modelo\arbol</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

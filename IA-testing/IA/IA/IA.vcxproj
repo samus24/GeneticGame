@@ -78,6 +78,7 @@
     <ClInclude Include="MetodoMutacion.hpp" />
     <ClInclude Include="MetodoSeleccion.hpp" />
     <ClInclude Include="Nodo.hpp" />
+    <ClInclude Include="npc.hpp" />
     <ClInclude Include="poblacion.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

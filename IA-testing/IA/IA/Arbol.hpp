@@ -34,8 +34,15 @@ public:
 			return buscado;
 		}
 	}
+
+	int getNumNodos() {
+		_raiz.getNhijos();
+	}
+
 private:
 	Nodo _raiz;
+	int profMin;
+	int profMax;
 };
 
 #endif
