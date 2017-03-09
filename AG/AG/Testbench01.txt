@@ -4,10 +4,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -98,10 +95,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -192,10 +186,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -286,10 +277,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -380,10 +368,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -474,10 +459,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -568,10 +550,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -662,10 +641,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -756,10 +732,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -850,10 +823,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -944,10 +914,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -1038,10 +1005,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -1132,10 +1096,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -1226,10 +1187,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -1320,10 +1278,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -1414,10 +1369,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -1508,10 +1460,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -1602,10 +1551,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -1696,10 +1642,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -1790,10 +1733,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -1884,10 +1824,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -1978,10 +1915,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -2072,10 +2006,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -2166,10 +2097,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -2260,10 +2188,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -2354,10 +2279,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -2448,10 +2370,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -2542,10 +2461,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -2636,10 +2552,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -2730,10 +2643,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -2824,10 +2734,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -2918,10 +2825,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -3012,10 +2916,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -3106,10 +3007,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -3200,10 +3098,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -3294,10 +3189,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -3388,10 +3280,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -3482,10 +3371,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -3576,10 +3462,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -3670,10 +3553,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -3764,10 +3644,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -3858,10 +3735,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -3952,10 +3826,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -4046,10 +3917,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -4140,10 +4008,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -4234,10 +4099,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -4328,10 +4190,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -4422,10 +4281,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -4516,10 +4372,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -4610,10 +4463,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -4704,10 +4554,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -4798,10 +4645,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -4892,10 +4736,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -4986,10 +4827,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -5080,10 +4918,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -5174,10 +5009,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -5268,10 +5100,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -5362,10 +5191,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -5456,10 +5282,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -5550,10 +5373,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -5644,10 +5464,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -5738,10 +5555,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -5832,10 +5646,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -5926,10 +5737,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -6020,10 +5828,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -6114,10 +5919,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -6208,10 +6010,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -6302,10 +6101,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -6396,10 +6192,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -6490,10 +6283,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -6584,10 +6374,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -6678,10 +6465,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -6772,10 +6556,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -6866,10 +6647,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -6960,10 +6738,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -7054,10 +6829,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -7148,10 +6920,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -7242,10 +7011,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -7336,10 +7102,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -7430,10 +7193,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -7524,10 +7284,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -7618,10 +7375,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -7712,10 +7466,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -7806,10 +7557,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -7900,10 +7648,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -7994,10 +7739,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -8088,10 +7830,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -8182,10 +7921,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -8276,10 +8012,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -8370,10 +8103,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -8464,10 +8194,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -8558,10 +8285,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -8652,10 +8376,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -8746,10 +8467,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -8840,10 +8558,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -8934,10 +8649,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -9028,10 +8740,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -9122,10 +8831,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -9216,10 +8922,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -9310,10 +9013,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -9404,10 +9104,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -9498,10 +9195,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -9592,10 +9286,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -9686,10 +9377,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -9780,10 +9468,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -9874,10 +9559,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -9968,10 +9650,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -10062,10 +9741,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -10156,10 +9832,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -10250,10 +9923,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -10344,10 +10014,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -10438,10 +10105,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -10532,10 +10196,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -10626,10 +10287,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -10720,10 +10378,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -10814,10 +10469,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -10908,10 +10560,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -11002,10 +10651,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -11096,10 +10742,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -11190,10 +10833,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -11284,10 +10924,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -11378,10 +11015,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -11472,10 +11106,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -11566,10 +11197,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -11660,10 +11288,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -11754,10 +11379,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -11848,10 +11470,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -11942,10 +11561,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -12036,10 +11652,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -12130,10 +11743,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -12224,10 +11834,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -12318,10 +11925,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -12412,10 +12016,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -12506,10 +12107,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -12600,10 +12198,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -12694,10 +12289,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -12788,10 +12380,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -12882,10 +12471,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -12976,10 +12562,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -13070,10 +12653,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -13164,10 +12744,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -13258,10 +12835,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -13352,10 +12926,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -13446,10 +13017,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -13540,10 +13108,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -13634,10 +13199,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -13728,10 +13290,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -13822,10 +13381,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -13916,10 +13472,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -14010,10 +13563,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -14104,10 +13654,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -14198,10 +13745,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -14292,10 +13836,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -14386,10 +13927,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -14480,10 +14018,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -14574,10 +14109,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -14668,10 +14200,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -14762,10 +14291,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -14856,10 +14382,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -14950,10 +14473,7 @@
 ·· Iteraciones: 30
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -15044,10 +14564,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -15138,10 +14655,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -15232,10 +14746,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -15326,10 +14837,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -15420,10 +14928,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -15514,10 +15019,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -15608,10 +15110,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -15702,10 +15201,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -15796,10 +15292,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -15890,10 +15383,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -15984,10 +15474,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -16078,10 +15565,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -16172,10 +15656,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -16266,10 +15747,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -16360,10 +15838,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -16454,10 +15929,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -16548,10 +16020,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -16642,10 +16111,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -16736,10 +16202,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -16830,10 +16293,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -16924,10 +16384,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -17018,10 +16475,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -17112,10 +16566,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -17206,10 +16657,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -17300,10 +16748,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -17394,10 +16839,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -17488,10 +16930,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -17582,10 +17021,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -17676,10 +17112,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -17770,10 +17203,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -17864,10 +17294,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -17958,10 +17385,7 @@
 ·· Iteraciones: 50
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -18052,10 +17476,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -18146,10 +17567,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -18240,10 +17658,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -18334,10 +17749,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -18428,10 +17840,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -18522,10 +17931,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -18616,10 +18022,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -18710,10 +18113,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -18804,10 +18204,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -18898,10 +18295,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -18992,10 +18386,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -19086,10 +18477,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -19180,10 +18568,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -19274,10 +18659,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -19368,10 +18750,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -19462,10 +18841,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -19556,10 +18932,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -19650,10 +19023,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -19744,10 +19114,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -19838,10 +19205,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -19932,10 +19296,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -20026,10 +19387,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -20120,10 +19478,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -20214,10 +19569,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -20308,10 +19660,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -20402,10 +19751,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -20496,10 +19842,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -20590,10 +19933,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -20684,10 +20024,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -20778,10 +20115,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -20872,10 +20206,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -20966,10 +20297,7 @@
 ·· Iteraciones: 100
 ·· Elitismo: 1
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -21060,10 +20388,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -21154,10 +20479,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -21248,10 +20570,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -21342,10 +20661,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -21436,10 +20752,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -21530,10 +20843,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -21624,10 +20934,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -21718,10 +21025,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -21812,10 +21116,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -21906,10 +21207,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -22000,10 +21298,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -22094,10 +21389,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -22188,10 +21480,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -22282,10 +21571,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -22376,10 +21662,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -22470,10 +21753,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 0
 ·· Bloating: 1
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -22564,10 +21844,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -22658,10 +21935,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -22752,10 +22026,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -22846,10 +22117,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 0
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 0 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -22940,10 +22208,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -23034,10 +22299,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Monopunto
 ·· Metodo Mutacion: Mutacion Nodo
 ····················
@@ -23128,10 +22390,7 @@
 ·· Iteraciones: 200
 ·· Elitismo: 1
 ·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
+·· Contractividad: 1 
 ·· Metodo Cruce: Cruce Multipunto
 ·· Metodo Mutacion: Mutacion Arista
 ····················
@@ -23216,17 +22475,3 @@
 	[0.592312, 0.640595, 0.673932, 0.719124, 0.728924, 0.729719, 0.730025, 0.73186, 0.735836, 0.741419, 0.745324, 0.745873, 0.74697, 0.748459, 0.74893, 0.749771, 0.752294, 0.75818, 0.768271, 0.789295, 0.790977, 0.791413, 0.793156, 0.797516, 0.804979, 0.811902, 0.812774, 0.812813, 0.812892, 0.813285, 0.814033, 0.814435, 0.814741, 0.815059, 0.816224, 0.817688, 0.819613, 0.820437, 0.820837, 0.822438, 0.82604, 0.833075, 0.83931, 0.840047, 0.840447]
 == Media Seleccion
 	[0.576618, 0.637046, 0.671373, 0.71769, 0.729719, 0.729719, 0.729719, 0.731554, 0.73553, 0.740729, 0.745246, 0.745795, 0.746892, 0.748381, 0.748851, 0.74893, 0.751453, 0.757339, 0.76743, 0.788454, 0.790977, 0.790977, 0.79272, 0.79708, 0.804927, 0.811466, 0.812774, 0.812774, 0.812853, 0.813246, 0.813994, 0.814623, 0.814741, 0.814953, 0.816118, 0.818024, 0.819507, 0.820037, 0.820437, 0.822038, 0.82604, 0.832443, 0.83891, 0.840047, 0.840047]
-#### Nuevos Parametros #### 247
-···· Parametros ····
-·· Poblacion: 50
-·· Iteraciones: 200
-·· Elitismo: 1
-·· Bloating: 0
-·· Contractividad: 1
-·· Prob. Cruce: 0.6
-·· Prob. Mutacion: 0.02
-·· Metodo Seleccion: Seleccion Torneo
-·· Metodo Cruce: Cruce Multipunto
-·· Metodo Mutacion: Mutacion Nodo
-····················
-[20:26:52] --< Ejecucion 247/0 >--

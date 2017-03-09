@@ -98,9 +98,14 @@ public:
 											_param.cruce = q;
 											for (auto r : mutaciones){
 												_param.mutacion = r;
-												actualizaParametros();
-												for (size_t s = 0; s < _repeticiones; ++s)
-													lanzaAG();
+												if ((_ejec / _repeticiones) >= 247){
+													actualizaParametros();
+													for (size_t s = 0; s < _repeticiones; ++s)
+														lanzaAG();
+												}
+												else{
+													_ejec += _repeticiones;
+												}
 											}
 										}
 									}
