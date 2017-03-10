@@ -38,7 +38,7 @@ public:
 
 		_crono.limpiaMedida("init");
 		_crono.limpiaMedida("eval");
-		_elMejor = Cromosoma();
+		
 
 		double mediaActual, mediaAnterior;
 		_generacion = 0;
@@ -48,9 +48,9 @@ public:
 		_crono.iniciaMedida("init", std::chrono::high_resolution_clock::now());
 		_pob.generaPoblacionAleatoria(_param.tamPob, _param.minNodos, _param.maxNodos, _param.densidad);
 		_crono.finalizaMedida("init", std::chrono::high_resolution_clock::now());
-
+		
 		_pob.evalua(_paramEval);	// Lo ideal sería evaluar una vez al principio, y que de cada grafo se actualice su adaptacion solo si cambia
-
+		_elMejor = _pob.individuos[0];
 		_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
 		mediaAnterior = evaluarPoblacion();
 		_crono.finalizaMedida("eval", std::chrono::high_resolution_clock::now());

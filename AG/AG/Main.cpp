@@ -21,7 +21,7 @@ int main(){
 	p.contractividad = false;				// Contractividad (descarta generaciones malas)
 	p.probCruce = 0.6;						// Probabilidad de cruce
 	p.probMutacion = 0.02;					// Probabilidad de mutacion
-	p.seleccion = new SeleccionRuleta();	// Metodo de seleccion (Ver "MetodoSeleccion.hpp")
+	p.seleccion = new SeleccionRanking();	// Metodo de seleccion (Ver "MetodoSeleccion.hpp")
 	p.cruce = new CruceMonopunto();			// Metodo de cruce (Ver "MetodoCruce.hpp")
 	p.mutacion = new MutacionNodo();		// Metodo de mutacion (Ver "MetodoMutacion.hpp")
 
@@ -34,19 +34,19 @@ int main(){
 	pEval.enemigosOptimos = 35;			
 	pEval.cofresOptimos = 10;	
 
+	/*
 	AG ag(p, pEval);
 	Controlador c(ag);
 	Testbench tb(c);
 
 	tb.openFile("Testbench02.txt");
 
-	tb.launchTestbench(); // 247
-
-	/*
-
+	tb.launchTestbench(); 
+	*/
 	AG ag(p,pEval);
 	Controlador c(ag);
 	Ventana v(c);
-	v.run(p.iteraciones);*/
+	v.run(p.iteraciones);
+
 	return 0;
 }
