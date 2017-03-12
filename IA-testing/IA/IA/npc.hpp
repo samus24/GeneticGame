@@ -19,6 +19,7 @@ public:
 		_posY = y;
 		_alto = alto;
 		_ancho = ancho;
+		f = facing::ESTE;
 	}
 
 	void avanza() {
@@ -64,6 +65,30 @@ public:
 	}
 
 	void derecha() {
+		int aux = 0;
+		switch (f) {
+		case NORTE:
+			aux = _posY - 1;
+			if (aux >= 0) aux=0; //si te sales, no haces nada. Si es la casilla, habrá que codificarla de alguna forma
+			break;
+		case SUR:
+			aux = _posY++;
+			if (_posY <= this->_alto) aux = 0;
+			break;
+		case ESTE:
+			aux = _posX++;
+			if (_posX <= this->_ancho) aux = 0;
+			break;
+		case OESTE:
+			aux = _posX--;
+			if (_posX >= 0) aux = 0;
+			break;
+		default:
+			break;
+		}
+	}
+
+	void ataca() {
 		switch (f) {
 		case NORTE:
 			f = facing::ESTE;

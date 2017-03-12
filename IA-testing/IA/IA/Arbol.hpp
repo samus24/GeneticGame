@@ -39,10 +39,20 @@ public:
 		_raiz.getNhijos();
 	}
 
+	void creaArbolAleatorio(int profMin, int profMax) {
+		this->_profMin = profMin;
+		this->_profMax = profMax;
+		this->_raiz = creaArbol(nullptr, _raiz, profMin, profMax, 0);
+	}
+
+	Nodo creaArbol(Nodo padre, Nodo a, int pMin, int pMax, int pos) {
+
+	}
+
 private:
 	Nodo _raiz;
-	int profMin;
-	int profMax;
+	int _profMin;
+	int _profMax;
 };
 
 #endif
