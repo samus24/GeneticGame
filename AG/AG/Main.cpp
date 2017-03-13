@@ -23,7 +23,7 @@ int main(){
 	p.probMutacion = 0.02;					// Probabilidad de mutacion
 	p.seleccion = new SeleccionRanking();	// Metodo de seleccion (Ver "MetodoSeleccion.hpp")
 	p.cruce = new CruceMonopunto();			// Metodo de cruce (Ver "MetodoCruce.hpp")
-	p.mutacion = new MutacionNodo();		// Metodo de mutacion (Ver "MetodoMutacion.hpp")
+	p.mutacion = new MutacionArista();		// Metodo de mutacion (Ver "MetodoMutacion.hpp")
 
 	ParametrosEval pEval;
 	pEval.nodosOptimos = 25;
