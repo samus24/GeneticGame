@@ -39,6 +39,8 @@ public:
 		_param.densidad = 0.03;
 		///
 
+		/*
+		PARAMETROS DEL PRIMER TB
 		_param.tamPob = 30;							
 		_param.iteraciones = 30;								
 		_param.elitismo = false;					
@@ -68,10 +70,33 @@ public:
 		std::vector<MetodoCruce* > cruces = { new CruceMonopunto(), new CruceMultipunto() };
 		std::vector<MetodoMutacion* > mutaciones = { new MutacionArista(), new MutacionNodo() };
 
-		_repeticiones = 3;
+		*/
+
+		_param.tamPob = 30;
+		_param.iteraciones = 30;
+		_param.elitismo = false;
+		_param.bloating = false;
+		_param.contractividad = false;
+		_param.probCruce = 0.6;
+		_param.probMutacion = 0.02;
+		_param.seleccion = new SeleccionTorneo();
+		_param.cruce = new CruceMonopunto();
+		_param.mutacion = new MutacionArista();
+
+		std::vector<unsigned int> tamanos = { 30 };			// Posibles tamanos de poblacion
+		std::vector<unsigned int> generaciones = { 30, 50 };	// Posibles numeros de generaciones
+		std::vector<bool> elitismos = { false };
+		std::vector<bool> bloatings = { false, true };
+		std::vector<bool> contracts = { false };
+		std::vector<double> probCruces = { 0.6 };
+		std::vector<double> probMutac = { 0.02 };
+		std::vector<MetodoSeleccion* > selecciones = { new SeleccionTorneo(), new SeleccionRanking() };
+		std::vector<MetodoCruce* > cruces = { new CruceMonopunto(), new CruceMultipunto() };
+		std::vector<MetodoMutacion* > mutaciones = { new MutacionArista(), new MutacionNodo() };
+		_repeticiones = 5;
 
 		double combinaciones = tamanos.size() * generaciones.size() * 8 * probCruces.size() * probMutac.size() * 2 * 2;
-		double minutos = combinaciones * _repeticiones * 1.5;
+		double minutos = combinaciones * _repeticiones * 2;
 		double dias = (minutos / 60) / 24;
 
 		std::cout << "Combinaciones : " << combinaciones << std::endl;
@@ -98,14 +123,9 @@ public:
 											_param.cruce = q;
 											for (auto r : mutaciones){
 												_param.mutacion = r;
-												if ((_ejec / _repeticiones) >= 247){
-													actualizaParametros();
-													for (size_t s = 0; s < _repeticiones; ++s)
-														lanzaAG();
-												}
-												else{
-													_ejec += _repeticiones;
-												}
+												actualizaParametros();
+												for (size_t s = 0; s < _repeticiones; ++s)
+													lanzaAG();
 											}
 										}
 									}
