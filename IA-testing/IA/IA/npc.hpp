@@ -8,18 +8,18 @@ enum facing {
 	OESTE
 };
 
-class pnc {
+class npc {
 public:
 	int _posX;
 	int _posY;
 	facing f;
 
-	pnc(int x, int y, int alto, int ancho) {
-		_posX = x;
-		_posY = y;
-		_alto = alto;
-		_ancho = ancho;
-		f = facing::ESTE;
+	npc(int x, int y, int alto, int ancho) {
+		this->_posX = x;
+		this->_posY = y;
+		this->_alto = alto;
+		this->_ancho = ancho;
+		this->f = facing::ESTE;
 	}
 
 	void avanza() {

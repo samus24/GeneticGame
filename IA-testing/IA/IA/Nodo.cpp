@@ -69,3 +69,7 @@ Nodo* Nodo::getPadre() {
 void Nodo::setPadre(Nodo* padre) {
 	this->_padre = padre;
 }
+
+void evalua(std::vector<Mapa>, npc pnj) {
+	//aquí habría que ejecutar el arbol sobre el mapa
+}

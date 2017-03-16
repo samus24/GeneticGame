@@ -2,6 +2,8 @@
 #define NODO_HPP
 #include <unordered_map>
 #include <vector>
+#include "npc.hpp"
+#include "Mapa.hpp"
 
 enum Operacion {
 	ProgN2,
@@ -40,11 +42,11 @@ static std::unordered_map<Operacion, int> GRADOS{
 class Nodo {
 public:	
 
-	Nodo(Operacion _elem, Nodo* padre, int nHijos, int pos);
+	Nodo(Operacion _elem, Nodo* padre, int nHijos, int _pos);
 
-	bool addHijo(Operacion h, int pos);
+	bool addHijo(Operacion h, int _pos);
 
-	bool addHijo(Nodo h, int pos);
+	bool addHijo(Nodo h, int _pos);
 
 	bool esTerminal();
 
@@ -66,19 +68,21 @@ public:
 
 	int getNumNodos();
 
-	void setNumNodos(int numNodos);
+	void setNumNodos(int _numNodos);
 
 	int getPos();
 
-	void setPos(int pos);
+	void setPos(int _pos);
+
+	void evalua(std::vector<Mapa> m, npc pnj);
 
 private:
 	Nodo* _padre;
 	int _nHijos;
 	Operacion _elem;
 	std::vector<Nodo> _hijos;
-	int numNodos;
-	int pos;
+	int _numNodos;
+	int _pos;
 };
 
 #endif

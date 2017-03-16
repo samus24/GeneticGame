@@ -74,6 +74,7 @@
     <ClInclude Include="cromosoma.hpp" />
     <ClInclude Include="gen.hpp" />
     <ClInclude Include="IAGObserver.hpp" />
+    <ClInclude Include="Mapa.hpp" />
     <ClInclude Include="metodoCruce.hpp" />
     <ClInclude Include="MetodoMutacion.hpp" />
     <ClInclude Include="MetodoSeleccion.hpp" />
