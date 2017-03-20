@@ -1,21 +1,21 @@
-﻿Compilación iniciada a las 20/03/2017 19:32:57.
+﻿Compilación iniciada a las 20/03/2017 19:40:24.
      1>Proyecto "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         D:\VisualStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
+         D:\VisualStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Nodo.cpp main.cpp
+         Nodo.cpp
      1>d:\github\geneticgame\ia-testing\ia\ia\mapa.hpp(19): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\mapa.hpp(20): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(50): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(55): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(77): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(96): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\nodo.cpp(9): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\nodo.cpp(91): warning C4018: '<' : no coinciden signed/unsigned
+         Generando código...
+         Omitiendo... (no se detectaron cambios relevantes)
+         main.cpp
        Link:
          D:\VisualStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Github\GeneticGame\IA-testing\IA\Debug\IA.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Github\GeneticGame\IA-testing\IA\Debug\IA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Github\GeneticGame\IA-testing\IA\Debug\IA.lib" /MACHINE:X86 Debug\main.obj
          Debug\Nodo.obj
-     1>Nodo.obj : error LNK2019: símbolo externo "public: void __thiscall Nodo::setPos(int)" (?setPos@Nodo@@QAEXH@Z) sin resolver al que se hace referencia en la función "public: __thiscall Nodo::Nodo(enum Operacion,class Nodo *,int,int)" (??0Nodo@@QAE@W4Operacion@@PAV0@HH@Z)
-     1>D:\Github\GeneticGame\IA-testing\IA\Debug\IA.exe : fatal error LNK1120: 1 externos sin resolver
-     1>Compilación del proyecto terminada "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" (Build destinos) -- ERROR.
+         IA.vcxproj -> D:\Github\GeneticGame\IA-testing\IA\Debug\IA.exe
+     1>Compilación del proyecto terminada "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" (Build destinos).
 
-ERROR al compilar.
+Compilación correcta.
 
-Tiempo transcurrido 00:00:00.70
+Tiempo transcurrido 00:00:00.73
