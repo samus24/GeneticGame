@@ -47,6 +47,7 @@ public:
 		qC.push(_raiz);
 		while (!q.empty()) {
 			Nodo head = q.front();
+			q.pop();
 			for (std::size_t i = 0; i < head.getNhijos(); ++i) {
 				q.push(head.getHijos()[i]);
 				qC.push(head.getHijos()[i]);
