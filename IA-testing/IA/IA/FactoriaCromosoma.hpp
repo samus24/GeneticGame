@@ -10,8 +10,8 @@ public:
 		this->_profMax = pMax;
 	}
 
-	cromosoma creaCromosoma() {
-		return cromosoma(_profMin, _profMax);
+	Cromosoma creaCromosoma() {
+		return Cromosoma(_profMin, _profMax);
 	}
 
 	int getProfMin() {
