@@ -12,8 +12,10 @@
 
 class Arbol {
 public:
-	Arbol(Nodo raiz) :
-		_raiz(raiz){}
+	Arbol();
+
+	Arbol(Operacion raiz) :
+		_raiz(raiz, nullptr, GRADOS[raiz], 0){}
 
 	void insertaNodo(int padre, Operacion elem, int pos) {
 		Nodo* buscado = buscaNodo(&this->_raiz, padre);

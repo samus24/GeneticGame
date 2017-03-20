@@ -4,7 +4,7 @@
 int main() {
 
 	Nodo n(Operacion::ProgN3, nullptr, 3, 0);
-	Arbol a = Arbol(n);
+	Arbol a = Arbol(Operacion::ProgN3);
 
 	a.insertaNodo(0, Operacion::Avanza, 0);
 	a.insertaNodo(0, Operacion::GiraDer, 1);

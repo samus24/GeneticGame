@@ -6,8 +6,8 @@
 class Cromosoma {
 public:
 	Cromosoma(int profMin, int profMax) {
-		genotipo = arbol(Operacion::Avanza);
-		genotipo->creaArbolAleatorio(profMin, profMax);
+		this->_genotipo = Arbol(Operacion::Avanza);
+		this->_genotipo.creaArbolAleatorio(profMin, profMax);
 	}
 
 	Arbol getGenotipo() {
@@ -15,11 +15,11 @@ public:
 	}
 
 	void setGenotipo(Arbol genotipo) {
-		this->genotipo = genotipo;
+		this->_genotipo = genotipo;
 	}
 
 	double getPunt() {
-		return _punt
+		return _punt;
 	}
 
 	void setPunt(double punt) {
@@ -50,8 +50,8 @@ public:
 		return _genotipo.getNodoFuncionAleatorio();
 	}
 
-	void bloating() {
-		_genotipo.bloating();
+	void bloating(int prof) {
+		_genotipo.bloating(prof);
 	}
 
 	double evalua(std::vector<Mapa> m) {
