@@ -50,13 +50,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="controlador.hpp">
-      <Filter>Archivos de encabezado\controlador</Filter>
-    </ClInclude>
     <ClInclude Include="AG.hpp">
-      <Filter>Archivos de encabezado\modelo\ag</Filter>
-    </ClInclude>
-    <ClInclude Include="IAGObserver.hpp">
       <Filter>Archivos de encabezado\modelo\ag</Filter>
     </ClInclude>
     <ClInclude Include="poblacion.hpp">

@@ -71,6 +71,18 @@ void Nodo::setPadre(Nodo* padre) {
 	this->_padre = padre;
 }
 
-void evalua(std::vector<Mapa> m, npc pnj) {
+void Nodo::evalua(std::vector<Mapa> m, npc pnj) {
 	//aquí habría que ejecutar el arbol sobre el mapa
+}
+void Nodo::bloating(int pMax, int nivel) {
+
+}
+
+int Nodo::actualizaNumNodos() {
+	int n = 1;
+	for (std::size_t i = 0; i < _nHijos; ++i) {
+		n += _hijos[i].actualizaNumNodos();
+	}
+	this->_numNodos = n;
+	return n;
 }

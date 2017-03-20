@@ -26,11 +26,43 @@ public:
 		this->_punt = punt;
 	}
 
+	double getPuntAcum() {
+		return this->_puntAcum;
+	}
+
+	void setPuntAcum(double p) {
+		this->_puntAcum = p;
+	}
+
+	double getAdaptacion() {
+		return this->_adaptacion;
+	}
+
+	void setAdaptacion(double a) {
+		this->_adaptacion = a;
+	}
+
+	Nodo* getTerminalAleatorio() {
+		return _genotipo.getTerminalAleatorio();
+	}
+
+	Nodo* getNodoFuncionAleatorio() {
+		return _genotipo.getNodoFuncionAleatorio();
+	}
+
+	void bloating() {
+		_genotipo.bloating();
+	}
+
+	double evalua(std::vector<Mapa> m) {
+		//metodo de evaluación, recorrer los mapas y conseguir el valor acumulado
+	}
+
 private:
 	Arbol _genotipo;
 	double _punt;
 	double _puntAcum;
 	double _adaptacion;
-}
+};
 
 #endif

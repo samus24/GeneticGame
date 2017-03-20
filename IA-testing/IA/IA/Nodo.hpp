@@ -76,6 +76,10 @@ public:
 
 	void evalua(std::vector<Mapa> m, npc pnj);
 
+	void bloating(int pMax, int nivel);
+
+	int actualizaNumNodos();
+
 private:
 	Nodo* _padre;
 	int _nHijos;
