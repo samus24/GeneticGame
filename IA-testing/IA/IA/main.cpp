@@ -3,7 +3,7 @@
 
 int main() {
 
-	Nodo n(Operacion::ProgN3, nullptr, 3);
+	Nodo n(Operacion::ProgN3, nullptr, 3, 0);
 	Arbol a = Arbol(n);
 
 	a.insertaNodo(0, Operacion::Avanza, 0);

@@ -10,16 +10,18 @@ enum facing {
 
 class npc {
 public:
+	int _turnos;
 	int _posX;
 	int _posY;
 	facing f;
 
-	npc(int x, int y, int alto, int ancho) {
+	npc(int x, int y, int alto, int ancho, int turnos) {
 		this->_posX = x;
 		this->_posY = y;
 		this->_alto = alto;
 		this->_ancho = ancho;
 		this->f = facing::ESTE;
+		this->_turnos = turnos;
 	}
 
 	void avanza() {
@@ -68,20 +70,16 @@ public:
 		int aux = 0;
 		switch (f) {
 		case NORTE:
-			aux = _posY - 1;
-			if (aux >= 0) aux=0; //si te sales, no haces nada. Si es la casilla, habrá que codificarla de alguna forma
+			f = facing::ESTE;
 			break;
 		case SUR:
-			aux = _posY++;
-			if (_posY <= this->_alto) aux = 0;
+			f = facing::OESTE;
 			break;
 		case ESTE:
-			aux = _posX++;
-			if (_posX <= this->_ancho) aux = 0;
+			f = facing::SUR;
 			break;
 		case OESTE:
-			aux = _posX--;
-			if (_posX >= 0) aux = 0;
+			f = facing::NORTE;
 			break;
 		default:
 			break;
@@ -92,6 +90,7 @@ public:
 		switch (f) {
 		case NORTE:
 			f = facing::ESTE;
+
 			break;
 		case SUR:
 			f = facing::OESTE;

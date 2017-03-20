@@ -6,12 +6,21 @@
 class Mapa {
 public:
 
+	static const int VACIO = -1;
+	static const int COFRE = -2;
+	static const int MURO = -3;
+	static const int ENEMIGO = -4;
+
 	Mapa(int width, int height, int origX, int origY) {
 		this->_width = width;
 		this->_height = height;
 		this->_origX = origX;
 		this->_origY = origY;
-		this->_mapa[height][width];
+		for (std::size_t i = 0; i < _height; ++i) { //se rellena a un mapa vacio
+			for (std::size_t j = 0; j < _width; ++j) {
+				_mapa[i].push_back(VACIO);
+			}
+		}
 	}
 
 	int getWidth() {
@@ -46,13 +55,8 @@ public:
 		this->_origY = y;
 	}
 
-	void cargarMapa(std::vector<int> casillas) {
-		for (std::size_t i = 0; i < _height; ++i) {
-			for (std::size_t j = 0; j < _width; ++j) {
-				//rellenar el mapa, ver si pasarselo como un array
-				//o mejor un array de arrays y directamente copiarlo.
-			}
-		}
+	void cargarMapa(std::vector<std::vector<int>> casillas) {
+		_mapa = casillas;
 	}
 
 private:

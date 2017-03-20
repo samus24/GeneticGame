@@ -7,7 +7,8 @@ Nodo::Nodo(Operacion elem, Nodo* padre, int nHijos, int pos) {
 	this->_elem = elem;
 	this->setPos(pos);
 	for (std::size_t i = 0; i < _nHijos; ++i) {
-		this->_hijos.push_back(Nodo(Operacion::Avanza, nullptr, 0, 0)); //se rellena el vector con nodos para reservar espacio, son indiferentes
+		//se rellena el vector con nodos para reservar espacio, son indiferentes
+		this->_hijos.push_back(Nodo(Operacion::Avanza, nullptr, 0, 0));
 	}
 }
 
@@ -70,6 +71,6 @@ void Nodo::setPadre(Nodo* padre) {
 	this->_padre = padre;
 }
 
-void evalua(std::vector<Mapa>, npc pnj) {
+void evalua(std::vector<Mapa> m, npc pnj) {
 	//aquí habría que ejecutar el arbol sobre el mapa
 }

@@ -10,12 +10,27 @@ public:
 		genotipo->creaArbolAleatorio(profMin, profMax);
 	}
 
+	Arbol getGenotipo() {
+		return _genotipo;
+	}
+
+	void setGenotipo(Arbol genotipo) {
+		this->genotipo = genotipo;
+	}
+
+	double getPunt() {
+		return _punt
+	}
+
+	void setPunt(double punt) {
+		this->_punt = punt;
+	}
 
 private:
-	Arbol genotipo;
-	double punt;
-	double puntAcum;
-	double adaptacion;
+	Arbol _genotipo;
+	double _punt;
+	double _puntAcum;
+	double _adaptacion;
 }
 
 #endif

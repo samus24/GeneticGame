@@ -11,29 +11,29 @@ enum Operacion {
 	ProgN4,
 	SiJugador,
 	SiBloqueado,
+	SiRango,
+	SiDetectado,
 	Avanza,
 	GiraIz,
 	GiraDer,
 	CambiarEst,
-	SiRango,
-	SiDetectado,
 	BloquearN,
 	Atacar,
 	Retroceder
 };
 
-static std::unordered_map<Operacion, int> GRADOS{
+static std::unordered_map<Operacion, int> GRADOS{  // 0-6 No hojas, 7-13 hojas
 	{ ProgN2, 2 },
 	{ ProgN3, 3 },
 	{ ProgN4, 4 },
 	{ SiJugador, 2 },
 	{ SiBloqueado, 2 },
+	{ SiRango, 2 },
+	{ SiDetectado, 2 },
 	{ Avanza, 0 },
 	{ GiraIz, 0 },
 	{ GiraDer, 0 },
 	{ CambiarEst, 0 },
-	{ SiRango, 2 },
-	{ SiDetectado, 2 },
 	{ BloquearN, 0 },
 	{ Atacar, 0 },
 	{ Retroceder, 0 }
