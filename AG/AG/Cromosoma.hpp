@@ -14,7 +14,7 @@ public:
 		_adaptacion = 0;
 		_indexMejorCC = 0;
 
-		double auxpesos[] = { 0.5, 0.16, 0.029, 0.02, 0.001, 0.19, 0.10 };	// {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
+		double auxpesos[] = { 0.5, 0.16, 0.03, 0.02, 0, 0.19, 0.10 };	// {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
 		for (size_t i = 0; i < 7; ++i){
 			_pesos[i] = auxpesos[i];
 		}
@@ -23,7 +23,7 @@ public:
 	Cromosoma(unsigned int minNodos, unsigned int maxNodos, double densidad) :
 		_grafo(minNodos, maxNodos, densidad)
 	{
-		double auxpesos[] = { 0.5, 0.16, 0.029, 0.02, 0.001, 0.19, 0.10 };	// {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
+		double auxpesos[] = { 0.5, 0.16, 0.03, 0.02, 0, 0.19, 0.10 };	// {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
 		for (size_t i = 0; i < 7; ++i){
 			_pesos[i] = auxpesos[i];
 		}
@@ -141,7 +141,7 @@ private:
 		double mediaGrado = 0;
 		double mediaAlto = 0;
 		double mediaAncho = 0;
-		int ciclosActuales;
+		int ciclosActuales = 0;
 		int enemigosActuales = 0;
 		int cofresActuales = 0;
 		auto adyacencia = CC.getAdyacencia();
@@ -164,7 +164,7 @@ private:
 		}
 		mediaAlto /= numNodos;
 		mediaAncho /= numNodos;
-		ciclosActuales = CC.tieneCiclos();
+		//ciclosActuales = CC.tieneCiclos();
 
 		// 1 - abs(x - ideal) / ideal;
 		//[NumNodos, Media - Grado - CC, media - tama�o - sala, penalizar - ciclos]
@@ -180,8 +180,11 @@ private:
 		_valores[3] = 1 - (abs(mediaAncho - param.anchoOptimo) / (float)param.anchoOptimo);
 		if (_valores[3] < 0)	_valores[3] = 0;
 
+		/*
 		_valores[4] = 1 - (abs(int(ciclosActuales - param.ciclosOptimos)) / (float)param.ciclosOptimos);
 		if (_valores[4] < 0)	_valores[4] = 0;
+		*/
+		_valores[4] = 0;
 
 		_valores[5] = 1 - (abs(int(enemigosActuales - param.enemigosOptimos)) / (float)param.enemigosOptimos);
 		if (_valores[5] < 0)	_valores[5] = 0;
