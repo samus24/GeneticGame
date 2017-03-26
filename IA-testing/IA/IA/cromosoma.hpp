@@ -54,7 +54,7 @@ public:
 		_genotipo.bloating(prof);
 	}
 
-	double evalua(std::vector<Mapa> m) {
+	double evalua(Mapa m) {
 		//metodo de evaluación, recorrer los mapas y conseguir el valor acumulado
 	}
 
