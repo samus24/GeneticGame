@@ -154,6 +154,10 @@ public:
 		this->_raiz.actualizaNumNodos();
 	}
 
+	std::string toString() {
+		return "Falta hacer el metodo toString";
+	}
+
 private:
 	Nodo _raiz;
 	int _profMin;
