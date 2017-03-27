@@ -24,7 +24,7 @@ class seleccionEstocastica : public metodoSeleccion {
 		double prob;
 		int posSuper;
 		double segmento = 1 / pob.tam; //El segmento es 1/N
-		prob = fRand(0, segmento);
+		prob = fRand(0.0, segmento);
 		for (std::size_t i = 0; i < pob.tam; ++i) {
 			posSuper = 0;
 			while ((posSuper < pob.tam) && (prob > pob.individuos[posSuper].getPuntAcum())) {
@@ -46,6 +46,97 @@ class seleccionEstocastica : public metodoSeleccion {
 		return "Estocastico";
 	}
 
+};
+
+class seleccionRuleta : public metodoSeleccion {
+	void seleccionar(poblacion pob, bool maximizar) {
+		std::vector<int> seleccionados(pob.tam);
+		double prob;
+		int posSuper;
+		for (std::size_t i = 0; i < pob.tam; ++i) {
+			prob = fRand(0.0, 1.0); //un double entre 0.0 y 1.0
+			posSuper = 0;
+			while ((posSuper < pob.tam) && (prob > pob.individuos[posSuper].getPuntAcum()))
+				posSuper++;
+			seleccionados[i] = posSuper;
+		}
+		std::vector<Cromosoma> nuevaPob(pob.tam);
+		for (std::size_t i = 0; i < pob.tam; ++i) {
+			nuevaPob[i] = pob.individuos[seleccionados[i]];
+		}
+
+		pob.individuos = nuevaPob;
+	}
+
+	std::string toString() {
+		return "Ruleta";
+	}
+};
+
+class seleccionTorneo : public metodoSeleccion {
+
+	void seleccionar(poblacion pob, bool maximizar) {
+		std::vector<int> seleccionados(pob.tam);
+		int posMejor, indexA, indexB, indexC;
+
+		for (std::size_t i = 0; i < pob.tam; ++i) {
+			indexA = (int)(fRand(0.0, 1.0) * pob.tam);
+			do {
+				indexB = (int)(fRand(0.0, 1.0) * pob.tam);
+			} while (indexB == indexA);
+			do {
+				indexC = (int)(fRand(0.0, 1.0) * pob.tam);
+			} while (indexB == indexC || indexA == indexC);
+
+			if (maximizar) {
+				if (pob.individuos[indexA].getAdaptacion() > pob.individuos[indexB].getAdaptacion()) {
+					if (pob.individuos[indexA].getAdaptacion() > pob.individuos[indexC].getAdaptacion()) {
+						posMejor = indexA;
+					}
+					else {
+						posMejor = indexC;
+					}
+				}
+				else {
+					if (pob.individuos[indexC].getAdaptacion() > pob.individuos[indexB].getAdaptacion()) {
+						posMejor = indexC;
+					}
+					else {
+						posMejor = indexB;
+					}
+				}
+			}
+			else {
+				if (pob.individuos[indexA].getAdaptacion() < pob.individuos[indexB].getAdaptacion()){
+					if (pob.individuos[indexA].getAdaptacion() < pob.individuos[indexC].getAdaptacion()){
+						posMejor = indexA;
+					}
+					else{
+						posMejor = indexC;
+					}
+				}
+				else{
+					if (pob.individuos[indexC].getAdaptacion() < pob.individuos[indexB].getAdaptacion()){
+						posMejor = indexC;
+					}
+					else{
+						posMejor = indexB;
+					}
+				}
+			}
+			seleccionados[i] = posMejor;
+		}
+		std::vector<Cromosoma> nuevaPob(pob.tam);
+		for (std::size_t i = 0; i < pob.tam; ++i) {
+			nuevaPob[i] = pob.individuos[seleccionados[i]];
+		}
+
+		pob.individuos = nuevaPob;
+	}
+
+	std::string toString() {
+		return "Torneo";
+	}
 };
 
 #endif
