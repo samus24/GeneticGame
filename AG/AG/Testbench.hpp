@@ -72,8 +72,8 @@ public:
 
 		*/
 
-		_param.tamPob = 30;
-		_param.iteraciones = 30;
+		_param.tamPob = 50;
+		_param.iteraciones = 50;
 		_param.elitismo = false;
 		_param.bloating = false;
 		_param.contractividad = false;
@@ -83,19 +83,19 @@ public:
 		_param.cruce = new CruceMonopunto();
 		_param.mutacion = new MutacionArista();
 
-		std::vector<unsigned int> tamanos = { 30 };			// Posibles tamanos de poblacion
-		std::vector<unsigned int> generaciones = { 30, 50 };	// Posibles numeros de generaciones
+		std::vector<unsigned int> tamanos = { 50 };			// Posibles tamanos de poblacion
+		std::vector<unsigned int> generaciones = { 50 };	// Posibles numeros de generaciones
 		std::vector<bool> elitismos = { false };
-		std::vector<bool> bloatings = { false, true };
+		std::vector<bool> bloatings = { true };
 		std::vector<bool> contracts = { false };
 		std::vector<double> probCruces = { 0.6 };
 		std::vector<double> probMutac = { 0.02 };
 		std::vector<MetodoSeleccion* > selecciones = { new SeleccionTorneo(), new SeleccionRanking() };
 		std::vector<MetodoCruce* > cruces = { new CruceMonopunto(), new CruceMultipunto() };
 		std::vector<MetodoMutacion* > mutaciones = { new MutacionArista(), new MutacionNodo() };
-		_repeticiones = 5;
+		_repeticiones = 20;
 
-		double combinaciones = tamanos.size() * generaciones.size() * 8 * probCruces.size() * probMutac.size() * 2 * 2;
+		double combinaciones = selecciones.size() * cruces.size() * mutaciones.size();
 		double minutos = combinaciones * _repeticiones * 2;
 		double dias = (minutos / 60) / 24;
 
@@ -153,10 +153,11 @@ public:
 	}
 
 	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval){
-		_outfile << "==== Resultados de ejecucion " <<_ejec / _repeticiones << "/" << _ejec % _repeticiones << " ====" << std::endl;
+		//_outfile << "==== Resultados de ejecucion " <<_ejec / _repeticiones << "/" << _ejec % _repeticiones << " ====" << std::endl;
 		_outfile << "== Adap mejor: " << mejor.getAdaptacion() << std::endl;
-		_outfile << "== Nodos mejor CC: " << mejor.getMejorCC().size() << std::endl;
+		//_outfile << "== Nodos mejor CC: " << mejor.getMejorCC().size() << std::endl;
 		_outfile << "== T. ejec.: " << std::to_string(total / 1000) << "s" << std::endl;
+		/*
 		_outfile << "== T. m. sel.: " << std::to_string(tmSel) << "ms" << std::endl;
 		_outfile << "== T. m. cruce: " << std::to_string(tmCruce) << "ms" << std::endl;
 		_outfile << "== T. m. mut.: " << std::to_string(tmMut) << "ms" << std::endl;
@@ -177,6 +178,7 @@ public:
 		for (size_t i = 0; i < 7; ++i){
 			_outfile << valoresText[i] << std::to_string(valores[i]) << " / " + std::to_string(valores[i] * pesos[i]) << std::endl;
 		}
+		
 		_outfile << "== Datos de poblacion durante generaciones ==" << std::endl;
 
 		_outfile << "== Adaptacion Mejor" << std::endl;
@@ -221,7 +223,7 @@ public:
 			else{
 				_outfile << _mediaSel[i] << ", ";
 			}
-		}
+		}*/
 
 		++_ejec;
 
@@ -252,18 +254,18 @@ private:
 	}
 
 	void imprimeParam(){
-		_outfile << "···· Parametros ····" << std::endl;
-		_outfile << "·· Poblacion: " << _param.tamPob << std::endl;
-		_outfile << "·· Iteraciones: " << _param.iteraciones << std::endl;
-		_outfile << "·· Elitismo: " << _param.elitismo << std::endl;
-		_outfile << "·· Bloating: " << _param.bloating << std::endl;
-		_outfile << "·· Contractividad: " << _param.contractividad << std::endl;
-		_outfile << "·· Prob. Cruce: " << _param.probCruce << std::endl;
-		_outfile << "·· Prob. Mutacion: " << _param.probMutacion << std::endl;
-		_outfile << "·· Metodo Seleccion: " << _param.seleccion->toString() << std::endl;
-		_outfile << "·· Metodo Cruce: " << _param.cruce->toString() << std::endl;
-		_outfile << "·· Metodo Mutacion: " << _param.mutacion->toString() << std::endl;
-		_outfile << "····················" << std::endl;
+		_outfile << "++++ Parametros ++++" << std::endl;
+		_outfile << "++ Poblacion: " << _param.tamPob << std::endl;
+		_outfile << "++ Iteraciones: " << _param.iteraciones << std::endl;
+		_outfile << "++ Elitismo: " << _param.elitismo << std::endl;
+		_outfile << "++ Bloating: " << _param.bloating << std::endl;
+		_outfile << "++ Contractividad: " << _param.contractividad << std::endl;
+		_outfile << "++ Prob. Cruce: " << _param.probCruce << std::endl;
+		_outfile << "++ Prob. Mutacion: " << _param.probMutacion << std::endl;
+		_outfile << "++ Metodo Seleccion: " << _param.seleccion->toString() << std::endl;
+		_outfile << "++ Metodo Cruce: " << _param.cruce->toString() << std::endl;
+		_outfile << "++ Metodo Mutacion: " << _param.mutacion->toString() << std::endl;
+		_outfile << "++++++++++++++++++++" << std::endl;
 	}
 
 	Controlador* _ctrl;
