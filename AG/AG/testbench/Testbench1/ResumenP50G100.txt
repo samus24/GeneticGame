@@ -1,0 +1,639 @@
+#### Nuevos Parametros #### 192
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 0
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 192/0 >--
+== Adap mejor: 0,815047
+== T, ejec,: 279,928011s
+--< Ejecucion 192/1 >--
+== Adap mejor: 0,717272
+== T, ejec,: 144,924289s
+--< Ejecucion 192/2 >--
+== Adap mejor: 0,770896
+== T, ejec,: 315,305034s
+
+#### Nuevos Parametros #### 193
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 0
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 193/0 >--
+== Adap mejor: 0,807195
+== T, ejec,: 296,233944s
+--< Ejecucion 193/1 >--
+== Adap mejor: 0,768915
+== T, ejec,: 872,042878s
+--< Ejecucion 193/2 >--
+== Adap mejor: 0,702872
+== T, ejec,: 221,421665s
+
+#### Nuevos Parametros #### 194
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 0
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 194/0 >--
+== Adap mejor: 0,77017
+== T, ejec,: 376,515535s
+--< Ejecucion 194/1 >--
+== Adap mejor: 0,807945
+== T, ejec,: 243,527929s
+--< Ejecucion 194/2 >--
+== Adap mejor: 0,826101
+== T, ejec,: 193,428063s
+
+#### Nuevos Parametros #### 195
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 0
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 195/0 >--
+== Adap mejor: 0,821506
+== T, ejec,: 303,866380s
+--< Ejecucion 195/1 >--
+== Adap mejor: 0,828782
+== T, ejec,: 205,708766s
+--< Ejecucion 195/2 >--
+== Adap mejor: 0,836023
+== T, ejec,: 249,405265s
+
+#### Nuevos Parametros #### 196
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 0
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 196/0 >--
+== Adap mejor: 0,790099
+== T, ejec,: 243,319917s
+--< Ejecucion 196/1 >--
+== Adap mejor: 0,859386
+== T, ejec,: 53,125039s
+--< Ejecucion 196/2 >--
+== Adap mejor: 0,856786
+== T, ejec,: 373,542365s
+
+#### Nuevos Parametros #### 197
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 0
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 197/0 >--
+== Adap mejor: 0,839267
+== T, ejec,: 355,475332s
+--< Ejecucion 197/1 >--
+== Adap mejor: 0,746315
+== T, ejec,: 310,379753s
+--< Ejecucion 197/2 >--
+== Adap mejor: 0,854606
+== T, ejec,: 201,853545s
+
+#### Nuevos Parametros #### 198
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 0
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 198/0 >--
+== Adap mejor: 0,852641
+== T, ejec,: 386,645115s
+--< Ejecucion 198/1 >--
+== Adap mejor: 0,799046
+== T, ejec,: 205,771769s
+--< Ejecucion 198/2 >--
+== Adap mejor: 0,895683
+== T, ejec,: 202,907606s
+
+#### Nuevos Parametros #### 199
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 0
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 199/0 >--
+== Adap mejor: 0,752284
+== T, ejec,: 462,753468s
+--< Ejecucion 199/1 >--
+== Adap mejor: 0,827776
+== T, ejec,: 558,934969s
+--< Ejecucion 199/2 >--
+== Adap mejor: 0,858929
+== T, ejec,: 165,371459s
+
+#### Nuevos Parametros #### 200
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 1
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 200/0 >--
+== Adap mejor: 0,83813
+== T, ejec,: 208,797943s
+--< Ejecucion 200/1 >--
+== Adap mejor: 0,815839
+== T, ejec,: 211,254083s
+--< Ejecucion 200/2 >--
+== Adap mejor: 0,777589
+== T, ejec,: 376,315686s
+
+#### Nuevos Parametros #### 201
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 1
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 201/0 >--
+== Adap mejor: 0,778876
+== T, ejec,: 245,228026s
+--< Ejecucion 201/1 >--
+== Adap mejor: 0,794407
+== T, ejec,: 368,182059s
+--< Ejecucion 201/2 >--
+== Adap mejor: 0,850814
+== T, ejec,: 85,965917s
+
+#### Nuevos Parametros #### 202
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 1
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 202/0 >--
+== Adap mejor: 0,783931
+== T, ejec,: 193,134047s
+--< Ejecucion 202/1 >--
+== Adap mejor: 0,71876
+== T, ejec,: 137,631872s
+--< Ejecucion 202/2 >--
+== Adap mejor: 0,749674
+== T, ejec,: 403,878101s
+
+#### Nuevos Parametros #### 203
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 1
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 203/0 >--
+== Adap mejor: 0,688419
+== T, ejec,: 322,805463s
+--< Ejecucion 203/1 >--
+== Adap mejor: 0,736483
+== T, ejec,: 188,691793s
+--< Ejecucion 203/2 >--
+== Adap mejor: 0,781983
+== T, ejec,: 213,949237s
+
+#### Nuevos Parametros #### 204
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 1
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 204/0 >--
+== Adap mejor: 0,829476
+== T, ejec,: 524,373992s
+--< Ejecucion 204/1 >--
+== Adap mejor: 0,745433
+== T, ejec,: 290,544618s
+--< Ejecucion 204/2 >--
+== Adap mejor: 0,790471
+== T, ejec,: 324,751575s
+
+#### Nuevos Parametros #### 205
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 1
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 205/0 >--
+== Adap mejor: 0,74993
+== T, ejec,: 377,510592s
+--< Ejecucion 205/1 >--
+== Adap mejor: 0,864197
+== T, ejec,: 271,975556s
+--< Ejecucion 205/2 >--
+== Adap mejor: 0,852224
+== T, ejec,: 68,530920s
+
+#### Nuevos Parametros #### 206
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 1
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 206/0 >--
+== Adap mejor: 0,741848
+== T, ejec,: 440,962222s
+--< Ejecucion 206/1 >--
+== Adap mejor: 0,696488
+== T, ejec,: 548,703384s
+--< Ejecucion 206/2 >--
+== Adap mejor: 0,852088
+== T, ejec,: 274,764716s
+
+#### Nuevos Parametros #### 207
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 0
+?? Bloating: 1
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 207/0 >--
+== Adap mejor: 0,891637
+== T, ejec,: 57,909312s
+--< Ejecucion 207/1 >--
+== Adap mejor: 0,747968
+== T, ejec,: 546,295246s
+--< Ejecucion 207/2 >--
+== Adap mejor: 0,851375
+== T, ejec,: 536,730699s
+
+#### Nuevos Parametros #### 208
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 0
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 208/0 >--
+== Adap mejor: 0,852549
+== T, ejec,: 108,902229s
+--< Ejecucion 208/1 >--
+== Adap mejor: 0,741903
+== T, ejec,: 198,198336s
+--< Ejecucion 208/2 >--
+== Adap mejor: 0,770929
+== T, ejec,: 257,424724s
+
+#### Nuevos Parametros #### 209
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 0
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 209/0 >--
+== Adap mejor: 0,777655
+== T, ejec,: 220,753626s
+--< Ejecucion 209/1 >--
+== Adap mejor: 0,806427
+== T, ejec,: 1119,946057s
+--< Ejecucion 209/2 >--
+== Adap mejor: 0,789187
+== T, ejec,: 283,180197s
+
+#### Nuevos Parametros #### 210
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 0
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 210/0 >--
+== Adap mejor: 0,718131
+== T, ejec,: 407,204291s
+--< Ejecucion 210/1 >--
+== Adap mejor: 0,740327
+== T, ejec,: 176,004067s
+--< Ejecucion 210/2 >--
+== Adap mejor: 0,852528
+== T, ejec,: 135,346741s
+
+#### Nuevos Parametros #### 211
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 0
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 211/0 >--
+== Adap mejor: 0,715169
+== T, ejec,: 336,098224s
+--< Ejecucion 211/1 >--
+== Adap mejor: 0,826196
+== T, ejec,: 362,858754s
+--< Ejecucion 211/2 >--
+== Adap mejor: 0,870964
+== T, ejec,: 119,271822s
+
+#### Nuevos Parametros #### 212
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 0
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 212/0 >--
+== Adap mejor: 0,850298
+== T, ejec,: 166,085500s
+--< Ejecucion 212/1 >--
+== Adap mejor: 0,825038
+== T, ejec,: 690,192477s
+--< Ejecucion 212/2 >--
+== Adap mejor: 0,858197
+== T, ejec,: 202,476581s
+
+#### Nuevos Parametros #### 213
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 0
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 213/0 >--
+== Adap mejor: 0,779588
+== T, ejec,: 448,967679s
+--< Ejecucion 213/1 >--
+== Adap mejor: 0,913348
+== T, ejec,: 59,746417s
+--< Ejecucion 213/2 >--
+== Adap mejor: 0,804946
+== T, ejec,: 614,100124s
+
+#### Nuevos Parametros #### 214
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 0
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 214/0 >--
+== Adap mejor: 0,790315
+== T, ejec,: 549,850450s
+--< Ejecucion 214/1 >--
+== Adap mejor: 0,862809
+== T, ejec,: 1039,524457s
+--< Ejecucion 214/2 >--
+== Adap mejor: 0,803293
+== T, ejec,: 629,214989s
+
+#### Nuevos Parametros #### 215
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 0
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 215/0 >--
+== Adap mejor: 0,851912
+== T, ejec,: 288,017474s
+--< Ejecucion 215/1 >--
+== Adap mejor: 0,851375
+== T, ejec,: 167,108558s
+--< Ejecucion 215/2 >--
+== Adap mejor: 0,69757
+== T, ejec,: 575,272904s
+
+#### Nuevos Parametros #### 216
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 1
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 216/0 >--
+== Adap mejor: 0,772141
+== T, ejec,: 356,840410s
+--< Ejecucion 216/1 >--
+== Adap mejor: 0,70147
+== T, ejec,: 255,767629s
+--< Ejecucion 216/2 >--
+== Adap mejor: 0,70474
+== T, ejec,: 264,247114s
+
+#### Nuevos Parametros #### 217
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 1
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 217/0 >--
+== Adap mejor: 0,858955
+== T, ejec,: 130,524466s
+--< Ejecucion 217/1 >--
+== Adap mejor: 0,751251
+== T, ejec,: 212,599160s
+--< Ejecucion 217/2 >--
+== Adap mejor: 0,768255
+== T, ejec,: 236,866548s
+
+#### Nuevos Parametros #### 218
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 1
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 218/0 >--
+== Adap mejor: 0,696766
+== T, ejec,: 449,250696s
+--< Ejecucion 218/1 >--
+== Adap mejor: 0,715259
+== T, ejec,: 257,471727s
+--< Ejecucion 218/2 >--
+== Adap mejor: 0,806194
+== T, ejec,: 379,237691s
+
+#### Nuevos Parametros #### 219
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 1
+?? Contractividad: 0 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 219/0 >--
+== Adap mejor: 0,727053
+== T, ejec,: 163,068327s
+--< Ejecucion 219/1 >--
+== Adap mejor: 0,808869
+== T, ejec,: 256,738685s
+--< Ejecucion 219/2 >--
+== Adap mejor: 0,757096
+== T, ejec,: 237,922608s
+
+#### Nuevos Parametros #### 220
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 1
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 220/0 >--
+== Adap mejor: 0,853414
+== T, ejec,: 93,653357s
+--< Ejecucion 220/1 >--
+== Adap mejor: 0,802713
+== T, ejec,: 384,330983s
+--< Ejecucion 220/2 >--
+== Adap mejor: 0,849907
+== T, ejec,: 748,891834s
+
+#### Nuevos Parametros #### 221
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 1
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Monopunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 221/0 >--
+== Adap mejor: 0,736602
+== T, ejec,: 351,564108s
+--< Ejecucion 221/1 >--
+== Adap mejor: 0,751705
+== T, ejec,: 534,970599s
+--< Ejecucion 221/2 >--
+== Adap mejor: 0,747566
+== T, ejec,: 349,715003s
+
+#### Nuevos Parametros #### 222
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 1
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Arista
+????????????????????
+--< Ejecucion 222/0 >--
+== Adap mejor: 0,886717
+== T, ejec,: 183,998524s
+--< Ejecucion 222/1 >--
+== Adap mejor: 0,770214
+== T, ejec,: 647,898058s
+--< Ejecucion 222/2 >--
+== Adap mejor: 0,79821
+== T, ejec,: 396,439675s
+
+#### Nuevos Parametros #### 223
+???? Parametros ????
+?? Poblacion: 50
+?? Iteraciones: 100
+?? Elitismo: 1
+?? Bloating: 1
+?? Contractividad: 1 
+?? Metodo Cruce: Cruce Multipunto
+?? Metodo Mutacion: Mutacion Nodo
+????????????????????
+--< Ejecucion 223/0 >--
+== Adap mejor: 0,787846
+== T, ejec,: 796,604563s
+--< Ejecucion 223/1 >--
+== Adap mejor: 0,705577
+== T, ejec,: 489,268985s
+--< Ejecucion 223/2 >--
+== Adap mejor: 0,85527
+== T, ejec,: 160,136159s
