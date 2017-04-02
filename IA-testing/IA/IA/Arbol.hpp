@@ -154,6 +154,11 @@ public:
 		this->_raiz.actualizaNumNodos();
 	}
 
+	void eliminaIntrones() {
+		_raiz.eliminaIntrones();
+		_raiz.actualizaNumNodos();
+	}
+
 	std::string toString() {
 		return "Falta hacer el metodo toString";
 	}

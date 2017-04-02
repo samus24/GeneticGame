@@ -2,6 +2,9 @@
 #define POBLACION_HPP
 
 #include <vector>
+#include <algorithm>
+#include <functional>
+#include <array>
 #include "cromosoma.hpp"
 #include "Mapa.hpp"
 
@@ -24,6 +27,12 @@ public:
 				this->individuos[i].evalua(m[j]);
 			}
 		}
+	}
+
+	void ordenar(){
+		std::sort(individuos.begin(), individuos.end(), [](Cromosoma a, Cromosoma b){
+			return a.getAdaptacion() > b.getAdaptacion();
+		});
 	}
 };
 

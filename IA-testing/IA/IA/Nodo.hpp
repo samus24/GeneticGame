@@ -80,6 +80,10 @@ public:
 
 	int actualizaNumNodos();
 
+	bool esOperacionTerminal(Operacion o);
+
+	void eliminaIntrones();
+
 private:
 	Nodo* _padre;
 	int _nHijos;

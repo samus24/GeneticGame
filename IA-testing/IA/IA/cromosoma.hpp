@@ -58,6 +58,10 @@ public:
 		//metodo de evaluación, recorrer los mapas y conseguir el valor acumulado
 	}
 
+	void eliminaIntrones() {
+		_genotipo.eliminaIntrones();
+	}
+
 private:
 	Arbol _genotipo;
 	double _punt;
