@@ -2,7 +2,6 @@
 #define ARBOL_HPP
 
 #include <algorithm>
-#include <random>
 #include <vector>
 #include <set>
 #include <random>
@@ -71,7 +70,7 @@ public:
 
 	Nodo creaArbol(Nodo* padre, Nodo a, int pMin, int pMax, int pos) {
 		if (pMin > 0) {
-			int r = 0 + (rand() % (int)(6 - 0 + 1)); //los valores entre 0 y 6 no son hoja
+			int r = myRandom::getRandom(0, 6);
 			Operacion op = (Operacion)r;
 			a = Nodo(op, padre, GRADOS[op], pos);
 			a.setNumNodos(1);
@@ -83,8 +82,7 @@ public:
 			}
 		}
 		else if (pMax <= 0) {
-			int r = 0 + (rand() % (int)(6 - 0 + 1)); 
-			r += 7; //los valores entre 7-13 son hojas
+			int r = myRandom::getRandom(7, 14);
 			Operacion op = (Operacion)r;
 			a = Nodo(op, padre, GRADOS[op], pos);
 			a.setNumNodos(1);
@@ -119,7 +117,7 @@ public:
 		}
 		Nodo* n = nullptr;
 		do {
-			int r = 0 + (rand() % (int)(_raiz.getNumNodos() - 0 + 1));
+			int r = myRandom::getRandom(0, _raiz.getNumNodos + 1);
 			n = &buscaNodo(r);
 		} while (n->esTerminal());
 		return n;

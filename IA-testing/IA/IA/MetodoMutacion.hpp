@@ -6,7 +6,7 @@
 
 class metodoMutacion {
 public:
-	virtual void mutar() = 0;
+	virtual void mutar(Cromosoma c) = 0;
 	virtual std::string toString() = 0;
 protected:
 	std::vector<Operacion> terminales = { Operacion::Avanza, Operacion::GiraDer, Operacion::GiraIz, Operacion::CambiarEst, Operacion::Atacar, Operacion::BloquearN, Operacion::Retroceder };
@@ -50,7 +50,7 @@ public:
 			case Operacion::Retroceder:
 				break; //son terminales, no se pueden mutar así
 			case Operacion::ProgN2:
-				int r = 0 + (rand() % (int)(4 - 0 + 1)); //Hay 4 operaciones distintas más con grado 2
+				int r = myRandom::getRandom(0, 4);
 				if (r == 0) {
 					n->setElem(Operacion::SiBloqueado);
 				}
@@ -71,7 +71,7 @@ public:
 			case Operacion::ProgN4:
 				break; //No hay más operaciones de grado 4
 			case Operacion::SiBloqueado:
-				int r = 0 + (rand() % (int)(4 - 0 + 1)); //Hay 4 operaciones distintas más con grado 2
+				int r = myRandom::getRandom(0, 4);
 				if (r == 0) {
 					n->setElem(Operacion::SiBloqueado);
 				}
@@ -88,7 +88,7 @@ public:
 				}
 				break;
 			case Operacion::SiDetectado:
-				int r = 0 + (rand() % (int)(4 - 0 + 1)); //Hay 4 operaciones distintas más con grado 2
+				int r = myRandom::getRandom(0, 4);
 				if (r == 0) {
 					n->setElem(Operacion::SiBloqueado);
 				}
@@ -105,7 +105,7 @@ public:
 				}
 				break;
 			case Operacion::SiJugador:
-				int r = 0 + (rand() % (int)(4 - 0 + 1)); //Hay 4 operaciones distintas más con grado 2
+				int r = myRandom::getRandom(0, 4);
 				if (r == 0) {
 					n->setElem(Operacion::SiBloqueado);
 				}
@@ -122,7 +122,7 @@ public:
 				}
 				break;
 			case Operacion::SiRango:
-				int r = 0 + (rand() % (int)(4 - 0 + 1)); //Hay 4 operaciones distintas más con grado 2
+				int r = myRandom::getRandom(0, 4);
 				if (r == 0) {
 					n->setElem(Operacion::SiBloqueado);
 				}
@@ -152,7 +152,8 @@ public:
 class mutacionTerminal : public metodoMutacion {
 public:
 	void mutar(Cromosoma c) {
-		int r = 0 + (rand() % (int)(this->terminales.size() - 0 + 1)); //Hay 4 operaciones distintas más con grado 2
+		unsigned int cero = 0;
+		int r = myRandom::getRandom(cero, this->terminales.size() + 1);
 		Operacion op = this->terminales[r];
 		Nodo* n = c.getTerminalAleatorio();
 		n->setElem(op);

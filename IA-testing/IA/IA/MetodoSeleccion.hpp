@@ -9,12 +9,6 @@ class metodoSeleccion {
 public:
 	virtual void seleccionar(poblacion pob, bool maximizar) = 0;
 	virtual std::string toString() = 0;
-
-	double fRand(double fMin, double fMax)
-	{
-		double f = (double)rand() / RAND_MAX;
-		return fMin + f * (fMax - fMin);
-	}
 };
 
 class seleccionEstocastica : public metodoSeleccion {
@@ -24,7 +18,7 @@ class seleccionEstocastica : public metodoSeleccion {
 		double prob;
 		int posSuper;
 		double segmento = 1 / pob.tam; //El segmento es 1/N
-		prob = fRand(0.0, segmento);
+		prob = myRandom::getRandom(0.f, segmento);
 		for (std::size_t i = 0; i < pob.tam; ++i) {
 			posSuper = 0;
 			while ((posSuper < pob.tam) && (prob > pob.individuos[posSuper].getPuntAcum())) {
@@ -54,7 +48,7 @@ class seleccionRuleta : public metodoSeleccion {
 		double prob;
 		int posSuper;
 		for (std::size_t i = 0; i < pob.tam; ++i) {
-			prob = fRand(0.0, 1.0); //un double entre 0.0 y 1.0
+			prob = myRandom::getRandom(0.f, 1.f); //un double entre 0.0 y 1.0
 			posSuper = 0;
 			while ((posSuper < pob.tam) && (prob > pob.individuos[posSuper].getPuntAcum()))
 				posSuper++;
@@ -80,12 +74,12 @@ class seleccionTorneo : public metodoSeleccion {
 		int posMejor, indexA, indexB, indexC;
 
 		for (std::size_t i = 0; i < pob.tam; ++i) {
-			indexA = (int)(fRand(0.0, 1.0) * pob.tam);
+			indexA = (int)(myRandom::getRandom(0.f, 1.f) * pob.tam);
 			do {
-				indexB = (int)(fRand(0.0, 1.0) * pob.tam);
+				indexB = (int)(myRandom::getRandom(0.f, 1.f) * pob.tam);
 			} while (indexB == indexA);
 			do {
-				indexC = (int)(fRand(0.0, 1.0) * pob.tam);
+				indexC = (int)(myRandom::getRandom(0.f, 1.f) * pob.tam);
 			} while (indexB == indexC || indexA == indexC);
 
 			if (maximizar) {

@@ -5,6 +5,13 @@
 
 class Cromosoma {
 public:
+
+	Cromosoma() {
+		_punt = 0;
+		_puntAcum = 0;
+		_adaptacion = 0;
+	}
+
 	Cromosoma(int profMin, int profMax) {
 		this->_genotipo = Arbol(Operacion::Avanza);
 		this->_genotipo.creaArbolAleatorio(profMin, profMax);

@@ -4,6 +4,7 @@
 #include <vector>
 #include "npc.hpp"
 #include "Mapa.hpp"
+#include "myrandom.hpp"
 
 enum Operacion {
 	ProgN2,

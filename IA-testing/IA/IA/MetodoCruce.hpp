@@ -23,14 +23,14 @@ public:
 			corteA = 0;
 		}
 		else {
-			int r = 1 + (rand() % (int)(arbA.getNumNodos())); //Sumando 1 evitamos la raiz
+			int r = myRandom::getRandom(1, arbA.getNumNodos());
 			corteA = r;
 		}
 		if (arbB.getNumNodos() == 1) {
 			corteB = 0;
 		}
 		else {
-			int r = 1 + (rand() % (int)(arbB.getNumNodos())); //Sumando 1 evitamos la raiz
+			int r = myRandom::getRandom(1, arbB.getNumNodos());
 			corteB = r;
 		}
 		Nodo nodoA = arbA.buscaNodo(corteA);

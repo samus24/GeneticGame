@@ -1,6 +1,5 @@
 #include "Nodo.hpp"
 
-
 Nodo::Nodo(Operacion elem, Nodo* padre, int nHijos, int pos) {
 	this->_padre = padre;
 	this->_nHijos = nHijos;
@@ -90,8 +89,7 @@ void Nodo::bloating(int pMax, int nivel) {
 	if (nivel == pMax) {
 		std::vector<Nodo> _hijosAux(0);
 		this->_hijos = _hijosAux;
-		int r = 0 + (rand() % (int)(6 - 0 + 1));
-		r += 7; //los valores entre 7 y 14 son hoja
+		int r = myRandom::getRandom(7, 14);
 		Operacion op = (Operacion)r;
 		this->_elem = op;
 		this->_nHijos = 0;
@@ -120,8 +118,7 @@ void Nodo::eliminaIntrones(){
 		hijoB = this->_hijos[1]._elem;
 		if (hijoA == Operacion::GiraDer) {
 			if (hijoB == Operacion::GiraIz) {
-				int r = 0 + (rand() % (int)(6 - 0 + 1));
-				r += 7; //los valores entre 7 y 14 son hoja
+				int r = myRandom::getRandom(7, 14);
 				Operacion op = (Operacion)r;
 				this->_elem = op;
 				std::vector<Nodo> _hijosAux(0);
@@ -131,8 +128,7 @@ void Nodo::eliminaIntrones(){
 		}
 		else if (hijoB == Operacion::GiraDer) {
 			if (hijoA == Operacion::GiraIz) {
-				int r = 0 + (rand() % (int)(6 - 0 + 1));
-				r += 7; //los valores entre 7 y 14 son hoja
+				int r = myRandom::getRandom(7, 14);
 				Operacion op = (Operacion)r;
 				this->_elem = op;
 				std::vector<Nodo> _hijosAux(0);

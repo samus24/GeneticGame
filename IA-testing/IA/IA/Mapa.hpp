@@ -11,6 +11,8 @@ public:
 	static const int MURO = -3;
 	static const int ENEMIGO = -4;
 
+	Mapa() {}
+
 	Mapa(int width, int height, int origX, int origY) {
 		this->_width = width;
 		this->_height = height;

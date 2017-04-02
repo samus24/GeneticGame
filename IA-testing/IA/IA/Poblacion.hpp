@@ -10,11 +10,11 @@
 
 class poblacion {
 public:
-	int tam;
+	int _tam;
 	std::vector<Cromosoma> individuos;
 
 	void generaPoblacionAleatoria(int tam, int profMin, int profMax) {
-		this->tam = tam;
+		this->_tam = tam;
 		this->individuos = std::vector<Cromosoma>(tam);
 		for (std::size_t i = 0; i < tam; ++i) {
 			this->individuos[i] = Cromosoma(profMin, profMax);
@@ -22,7 +22,7 @@ public:
 	}
 
 	void evalua(std::vector<Mapa> m) {
-		for (std::size_t i = 0; i < tam; ++i) {
+		for (std::size_t i = 0; i < _tam; ++i) {
 			for (std::size_t j = 0; j < m.size(); ++j) {
 				this->individuos[i].evalua(m[j]);
 			}
@@ -33,6 +33,12 @@ public:
 		std::sort(individuos.begin(), individuos.end(), [](Cromosoma a, Cromosoma b){
 			return a.getAdaptacion() > b.getAdaptacion();
 		});
+	}
+
+	void bloating(unsigned int maxNodos){
+		for (size_t i = 0; i < individuos.size(); ++i){
+			individuos[i].bloating(maxNodos);
+		}
 	}
 };
 
