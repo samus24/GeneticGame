@@ -1,16 +1,32 @@
 #include <iostream>
-#include "Arbol.hpp"
+#include "AG.hpp"
+#include "controlador.hpp"
+#include "MetodoSeleccion.hpp"
+#include "MetodoMutacion.hpp"
+#include "metodoCruce.hpp"
+#include "parametros.hpp"
 
 int main() {
 
-	Nodo n(Operacion::ProgN3, nullptr, 3, 0);
-	Arbol a = Arbol(Operacion::ProgN3);
+	Parametros p;
+	p.tamPob = 30;
+	p.iteraciones = 30;
+	p.minNodos = 10;
+	p.maxNodos = 40;
+	p.densidad = 0.03;
+	p.elitismo = false;
+	p.bloating = true;
+	p.contractividad = false;
+	p.probCruce = 0.6;
+	p.probMutacion = 0.02;
+	p.seleccion = new seleccionRuleta();
+	p.cruce = new cruceSimple();
+	p.mutacion = new mutacionArbol();
 
-	a.insertaNodo(0, Operacion::Avanza, 0);
-	a.insertaNodo(0, Operacion::GiraDer, 1);
-	a.insertaNodo(0, Operacion::SiJugador, 2);
-	a.insertaNodo(3, Operacion::GiraIz, 0);
-	a.insertaNodo(3, Operacion::Avanza, 1);
-	std::cout << "Hola";
+	AG ag(p);
+	Controlador c(ag);
+
+	//Faltaria la ventana para sacar datos
+
 	return 0;
 }
