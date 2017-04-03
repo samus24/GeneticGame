@@ -37,6 +37,7 @@ public:
 
 	Nodo buscaNodo(int numeroBuscado) {
 		Nodo* buscado = buscaNodo(&_raiz, numeroBuscado);
+		return *buscado;
 	}
 
 	Nodo* buscaNodo(Nodo* origen, int numeroBuscado) {
@@ -59,7 +60,7 @@ public:
 	}
 
 	int getNumNodos() {
-		_raiz.getNhijos();
+		return _raiz.getNhijos();
 	}
 
 	void creaArbolAleatorio(int profMin, int profMax) {
@@ -99,6 +100,7 @@ public:
 				a.setNumNodos(a.getNumNodos() + aux.getNumNodos());
 			}
 		}
+		return a;
 	}
 
 	Nodo* getTerminalAleatorio() {
@@ -117,7 +119,7 @@ public:
 		}
 		Nodo* n = nullptr;
 		do {
-			int r = myRandom::getRandom(0, _raiz.getNumNodos + 1);
+			int r = myRandom::getRandom(0, _raiz.getNumNodos() + 1);
 			n = &buscaNodo(r);
 		} while (n->esTerminal());
 		return n;
@@ -139,8 +141,8 @@ public:
 		this->_profMax = pMax;
 	}
 
-	void evalua(std::vector<Mapa> m, npc pnj) {
-		this->_raiz.evalua(m, pnj);
+	double evalua(std::vector<Mapa> m, npc pnj) {
+		return this->_raiz.evalua(m, pnj);
 	}
 
 	void actualizaNumNodos() {
