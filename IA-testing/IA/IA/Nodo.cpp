@@ -87,7 +87,7 @@ void Nodo::setNumNodos(int _numNodos) {
 	this->_numNodos = _numNodos;
 }
 
-bool esOperacionTerminal(Operacion o) {
+bool Nodo::esOperacionTerminal(Operacion o) {
 	return ((o == Operacion::Atacar) || (o == Operacion::Avanza) || (o == Operacion::BloquearN) || (o == Operacion::CambiarEst) || (o == Operacion::GiraDer) || (o == Operacion::GiraIz) || (o == Operacion::Retroceder));
 }
 
@@ -166,7 +166,7 @@ void Nodo::eliminaIntrones(){
 	case Operacion::SiBloqueado:
 		hijoA = this->_hijos[0]._elem;
 		hijoB = this->_hijos[1]._elem;
-		esTerminal = esOperacionTerminal(hijoA);
+		esTerminal = Nodo::esOperacionTerminal(hijoA);
 		if (hijoA == hijoB && esTerminal) {
 			this->_elem = hijoA;
 			std::vector<Nodo> _hijosAux(0);
@@ -181,7 +181,7 @@ void Nodo::eliminaIntrones(){
 	case Operacion::SiDetectado:
 		hijoA = this->_hijos[0]._elem;
 		hijoB = this->_hijos[1]._elem;
-		esTerminal = esOperacionTerminal(hijoA);
+		esTerminal = Nodo::esOperacionTerminal(hijoA);
 		if (hijoA == hijoB && esTerminal) {
 			this->_elem = hijoA;
 			std::vector<Nodo> _hijosAux(0);
@@ -196,7 +196,7 @@ void Nodo::eliminaIntrones(){
 	case Operacion::SiJugador:
 		hijoA = this->_hijos[0]._elem;
 		hijoB = this->_hijos[1]._elem;
-		esTerminal = esOperacionTerminal(hijoA);
+		esTerminal = Nodo::esOperacionTerminal(hijoA);
 		if (hijoA == hijoB && esTerminal) {
 			this->_elem = hijoA;
 			std::vector<Nodo> _hijosAux(0);
@@ -211,7 +211,7 @@ void Nodo::eliminaIntrones(){
 	case Operacion::SiRango:
 		hijoA = this->_hijos[0]._elem;
 		hijoB = this->_hijos[1]._elem;
-		esTerminal = esOperacionTerminal(hijoA);
+		esTerminal = Nodo::esOperacionTerminal(hijoA);
 		if (hijoA == hijoB && esTerminal) {
 			this->_elem = hijoA;
 			std::vector<Nodo> _hijosAux(0);
