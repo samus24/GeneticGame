@@ -40,6 +40,9 @@
     <Filter Include="Archivos de encabezado\modelo\arbol">
       <UniqueIdentifier>{25b9c0d7-2794-447e-b623-c26961769142}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\modelo\utiles">
+      <UniqueIdentifier>{31f2bf53-7195-4d8c-911d-8b54ba8130a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -55,9 +58,6 @@
     </ClInclude>
     <ClInclude Include="poblacion.hpp">
       <Filter>Archivos de encabezado\modelo\ag</Filter>
-    </ClInclude>
-    <ClInclude Include="cromosoma.hpp">
-      <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
     </ClInclude>
     <ClInclude Include="metodoCruce.hpp">
       <Filter>Archivos de encabezado\modelo\cruce</Filter>
@@ -81,6 +81,24 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="FactoriaCromosoma.hpp">
+      <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
+    </ClInclude>
+    <ClInclude Include="controlador.hpp">
+      <Filter>Archivos de encabezado\controlador</Filter>
+    </ClInclude>
+    <ClInclude Include="iagobserver.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
+    </ClInclude>
+    <ClInclude Include="parametros.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
+    </ClInclude>
+    <ClInclude Include="Cronometro.hpp">
+      <Filter>Archivos de encabezado\modelo\utiles</Filter>
+    </ClInclude>
+    <ClInclude Include="myrandom.hpp">
+      <Filter>Archivos de encabezado\modelo\utiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Cromosoma.hpp">
       <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
     </ClInclude>
   </ItemGroup>

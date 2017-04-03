@@ -8,8 +8,6 @@ class metodoMutacion {
 public:
 	virtual void mutar(Cromosoma c) = 0;
 	virtual std::string toString() = 0;
-protected:
-	std::vector<Operacion> terminales = { Operacion::Avanza, Operacion::GiraDer, Operacion::GiraIz, Operacion::CambiarEst, Operacion::Atacar, Operacion::BloquearN, Operacion::Retroceder };
 };
 
 class mutacionArbol : public metodoMutacion {
@@ -31,13 +29,13 @@ public:
 	std::string toString() {
 		return "Arbol";
 	}
-
 };
 
 class mutacionFuncion : public metodoMutacion {
 public:
 	void mutar(Cromosoma c) {
 		Nodo* n = c.getNodoFuncionAleatorio();
+		int r;
 		if (n == nullptr) return;
 		else {
 			switch (n->getElem()) {
@@ -50,7 +48,7 @@ public:
 			case Operacion::Retroceder:
 				break; //son terminales, no se pueden mutar así
 			case Operacion::ProgN2:
-				int r = myRandom::getRandom(0, 4);
+				r = myRandom::getRandom(0, 4);
 				if (r == 0) {
 					n->setElem(Operacion::SiBloqueado);
 				}
@@ -71,7 +69,7 @@ public:
 			case Operacion::ProgN4:
 				break; //No hay más operaciones de grado 4
 			case Operacion::SiBloqueado:
-				int r = myRandom::getRandom(0, 4);
+				r = myRandom::getRandom(0, 4);
 				if (r == 0) {
 					n->setElem(Operacion::SiBloqueado);
 				}
@@ -88,7 +86,7 @@ public:
 				}
 				break;
 			case Operacion::SiDetectado:
-				int r = myRandom::getRandom(0, 4);
+				r = myRandom::getRandom(0, 4);
 				if (r == 0) {
 					n->setElem(Operacion::SiBloqueado);
 				}
@@ -105,7 +103,7 @@ public:
 				}
 				break;
 			case Operacion::SiJugador:
-				int r = myRandom::getRandom(0, 4);
+				r = myRandom::getRandom(0, 4);
 				if (r == 0) {
 					n->setElem(Operacion::SiBloqueado);
 				}
@@ -122,7 +120,7 @@ public:
 				}
 				break;
 			case Operacion::SiRango:
-				int r = myRandom::getRandom(0, 4);
+				r = myRandom::getRandom(0, 4);
 				if (r == 0) {
 					n->setElem(Operacion::SiBloqueado);
 				}
@@ -152,9 +150,33 @@ public:
 class mutacionTerminal : public metodoMutacion {
 public:
 	void mutar(Cromosoma c) {
-		unsigned int cero = 0;
-		int r = myRandom::getRandom(cero, this->terminales.size() + 1);
-		Operacion op = this->terminales[r];
+		int r = myRandom::getRandom(0, 6); //Hay 7 terminales
+		Operacion op;
+		switch (r) {
+		case 0:
+			op = Operacion::Atacar;
+				break;
+		case 1:
+			op = Operacion::Avanza;
+				break;
+		case 2:
+			op = Operacion::BloquearN;
+				break;
+		case 3:
+			op = Operacion::CambiarEst;
+				break;
+		case 4:
+			op = Operacion::GiraDer;
+				break;
+		case 5:
+			op = Operacion::GiraIz;
+				break;
+		case 6:
+			op = Operacion::Retroceder;
+				break;
+		default:
+			break;
+		}
 		Nodo* n = c.getTerminalAleatorio();
 		n->setElem(op);
 	}

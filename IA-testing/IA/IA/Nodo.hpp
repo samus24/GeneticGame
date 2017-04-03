@@ -43,6 +43,8 @@ static std::unordered_map<Operacion, int> GRADOS{  // 0-6 No hojas, 7-13 hojas
 class Nodo {
 public:	
 
+	Nodo();
+
 	Nodo(Operacion _elem, Nodo* padre, int nHijos, int _pos);
 
 	bool addHijo(Operacion h, int _pos);
@@ -75,7 +77,7 @@ public:
 
 	void setPos(int _pos);
 
-	void evalua(std::vector<Mapa> m, npc pnj);
+	double evalua(std::vector<Mapa> m, npc pnj);
 
 	void bloating(int pMax, int nivel);
 

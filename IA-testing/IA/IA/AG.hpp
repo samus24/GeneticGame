@@ -40,7 +40,7 @@ public:
 		_pob.generaPoblacionAleatoria(_param.tamPob, _param.minNodos, _param.maxNodos);
 		_crono.finalizaMedida("init", std::chrono::high_resolution_clock::now());
 
-		_pob.evalua(maps);	// Lo ideal sería evaluar una vez al principio, y que de cada grafo se actualice su adaptacion solo si cambia
+		_pob.evalua(maps);
 
 		_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
 		mediaAnterior = evaluarPoblacion();
@@ -73,7 +73,7 @@ public:
 			if (_param.elitismo){
 				_pob.ordenar();
 				for (std::size_t i = 0; i < nElite; ++i){
-					_pob.individuos.pop_back();				// Asegurarse de que esto funciona bien !!!
+					_pob.individuos.pop_back();
 				}
 				for (std::size_t i = 0; i < nElite; ++i){
 					_pob.individuos.push_back(elite[i]);
@@ -101,10 +101,9 @@ public:
 				notifyGeneracionTerminada(_elMejor.getAdaptacion(), _pob.individuos[_indexMejor].getAdaptacion(), mediaActual);
 			}
 
-		}	// Fin while generaciones
-		//_elMejor.evalua();
+		}
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
-		_elMejor.evalua(map);	// Se aegura que el mejor tiene todo actualizado
+		_elMejor.evalua(map);
 		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("eval"));
 		return _elMejor;
 	}
@@ -131,9 +130,6 @@ private:
 		double sumaAptitud = 0;
 		double puntAcum = 0;
 		double media = 0;
-		//_pob.evalua();	
-		// Si los grafos mantienen actualizada su adaptacion al cambiar, esta llamada se puede evitar, lo cual es ideal, porque sin ella la evaluacion
-		// tarda muchisimo menos.
 
 		// Busqueda del mejor
 		for (std::size_t i = 0; i < _param.tamPob; ++i){

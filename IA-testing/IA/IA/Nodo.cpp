@@ -1,5 +1,7 @@
 #include "Nodo.hpp"
 
+Nodo::Nodo() {}
+
 Nodo::Nodo(Operacion elem, Nodo* padre, int nHijos, int pos) {
 	this->_padre = padre;
 	this->_nHijos = nHijos;
@@ -29,7 +31,6 @@ bool Nodo::addHijo(Nodo h, int pos) {
 bool Nodo::esTerminal() {
 	return (this->_nHijos == 0);
 }
-
 
 Operacion Nodo::getElem() {
 	return _elem;
@@ -78,12 +79,21 @@ void Nodo::setPos(int pos) {
 	this->_pos = pos;
 }
 
+int Nodo::getNumNodos() {
+	return _numNodos;
+}
+
+void Nodo::setNumNodos(int _numNodos) {
+	this->_numNodos = _numNodos;
+}
+
 bool esOperacionTerminal(Operacion o) {
 	return ((o == Operacion::Atacar) || (o == Operacion::Avanza) || (o == Operacion::BloquearN) || (o == Operacion::CambiarEst) || (o == Operacion::GiraDer) || (o == Operacion::GiraIz) || (o == Operacion::Retroceder));
 }
 
-void Nodo::evalua(std::vector<Mapa> m, npc pnj) {
+double Nodo::evalua(std::vector<Mapa> m, npc pnj) {
 	//aquí habría que ejecutar el arbol sobre el mapa
+	return 0.f;
 }
 void Nodo::bloating(int pMax, int nivel) {
 	if (nivel == pMax) {
@@ -104,6 +114,7 @@ void Nodo::bloating(int pMax, int nivel) {
 void Nodo::eliminaIntrones(){
 	Operacion hijoA;
 	Operacion hijoB;
+	bool esTerminal;
 	switch (this->_elem) {
 	case Operacion::Atacar:
 	case Operacion::Avanza:
@@ -155,7 +166,8 @@ void Nodo::eliminaIntrones(){
 	case Operacion::SiBloqueado:
 		hijoA = this->_hijos[0]._elem;
 		hijoB = this->_hijos[1]._elem;
-		if (hijoA == hijoB && esOperacionTerminal(hijoA)) {
+		esTerminal = esOperacionTerminal(hijoA);
+		if (hijoA == hijoB && esTerminal) {
 			this->_elem = hijoA;
 			std::vector<Nodo> _hijosAux(0);
 			this->_hijos = _hijosAux;
@@ -169,7 +181,8 @@ void Nodo::eliminaIntrones(){
 	case Operacion::SiDetectado:
 		hijoA = this->_hijos[0]._elem;
 		hijoB = this->_hijos[1]._elem;
-		if (hijoA == hijoB && esOperacionTerminal(hijoA)) {
+		esTerminal = esOperacionTerminal(hijoA);
+		if (hijoA == hijoB && esTerminal) {
 			this->_elem = hijoA;
 			std::vector<Nodo> _hijosAux(0);
 			this->_hijos = _hijosAux;
@@ -183,7 +196,8 @@ void Nodo::eliminaIntrones(){
 	case Operacion::SiJugador:
 		hijoA = this->_hijos[0]._elem;
 		hijoB = this->_hijos[1]._elem;
-		if (hijoA == hijoB && esOperacionTerminal(hijoA)) {
+		esTerminal = esOperacionTerminal(hijoA);
+		if (hijoA == hijoB && esTerminal) {
 			this->_elem = hijoA;
 			std::vector<Nodo> _hijosAux(0);
 			this->_hijos = _hijosAux;
@@ -197,7 +211,8 @@ void Nodo::eliminaIntrones(){
 	case Operacion::SiRango:
 		hijoA = this->_hijos[0]._elem;
 		hijoB = this->_hijos[1]._elem;
-		if (hijoA == hijoB && esOperacionTerminal(hijoA)) {
+		esTerminal = esOperacionTerminal(hijoA);
+		if (hijoA == hijoB && esTerminal) {
 			this->_elem = hijoA;
 			std::vector<Nodo> _hijosAux(0);
 			this->_hijos = _hijosAux;

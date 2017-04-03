@@ -1,20 +1,41 @@
-﻿Compilación iniciada a las 27/03/2017 9:25:40.
-     1>Proyecto "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Build destinos).
+﻿Compilación iniciada a las 03/04/2017 12:17:06.
+     1>Proyecto "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Rebuild destinos).
      1>ClCompile:
-         D:\VisualStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         D:\VisualStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp Nodo.cpp
+         Nodo.cpp
+     1>d:\github\geneticgame\ia-testing\ia\ia\mapa.hpp(21): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\mapa.hpp(22): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\nodo.cpp(10): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\nodo.cpp(108): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\nodo.cpp(233): warning C4018: '<' : no coinciden signed/unsigned
          main.cpp
-     1>d:\github\geneticgame\ia-testing\ia\ia\mapa.hpp(19): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\mapa.hpp(20): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\mapa.hpp(21): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\mapa.hpp(22): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(51): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(56): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(78): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(97): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(96): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(19): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(25): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\metodocruce.hpp(42): warning C4101: 'a' : variable local sin referencia
+     1>d:\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(22): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(32): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(50): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(58): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(76): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(124): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\ag.hpp(54): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\ag.hpp(75): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\ag.hpp(78): warning C4018: '<' : no coinciden signed/unsigned
+         Generando código...
        Link:
          D:\VisualStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Github\GeneticGame\IA-testing\IA\Debug\IA.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Github\GeneticGame\IA-testing\IA\Debug\IA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Github\GeneticGame\IA-testing\IA\Debug\IA.lib" /MACHINE:X86 Debug\main.obj
          Debug\Nodo.obj
-         IA.vcxproj -> D:\Github\GeneticGame\IA-testing\IA\Debug\IA.exe
-     1>Compilación del proyecto terminada "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" (Build destinos).
+     1>main.obj : error LNK2019: símbolo externo "public: __thiscall Arbol::Arbol(void)" (??0Arbol@@QAE@XZ) sin resolver al que se hace referencia en la función "public: __thiscall Cromosoma::Cromosoma(void)" (??0Cromosoma@@QAE@XZ)
+     1>Nodo.obj : error LNK2019: símbolo externo "public: bool __thiscall Nodo::esOperacionTerminal(enum Operacion)" (?esOperacionTerminal@Nodo@@QAE_NW4Operacion@@@Z) sin resolver al que se hace referencia en la función "public: void __thiscall Nodo::eliminaIntrones(void)" (?eliminaIntrones@Nodo@@QAEXXZ)
+     1>D:\Github\GeneticGame\IA-testing\IA\Debug\IA.exe : fatal error LNK1120: 2 externos sin resolver
+     1>Compilación del proyecto terminada "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" (Rebuild destinos) -- ERROR.
 
-Compilación correcta.
+ERROR al compilar.
 
-Tiempo transcurrido 00:00:01.85
+Tiempo transcurrido 00:00:01.25

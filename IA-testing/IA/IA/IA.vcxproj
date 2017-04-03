@@ -72,15 +72,20 @@
   <ItemGroup>
     <ClInclude Include="AG.hpp" />
     <ClInclude Include="Arbol.hpp" />
-    <ClInclude Include="cromosoma.hpp" />
+    <ClInclude Include="controlador.hpp" />
+    <ClInclude Include="Cromosoma.hpp" />
+    <ClInclude Include="Cronometro.hpp" />
     <ClInclude Include="FactoriaCromosoma.hpp" />
+    <ClInclude Include="iagobserver.hpp" />
     <ClInclude Include="Mapa.hpp" />
     <ClInclude Include="metodoCruce.hpp" />
     <ClInclude Include="MetodoMutacion.hpp" />
     <ClInclude Include="MetodoSeleccion.hpp" />
     <ClInclude Include="Nodo.hpp" />
     <ClInclude Include="npc.hpp" />
+    <ClInclude Include="parametros.hpp" />
     <ClInclude Include="poblacion.hpp" />
+    <ClInclude Include="myrandom.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
