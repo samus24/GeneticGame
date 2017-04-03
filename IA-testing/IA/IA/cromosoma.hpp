@@ -63,6 +63,7 @@ public:
 
 	double evalua(Mapa m) {
 		//metodo de evaluación, recorrer los mapas y conseguir el valor acumulado
+		return 0.f;
 	}
 
 	void eliminaIntrones() {

@@ -111,6 +111,7 @@ public:
 			actual = actual.getHijos()[h];
 			numHijos = actual.getNhijos();
 		}
+		return &actual;
 	}
 
 	Nodo* getNodoFuncionAleatorio() {

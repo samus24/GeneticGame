@@ -4,7 +4,6 @@
 #include "MetodoSeleccion.hpp"
 #include "MetodoMutacion.hpp"
 #include "metodoCruce.hpp"
-#include "parametros.hpp"
 
 int main() {
 
@@ -22,7 +21,6 @@ int main() {
 	p.seleccion = new seleccionRuleta();
 	p.cruce = new cruceSimple();
 	p.mutacion = new mutacionArbol();
-
 	AG ag(p);
 	Controlador c(ag);
 
