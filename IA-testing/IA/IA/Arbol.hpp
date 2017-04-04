@@ -11,7 +11,7 @@
 
 class Arbol {
 public:
-	Arbol();
+	Arbol() {}
 
 	Arbol(Operacion raiz) :
 		_raiz(raiz, nullptr, GRADOS[raiz], 0){}

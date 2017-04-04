@@ -1,4 +1,4 @@
-#include "Nodo.hpp"
+/*#include "Nodo.hpp"
 
 Nodo::Nodo() {}
 
@@ -235,4 +235,4 @@ int Nodo::actualizaNumNodos() {
 	}
 	this->_numNodos = n;
 	return n;
-}
+}*/
