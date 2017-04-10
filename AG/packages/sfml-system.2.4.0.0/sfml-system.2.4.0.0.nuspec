@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>sfml-system</id>
+    <version>2.4.0.0</version>
+    <title>sfml-system</title>
+    <authors>Laurent Gomila</authors>
+    <owners>Laurent Gomila</owners>
+    <licenseUrl>http://www.sfml-dev.org/license.php</licenseUrl>
+    <projectUrl>http://www.sfml-dev.org/</projectUrl>
+    <iconUrl>http://www.sfml-dev.org/images/sfml-icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SFML provides a simple interface to the various components
+		of your PC, to ease the development of games and multimedia applications.
+		It is composed of five modules: system, window, graphics, audio and network.
+
+        With SFML, your application can compile and run out of the box on the most
+		common operating systems: Windows, Linux, Mac OS X and soon Android &amp; iOS.
+
+        SFML has official bindings for the C and .Net languages. And thanks to its
+		active community, it is also available in many other languages such as Java, Ruby, Python, Go, and more.</description>
+    <summary>SFML provides a simple interface to the various components of your PC, to ease the development of games and multimedia applications. It is composed of five modules: system, window, graphics, audio and network.</summary>
+    <releaseNotes>Release of SFML 2.4.0 libraries</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>sfml native CoApp nativepackage</tags>
+    <dependencies>
+      <dependency id="sfml-system.redist" version="2.4.0" />
+    </dependencies>
+  </metadata>
+</package>
