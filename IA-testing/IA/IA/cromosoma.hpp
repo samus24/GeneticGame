@@ -13,15 +13,17 @@ public:
 	}
 
 	Cromosoma(int profMin, int profMax) {
-		this->_genotipo = Arbol(Operacion::Avanza);
-		this->_genotipo.creaArbolAleatorio(profMin, profMax);
+		this->_genotipo[0] = Arbol(Operacion::Avanza);
+		this->_genotipo[1] = Arbol(Operacion::Avanza);
+		this->_genotipo[0].creaArbolAleatorio(profMin, profMax);
+		this->_genotipo[1].creaArbolAleatorio(profMin, profMax);
 	}
 
-	Arbol getGenotipo() {
+	std::vector<Arbol> getGenotipo() {
 		return _genotipo;
 	}
 
-	void setGenotipo(Arbol genotipo) {
+	void setGenotipo(std::vector<Arbol> genotipo) {
 		this->_genotipo = genotipo;
 	}
 
@@ -49,16 +51,18 @@ public:
 		this->_adaptacion = a;
 	}
 
-	Nodo* getTerminalAleatorio() {
-		return _genotipo.getTerminalAleatorio();
+	Nodo* getTerminalAleatorio(int pos) {
+		return _genotipo[pos].getTerminalAleatorio();
 	}
 
-	Nodo* getNodoFuncionAleatorio() {
-		return _genotipo.getNodoFuncionAleatorio();
+	Nodo* getNodoFuncionAleatorio(int pos) {
+		return _genotipo[pos].getNodoFuncionAleatorio();
 	}
 
 	void bloating(int prof) {
-		_genotipo.bloating(prof);
+		for (std::size_t i = 0; i < _genotipo.size(); ++i) {
+			_genotipo[i].bloating(prof);
+		}
 	}
 
 	double evalua(Mapa m) {
@@ -67,11 +71,13 @@ public:
 	}
 
 	void eliminaIntrones() {
-		_genotipo.eliminaIntrones();
+		for (std::size_t i = 0; i < _genotipo.size(); ++i) {
+			_genotipo[i].eliminaIntrones();
+		}
 	}
 
 private:
-	Arbol _genotipo;
+	std::vector<Arbol> _genotipo; //la primera posición es el árbol de búsqueda y la segunda el de ataque.
 	double _punt;
 	double _puntAcum;
 	double _adaptacion;

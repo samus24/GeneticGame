@@ -23,7 +23,7 @@ int main() {
 	p.mutacion = new mutacionArbol();
 	AG ag(p);
 	Controlador c(ag);
-
+	std::cout << "hola";
 	//Faltaria la ventana para sacar datos
 
 	return 0;
