@@ -12,6 +12,7 @@ public:
 
 	AG(Parametros p) {
 		_param = p;
+		
 		_crono.creaMedida("global");
 		_crono.creaMedida("seleccion");
 		_crono.creaMedida("cruce");
@@ -60,11 +61,13 @@ public:
 			_crono.finalizaMedida("seleccion", std::chrono::high_resolution_clock::now());
 
 			_crono.iniciaMedida("cruce", std::chrono::high_resolution_clock::now());
-			cruce();
+			cruce(0);
+			cruce(1);
 			_crono.finalizaMedida("cruce", std::chrono::high_resolution_clock::now());
 
 			_crono.iniciaMedida("mutacion", std::chrono::high_resolution_clock::now());
-			mutacion();
+			mutacion(0);
+			mutacion(1);
 			_crono.finalizaMedida("mutacion", std::chrono::high_resolution_clock::now());
 
 			if (_param.bloating){
@@ -167,7 +170,7 @@ private:
 		_param.seleccion->seleccionar(_pob, true);
 	}
 
-	void cruce(){
+	void cruce(int pos){
 		int* seleccionados = new int[_pob._tam];
 		int numSeleCruce = 0;
 		double prob;
@@ -183,12 +186,12 @@ private:
 			numSeleCruce--;
 		}
 		for (int i = 0; i < numSeleCruce; i += 2){
-			_param.cruce->cruzar(_pob.individuos[seleccionados[i]], _pob.individuos[seleccionados[i + 1]]);
+			_param.cruce->cruzar(_pob.individuos[seleccionados[i]], _pob.individuos[seleccionados[i + 1]], pos);
 		}
 
 	}
 
-	void mutacion(){
+	void mutacion(int pos){
 		std::vector<Cromosoma> seleccionados;
 		auto it = _pob.individuos.begin();
 		double prob;
@@ -201,7 +204,7 @@ private:
 		}
 
 		for (Cromosoma i : seleccionados)
-			_param.mutacion->mutar(i);
+			_param.mutacion->mutar(i, pos);
 
 	}
 

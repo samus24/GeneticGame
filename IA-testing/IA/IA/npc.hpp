@@ -1,6 +1,8 @@
 #ifndef NPC_HPP
 #define NPC_HPP
 
+#include "myrandom.hpp"
+
 enum facing {
 	NORTE,
 	SUR,
@@ -14,14 +16,20 @@ public:
 	int _posX;
 	int _posY;
 	facing f;
+	int golpes;
+	int heridas;
+	int turnosPatrulla;
 
-	npc(int x, int y, int alto, int ancho, int turnos) {
+	npc(int x, int y, int alto, int ancho) {
 		this->_posX = x;
 		this->_posY = y;
 		this->_alto = alto;
 		this->_ancho = ancho;
-		this->f = facing::ESTE;
-		this->_turnos = turnos;
+		this->f = (facing)myRandom::getRandom(facing::NORTE, facing::OESTE); //esto funciona?
+		this->_turnos = 0;
+		this->golpes = 0;
+		this->heridas = 0;
+		this->turnosPatrulla = 0;
 	}
 
 	void avanza() {
@@ -109,6 +117,7 @@ public:
 private:
 	int _ancho;
 	int _alto;
+	bool _bloqueando;
 };
 
 #endif

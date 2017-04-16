@@ -10,6 +10,7 @@ public:
 	static const int COFRE = -2;
 	static const int MURO = -3;
 	static const int ENEMIGO = -4;
+	static const int JUGADOR = -5;
 
 	Mapa() {}
 
@@ -59,6 +60,10 @@ public:
 
 	void cargarMapa(std::vector<std::vector<int>> casillas) {
 		_mapa = casillas;
+	}
+
+	std::vector<int> operator[](unsigned int i){
+		return _mapa[i];
 	}
 
 private:

@@ -138,6 +138,10 @@ public:
 		return _profMax;
 	}
 
+	Nodo* getRaiz() {
+		return &this->_raiz;
+	}
+
 	void setProfMax(int pMax) {
 		this->_profMax = pMax;
 	}

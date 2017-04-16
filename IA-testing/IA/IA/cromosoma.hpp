@@ -2,6 +2,7 @@
 #define CROMOSOMA_HPP
 
 #include "Arbol.hpp"
+#include "myrandom.hpp"
 
 class Cromosoma {
 public:
@@ -19,8 +20,8 @@ public:
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax);
 	}
 
-	std::vector<Arbol> getGenotipo() {
-		return _genotipo;
+	Arbol getGenotipo(int pos) {
+		return _genotipo[pos];
 	}
 
 	void setGenotipo(std::vector<Arbol> genotipo) {
@@ -67,7 +68,28 @@ public:
 
 	double evalua(Mapa m) {
 		//metodo de evaluación, recorrer los mapas y conseguir el valor acumulado
+		//cargar mapa con la posicion del jugador
+		//colocar al npc aleatoriamente
+		//while de la patrulla si turnos no acabados o no cambiar estado.
+		//si cambiar estado, arbol ataque mientras turnos no acabados o jugador no eliminado
+		setRandomPosition(m);
+		int turnos = 0;
+		int turnosPatrulla = 0;
+		bool ataque = false;
+		Nodo* actual = _genotipo[0].getRaiz();
+		while (turnos < 100 && !ataque) {
+
+		}
 		return 0.f;
+	}
+
+	npc setRandomPosition(Mapa &m) {
+		int x, y;
+		npc enemigo();
+		do{
+			x = myRandom::getRandom(0, m.getWidth -1);
+			y = myRandom::getRandom(0, m.getHeight - 1);
+		} while (m[x][y] != m.VACIO);
 	}
 
 	void eliminaIntrones() {
@@ -77,7 +99,7 @@ public:
 	}
 
 private:
-	std::vector<Arbol> _genotipo; //la primera posición es el árbol de búsqueda y la segunda el de ataque.
+	std::vector<Arbol> _genotipo; //la primera posición es el árbol de patrulla y la segunda el de ataque.
 	double _punt;
 	double _puntAcum;
 	double _adaptacion;

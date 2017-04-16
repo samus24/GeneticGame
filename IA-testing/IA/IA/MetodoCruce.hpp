@@ -7,15 +7,15 @@
 
 class metodoCruce {
 public:
-	virtual void cruzar(Cromosoma a, Cromosoma b) = 0;
+	virtual void cruzar(Cromosoma a, Cromosoma b, int pos) = 0;
 	virtual std::string toString() = 0;
 };
 
 class cruceSimple : public metodoCruce {
 public:
-	void cruzar(Cromosoma a, Cromosoma b) {
-		Arbol arbA = a.getGenotipo();
-		Arbol arbB = b.getGenotipo();
+	void cruzar(Cromosoma a, Cromosoma b, int pos) {
+		Arbol arbA = a.getGenotipo(pos);
+		Arbol arbB = b.getGenotipo(pos);
 		int corteA, corteB;
 		arbA.actualizaNumNodos();
 		arbB.actualizaNumNodos();

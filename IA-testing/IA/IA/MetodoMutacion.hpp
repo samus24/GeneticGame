@@ -6,14 +6,14 @@
 
 class metodoMutacion {
 public:
-	virtual void mutar(Cromosoma c) = 0;
+	virtual void mutar(Cromosoma c, int pos) = 0;
 	virtual std::string toString() = 0;
 };
 
 class mutacionArbol : public metodoMutacion {
 public:
-	void mutar(Cromosoma c) {
-		Arbol arb = c.getGenotipo();
+	void mutar(Cromosoma c, int pos) {
+		Arbol arb = c.getGenotipo(pos);
 		arb.actualizaNumNodos();
 		Nodo* n = nullptr;
 		n = arb.getNodoFuncionAleatorio();
@@ -33,8 +33,8 @@ public:
 
 class mutacionFuncion : public metodoMutacion {
 public:
-	void mutar(Cromosoma c) {
-		Nodo* n = c.getNodoFuncionAleatorio();
+	void mutar(Cromosoma c, int pos) {
+		Nodo* n = c.getNodoFuncionAleatorio(pos);
 		int r;
 		if (n == nullptr) return;
 		else {
@@ -149,7 +149,7 @@ public:
 
 class mutacionTerminal : public metodoMutacion {
 public:
-	void mutar(Cromosoma c) {
+	void mutar(Cromosoma c, int pos) {
 		int r = myRandom::getRandom(0, 6); //Hay 7 terminales
 		Operacion op;
 		switch (r) {
@@ -177,7 +177,7 @@ public:
 		default:
 			break;
 		}
-		Nodo* n = c.getTerminalAleatorio();
+		Nodo* n = c.getTerminalAleatorio(pos);
 		n->setElem(op);
 	}
 
