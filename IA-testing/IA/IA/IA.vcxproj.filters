@@ -48,9 +48,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="Nodo.cpp">
-      <Filter>Archivos de encabezado\modelo\arbol</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AG.hpp">
