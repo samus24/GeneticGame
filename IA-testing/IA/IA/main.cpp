@@ -10,9 +10,8 @@ int main() {
 	Parametros p;
 	p.tamPob = 30;
 	p.iteraciones = 30;
-	p.minNodos = 10;
-	p.maxNodos = 40;
-	p.densidad = 0.03;
+	p.minNodos = 1;
+	p.maxNodos = 7;
 	p.elitismo = false;
 	p.bloating = true;
 	p.contractividad = false;
@@ -22,7 +21,8 @@ int main() {
 	p.cruce = new cruceSimple();
 	p.mutacion = new mutacionArbol();
 	AG ag(p);
-	Controlador c(ag);
+	ag.ejecuta();
+	//Controlador c(ag);
 	std::cout << "hola";
 	//Faltaria la ventana para sacar datos
 

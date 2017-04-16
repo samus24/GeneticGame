@@ -24,7 +24,7 @@ public:
 	void evalua(std::vector<Mapa> m) {
 		for (std::size_t i = 0; i < _tam; ++i) {
 			for (std::size_t j = 0; j < m.size(); ++j) {
-				this->individuos[i].evalua(m[j]);
+				this->individuos[i].evalua(m[j], 0, 0);
 			}
 		}
 	}

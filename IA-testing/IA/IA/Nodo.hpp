@@ -14,10 +14,10 @@ enum Operacion {
 	SiBloqueado,
 	SiRango,
 	SiDetectado,
+	CambiarEst,
 	Avanza,
 	GiraIz,
 	GiraDer,
-	CambiarEst,
 	BloquearN,
 	Atacar,
 	Retroceder
@@ -31,10 +31,10 @@ static std::unordered_map<Operacion, int> GRADOS{  // 0-6 No hojas, 7-13 hojas
 	{ SiBloqueado, 2 },
 	{ SiRango, 2 },
 	{ SiDetectado, 2 },
+	{ CambiarEst, 0 },
 	{ Avanza, 0 },
 	{ GiraIz, 0 },
 	{ GiraDer, 0 },
-	{ CambiarEst, 0 },
 	{ BloquearN, 0 },
 	{ Atacar, 0 },
 	{ Retroceder, 0 }

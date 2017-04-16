@@ -69,7 +69,7 @@ public:
 		this->_raiz = creaArbol(nullptr, _raiz, profMin, profMax, 0);
 	}
 
-	Nodo creaArbol(Nodo* padre, Nodo a, int pMin, int pMax, int pos) {
+	Nodo creaArbol(Nodo* padre, Nodo a, int pMin, int pMax, int pos) { //mirar por qué falla esto
 		if (pMin > 0) {
 			int r = myRandom::getRandom(0, 6);
 			Operacion op = (Operacion)r;

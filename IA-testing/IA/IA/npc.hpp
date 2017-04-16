@@ -12,13 +12,15 @@ enum facing {
 
 class npc {
 public:
-	int _turnos;
+	int _turnos; //turnos totales de la simulacion.
 	int _posX;
 	int _posY;
 	facing f;
-	int golpes;
-	int heridas;
-	int turnosPatrulla;
+	int golpes; //golpes que hemos dado al jugador
+	int heridas; //heridas que hemos recibido
+	int turnosPatrulla; //turnos que hemos invertido hasta cambiar al arbol de ataque
+	bool bloqueando;
+	int rango = 1;
 
 	npc(int x, int y, int alto, int ancho) {
 		this->_posX = x;
@@ -47,6 +49,29 @@ public:
 			if (_posX > this->_ancho) _posX--;
 			break;
 		case OESTE:
+			_posX--;
+			if (_posX < 0) _posX++;
+			break;
+		default:
+			break;
+		}
+	}
+
+	void retroceder() {
+		switch (f) {
+		case SUR:
+			_posY--;
+			if (_posY < 0) _posY++; //si te sales, no haces nada
+			break;
+		case NORTE:
+			_posY++;
+			if (_posY > this->_alto) _posY--;
+			break;
+		case OESTE:
+			_posX++;
+			if (_posX > this->_ancho) _posX--;
+			break;
+		case ESTE:
 			_posX--;
 			if (_posX < 0) _posX++;
 			break;
@@ -95,29 +120,63 @@ public:
 	}
 
 	void ataca() {
+	}
+
+	bool getCasillaDelante(int &x, int &y) {
+		x = _posX;
+		y = _posY;
 		switch (f) {
 		case NORTE:
-			f = facing::ESTE;
-
+			y--;
+			if (y < 0) return false;
 			break;
 		case SUR:
-			f = facing::OESTE;
+			y++;
+			if (y > this->_alto) return false;
 			break;
 		case ESTE:
-			f = facing::SUR;
+			x++;
+			if (x > this->_ancho) return false;
 			break;
 		case OESTE:
-			f = facing::NORTE;
+			x--;
+			if (x < 0) return false;
 			break;
 		default:
 			break;
 		}
+		return true;
+	}
+
+	bool getCasillaDetras(int &x, int &y) {
+		x = _posX;
+		y = _posY;
+		switch (f) {
+		case SUR:
+			y--;
+			if (y < 0) return false;
+			break;
+		case NORTE:
+			y++;
+			if (y > this->_alto) return false;
+			break;
+		case OESTE:
+			x++;
+			if (x > this->_ancho) return false;
+			break;
+		case ESTE:
+			x--;
+			if (x < 0) return false;
+			break;
+		default:
+			break;
+		}
+		return true;
 	}
 
 private:
 	int _ancho;
 	int _alto;
-	bool _bloqueando;
 };
 
 #endif
