@@ -15,8 +15,8 @@ public:
 	}
 
 	Cromosoma(int profMin, int profMax) {
-		this->_genotipo[0] = Arbol(Operacion::Avanza);
-		this->_genotipo[1] = Arbol(Operacion::Avanza);
+		this->_genotipo.push_back(Arbol(Operacion::Avanza));
+		this->_genotipo.push_back(Arbol(Operacion::Avanza));
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax);
 	}

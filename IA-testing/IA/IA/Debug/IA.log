@@ -1,4 +1,4 @@
-﻿Compilación iniciada a las 16/04/2017 18:24:10.
+﻿Compilación iniciada a las 17/04/2017 21:33:55.
      1>Proyecto "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          D:\VisualStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -12,7 +12,7 @@
      1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(56): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(78): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(96): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(114): warning C4172: devolución de dirección de la variable local o temporal
+     1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(113): warning C4172: devolución de dirección de la variable local o temporal
      1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(388): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(389): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(19): warning C4018: '<' : no coinciden signed/unsigned
@@ -34,4 +34,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:01.08
+Tiempo transcurrido 00:00:01.01

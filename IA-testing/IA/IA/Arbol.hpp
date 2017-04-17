@@ -69,7 +69,7 @@ public:
 		this->_raiz = creaArbol(nullptr, _raiz, profMin, profMax, 0);
 	}
 
-	Nodo creaArbol(Nodo* padre, Nodo a, int pMin, int pMax, int pos) { //mirar por qué falla esto
+	Nodo creaArbol(Nodo* padre, Nodo a, int pMin, int pMax, int pos) {
 		if (pMin > 0) {
 			int r = myRandom::getRandom(0, 6);
 			Operacion op = (Operacion)r;
@@ -89,12 +89,11 @@ public:
 			a.setNumNodos(1);
 		}
 		else {
-			int r = 0 + (rand() % (int)(13 - 0 + 1));
+			int r = myRandom::getRandom(0, 14);
 			Operacion op = (Operacion)r;
 			a = Nodo(op, padre, GRADOS[op], pos);
 			a.setNumNodos(1);
 			for (std::size_t i = 0; i < GRADOS[op]; ++i) {
-				//como convierto un Nodo a Nodo*??
 				Nodo aux = creaArbol(&a, a.getHijos()[i], pMin - 1, pMax - 1, i);
 				a.addHijo(aux, i);
 				a.setNumNodos(a.getNumNodos() + aux.getNumNodos());
