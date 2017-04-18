@@ -280,6 +280,20 @@ public:
 		return n;
 	}
 
+public:
+	static Operacion getTerminalAleatorio(){
+		return (Operacion)myRandom::getRandom(7, 13);
+	}
+
+	static Operacion getNoTerminalAleatorio(){
+		return (Operacion)myRandom::getRandom(0, 6);
+	}
+
+	static Operacion getElementoAleatorio(){
+		return (Operacion)myRandom::getRandom(0, 13);
+	}
+
+
 private:
 	Nodo* _padre;
 	int _nHijos;

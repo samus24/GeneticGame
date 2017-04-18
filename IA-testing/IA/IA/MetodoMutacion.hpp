@@ -18,7 +18,7 @@ public:
 		Nodo* n = nullptr;
 		n = arb.getNodoFuncionAleatorio();
 		if (n != nullptr) {
-			Nodo nuevo = arb.creaArbol(n->getPadre(), *n, arb.getProfMin(), arb.getProxMax(), n->getPos());
+			Nodo nuevo = arb.creaArbol(n->getPadre(), n, arb.getProfMin(), arb.getProxMax(), n->getPos());
 			n->setElem(nuevo.getElem());
 			n->setHijos(nuevo.getHijos());
 			n->setNhijos(nuevo.getNhijos());
