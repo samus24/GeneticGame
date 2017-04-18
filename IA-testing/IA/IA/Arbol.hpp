@@ -76,9 +76,11 @@ public:
 		std::stack<int> posiciones;
 		padres.push(padre);
 		posiciones.push(0);
+		nHijos.push(1);
 		Nodo* actual = a;
 		while (!padres.empty()){
 			if (pMin > 0) {
+				// No se ha alcanzado la prof minima, el nodo NO puede ser hoja
 				Operacion op = Nodo::getNoTerminalAleatorio();
 				*actual = Nodo(op, padres.top(), GRADOS[op], posiciones.top());
 				actual->setNumNodos(1);
@@ -90,6 +92,7 @@ public:
 				pMax--;
 			}
 			else if (pMax <= 0) {
+				// Se ha alcanzado la prof maxima, el nodo DEBE ser hoja
 				Operacion op = Nodo::getTerminalAleatorio();
 				*actual = Nodo(op, padres.top(), GRADOS[op], pos);
 				actual->setNumNodos(1);
@@ -101,7 +104,23 @@ public:
 					padres.pop();
 					pMin++;
 					pMax++;
-					actual = &(padres.top()->getHijos()[posiciones.top()]);
+					do{
+						hijos = nHijos.top() - 1;
+						nHijos.pop();
+						nHijos.push(hijos);
+						pos = posiciones.top() + 1;
+						posiciones.pop();
+						posiciones.push(pos);
+						if (hijos == 0){
+							padres.pop();
+							nHijos.pop();
+							posiciones.pop();
+						}
+						else{
+							actual = &(padres.top()->getHijos()[posiciones.top()]);
+						}
+					} while (hijos == 0 && !padres.empty());
+					
 				}
 				else{
 					nHijos.push(hijos);
@@ -110,6 +129,7 @@ public:
 				}
 			}
 			else {
+				// Altura intermedia, puede o no ser hoja
 				Operacion op = Nodo::getElementoAleatorio();
 				*actual = Nodo(op, padres.top(), GRADOS[op], pos);
 				actual->setNumNodos(1);
@@ -130,7 +150,22 @@ public:
 						padres.pop();
 						pMin++;
 						pMax++;
-						actual = &(padres.top()->getHijos()[posiciones.top()]);
+						do{
+							hijos = nHijos.top() - 1;
+							nHijos.pop();
+							nHijos.push(hijos);
+							pos = posiciones.top() + 1;
+							posiciones.pop();
+							posiciones.push(pos);
+							if (hijos == 0){
+								padres.pop();
+								nHijos.pop();
+								posiciones.pop();
+							}
+							else{
+								actual = &(padres.top()->getHijos()[posiciones.top()]);
+							}
+						} while (hijos == 0 && !padres.empty());
 					}
 					else{
 						nHijos.push(hijos);

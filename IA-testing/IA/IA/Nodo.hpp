@@ -25,8 +25,8 @@ enum Operacion {
 
 static std::unordered_map<Operacion, int> GRADOS{  // 0-6 No hojas, 7-13 hojas
 	{ ProgN2, 2 },
-	{ ProgN3, 3 },
-	{ ProgN4, 4 },
+	{ ProgN3, 2 },//3 },
+	{ ProgN4, 2 },//4 },
 	{ SiJugador, 2 },
 	{ SiBloqueado, 2 },
 	{ SiRango, 2 },
@@ -50,23 +50,26 @@ public:
 		this->_nHijos = nHijos;
 		this->_elem = elem;
 		this->setPos(pos);
+		this->_hijos = new Nodo[nHijos];
+		/*
 		for (std::size_t i = 0; i < _nHijos; ++i) {
 			//se rellena el vector con nodos para reservar espacio, son indiferentes
 			this->_hijos.push_back(Nodo(Operacion::Avanza, nullptr, 0, 0));
 		}
+		*/
 	}
 
 
 	bool addHijo(Operacion h, int pos) {
 		if (pos >= _nHijos) return false;
-		this->_hijos.at(pos) = Nodo(h, this, GRADOS[h], pos);
+		this->_hijos[pos] = Nodo(h, this, GRADOS[h], pos);
 		return true;
 	}
 
 
 	bool addHijo(Nodo h, int pos) {
 		if (pos >= _nHijos) return false;
-		this->_hijos.at(pos) = h;
+		this->_hijos[pos] = h;
 		return true;
 	}
 
@@ -85,12 +88,12 @@ public:
 	}
 
 
-	std::vector<Nodo> getHijos() {
+	Nodo* getHijos() {
 		return _hijos;
 	}
 
 
-	void setHijos(std::vector<Nodo> hijos) {
+	void setHijos(Nodo* hijos) {
 		this->_hijos = hijos;
 	}
 
@@ -140,10 +143,8 @@ public:
 	}
 	void bloating(int pMax, int nivel) {
 		if (nivel == pMax) {
-			std::vector<Nodo> _hijosAux(0);
-			this->_hijos = _hijosAux;
-			int r = myRandom::getRandom(7, 14);
-			Operacion op = (Operacion)r;
+			this->_hijos = nullptr;
+			Operacion op = Nodo::getTerminalAleatorio();
 			this->_elem = op;
 			this->_nHijos = 0;
 		}
@@ -172,20 +173,18 @@ public:
 			hijoB = this->_hijos[1]._elem;
 			if (hijoA == Operacion::GiraDer) {
 				if (hijoB == Operacion::GiraIz) {
-					int r = myRandom::getRandom(7, 14);
-					Operacion op = (Operacion)r;
+					Operacion op = Nodo::getTerminalAleatorio();
 					this->_elem = op;
-					std::vector<Nodo> _hijosAux(0);
+					Nodo* _hijosAux;
 					this->_hijos = _hijosAux;
 					this->_nHijos = 0;
 				}
 			}
 			else if (hijoB == Operacion::GiraDer) {
 				if (hijoA == Operacion::GiraIz) {
-					int r = myRandom::getRandom(7, 14);
-					Operacion op = (Operacion)r;
+					Operacion op = Nodo::getTerminalAleatorio();
 					this->_elem = op;
-					std::vector<Nodo> _hijosAux(0);
+					Nodo* _hijosAux;
 					this->_hijos = _hijosAux;
 					this->_nHijos = 0;
 				}
@@ -212,7 +211,7 @@ public:
 			esTerminal = Nodo::esOperacionTerminal(hijoA);
 			if (hijoA == hijoB && esTerminal) {
 				this->_elem = hijoA;
-				std::vector<Nodo> _hijosAux(0);
+				Nodo* _hijosAux;
 				this->_hijos = _hijosAux;
 				this->_nHijos = 0;
 			}
@@ -227,7 +226,7 @@ public:
 			esTerminal = Nodo::esOperacionTerminal(hijoA);
 			if (hijoA == hijoB && esTerminal) {
 				this->_elem = hijoA;
-				std::vector<Nodo> _hijosAux(0);
+				Nodo* _hijosAux;
 				this->_hijos = _hijosAux;
 				this->_nHijos = 0;
 			}
@@ -242,7 +241,7 @@ public:
 			esTerminal = Nodo::esOperacionTerminal(hijoA);
 			if (hijoA == hijoB && esTerminal) {
 				this->_elem = hijoA;
-				std::vector<Nodo> _hijosAux(0);
+				Nodo* _hijosAux;
 				this->_hijos = _hijosAux;
 				this->_nHijos = 0;
 			}
@@ -257,7 +256,7 @@ public:
 			esTerminal = Nodo::esOperacionTerminal(hijoA);
 			if (hijoA == hijoB && esTerminal) {
 				this->_elem = hijoA;
-				std::vector<Nodo> _hijosAux(0);
+				Nodo* _hijosAux;
 				this->_hijos = _hijosAux;
 				this->_nHijos = 0;
 			}
@@ -298,7 +297,8 @@ private:
 	Nodo* _padre;
 	int _nHijos;
 	Operacion _elem;
-	std::vector<Nodo> _hijos;
+	//std::vector<Nodo> _hijos;
+	Nodo* _hijos;
 	int _numNodos;
 	int _pos;
 };
