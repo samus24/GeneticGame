@@ -60,7 +60,7 @@ public:
 	}
 
 	int getNumNodos() {
-		return _raiz.getNhijos();
+		return _raiz.getNumNodos();
 	}
 
 	void creaArbolAleatorio(int profMin, int profMax) {
@@ -83,13 +83,13 @@ public:
 			}
 		}
 		else if (pMax <= 0) {
-			int r = myRandom::getRandom(7, 14);
+			int r = myRandom::getRandom(7, 13);
 			Operacion op = (Operacion)r;
 			a = Nodo(op, padre, GRADOS[op], pos);
 			a.setNumNodos(1);
 		}
 		else {
-			int r = myRandom::getRandom(0, 14);
+			int r = myRandom::getRandom(0, 13);
 			Operacion op = (Operacion)r;
 			a = Nodo(op, padre, GRADOS[op], pos);
 			a.setNumNodos(1);
