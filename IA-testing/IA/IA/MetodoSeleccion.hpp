@@ -28,7 +28,7 @@ class seleccionEstocastica : public metodoSeleccion {
 			prob += segmento;
 		}
 
-		std::vector<Cromosoma> nuevaPob(pob._tam);
+		Cromosoma* nuevaPob = new Cromosoma[pob._tam];
 		for (std::size_t i = 0; i < pob._tam; ++i) {
 			nuevaPob[i] = pob.individuos[seleccionados[i]];
 		}
@@ -54,7 +54,8 @@ class seleccionRuleta : public metodoSeleccion {
 				posSuper++;
 			seleccionados[i] = posSuper;
 		}
-		std::vector<Cromosoma> nuevaPob(pob._tam);
+		//std::vector<Cromosoma> nuevaPob(pob._tam);
+		Cromosoma* nuevaPob = new Cromosoma[pob._tam];
 		for (std::size_t i = 0; i < pob._tam; ++i) {
 			nuevaPob[i] = pob.individuos[seleccionados[i]];
 		}
@@ -120,7 +121,8 @@ class seleccionTorneo : public metodoSeleccion {
 			}
 			seleccionados[i] = posMejor;
 		}
-		std::vector<Cromosoma> nuevaPob(pob._tam);
+		//std::vector<Cromosoma> nuevaPob(pob._tam);
+		Cromosoma* nuevaPob = new Cromosoma[pob._tam];
 		for (std::size_t i = 0; i < pob._tam; ++i) {
 			nuevaPob[i] = pob.individuos[seleccionados[i]];
 		}

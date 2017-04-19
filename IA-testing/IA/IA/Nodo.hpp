@@ -2,6 +2,7 @@
 #define NODO_HPP
 #include <unordered_map>
 #include <vector>
+#include <string>
 #include "npc.hpp"
 #include "Mapa.hpp"
 #include "myrandom.hpp"
@@ -22,6 +23,39 @@ enum Operacion {
 	Atacar,
 	Retroceder
 };
+
+std::string opToString(Operacion op){
+	switch (op){
+		case ProgN2:
+			return "ProgN2";
+		case ProgN3:
+			return "ProgN3";
+		case ProgN4:
+			return "ProgN4";
+		case SiJugador:
+			return "SiJugador";
+		case SiBloqueado:
+			return "SiBloqueado";
+		case SiRango:
+			return "SiRango";
+		case SiDetectado:
+			return "SiDetectado";
+		case CambiarEst:
+			return "CambiarEst";
+		case Avanza:
+			return "Avanza";
+		case GiraIz:
+			return "GiraIz";
+		case GiraDer:
+			return "GiraDer";
+		case BloquearN:
+			return "BloquearN";
+		case Atacar:
+			return "Atacar";
+		case Retroceder:
+			return "Retroceder";
+	}
+}
 
 static std::unordered_map<Operacion, int> GRADOS{  // 0-6 No hojas, 7-13 hojas
 	{ ProgN2, 2 },
@@ -277,6 +311,10 @@ public:
 		}
 		this->_numNodos = n;
 		return n;
+	}
+
+	std::string toString(){
+		return opToString(_elem);
 	}
 
 public:

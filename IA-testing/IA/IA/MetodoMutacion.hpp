@@ -6,22 +6,20 @@
 
 class metodoMutacion {
 public:
-	virtual void mutar(Cromosoma c, int pos) = 0;
+	virtual void mutar(Cromosoma* c, int pos) = 0;
 	virtual std::string toString() = 0;
 };
 
 class mutacionArbol : public metodoMutacion {
 public:
-	void mutar(Cromosoma c, int pos) {
-		Arbol arb = c.getGenotipo(pos);
+	void mutar(Cromosoma* c, int pos) {
+		Arbol arb = c->getGenotipo(pos);
 		arb.actualizaNumNodos();
-		Nodo* n = nullptr;
+		Nodo n;
 		n = arb.getNodoFuncionAleatorio();
-		if (n != nullptr) {
-			Nodo nuevo = arb.creaArbol(n->getPadre(), n, arb.getProfMin(), arb.getProxMax(), n->getPos());
-			n->setElem(nuevo.getElem());
-			n->setHijos(nuevo.getHijos());
-			n->setNhijos(nuevo.getNhijos());
+		if (n.getPadre() != nullptr) {
+			Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos());
+			n.getPadre()->getHijos()[n.getPos()] = nuevo;
 			arb.actualizaNumNodos();
 		}
 	}
@@ -31,10 +29,11 @@ public:
 	}
 };
 
+/*
 class mutacionFuncion : public metodoMutacion {
 public:
-	void mutar(Cromosoma c, int pos) {
-		Nodo* n = c.getNodoFuncionAleatorio(pos);
+	void mutar(Cromosoma* c, int pos) {
+		Nodo* n = c->getNodoFuncionAleatorio(pos);
 		int r;
 		if (n == nullptr) return;
 		else {
@@ -149,7 +148,7 @@ public:
 
 class mutacionTerminal : public metodoMutacion {
 public:
-	void mutar(Cromosoma c, int pos) {
+	void mutar(Cromosoma* c, int pos) {
 		int r = myRandom::getRandom(0, 6); //Hay 7 terminales
 		Operacion op;
 		switch (r) {
@@ -177,7 +176,7 @@ public:
 		default:
 			break;
 		}
-		Nodo* n = c.getTerminalAleatorio(pos);
+		Nodo* n = c->getTerminalAleatorio(pos);
 		n->setElem(op);
 	}
 
@@ -185,5 +184,6 @@ public:
 		return "Terminal";
 	}
 };
+*/
 
 #endif

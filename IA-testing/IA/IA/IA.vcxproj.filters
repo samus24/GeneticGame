@@ -98,5 +98,8 @@
     <ClInclude Include="Cromosoma.hpp">
       <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
     </ClInclude>
+    <ClInclude Include="VistaTerminal.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

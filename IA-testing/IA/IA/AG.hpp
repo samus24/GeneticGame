@@ -51,10 +51,12 @@ public:
 			int nElite = (int)(_param.tamPob * 0.02);
 			std::vector<Cromosoma> elite;
 			if (_param.elitismo){
+				/*
 				_pob.ordenar();
 				for (std::size_t i = 0; i < nElite; ++i){
 					elite.push_back(_pob.individuos[i]);
 				}
+				*/
 			}
 			_crono.iniciaMedida("seleccion", std::chrono::high_resolution_clock::now());
 			seleccion();
@@ -74,13 +76,14 @@ public:
 				_pob.bloating(_param.maxNodos);
 			}
 			if (_param.elitismo){
+				/*
 				_pob.ordenar();
 				for (std::size_t i = 0; i < nElite; ++i){
 					_pob.individuos.pop_back();
 				}
 				for (std::size_t i = 0; i < nElite; ++i){
 					_pob.individuos.push_back(elite[i]);
-				}
+				}*/
 			}
 
 			_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
@@ -106,7 +109,7 @@ public:
 
 		}
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
-		_elMejor.evalua(map, 0, 0);
+		//_elMejor.evalua(map, 0, 0);
 		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("eval"));
 		return _elMejor;
 	}
@@ -186,26 +189,26 @@ private:
 			numSeleCruce--;
 		}
 		for (int i = 0; i < numSeleCruce; i += 2){
-			_param.cruce->cruzar(_pob.individuos[seleccionados[i]], _pob.individuos[seleccionados[i + 1]], pos);
+			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]], pos);
 		}
 
 	}
 
 	void mutacion(int pos){
-		std::vector<Cromosoma> seleccionados;
-		auto it = _pob.individuos.begin();
+		Cromosoma* seleccionados = new Cromosoma[_pob._tam];
+		int actualPos = 0;
 		double prob;
 		for (int i = 0; i < _pob._tam; ++i){
 			prob = myRandom::getRandom(0.f, 1.f);
 			if (prob < _param.probMutacion){
-				seleccionados.push_back(*it);
+				seleccionados[actualPos] = _pob.individuos[i];
+				actualPos++;
 			}
-			++it;
 		}
 
-		for (Cromosoma i : seleccionados)
-			_param.mutacion->mutar(i, pos);
-
+		for (int i = 0; i < actualPos; ++i){
+			_param.mutacion->mutar(&seleccionados[i], pos);
+		}
 	}
 
 	void notifyGeneracionTerminada(double mejor, double mejorGen, double media){

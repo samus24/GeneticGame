@@ -85,6 +85,7 @@
     <ClInclude Include="parametros.hpp" />
     <ClInclude Include="poblacion.hpp" />
     <ClInclude Include="myrandom.hpp" />
+    <ClInclude Include="VistaTerminal.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

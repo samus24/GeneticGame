@@ -8,6 +8,7 @@
 #include <time.h>
 #include <queue>
 #include <stack>
+#include <string>
 #include "Nodo.hpp"
 
 class Arbol {
@@ -18,9 +19,9 @@ public:
 		_raiz(raiz, nullptr, GRADOS[raiz], 0){}
 
 	void insertaNodo(int padre, Operacion elem, int pos) {
-		Nodo* buscado = buscaNodo(&this->_raiz, padre);
-		if (buscado != nullptr) {
-			buscado->addHijo(elem, pos);
+		Nodo buscado = buscaNodo(&this->_raiz, padre);
+		if (&buscado != nullptr) {
+			buscado.addHijo(elem, pos);
 		}
 	}
 
@@ -37,11 +38,11 @@ public:
 	}
 
 	Nodo buscaNodo(int numeroBuscado) {
-		Nodo* buscado = buscaNodo(&_raiz, numeroBuscado);
-		return *buscado;
+		Nodo buscado = buscaNodo(&_raiz, numeroBuscado);
+		return buscado;
 	}
 
-	Nodo* buscaNodo(Nodo* origen, int numeroBuscado) {
+	Nodo buscaNodo(Nodo* origen, int numeroBuscado) {
 		std::queue<Nodo> q;
 		std::queue<Nodo> qC;
 		q.push(_raiz);
@@ -57,7 +58,7 @@ public:
 		for (std::size_t i = 0; i < numeroBuscado; ++i) {
 			qC.pop();
 		}
-		return &qC.front();
+		return qC.front();
 	}
 
 	int getNumNodos() {
@@ -67,7 +68,7 @@ public:
 	void creaArbolAleatorio(int profMin, int profMax) {
 		this->_profMin = profMin;
 		this->_profMax = profMax;
-		creaArbol(nullptr, &_raiz, profMin, profMax, 0);
+		this->_raiz = creaArbol(nullptr, &_raiz, profMin, profMax, 0);
 	}
 
 	Nodo creaArbol(Nodo* padre, Nodo* a, int pMin, int pMax, int pos) {
@@ -75,7 +76,7 @@ public:
 		std::stack<int> nHijos;
 		std::stack<int> posiciones;
 		padres.push(padre);
-		posiciones.push(0);
+		posiciones.push(pos);
 		nHijos.push(1);
 		Nodo* actual = a;
 		while (!padres.empty()){
@@ -83,7 +84,6 @@ public:
 				// No se ha alcanzado la prof minima, el nodo NO puede ser hoja
 				Operacion op = Nodo::getNoTerminalAleatorio();
 				*actual = Nodo(op, padres.top(), GRADOS[op], posiciones.top());
-				actual->setNumNodos(1);
 				padres.push(actual);
 				nHijos.push(GRADOS[op]);
 				actual = &(actual->getHijos()[0]);
@@ -94,13 +94,20 @@ public:
 			else if (pMax <= 0) {
 				// Se ha alcanzado la prof maxima, el nodo DEBE ser hoja
 				Operacion op = Nodo::getTerminalAleatorio();
-				*actual = Nodo(op, padres.top(), GRADOS[op], pos);
+				*actual = Nodo(op, padres.top(), GRADOS[op], posiciones.top());
 				actual->setNumNodos(1);
 				int hijos = nHijos.top() - 1;
 				nHijos.pop();
 				int pos = posiciones.top() + 1;
 				posiciones.pop();
 				if (hijos == 0){
+					if (padres.size() > 1){	// Se evita el padre nullptr
+						int numNodos = 1;
+						for (std::size_t i = 0; i < pos; ++i){
+							numNodos += padres.top()->getHijos()[i].getNumNodos();
+						}
+						padres.top()->setNumNodos(numNodos);
+					}
 					padres.pop();
 					pMin++;
 					pMax++;
@@ -112,6 +119,13 @@ public:
 						posiciones.pop();
 						posiciones.push(pos);
 						if (hijos == 0){
+							if (padres.size() > 1){	// Se evita el padre nullptr
+								int numNodos = 1;
+								for (std::size_t i = 0; i < pos; ++i){
+									numNodos += padres.top()->getHijos()[i].getNumNodos();
+								}
+								padres.top()->setNumNodos(numNodos);
+							}
 							padres.pop();
 							nHijos.pop();
 							posiciones.pop();
@@ -131,8 +145,7 @@ public:
 			else {
 				// Altura intermedia, puede o no ser hoja
 				Operacion op = Nodo::getElementoAleatorio();
-				*actual = Nodo(op, padres.top(), GRADOS[op], pos);
-				actual->setNumNodos(1);
+				*actual = Nodo(op, padres.top(), GRADOS[op], posiciones.top());
 				if (GRADOS[op] > 0){
 					padres.push(actual);
 					nHijos.push(GRADOS[op]);
@@ -142,11 +155,19 @@ public:
 					pMax--;
 				}
 				else{
+					actual->setNumNodos(1);
 					int hijos = nHijos.top() - 1;
 					nHijos.pop();
 					int pos = posiciones.top() + 1;
 					posiciones.pop();
 					if (hijos == 0){
+						if (padres.size() > 1){	// Se evita el padre nullptr
+							int numNodos = 1;
+							for (std::size_t i = 0; i < pos; ++i){
+								numNodos += padres.top()->getHijos()[i].getNumNodos();
+							}
+							padres.top()->setNumNodos(numNodos);
+						}
 						padres.pop();
 						pMin++;
 						pMax++;
@@ -158,6 +179,13 @@ public:
 							posiciones.pop();
 							posiciones.push(pos);
 							if (hijos == 0){
+								if (padres.size() > 1){	// Se evita el padre nullptr
+									int numNodos = 1;
+									for (std::size_t i = 0; i < pos; ++i){
+										numNodos += padres.top()->getHijos()[i].getNumNodos();
+									}
+									padres.top()->setNumNodos(numNodos);
+								}
 								padres.pop();
 								nHijos.pop();
 								posiciones.pop();
@@ -176,43 +204,9 @@ public:
 			}
 		}
 		return *a;
-		/*
-		if (pMin > 0) {
-			int r = myRandom::getRandom(0, 6);
-			Operacion op = (Operacion)r;
-			*a = Nodo(op, padre, GRADOS[op], pos);
-			a->setNumNodos(1);
-			for (std::size_t i = 0; i < GRADOS[op]; ++i) {
-				//como convierto un Nodo a Nodo*??
-				Nodo aux = creaArbol(a, &(a->getHijos()[i]), pMin - 1, pMax - 1, i);
-				aux.setPadre(a); // A ver esto!!
-				a->addHijo(aux, i);
-				a->setNumNodos(a->getNumNodos() + aux.getNumNodos());
-			}
-		}
-		else if (pMax <= 0) {
-			int r = myRandom::getRandom(7, 13);
-			Operacion op = (Operacion)r;
-			*a = Nodo(op, padre, GRADOS[op], pos);
-			a->setNumNodos(1);
-		}
-		else {
-			int r = myRandom::getRandom(0, 13);
-			Operacion op = (Operacion)r;
-			*a = Nodo(op, padre, GRADOS[op], pos);
-			a->setNumNodos(1);
-			for (std::size_t i = 0; i < GRADOS[op]; ++i) {
-				Nodo aux = creaArbol(a, &(a->getHijos()[i]), pMin - 1, pMax - 1, i);
-				aux.setPadre(a); // A ver esto!!
-				a->addHijo(aux, i);
-				a->setNumNodos(a->getNumNodos() + aux.getNumNodos());
-			}
-		}
-		return *a;
-		*/
 	}
 
-	Nodo* getTerminalAleatorio() {
+	Nodo getTerminalAleatorio() {
 		Nodo actual = _raiz;
 		int numHijos = _raiz.getNhijos();
 		while (!actual.esTerminal()) {
@@ -220,18 +214,18 @@ public:
 			actual = actual.getHijos()[h];
 			numHijos = actual.getNhijos();
 		}
-		return &actual;
+		return actual;
 	}
 
-	Nodo* getNodoFuncionAleatorio() {
+	Nodo getNodoFuncionAleatorio() {
 		if (_raiz.getNumNodos() <= 1) {
-			return nullptr;
+			return _raiz;
 		}
-		Nodo* n = nullptr;
+		Nodo n;
 		do {
-			int r = myRandom::getRandom(0, _raiz.getNumNodos() + 1);
-			n = &buscaNodo(r);
-		} while (n->esTerminal());
+			int r = myRandom::getRandom(0, _raiz.getNumNodos()-1);
+			n = buscaNodo(r);
+		} while (n.esTerminal());
 		return n;
 	}
 
@@ -243,7 +237,7 @@ public:
 		this->_profMin = pMin;
 	}
 
-	int getProxMax() {
+	int getProfMax() {
 		return _profMax;
 	}
 
@@ -274,7 +268,20 @@ public:
 	}
 
 	std::string toString() {
-		return "Falta hacer el metodo toString";
+		unsigned int pos = 0;
+		std::string ret = "";
+		std::queue<Nodo> nodos;
+		nodos.push(_raiz);
+		while (!nodos.empty()){
+			ret += nodos.front().toString() + "[" + std::to_string(pos) + "], ";
+			for (size_t i = 0; i < nodos.front().getNhijos(); ++i){
+				nodos.push(nodos.front().getHijos()[i]);
+			}
+			nodos.pop();
+			pos++;
+		}
+
+		return ret;
 	}
 
 private:
