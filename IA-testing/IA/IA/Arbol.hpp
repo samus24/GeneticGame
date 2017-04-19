@@ -267,7 +267,7 @@ public:
 		_raiz.actualizaNumNodos();
 	}
 
-	std::string toString() {
+	std::string toString() const{
 		unsigned int pos = 0;
 		std::string ret = "";
 		std::queue<Nodo> nodos;
@@ -280,8 +280,23 @@ public:
 			nodos.pop();
 			pos++;
 		}
-
+		ret.pop_back(); ret.pop_back();
 		return ret;
+	}
+
+	bool compruebaIntegridad(){
+		std::queue<Nodo> nodos;
+		nodos.push(_raiz);
+		while (!nodos.empty()){
+			for (size_t i = 0; i < nodos.front().getNhijos(); ++i){
+				if (*nodos.front().getHijos()[i].getPadre() != nodos.front()){
+					return false;
+				}
+				nodos.push(nodos.front().getHijos()[i]);
+			}
+			nodos.pop();
+		}
+		return true;
 	}
 
 private:

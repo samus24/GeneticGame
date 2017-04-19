@@ -112,7 +112,7 @@ public:
 		return (this->_nHijos == 0);
 	}
 
-	Operacion getElem() {
+	Operacion getElem() const{
 		return _elem;
 	}
 
@@ -122,7 +122,7 @@ public:
 	}
 
 
-	Nodo* getHijos() {
+	Nodo* getHijos() const{
 		return _hijos;
 	}
 
@@ -132,7 +132,7 @@ public:
 	}
 
 
-	int getNhijos() {
+	int getNhijos() const{
 		return _nHijos;
 	}
 
@@ -142,7 +142,7 @@ public:
 	}
 
 
-	Nodo* getPadre() {
+	Nodo* getPadre() const{
 		return _padre;
 	}
 
@@ -151,7 +151,7 @@ public:
 		this->_padre = padre;
 	}
 
-	int getPos() {
+	int getPos() const{
 		return _pos;
 	}
 
@@ -159,7 +159,7 @@ public:
 		this->_pos = pos;
 	}
 
-	int getNumNodos() {
+	int getNumNodos() const{
 		return _numNodos;
 	}
 
@@ -313,8 +313,29 @@ public:
 		return n;
 	}
 
-	std::string toString(){
+	std::string toString() const{
 		return opToString(_elem);
+	}
+
+	bool operator==(const Nodo &other) const{
+		if (_padre == other.getPadre()){
+			if (_nHijos == other.getNhijos()){
+				if (_elem == other.getElem()){
+					if (_hijos == other.getHijos()){
+						if (_numNodos == other.getNumNodos()){
+							if (_pos == other.getPos()){
+								return true;
+							}
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	bool operator!=(const Nodo &other) const{
+		return !operator==(other);
 	}
 
 public:

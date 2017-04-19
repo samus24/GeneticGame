@@ -15,6 +15,7 @@ public:
 
 	void ejecuta(){
 		c->run();
+		//std::cout << "Mejor: " << c->run().getGenotipo(0).toString() << std::endl;
 	}
 
 	void onGeneracionTerminada(double mejor, double mejorGen, double media){

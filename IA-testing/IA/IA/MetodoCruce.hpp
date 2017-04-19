@@ -5,6 +5,17 @@
 #include <string>
 #include "cromosoma.hpp"
 
+bool sonIguales(const Nodo &a, const Nodo &b){
+	if (a.getPadre() == b.getPadre()){
+		if (a.getPos() == b.getPos()){
+			if (a.getElem() == b.getElem()){
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 class metodoCruce {
 public:
 	virtual void cruzar(Cromosoma* a, Cromosoma* b, int pos) = 0;
@@ -19,6 +30,9 @@ public:
 		int corteA, corteB;
 		arbA.actualizaNumNodos();
 		arbB.actualizaNumNodos();
+
+		std::cout << "A: " << arbA.toString() << std::endl;
+		std::cout << "B: " << arbB.toString() << std::endl;
 		
 		if (arbA.getNumNodos() == 1) {
 			corteA = 0;
@@ -36,27 +50,34 @@ public:
 		}
 		Nodo nodoA = arbA.buscaNodo(corteA);
 		Nodo nodoB = arbB.buscaNodo(corteB);
-		try {
-			arbA.insertaNodo(nodoA.getPadre(), nodoB, nodoA.getPos());
-			arbB.insertaNodo(nodoB.getPadre(), nodoA, nodoB.getPos());
+		Nodo* pA = nodoA.getPadre();
+		Nodo* pB = nodoB.getPadre();
+
+		if (sonIguales(*pA, nodoA)){
+			return;
 		}
-		catch (std::exception a) {
-			if (&nodoA == nullptr) {
-				std::cout << arbA.toString() << std::endl;
-				std::cout << "NodoA es nulo (corte: " << corteA << ")";
-			}
-			if (&nodoB == nullptr) {
-				std::cout << arbB.toString() << std::endl;
-				std::cout << "NodoB es nulo (corte: " << corteB << ")";
-			}
+
+		if (sonIguales(*pB, nodoB)){
+			return;
+		}
+
+		Nodo* p = nodoA.getPadre();
+		nodoA.setPadre(nodoB.getPadre());
+		nodoB.setPadre(p);
+
+		arbA.insertaNodo(pA, nodoB, nodoA.getPos());
+		if (!arbA.compruebaIntegridad()){
+			return;
+		}
+
+		arbB.insertaNodo(pB, nodoA, nodoB.getPos());
+		if (!arbB.compruebaIntegridad()){
+			return;
 		}
 
 		int aux = nodoA.getPos();
 		nodoA.setPos(nodoB.getPos());
 		nodoB.setPos(aux);
-
-		a->setGenotipo(arbA,pos);
-		b->setGenotipo(arbB, pos);
 		
 		arbA.actualizaNumNodos();
 		arbB.actualizaNumNodos();
