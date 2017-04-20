@@ -22,6 +22,12 @@ public:
 	void crear(int profMin, int profMax){
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax);
+		if (!this->_genotipo[0].compruebaIntegridad()){
+			return;
+		}
+		if (!this->_genotipo[1].compruebaIntegridad()){
+			return;
+		}
 	}
 
 	Arbol getGenotipo(int pos) {

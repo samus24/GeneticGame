@@ -21,19 +21,22 @@ public:
 	void insertaNodo(int padre, Operacion elem, int pos) {
 		Nodo buscado = buscaNodo(&this->_raiz, padre);
 		if (&buscado != nullptr) {
-			buscado.addHijo(elem, pos);
+			if (!buscado.addHijo(elem, pos))
+				throw std::exception("Fallo al insertar el nodo");
 		}
 	}
 
 	void insertaNodo(Nodo* padre, Operacion elem, int pos) {
 		if (padre != nullptr) {
-			padre->addHijo(elem, pos);
+			if (!padre->addHijo(elem, pos))
+				throw std::exception("Fallo al insertar el nodo");
 		}
 	}
 
 	void insertaNodo(Nodo* padre, Nodo hijo, int pos) {
 		if (padre != nullptr) {
-			padre->addHijo(hijo, pos);
+			if (!padre->addHijo(hijo, pos))
+				throw std::exception("Fallo al insertar el nodo");
 		}
 	}
 

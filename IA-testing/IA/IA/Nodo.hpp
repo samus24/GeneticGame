@@ -97,6 +97,11 @@ public:
 	bool addHijo(Operacion h, int pos) {
 		if (pos >= _nHijos) return false;
 		this->_hijos[pos] = Nodo(h, this, GRADOS[h], pos);
+		/* No se si esto hará falta aquí
+		for (size_t i = 0; i < h.getNhijos(); ++i){
+		h.getHijos()[i].setPadre(&h);
+		}
+		*/
 		return true;
 	}
 
@@ -104,6 +109,9 @@ public:
 	bool addHijo(Nodo h, int pos) {
 		if (pos >= _nHijos) return false;
 		this->_hijos[pos] = h;
+		for (size_t i = 0; i < h.getNhijos(); ++i){
+			h.getHijos()[i].setPadre(&this->_hijos[pos]);
+		}
 		return true;
 	}
 

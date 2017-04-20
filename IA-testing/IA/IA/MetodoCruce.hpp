@@ -53,32 +53,36 @@ public:
 		Nodo* pA = nodoA.getPadre();
 		Nodo* pB = nodoB.getPadre();
 
-		if (sonIguales(*pA, nodoA)){
-			return;
+		nodoA.setPadre(pB);
+		nodoB.setPadre(pA);
+
+		int posA = nodoA.getPos();
+		int posB = nodoB.getPos();
+
+		nodoA.setPos(posB);
+		nodoB.setPos(posA);
+
+		try{
+			arbA.insertaNodo(pA, nodoB, posA);
 		}
-
-		if (sonIguales(*pB, nodoB)){
-			return;
+		catch (std::exception e){
+			std::cerr << e.what() << std::endl;
 		}
-
-		Nodo* p = nodoA.getPadre();
-		nodoA.setPadre(nodoB.getPadre());
-		nodoB.setPadre(p);
-
-		arbA.insertaNodo(pA, nodoB, nodoA.getPos());
+		try{
+			arbB.insertaNodo(pB, nodoA, posB);
+		}
+		catch (std::exception e){
+			std::cerr << e.what() << std::endl;
+		}		
+		
 		if (!arbA.compruebaIntegridad()){
 			return;
 		}
 
-		arbB.insertaNodo(pB, nodoA, nodoB.getPos());
 		if (!arbB.compruebaIntegridad()){
 			return;
 		}
 
-		int aux = nodoA.getPos();
-		nodoA.setPos(nodoB.getPos());
-		nodoB.setPos(aux);
-		
 		arbA.actualizaNumNodos();
 		arbB.actualizaNumNodos();
 		
