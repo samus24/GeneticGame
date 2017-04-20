@@ -59,8 +59,8 @@ std::string opToString(Operacion op){
 
 static std::unordered_map<Operacion, int> GRADOS{  // 0-6 No hojas, 7-13 hojas
 	{ ProgN2, 2 },
-	{ ProgN3, 2 },//3 },
-	{ ProgN4, 2 },//4 },
+	{ ProgN3, 3 },
+	{ ProgN4, 4 },
 	{ SiJugador, 2 },
 	{ SiBloqueado, 2 },
 	{ SiRango, 2 },
@@ -224,6 +224,24 @@ public:
 			}
 			else if (hijoB == Operacion::GiraDer) {
 				if (hijoA == Operacion::GiraIz) {
+					Operacion op = Nodo::getTerminalAleatorio();
+					this->_elem = op;
+					Nodo* _hijosAux;
+					this->_hijos = _hijosAux;
+					this->_nHijos = 0;
+				}
+			}
+			else if (hijoA == Operacion::Avanza) {
+				if (hijoB == Operacion::Retroceder) {
+					Operacion op = Nodo::getTerminalAleatorio();
+					this->_elem = op;
+					Nodo* _hijosAux;
+					this->_hijos = _hijosAux;
+					this->_nHijos = 0;
+				}
+			}
+			else if (hijoB == Operacion::Retroceder) {
+				if (hijoA == Operacion::Avanza) {
 					Operacion op = Nodo::getTerminalAleatorio();
 					this->_elem = op;
 					Nodo* _hijosAux;

@@ -30,9 +30,6 @@ public:
 		int corteA, corteB;
 		arbA.actualizaNumNodos();
 		arbB.actualizaNumNodos();
-
-		std::cout << "A: " << arbA.toString() << std::endl;
-		std::cout << "B: " << arbB.toString() << std::endl;
 		
 		if (arbA.getNumNodos() == 1) {
 			corteA = 0;
@@ -73,14 +70,6 @@ public:
 		}
 		catch (std::exception e){
 			std::cerr << e.what() << std::endl;
-		}		
-		
-		if (!arbA.compruebaIntegridad()){
-			return;
-		}
-
-		if (!arbB.compruebaIntegridad()){
-			return;
 		}
 
 		arbA.actualizaNumNodos();
