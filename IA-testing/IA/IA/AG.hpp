@@ -1,6 +1,7 @@
 #ifndef AG_HPP
 #define AG_HPP
 
+#include <fstream>
 #include "IAGObserver.hpp"
 #include "Poblacion.hpp"
 #include "Cromosoma.hpp"
@@ -12,7 +13,7 @@ public:
 
 	AG(Parametros p) {
 		_param = p;
-		
+		cargarMapas();
 		_crono.creaMedida("global");
 		_crono.creaMedida("seleccion");
 		_crono.creaMedida("cruce");
@@ -40,7 +41,6 @@ public:
 		_crono.iniciaMedida("init", std::chrono::high_resolution_clock::now());
 		_pob.generaPoblacionAleatoria(_param.tamPob, _param.minNodos, _param.maxNodos);
 		_crono.finalizaMedida("init", std::chrono::high_resolution_clock::now());
-
 		_pob.evalua(maps);
 
 		_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
@@ -223,6 +223,32 @@ private:
 		}
 	}
 
+	void cargarMapas() {
+		std::ifstream file("mapas.txt", std::ifstream::in);
+		int nMapas;
+		file >> nMapas;
+		while (nMapas > 0) {
+			int x, y, i, j, celda;
+			i = 0;
+			j = 0;
+			file >> x;
+			file >> y;
+			Mapa map(x, y, 0, 0);
+			while (j < y) {
+				i = 0;
+				while (i < x) {
+					file >> celda;
+					map[j][i] = celda;
+					i++;
+				}
+				j++;
+			}
+			nMapas--;
+			maps.push_back(map);
+		}
+		file.close();
+	}
+
 	unsigned int _generacion;
 	unsigned int _genDescartadas;
 	poblacion _pob;
@@ -232,8 +258,6 @@ private:
 	Cronometro _crono;
 	std::vector<IAGObserver*> _obs;
 	std::vector<Mapa> maps;
-	Mapa map;
-	
 };
 
 #endif

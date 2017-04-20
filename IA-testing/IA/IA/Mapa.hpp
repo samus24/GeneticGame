@@ -19,7 +19,9 @@ public:
 		this->_height = height;
 		this->_origX = origX;
 		this->_origY = origY;
+
 		for (std::size_t i = 0; i < _height; ++i) { //se rellena a un mapa vacio
+			_mapa.push_back(std::vector<int>());
 			for (std::size_t j = 0; j < _width; ++j) {
 				_mapa[i].push_back(VACIO);
 			}

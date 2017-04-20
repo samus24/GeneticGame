@@ -148,9 +148,9 @@ public:
 						if (jugador._posX == x && jugador._posY == y) {
 							fin = true;
 							pila.push(&actual->getHijos()[0]);
-							explorado[x][y] = 5;
+							explorado[y][x] = 5;
 						}
-						else if (m[x][y] != m.VACIO) {
+						else if (m[y][x] != m.VACIO) {
 							fin = true;
 							pila.push(&actual->getHijos()[1]);
 						}
@@ -162,7 +162,7 @@ public:
 								pila.push(&actual->getHijos()[1]);
 							}
 							else {
-								explorado[x][y] = 1;
+								explorado[y][x] = 1;
 							}
 						}
 					}
@@ -307,7 +307,7 @@ public:
 							fin = true;
 							pila.push(&actual->getHijos()[0]);
 						}
-						else if (m[x][y] != m.VACIO) {
+						else if (m[y][x] != m.VACIO) {
 							fin = true;
 							pila.push(&actual->getHijos()[1]);
 						}
@@ -379,8 +379,13 @@ public:
 		valores[2] = 1 - (abs(enemigo.golpes - optimos[2]) / optimos[2]);
 		if (valores[2] < 0) valores[2] = 0;
 
-		valores[3] = (1 / enemigo.heridas);
-		if (valores[3] < 0) valores[3] = 0;
+		if (enemigo.heridas == 0) {
+			valores[3] = 5;
+		}
+		else {
+			valores[3] = (1 / enemigo.heridas);
+			if (valores[3] < 0) valores[3] = 0;
+		}
 
 		valores[4] = 1 - (abs(jugador.heridas * optimos[4]) / optimos[4]);
 		if (valores[4] < 0) valores[4] = 0;
@@ -396,8 +401,8 @@ public:
 		int ret = 0;
 		for (std::size_t i = 0; i < m.getWidth(); ++i) {
 			for (std::size_t j = 0; j < m.getHeight(); ++j) {
-				if (m[i][j] > 0) {
-					ret += m[i][j];
+				if (m[j][i] > 0) {
+					ret += m[j][i];
 				}
 			}
 		}
@@ -447,7 +452,7 @@ public:
 		do{
 			x = myRandom::getRandom(0, m.getWidth() -1);
 			y = myRandom::getRandom(0, m.getHeight() - 1);
-		} while (m[x][y] != m.VACIO);
+		} while (m[y][x] != m.VACIO);
 		npc enemigo(x, y, m.getHeight(), m.getWidth());
 		return enemigo;
 	}
