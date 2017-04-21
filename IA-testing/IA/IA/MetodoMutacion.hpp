@@ -6,19 +6,19 @@
 
 class metodoMutacion {
 public:
-	virtual void mutar(Cromosoma* c, int pos) = 0;
+	virtual void mutar(Cromosoma* c, TipoArbol tipo) = 0;
 	virtual std::string toString() = 0;
 };
 
 class mutacionArbol : public metodoMutacion {
 public:
-	void mutar(Cromosoma* c, int pos) {
-		Arbol arb = c->getGenotipo(pos);
+	void mutar(Cromosoma* c, TipoArbol tipo) {
+		Arbol arb = c->getGenotipo(tipo);
 		arb.actualizaNumNodos();
 		Nodo n;
 		n = arb.getNodoFuncionAleatorio();
 		if (n.getPadre() != nullptr) {
-			Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos());
+			Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos(), tipo);
 			n.getPadre()->getHijos()[n.getPos()] = nuevo;
 			arb.actualizaNumNodos();
 		}

@@ -64,10 +64,13 @@ public:
 		_mapa = casillas;
 	}
 
-	std::vector<int> operator[](unsigned int i){
-		return _mapa[i];
+	void setCasilla(int x, int y, int valor){
+		_mapa[y][x] = valor;
 	}
 
+	int getCasilla(int x, int y) const{
+		return _mapa[y][x];
+	}
 private:
 	int _width;
 	int _height;

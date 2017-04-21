@@ -7,21 +7,28 @@
 #include "Mapa.hpp"
 #include "myrandom.hpp"
 
+enum TipoArbol{
+	Patrulla,
+	Ataque
+};
+
 enum Operacion {
-	ProgN2,
-	ProgN3,
-	ProgN4,
-	SiJugador,
-	SiBloqueado,
-	SiRango,
-	SiDetectado,
-	CambiarEst,
-	Avanza,
-	GiraIz,
-	GiraDer,
-	BloquearN,
-	Atacar,
-	Retroceder
+	// No Terminales
+		SiDetectado,	// Patrulla
+		ProgN2,			// Comun
+		ProgN3,			// Comun
+		ProgN4,			// Comun
+		SiBloqueado,	// Comun
+		SiJugador,		// Ataque
+		SiRango,		// Ataque
+	// Terminales
+		CambiarEst,		// Patrulla
+		Avanza,			// Comun
+		GiraIz,			// Comun
+		GiraDer,		// Comun
+		BloquearN,		// Ataque (?)
+		Atacar,			// Ataque
+		Retroceder		// Ataque (?)
 };
 
 std::string opToString(Operacion op){
@@ -375,6 +382,41 @@ public:
 
 	static Operacion getElementoAleatorio(){
 		return (Operacion)myRandom::getRandom(0, 13);
+	}
+
+	static Operacion getTerminalAleatorio(TipoArbol tipo){
+		if (tipo == Ataque){
+			return (Operacion)myRandom::getRandom(Operacion::Avanza, Operacion::Retroceder);
+		}
+		else{// if (tipo == Patrulla){
+			return (Operacion)myRandom::getRandom(Operacion::CambiarEst, Operacion::GiraDer);
+		}
+	}
+
+	static Operacion getNoTerminalAleatorio(TipoArbol tipo){
+		if (tipo == Ataque){
+			return (Operacion)myRandom::getRandom(Operacion::ProgN2, Operacion::SiRango);
+		}
+		else{// if (tipo == Patrulla){
+			return (Operacion)myRandom::getRandom(Operacion::SiDetectado, Operacion::SiBloqueado);
+		}
+	}
+
+	static Operacion getElementoAleatorio(TipoArbol tipo){
+		if (tipo == Ataque){
+			Operacion elem;
+			do{
+				elem = (Operacion)myRandom::getRandom(Operacion::ProgN2, Operacion::Retroceder);
+			} while (elem == Operacion::CambiarEst);
+			return elem;
+		}
+		else{// if (tipo == Patrulla){
+			Operacion elem;
+			do{
+				elem = (Operacion)myRandom::getRandom(Operacion::SiDetectado, Operacion::GiraDer);
+			} while (elem == Operacion::SiJugador ||elem == Operacion::SiRango);
+			return elem;
+		}
 	}
 
 

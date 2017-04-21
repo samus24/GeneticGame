@@ -63,13 +63,13 @@ public:
 			_crono.finalizaMedida("seleccion", std::chrono::high_resolution_clock::now());
 
 			_crono.iniciaMedida("cruce", std::chrono::high_resolution_clock::now());
-			cruce(0);
-			cruce(1);
+			cruce(TipoArbol::Patrulla);
+			cruce(TipoArbol::Ataque);
 			_crono.finalizaMedida("cruce", std::chrono::high_resolution_clock::now());
 
 			_crono.iniciaMedida("mutacion", std::chrono::high_resolution_clock::now());
-			mutacion(0);
-			mutacion(1);
+			mutacion(TipoArbol::Patrulla);
+			mutacion(TipoArbol::Ataque);
 			_crono.finalizaMedida("mutacion", std::chrono::high_resolution_clock::now());
 
 			if (_param.bloating){
@@ -173,7 +173,7 @@ private:
 		_param.seleccion->seleccionar(_pob, true);
 	}
 
-	void cruce(int pos){
+	void cruce(TipoArbol tipo){
 		int* seleccionados = new int[_pob._tam];
 		int numSeleCruce = 0;
 		double prob;
@@ -189,12 +189,12 @@ private:
 			numSeleCruce--;
 		}
 		for (int i = 0; i < numSeleCruce; i += 2){
-			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]], pos);
+			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]], tipo);
 		}
 
 	}
 
-	void mutacion(int pos){
+	void mutacion(TipoArbol tipo){
 		Cromosoma* seleccionados = new Cromosoma[_pob._tam];
 		int actualPos = 0;
 		double prob;
@@ -207,7 +207,7 @@ private:
 		}
 
 		for (int i = 0; i < actualPos; ++i){
-			_param.mutacion->mutar(&seleccionados[i], pos);
+			_param.mutacion->mutar(&seleccionados[i], tipo);
 		}
 	}
 
@@ -238,7 +238,7 @@ private:
 				i = 0;
 				while (i < x) {
 					file >> celda;
-					map[j][i] = celda;
+					map.setCasilla(i, j, celda);
 					i++;
 				}
 				j++;

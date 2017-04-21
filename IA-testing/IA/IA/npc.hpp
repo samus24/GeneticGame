@@ -32,6 +32,7 @@ public:
 		this->golpes = 0;
 		this->heridas = 0;
 		this->turnosPatrulla = 0;
+		this->bloqueando = false;
 	}
 
 	void avanza() {
@@ -127,19 +128,19 @@ public:
 		y = _posY;
 		switch (f) {
 		case NORTE:
-			y--;
+			(y)--;
 			if (y < 0) return false;
 			break;
 		case SUR:
-			y++;
+			(y)++;
 			if (y > this->_alto) return false;
 			break;
 		case ESTE:
-			x++;
+			(x)++;
 			if (x > this->_ancho) return false;
 			break;
 		case OESTE:
-			x--;
+			(x)--;
 			if (x < 0) return false;
 			break;
 		default:
@@ -153,19 +154,19 @@ public:
 		y = _posY;
 		switch (f) {
 		case SUR:
-			y--;
+			(y)--;
 			if (y < 0) return false;
 			break;
 		case NORTE:
-			y++;
+			(y)++;
 			if (y > this->_alto) return false;
 			break;
 		case OESTE:
-			x++;
+			(x)++;
 			if (x > this->_ancho) return false;
 			break;
 		case ESTE:
-			x--;
+			(x)--;
 			if (x < 0) return false;
 			break;
 		default:

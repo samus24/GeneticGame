@@ -68,13 +68,13 @@ public:
 		return _raiz.getNumNodos();
 	}
 
-	void creaArbolAleatorio(int profMin, int profMax) {
+	void creaArbolAleatorio(int profMin, int profMax, TipoArbol tipo) {
 		this->_profMin = profMin;
 		this->_profMax = profMax;
-		this->_raiz = creaArbol(nullptr, &_raiz, profMin, profMax, 0);
+		this->_raiz = creaArbol(nullptr, &_raiz, profMin, profMax, 0, tipo);
 	}
 
-	Nodo creaArbol(Nodo* padre, Nodo* a, int pMin, int pMax, int pos) {
+	Nodo creaArbol(Nodo* padre, Nodo* a, int pMin, int pMax, int pos, TipoArbol tipo) {
 		std::stack<Nodo*> padres;
 		std::stack<int> nHijos;
 		std::stack<int> posiciones;
@@ -85,7 +85,7 @@ public:
 		while (!padres.empty()){
 			if (pMin > 0) {
 				// No se ha alcanzado la prof minima, el nodo NO puede ser hoja
-				Operacion op = Nodo::getNoTerminalAleatorio();
+				Operacion op = Nodo::getNoTerminalAleatorio(tipo);
 				*actual = Nodo(op, padres.top(), GRADOS[op], posiciones.top());
 				padres.push(actual);
 				nHijos.push(GRADOS[op]);
@@ -96,7 +96,7 @@ public:
 			}
 			else if (pMax <= 0) {
 				// Se ha alcanzado la prof maxima, el nodo DEBE ser hoja
-				Operacion op = Nodo::getTerminalAleatorio();
+				Operacion op = Nodo::getTerminalAleatorio(tipo);
 				*actual = Nodo(op, padres.top(), GRADOS[op], posiciones.top());
 				actual->setNumNodos(1);
 				int hijos = nHijos.top() - 1;
@@ -147,7 +147,7 @@ public:
 			}
 			else {
 				// Altura intermedia, puede o no ser hoja
-				Operacion op = Nodo::getElementoAleatorio();
+				Operacion op = Nodo::getElementoAleatorio(tipo);
 				*actual = Nodo(op, padres.top(), GRADOS[op], posiciones.top());
 				if (GRADOS[op] > 0){
 					padres.push(actual);
