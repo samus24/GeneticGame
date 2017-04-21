@@ -61,6 +61,8 @@ std::string opToString(Operacion op){
 			return "Atacar";
 		case Retroceder:
 			return "Retroceder";
+		default:
+			return "Unknown";
 	}
 }
 
@@ -190,16 +192,16 @@ public:
 		//aquí habría que ejecutar el arbol sobre el mapa
 		return 0.f;
 	}
-	void bloating(int pMax, int nivel) {
+	void bloating(int pMax, int nivel, TipoArbol tipo) {
 		if (nivel == pMax) {
 			this->_hijos = nullptr;
-			Operacion op = Nodo::getTerminalAleatorio();
+			Operacion op = Nodo::getTerminalAleatorio(tipo);
 			this->_elem = op;
 			this->_nHijos = 0;
 		}
 		else {
 			for (std::size_t i = 0; i < this->_nHijos; ++i) {
-				this->_hijos[i].bloating(pMax, nivel + 1);
+				this->_hijos[i].bloating(pMax, nivel + 1, tipo);
 			}
 		}
 	}

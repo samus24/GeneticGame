@@ -9,15 +9,15 @@
 int main() {
 
 	Parametros p;
-	p.tamPob = 30;
+	p.tamPob = 10;
 	p.iteraciones = 30;
 	p.minNodos = 1;
-	p.maxNodos = 7;// 7; Cambio para debug
+	p.maxNodos = 5;// 7; Cambio para debug
 	p.elitismo = false;
 	p.bloating = true;
 	p.contractividad = false;
 	p.probCruce = 0.6;
-	p.probMutacion = 0;
+	p.probMutacion = 0.2;
 	p.seleccion = new seleccionRuleta();
 	p.cruce = new cruceSimple();
 	p.mutacion = new mutacionArbol();

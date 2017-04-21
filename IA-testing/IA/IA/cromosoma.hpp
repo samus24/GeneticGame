@@ -103,8 +103,9 @@ public:
 		return _genotipo[pos];
 	}
 
-	void setGenotipo(Arbol genotipo, int pos) {
+	void setGenotipo(Arbol genotipo, int pos, Mapa m) {
 		this->_genotipo[pos] = genotipo;
+		this->evalua(m, 0, 0);
 	}
 
 	double getPunt() {
@@ -139,13 +140,14 @@ public:
 		return _genotipo[pos].getNodoFuncionAleatorio();
 	}
 
-	void bloating(int prof) {
+	void bloating(int prof, Mapa m) {
 		for (std::size_t i = 0; i < 2; ++i) {
-			_genotipo[i].bloating(prof);
+			_genotipo[i].bloating(prof, (TipoArbol)i);
 		}
+		this->evalua(m, 0, 0);
 	}
 
-	double evalua(Mapa m, int posX, int posY) {
+	double evalua(Mapa m, int posX, int posY, bool dibujar = false) {
 		int maxTurnos = 30;
 
 		std::stack<Nodo*> pila;
@@ -194,6 +196,7 @@ public:
 			case SiDetectado:
 				x = 0; y = 0;
 				incx = 0; incy = 0;
+				fin = false;
 				if (enemigo.getCasillaDelante(x, y)) {
 					switch (enemigo.f) {
 					case NORTE:
@@ -206,7 +209,7 @@ public:
 						incx++;
 						break;
 					case OESTE:
-						incx++;
+						incx--;
 						break;
 					default:
 						break;
@@ -222,14 +225,12 @@ public:
 							pila.push(&actual->getHijos()[1]);
 						}
 						else {
+							explorado.setCasilla(x, y, 1);
 							x += incx;
 							y += incy;
 							if (x < 0 || x >= m.getWidth() || y < 0 || y >= m.getHeight()) {
 								fin = true;
 								pila.push(&actual->getHijos()[1]);
-							}
-							else {
-								explorado.setCasilla(x, y, 1);
 							}
 						}
 					}
@@ -261,10 +262,12 @@ public:
 				ataque = true;
 				break;
 			default:
+				std::cerr << "El arbol de patrulla tenia nodos indebidos (" << op << ")" << std::endl;
+				exit(-1);
 				break;
 			}
 			mueveJugador(jugador, enemigo);
-			imprimeEstado(this->_genotipo[0], m, explorado, enemigo, jugador, ataque);
+			if(dibujar) imprimeEstado(this->_genotipo[0], m, explorado, enemigo, jugador, ataque);
 		}
 
 		enemigo.turnosPatrulla = enemigo._turnos;
@@ -314,6 +317,7 @@ public:
 			case SiRango:
 				x = 0; y = 0;
 				cont = 0;
+				fin = false;
 				if (enemigo.getCasillaDelante(x, y)) {
 					switch (enemigo.f) {
 					case NORTE:
@@ -349,49 +353,6 @@ public:
 							}
 						}
 						cont++;
-					}
-				}
-				else {
-					pila.push(&actual->getHijos()[1]);
-				}
-				break;
-			case SiDetectado:
-				x = 0; y = 0;
-				incx = 0; incy = 0;
-				if (enemigo.getCasillaDelante(x, y)) {
-					switch (enemigo.f) {
-					case NORTE:
-						incy--;
-						break;
-					case SUR:
-						incy++;
-						break;
-					case ESTE:
-						incx++;
-						break;
-					case OESTE:
-						incx++;
-						break;
-					default:
-						break;
-					}
-					while (!fin && !(x < 0 || x >= m.getWidth() || y < 0 || y >= m.getHeight())) {
-						if (jugador._posX == x && jugador._posY == y) {
-							fin = true;
-							pila.push(&actual->getHijos()[0]);
-						}
-						else if (m.getCasilla(x,y) != m.VACIO) {
-							fin = true;
-							pila.push(&actual->getHijos()[1]);
-						}
-						else {
-							x += incx;
-							y += incy;
-							if (x < 0 || x >= m.getWidth() || y < 0 || y >= m.getHeight()) {
-								fin = true;
-								pila.push(&actual->getHijos()[1]);
-							}
-						}
 					}
 				}
 				else {
@@ -436,10 +397,12 @@ public:
 				enemigo._turnos++;
 				break;
 			default:
+				std::cerr << "El arbol de ataque tenia nodos indebidos (" << op << ")" << std::endl;
+				exit(-1);
 				break;
 			}
 			mueveJugador(jugador, enemigo);
-			imprimeEstado(this->_genotipo[1], m, explorado, enemigo, jugador, ataque);
+			if (dibujar) imprimeEstado(this->_genotipo[1], m, explorado, enemigo, jugador, ataque);
 		}
 		double evaluacion = 0;
 		double pesos[] = {0.1, 0.4, 0.15, 0.05, 0.30}; //turnosPatrulla (minimizar), casillasExploradas (maximizar), golpes (maximizar), heridas (minimizar), daño (maximizar)

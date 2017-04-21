@@ -21,22 +21,30 @@ public:
 	void insertaNodo(int padre, Operacion elem, int pos) {
 		Nodo buscado = buscaNodo(&this->_raiz, padre);
 		if (&buscado != nullptr) {
-			if (!buscado.addHijo(elem, pos))
-				throw std::exception("Fallo al insertar el nodo");
+			if (!buscado.addHijo(elem, pos)){
+				std::string error = "Fallo al insertar el nodo " + opToString(elem) + "e n el padre " + opToString(buscado.getElem()) + " en pos " + std::to_string(pos);
+				throw std::runtime_error(error);
+			}
 		}
 	}
 
 	void insertaNodo(Nodo* padre, Operacion elem, int pos) {
 		if (padre != nullptr) {
-			if (!padre->addHijo(elem, pos))
-				throw std::exception("Fallo al insertar el nodo");
+			if (!padre->addHijo(elem, pos)){
+				std::string error = "Fallo al insertar el nodo " + opToString(elem) + " en el padre " + opToString(padre->getElem()) + " en pos " + std::to_string(pos);
+				throw std::runtime_error(error);
+			}
 		}
 	}
 
 	void insertaNodo(Nodo* padre, Nodo hijo, int pos) {
 		if (padre != nullptr) {
-			if (!padre->addHijo(hijo, pos))
-				throw std::exception("Fallo al insertar el nodo");
+			if (!padre->addHijo(hijo, pos)){
+				std::string error = "Fallo al insertar el nodo " + opToString(hijo.getElem()) + " en el padre " + opToString(padre->getElem()) + " en pos " + std::to_string(pos);
+				throw std::runtime_error(error);
+			}
+
+				
 		}
 	}
 
@@ -260,8 +268,8 @@ public:
 		this->_raiz.actualizaNumNodos();
 	}
 
-	void bloating(int pMax) {
-		this->_raiz.bloating(pMax, 0);
+	void bloating(int pMax, TipoArbol tipo) {
+		this->_raiz.bloating(pMax, 0, tipo);
 		this->_raiz.actualizaNumNodos();
 	}
 

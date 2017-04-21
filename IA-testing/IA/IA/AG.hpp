@@ -73,7 +73,7 @@ public:
 			_crono.finalizaMedida("mutacion", std::chrono::high_resolution_clock::now());
 
 			if (_param.bloating){
-				_pob.bloating(_param.maxNodos);
+				_pob.bloating(_param.maxNodos, maps);
 			}
 			if (_param.elitismo){
 				/*
@@ -109,7 +109,7 @@ public:
 
 		}
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
-		//_elMejor.evalua(map, 0, 0);
+		_elMejor.evalua(maps[0], 0, 0, true);
 		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("eval"));
 		return _elMejor;
 	}
@@ -189,7 +189,7 @@ private:
 			numSeleCruce--;
 		}
 		for (int i = 0; i < numSeleCruce; i += 2){
-			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]], tipo);
+			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]], tipo, maps[0]);
 		}
 
 	}
@@ -207,7 +207,7 @@ private:
 		}
 
 		for (int i = 0; i < actualPos; ++i){
-			_param.mutacion->mutar(&seleccionados[i], tipo);
+			_param.mutacion->mutar(&seleccionados[i], tipo, maps[0]);
 		}
 	}
 

@@ -1,40 +1,39 @@
-﻿Build started 21/04/2017 12:37:09.
-     1>Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" on node 2 (Build target(s)).
+﻿Compilación iniciada a las 21/04/2017 17:53:54.
+     1>Proyecto "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(23): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(25): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(119): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(201): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(342): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(56): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(61): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(109): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(127): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(169): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(187): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(280): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(294): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(28): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(29): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(479): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(480): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(20): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(26): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(40): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(22): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(32): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(50): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(59): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(77): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(126): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(65): warning C4715: 'opToString' : not all control paths return a value
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(23): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(25): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(121): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(203): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(344): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(64): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(69): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(117): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(135): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(177): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(195): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(288): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(302): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(28): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(29): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(442): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(443): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(20): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(26): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(41): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(22): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(32): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(50): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(59): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(77): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(126): warning C4018: '<' : no coinciden signed/unsigned
        Link:
-         C:\software\programacion\MSVStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.lib" /MACHINE:X86 Debug\main.obj
-         IA.vcxproj -> C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.exe
-     1>Done Building Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" (Build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.lib" /MACHINE:X86 Debug\main.obj
+         IA.vcxproj -> C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.exe
+     1>Compilación del proyecto terminada "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" (Build destinos).
 
-Build succeeded.
+Compilación correcta.
 
-Time Elapsed 00:00:01.32
+Tiempo transcurrido 00:00:01.62

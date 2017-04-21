@@ -43,11 +43,11 @@ public:
 			break;
 		case SUR:
 			_posY++;
-			if (_posY > this->_alto) _posY--;
+			if (_posY >= this->_alto) _posY--;
 			break;
 		case ESTE:
 			_posX++;
-			if (_posX > this->_ancho) _posX--;
+			if (_posX >= this->_ancho) _posX--;
 			break;
 		case OESTE:
 			_posX--;
@@ -66,11 +66,11 @@ public:
 			break;
 		case NORTE:
 			_posY++;
-			if (_posY > this->_alto) _posY--;
+			if (_posY >= this->_alto) _posY--;
 			break;
 		case OESTE:
 			_posX++;
-			if (_posX > this->_ancho) _posX--;
+			if (_posX >= this->_ancho) _posX--;
 			break;
 		case ESTE:
 			_posX--;
@@ -101,7 +101,6 @@ public:
 	}
 
 	void derecha() {
-		int aux = 0;
 		switch (f) {
 		case NORTE:
 			f = facing::ESTE;
@@ -120,9 +119,6 @@ public:
 		}
 	}
 
-	void ataca() {
-	}
-
 	bool getCasillaDelante(int &x, int &y) {
 		x = _posX;
 		y = _posY;
@@ -133,11 +129,11 @@ public:
 			break;
 		case SUR:
 			(y)++;
-			if (y > this->_alto) return false;
+			if (y >= this->_alto) return false;
 			break;
 		case ESTE:
 			(x)++;
-			if (x > this->_ancho) return false;
+			if (x >= this->_ancho) return false;
 			break;
 		case OESTE:
 			(x)--;
@@ -159,11 +155,11 @@ public:
 			break;
 		case NORTE:
 			(y)++;
-			if (y > this->_alto) return false;
+			if (y >= this->_alto) return false;
 			break;
 		case OESTE:
 			(x)++;
-			if (x > this->_ancho) return false;
+			if (x >= this->_ancho) return false;
 			break;
 		case ESTE:
 			(x)--;
