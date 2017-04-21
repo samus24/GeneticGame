@@ -295,7 +295,7 @@ public:
 		return ret;
 	}
 
-	bool compruebaIntegridad(){
+	bool compruebaIntegridad() const{
 		std::queue<Nodo> nodos;
 		nodos.push(_raiz);
 		while (!nodos.empty()){

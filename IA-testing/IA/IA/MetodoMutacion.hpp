@@ -20,6 +20,9 @@ public:
 		if (n.getPadre() != nullptr) {
 			Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos(), tipo);
 			n.getPadre()->getHijos()[n.getPos()] = nuevo;
+			if (!arb.compruebaIntegridad()){
+				return;
+			}
 			arb.actualizaNumNodos();
 			c->setGenotipo(arb, tipo, m);
 		}

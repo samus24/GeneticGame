@@ -15,7 +15,6 @@ public:
 
 	void ejecuta(){
 		c->run();
-		//std::cout << "Mejor: " << c->run().getGenotipo(0).toString() << std::endl;
 	}
 
 	void onGeneracionTerminada(double mejor, double mejorGen, double media){
@@ -23,10 +22,10 @@ public:
 		gen++;
 	}
 
-	void onAGTerminado(Cromosoma mejor, double tEjec, double tmSel, double tmCruce, double tmMut, double tInit, double adapMejor){
+	void onAGTerminado(Cromosoma mejor, double tEjec, double tmSel, double tmCruce, double tmMut, double tInit, double eval){
 		gen = 0;
 		std::cout << " -- AG finalizado -- " << std::endl;
-		std::cout << "Fitness mejor: " << adapMejor << std::endl;
+		std::cout << "Fitness mejor: " << mejor.getAdaptacion() << std::endl;
 	}
 
 private:

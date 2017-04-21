@@ -148,7 +148,7 @@ public:
 	}
 
 	double evalua(Mapa m, int posX, int posY, bool dibujar = false) {
-		int maxTurnos = 30;
+		int maxTurnos = 100;
 
 		std::stack<Nodo*> pila;
 		Mapa explorado = m;
@@ -452,7 +452,13 @@ public:
 	void mueveJugador(npc &jugador, npc &enemigo) {
 		jugador.bloqueando = false;
 		int x, y;
-		Operacion op = (Operacion)myRandom::getRandom(Operacion::Avanza, Operacion::Retroceder);
+		//Operacion op = (Operacion)myRandom::getRandom(Operacion::Avanza, Operacion::Retroceder);
+		int intentos = 3;
+		Operacion op;
+		do{
+			op = (Operacion)myRandom::getRandom(Operacion::Avanza, Operacion::Retroceder);
+			intentos--;
+		} while (intentos > 0 && (op == Operacion::GiraDer || op == Operacion::GiraIz || op == Operacion::BloquearN));
 		switch (op) {
 		case Avanza:
 			x = 0; y = 0;

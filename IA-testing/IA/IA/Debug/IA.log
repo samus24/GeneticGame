@@ -1,4 +1,4 @@
-﻿Compilación iniciada a las 21/04/2017 17:53:54.
+﻿Compilación iniciada a las 21/04/2017 18:36:58.
      1>Proyecto "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -36,4 +36,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:01.62
+Tiempo transcurrido 00:00:01.56
