@@ -24,10 +24,8 @@ public:
 
 	void evalua(std::vector<Mapa> m) {
 		for (std::size_t i = 0; i < _tam; ++i) {
-			// Esto hay que cambiarlo, se le pasan a cada individuo TODOS los mapas, y él se evalua con cada uno y se hace una media
-			for (std::size_t j = 0; j < m.size(); ++j) {
-				this->individuos[i].evalua(m[j], 0, 0);
-			}
+			// Esto hay que cambiarlo, se le pasan a cada individuo TODOS los mapas, y él se evalua con cada uno y se hace una 
+			this->individuos[i].evalua(m, true);
 		}
 	}
 

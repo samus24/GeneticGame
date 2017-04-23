@@ -109,7 +109,7 @@ public:
 
 		}
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
-		_elMejor.evalua(maps[0], 0, 0, true);
+		_elMejor.evalua(maps, true);
 		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("eval"));
 		return _elMejor;
 	}
@@ -228,12 +228,14 @@ private:
 		int nMapas;
 		file >> nMapas;
 		while (nMapas > 0) {
-			int x, y, i, j, celda;
+			int x, y, i, j, celda, origX, origY;
 			i = 0;
 			j = 0;
 			file >> x;
 			file >> y;
-			Mapa map(x, y, 0, 0);
+			file >> origX; //guardamos las coorden
+			file >> origY;
+			Mapa map(x, y, origX, origY);
 			while (j < y) {
 				i = 0;
 				while (i < x) {

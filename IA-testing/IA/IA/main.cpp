@@ -17,7 +17,7 @@ int main() {
 	p.bloating = true;
 	p.contractividad = false;
 	p.probCruce = 0.6;
-	p.probMutacion = 0; // Da algun fallo al mutar
+	p.probMutacion = 1; // Da algun fallo al mutar
 	p.seleccion = new seleccionRuleta();
 	p.cruce = new cruceSimple();
 	p.mutacion = new mutacionArbol();

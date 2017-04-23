@@ -105,7 +105,7 @@ public:
 
 	void setGenotipo(Arbol genotipo, int pos, Mapa m) {
 		this->_genotipo[pos] = genotipo;
-		this->evalua(m, 0, 0);
+		this->evaluaMapa(m, 0, 0);
 	}
 
 	double getPunt() {
@@ -144,10 +144,39 @@ public:
 		for (std::size_t i = 0; i < 2; ++i) {
 			_genotipo[i].bloating(prof, (TipoArbol)i);
 		}
-		this->evalua(m, 0, 0);
+		this->evaluaMapa(m, 0, 0);
 	}
 
-	double evalua(Mapa m, int posX, int posY, bool dibujar = false) {
+	double evalua(std::vector<Mapa> maps, bool pintar) {
+		int x, y;
+		double media = 0;
+		for (std::size_t i = 0; i < maps.size(); ++i) {
+			x = maps[i].getX();
+			y = maps[i].getY();
+			media += evaluaMapa(maps[i], x, y, pintar);
+		}
+		return media / maps.size(); //se divide sin restar, ya que size da el total (de 1 a n)
+	}
+
+	npc setRandomPosition(Mapa &m) {
+		int x, y;
+		do {
+			x = myRandom::getRandom(0, m.getWidth() -1);
+			y = myRandom::getRandom(0, m.getHeight() - 1);
+		} while (m.getCasilla(x,y) != m.VACIO);
+		npc enemigo(x, y, m.getHeight(), m.getWidth());
+		return enemigo;
+	}
+
+	void eliminaIntrones() {
+		for (std::size_t i = 0; i < 2; ++i) {
+			_genotipo[i].eliminaIntrones();
+		}
+	}
+
+private:
+
+	double evaluaMapa(Mapa m, int posX, int posY, bool dibujar = false) {
 		int maxTurnos = 100;
 
 		std::stack<Nodo*> pila;
@@ -220,7 +249,7 @@ public:
 							pila.push(&actual->getHijos()[0]);
 							explorado.setCasilla(x, y, 5);
 						}
-						else if (m.getCasilla(x,y) != m.VACIO) {
+						else if (m.getCasilla(x, y) != m.VACIO) {
 							fin = true;
 							pila.push(&actual->getHijos()[1]);
 						}
@@ -267,7 +296,7 @@ public:
 				break;
 			}
 			mueveJugador(jugador, enemigo);
-			if(dibujar) imprimeEstado(this->_genotipo[0], m, explorado, enemigo, jugador, ataque);
+			if (dibujar) imprimeEstado(this->_genotipo[0], m, explorado, enemigo, jugador, ataque);
 		}
 
 		enemigo.turnosPatrulla = enemigo._turnos;
@@ -340,7 +369,7 @@ public:
 							fin = true;
 							pila.push(&actual->getHijos()[0]);
 						}
-						else if (m.getCasilla(x,y) != m.VACIO) {
+						else if (m.getCasilla(x, y) != m.VACIO) {
 							fin = true;
 							pila.push(&actual->getHijos()[1]);
 						}
@@ -405,7 +434,7 @@ public:
 			if (dibujar) imprimeEstado(this->_genotipo[1], m, explorado, enemigo, jugador, ataque);
 		}
 		double evaluacion = 0;
-		double pesos[] = {0.1, 0.4, 0.15, 0.05, 0.30}; //turnosPatrulla (minimizar), casillasExploradas (maximizar), golpes (maximizar), heridas (minimizar), daño (maximizar)
+		double pesos[] = { 0.1, 0.4, 0.15, 0.05, 0.30 }; //turnosPatrulla (minimizar), casillasExploradas (maximizar), golpes (maximizar), heridas (minimizar), daño (maximizar)
 		double dim = m.getHeight() * m.getWidth();
 		double optimos[] = { 1.f, dim, 20.f, 0.f, 3.f };
 		double valores[5];
@@ -441,7 +470,7 @@ public:
 		int ret = 0;
 		for (std::size_t i = 0; i < m.getWidth(); ++i) {
 			for (std::size_t j = 0; j < m.getHeight(); ++j) {
-				if (m.getCasilla(i,j) > 0) {
+				if (m.getCasilla(i, j) > 0) {
 					ret += m.getCasilla(i, j);
 				}
 			}
@@ -496,25 +525,6 @@ public:
 		enemigo.bloqueando = false;
 	}
 
-	npc setRandomPosition(Mapa &m) {
-		int x, y;
-		do{
-			x = myRandom::getRandom(0, m.getWidth() -1);
-			y = myRandom::getRandom(0, m.getHeight() - 1);
-		} while (m.getCasilla(x,y) != m.VACIO);
-		npc enemigo(x, y, m.getHeight(), m.getWidth());
-		return enemigo;
-	}
-
-
-
-	void eliminaIntrones() {
-		for (std::size_t i = 0; i < 2; ++i) {
-			_genotipo[i].eliminaIntrones();
-		}
-	}
-
-private:
 	Arbol _genotipo[2]; //la primera posición es el árbol de patrulla y la segunda el de ataque.
 	double _punt;
 	double _puntAcum;
