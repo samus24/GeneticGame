@@ -68,8 +68,8 @@ std::string opToString(Operacion op){
 
 static std::unordered_map<Operacion, int> GRADOS{  // 0-6 No hojas, 7-13 hojas
 	{ ProgN2, 2 },
-	{ ProgN3, 3 },
-	{ ProgN4, 4 },
+	{ ProgN3, 2 },
+	{ ProgN4, 2 },
 	{ SiJugador, 2 },
 	{ SiBloqueado, 2 },
 	{ SiRango, 2 },

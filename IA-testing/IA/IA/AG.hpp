@@ -189,7 +189,7 @@ private:
 			numSeleCruce--;
 		}
 		for (int i = 0; i < numSeleCruce; i += 2){
-			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]], tipo, maps[0]);
+			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]], tipo, maps);
 		}
 
 	}
@@ -207,7 +207,7 @@ private:
 		}
 
 		for (int i = 0; i < actualPos; ++i){
-			_param.mutacion->mutar(&seleccionados[i], tipo, maps[0]);
+			_param.mutacion->mutar(&seleccionados[i], tipo, maps);
 		}
 	}
 

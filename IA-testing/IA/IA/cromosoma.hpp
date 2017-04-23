@@ -103,9 +103,9 @@ public:
 		return _genotipo[pos];
 	}
 
-	void setGenotipo(Arbol genotipo, int pos, Mapa m) {
+	void setGenotipo(Arbol genotipo, int pos, std::vector<Mapa> m) {
 		this->_genotipo[pos] = genotipo;
-		this->evaluaMapa(m, 0, 0);
+		this->evalua(m);
 	}
 
 	double getPunt() {
@@ -140,14 +140,14 @@ public:
 		return _genotipo[pos].getNodoFuncionAleatorio();
 	}
 
-	void bloating(int prof, Mapa m) {
+	void bloating(int prof, std::vector<Mapa> m) {
 		for (std::size_t i = 0; i < 2; ++i) {
 			_genotipo[i].bloating(prof, (TipoArbol)i);
 		}
-		this->evaluaMapa(m, 0, 0);
+		this->evalua(m);
 	}
 
-	double evalua(std::vector<Mapa> maps, bool pintar) {
+	double evalua(std::vector<Mapa> maps, bool pintar = false) {
 		int x, y;
 		double media = 0;
 		for (std::size_t i = 0; i < maps.size(); ++i) {
@@ -158,16 +158,6 @@ public:
 		return media / maps.size(); //se divide sin restar, ya que size da el total (de 1 a n)
 	}
 
-	npc setRandomPosition(Mapa &m) {
-		int x, y;
-		do {
-			x = myRandom::getRandom(0, m.getWidth() -1);
-			y = myRandom::getRandom(0, m.getHeight() - 1);
-		} while (m.getCasilla(x,y) != m.VACIO);
-		npc enemigo(x, y, m.getHeight(), m.getWidth());
-		return enemigo;
-	}
-
 	void eliminaIntrones() {
 		for (std::size_t i = 0; i < 2; ++i) {
 			_genotipo[i].eliminaIntrones();
@@ -176,7 +166,7 @@ public:
 
 private:
 
-	double evaluaMapa(Mapa m, int posX, int posY, bool dibujar = false) {
+	double evaluaMapa(Mapa m, int posX, int posY, bool dibujar) {
 		int maxTurnos = 100;
 
 		std::stack<Nodo*> pila;
@@ -523,6 +513,16 @@ private:
 			break;
 		}
 		enemigo.bloqueando = false;
+	}
+
+	npc setRandomPosition(Mapa &m) {
+		int x, y;
+		do {
+			x = myRandom::getRandom(0, m.getWidth() - 1);
+			y = myRandom::getRandom(0, m.getHeight() - 1);
+		} while (m.getCasilla(x, y) != m.VACIO);
+		npc enemigo(x, y, m.getHeight(), m.getWidth());
+		return enemigo;
 	}
 
 	Arbol _genotipo[2]; //la primera posición es el árbol de patrulla y la segunda el de ataque.

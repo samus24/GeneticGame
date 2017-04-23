@@ -24,8 +24,7 @@ public:
 
 	void evalua(std::vector<Mapa> m) {
 		for (std::size_t i = 0; i < _tam; ++i) {
-			// Esto hay que cambiarlo, se le pasan a cada individuo TODOS los mapas, y él se evalua con cada uno y se hace una 
-			this->individuos[i].evalua(m, true);
+			this->individuos[i].evalua(m);
 		}
 	}
 
@@ -38,7 +37,7 @@ public:
 	void bloating(unsigned int maxNodos, std::vector<Mapa> m){
 		for (size_t i = 0; i < _tam; ++i){
 			// Esto habrá que ponerlo bien, con todos los mapas
-			individuos[i].bloating(maxNodos, m[0]);
+			individuos[i].bloating(maxNodos, m);
 		}
 	}
 };
