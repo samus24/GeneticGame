@@ -15,12 +15,12 @@ public:
 	void mutar(Cromosoma* c, TipoArbol tipo, std::vector<Mapa> m) {
 		Arbol arb = c->getGenotipo(tipo);
 		arb.actualizaNumNodos();
-		Arbol original = arb;
+		std::cout << arb.toString() << std::endl << std::endl;
 		Nodo n;
 		n = arb.getNodoFuncionAleatorio();
 		if (n.getPadre() != nullptr) {
 			Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos(), tipo);
-			n.getPadre()->getHijos()[n.getPos()] = nuevo;
+			n.getPadre()->getHijos()[n.getPos()] = std::move(nuevo);
 			if (!arb.compruebaIntegridad()){
 				return;
 			}

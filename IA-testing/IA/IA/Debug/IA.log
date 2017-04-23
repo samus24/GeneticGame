@@ -1,6 +1,5 @@
-﻿Compilación iniciada a las 23/04/2017 17:04:16.
-     1>Proyecto "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Rebuild destinos).
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppClean.targets(76,5): warning : Acceso denegado a la ruta de acceso 'd:\github\geneticgame\ia-testing\ia\debug\ia.exe'.
+﻿Compilación iniciada a las 23/04/2017 17:33:31.
+     1>Proyecto "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          D:\VisualStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
@@ -32,9 +31,9 @@
      1>d:\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(126): warning C4018: '<' : no coinciden signed/unsigned
        Link:
          D:\VisualStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Github\GeneticGame\IA-testing\IA\Debug\IA.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Github\GeneticGame\IA-testing\IA\Debug\IA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Github\GeneticGame\IA-testing\IA\Debug\IA.lib" /MACHINE:X86 Debug\main.obj
-     1>LINK : fatal error LNK1104: no se puede abrir el archivo 'D:\Github\GeneticGame\IA-testing\IA\Debug\IA.exe'
-     1>Compilación del proyecto terminada "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" (Rebuild destinos) -- ERROR.
+     1>LINK : fatal error LNK1168: no se puede abrir D:\Github\GeneticGame\IA-testing\IA\Debug\IA.exe para escritura
+     1>Compilación del proyecto terminada "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" (Build destinos) -- ERROR.
 
 ERROR al compilar.
 
-Tiempo transcurrido 00:00:01.30
+Tiempo transcurrido 00:00:01.66
