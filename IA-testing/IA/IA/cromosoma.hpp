@@ -9,7 +9,10 @@
 
 const int AZUL = 9;
 const int VERDE = 10;
+const int TURQUESA = 11;
 const int ROJO = 12;
+const int ROSA = 13;
+const int AMARILLO = 14;
 const int BLANCO = 15;
 
 void cambiaColor(int color){
@@ -20,6 +23,7 @@ void cambiaColor(int color){
 void imprimeEstado(Arbol gen, Mapa m, Mapa explorado, npc enemigo, npc jugador, bool ataque){
 	system("cls");
 	cambiaColor(BLANCO);
+	char c;
 	std::cout << "Estado: " << ((ataque) ? "Ataque" : "Patrulla") << std::endl;
 	std::cout << gen.toString() << std::endl;
 	std::cout << "<Enemigo> Tur: " << enemigo._turnos << " G: " << enemigo.golpes << " H: " << enemigo.heridas << " B: " << enemigo.bloqueando << std::endl;
@@ -66,13 +70,26 @@ void imprimeEstado(Arbol gen, Mapa m, Mapa explorado, npc enemigo, npc jugador, 
 				}
 			}
 			else{
+				c = '-';
 				if (explorado.getCasilla(i, j) > 0){
 					cambiaColor(AZUL);
 				}
 				else{
 					cambiaColor(BLANCO);
 				}
-				std::cout << "-";
+
+				if (m.getCasilla(i, j) == m.MURO) {
+					cambiaColor(TURQUESA);
+					c = '#';
+				}
+
+				else if (m.getCasilla(i,j) == m.COFRE) {
+					cambiaColor(AMARILLO);
+					c = '*';
+				}
+				std::cout << c;
+				
+				
 			}
 		}
 		std::cout << std::endl;
@@ -197,12 +214,12 @@ private:
 				pila.push(&actual->getHijos()[1]); //Se introducen en orden inverso que es como se quieren ejecutar.
 				pila.push(&actual->getHijos()[0]);
 				break;
-			case ProgN4:
+			/*case ProgN4:
 				pila.push(&actual->getHijos()[3]);
 				pila.push(&actual->getHijos()[2]);
 				pila.push(&actual->getHijos()[1]); //Se introducen en orden inverso que es como se quieren ejecutar.
 				pila.push(&actual->getHijos()[0]);
-				break;
+				break;*/
 			case SiBloqueado:
 				x = 0; y = 0;
 				if (!enemigo.getCasillaDelante(x, y)) {
@@ -313,12 +330,12 @@ private:
 				pila.push(&actual->getHijos()[1]); //Se introducen en orden inverso que es como se quieren ejecutar.
 				pila.push(&actual->getHijos()[0]);
 				break;
-			case ProgN4:
+			/*case ProgN4:
 				pila.push(&actual->getHijos()[3]);
 				pila.push(&actual->getHijos()[2]);
 				pila.push(&actual->getHijos()[1]); //Se introducen en orden inverso que es como se quieren ejecutar.
 				pila.push(&actual->getHijos()[0]);
-				break;
+				break;*/
 			case SiJugador:
 				x = 0; y = 0;
 				enemigo.getCasillaDelante(x, y);

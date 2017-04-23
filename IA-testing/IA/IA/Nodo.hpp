@@ -17,7 +17,7 @@ enum Operacion {
 		SiDetectado,	// Patrulla
 		ProgN2,			// Comun
 		ProgN3,			// Comun
-		ProgN4,			// Comun
+		//ProgN4,			// Comun
 		SiBloqueado,	// Comun
 		SiJugador,		// Ataque
 		SiRango,		// Ataque
@@ -37,8 +37,8 @@ std::string opToString(Operacion op){
 			return "ProgN2";
 		case ProgN3:
 			return "ProgN3";
-		case ProgN4:
-			return "ProgN4";
+		//case ProgN4:
+			//return "ProgN4";
 		case SiJugador:
 			return "SiJugador";
 		case SiBloqueado:
@@ -69,7 +69,7 @@ std::string opToString(Operacion op){
 static std::unordered_map<Operacion, int> GRADOS{  // 0-6 No hojas, 7-13 hojas
 	{ ProgN2, 2 },
 	{ ProgN3, 3 },
-	{ ProgN4, 4 },
+	//{ ProgN4, 4 },
 	{ SiJugador, 2 },
 	{ SiBloqueado, 2 },
 	{ SiRango, 2 },
@@ -268,12 +268,12 @@ public:
 			this->_hijos[1].eliminaIntrones();
 			this->_hijos[2].eliminaIntrones();
 			break;
-		case Operacion::ProgN4:
+		/*case Operacion::ProgN4:
 			this->_hijos[0].eliminaIntrones();
 			this->_hijos[1].eliminaIntrones();
 			this->_hijos[2].eliminaIntrones();
 			this->_hijos[3].eliminaIntrones();
-			break;
+			break;*/
 		case Operacion::SiBloqueado:
 			hijoA = this->_hijos[0]._elem;
 			hijoB = this->_hijos[1]._elem;

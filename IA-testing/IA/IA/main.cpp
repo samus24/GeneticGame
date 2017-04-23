@@ -10,7 +10,7 @@ int main() {
 
 	Parametros p;
 	p.tamPob = 100;
-	p.iteraciones = 100;
+	p.iteraciones = 30;
 	p.minNodos = 1;
 	p.maxNodos = 5;// 7; Cambio para debug
 	p.elitismo = false;
@@ -18,7 +18,7 @@ int main() {
 	p.contractividad = false;
 	p.probCruce = 0.6;
 	p.probMutacion = 0.2; // Da algun fallo al mutar
-	p.seleccion = new seleccionRuleta();
+	p.seleccion = new seleccionTorneo();
 	p.cruce = new cruceSimple();
 	p.mutacion = new mutacionArbol();
 	AG ag(p);
