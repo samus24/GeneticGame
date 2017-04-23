@@ -18,6 +18,7 @@ public:
 	facing f;
 	int golpes; //golpes que hemos dado al jugador
 	int heridas; //heridas que hemos recibido
+	int golpesEvitados;
 	int turnosPatrulla; //turnos que hemos invertido hasta cambiar al arbol de ataque
 	bool bloqueando;
 	int rango = 1;
@@ -32,6 +33,7 @@ public:
 		this->golpes = 0;
 		this->heridas = 0;
 		this->turnosPatrulla = 0;
+		this->golpesEvitados = 0;
 		this->bloqueando = false;
 	}
 

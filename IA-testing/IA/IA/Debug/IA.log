@@ -1,10 +1,10 @@
-﻿Compilación iniciada a las 23/04/2017 17:33:31.
+﻿Compilación iniciada a las 23/04/2017 18:58:55.
      1>Proyecto "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          D:\VisualStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
+     1>d:\github\geneticgame\ia-testing\ia\ia\mapa.hpp(21): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\mapa.hpp(23): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\mapa.hpp(25): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\nodo.hpp(121): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\nodo.hpp(203): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\nodo.hpp(344): warning C4018: '<' : no coinciden signed/unsigned
@@ -18,8 +18,8 @@
      1>d:\github\geneticgame\ia-testing\ia\ia\arbol.hpp(302): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(28): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(29): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(461): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(462): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(465): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(466): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(20): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(26): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(38): warning C4018: '<' : no coinciden signed/unsigned
@@ -36,4 +36,4 @@
 
 ERROR al compilar.
 
-Tiempo transcurrido 00:00:01.66
+Tiempo transcurrido 00:00:01.63

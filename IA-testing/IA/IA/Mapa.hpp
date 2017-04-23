@@ -9,8 +9,6 @@ public:
 	static const int VACIO = -1;
 	static const int COFRE = -2;
 	static const int MURO = -3;
-	static const int ENEMIGO = -4;
-	static const int JUGADOR = -5;
 
 	Mapa() {}
 

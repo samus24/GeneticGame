@@ -12,12 +12,12 @@ int main() {
 	p.tamPob = 100;
 	p.iteraciones = 100;
 	p.minNodos = 1;
-	p.maxNodos = 2;// 7; Cambio para debug
+	p.maxNodos = 5;// 7; Cambio para debug
 	p.elitismo = false;
 	p.bloating = true;
 	p.contractividad = false;
 	p.probCruce = 0.6;
-	p.probMutacion = 1; // Da algun fallo al mutar
+	p.probMutacion = 0.2; // Da algun fallo al mutar
 	p.seleccion = new seleccionRuleta();
 	p.cruce = new cruceSimple();
 	p.mutacion = new mutacionArbol();
