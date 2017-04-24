@@ -26,6 +26,19 @@ public:
 		gen = 0;
 		std::cout << " -- AG finalizado -- " << std::endl;
 		std::cout << "Fitness mejor: " << mejor.getAdaptacion() << std::endl;
+		std::cout << "casillasExploradas, golpes, heridasBloqueadas, daño";
+		std::cout << "Valores mejor: ";
+		for (size_t i = 0; i < 4; ++i){
+			std::cout << mejor.getValores()[i];
+			if (i != 3) std::cout << ", ";
+		}
+		std::cout << std::endl;
+		std::cout << "Ponderacion mejor: ";
+		for (size_t i = 0; i < 4; ++i){
+			std::cout << mejor.getValores()[i] * mejor.getPesos()[i] << "(x" << mejor.getPesos()[i] << ")";
+			if (i != 3) std::cout << ", ";
+		}
+		std::cout << std::endl;
 	}
 
 private:

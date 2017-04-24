@@ -43,6 +43,11 @@ public:
 		_crono.finalizaMedida("init", std::chrono::high_resolution_clock::now());
 		_pob.evalua(maps);
 
+		/*
+		for (size_t i = 0; i < _pob._tam; ++i){
+			std::cout << "I[" << i << "]: " << _pob.individuos[i].getAdaptacion() << std::endl;
+		}
+		*/
 		_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
 		mediaAnterior = evaluarPoblacion();
 		_crono.finalizaMedida("eval", std::chrono::high_resolution_clock::now());

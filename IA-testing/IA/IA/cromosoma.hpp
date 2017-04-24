@@ -26,7 +26,7 @@ void imprimeEstado(Arbol gen, Mapa m, Mapa explorado, npc enemigo, npc jugador, 
 	char c;
 	std::cout << "Estado: " << ((ataque) ? "Ataque" : "Patrulla") << std::endl;
 	std::cout << gen.toString() << std::endl;
-	std::cout << "<Enemigo> Tur: " << enemigo._turnos << " G: " << enemigo.golpes << " H: " << enemigo.heridas << " B: " << enemigo.bloqueando << std::endl;
+	std::cout << "<Enemigo> Tur: " << enemigo._turnos << " G: " << enemigo.golpes << " GE: " << enemigo.golpesEvitados << " B: " << enemigo.bloqueando << std::endl;
 	std::cout << "<Jugador> " << "H: " << jugador.heridas << " B: " << jugador.bloqueando << std::endl;
 
 	for (std::size_t j = 0; j < m.getHeight(); ++j) {
@@ -82,14 +82,11 @@ void imprimeEstado(Arbol gen, Mapa m, Mapa explorado, npc enemigo, npc jugador, 
 					cambiaColor(TURQUESA);
 					c = '#';
 				}
-
 				else if (m.getCasilla(i,j) == m.COFRE) {
 					cambiaColor(AMARILLO);
 					c = '*';
 				}
 				std::cout << c;
-				
-				
 			}
 		}
 		std::cout << std::endl;
@@ -104,16 +101,28 @@ public:
 		_punt = 0;
 		_puntAcum = 0;
 		_adaptacion = 0;
+		double pesos[4] = { 0.5, 0.15, 0.05, 0.30 };
+		for (size_t i = 0; i < 4; ++i){
+			_pesos[i] = pesos[i];
+		}
 	}
 
 	Cromosoma(int profMin, int profMax) {
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
+		double pesos[4] = { 0.5, 0.15, 0.05, 0.30 };
+		for (size_t i = 0; i < 4; ++i){
+			_pesos[i] = pesos[i];
+		}
 	}
 
 	void crear(int profMin, int profMax){
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
+		double pesos[4] = { 0.5, 0.15, 0.05, 0.30 };
+		for (size_t i = 0; i < 4; ++i){
+			_pesos[i] = pesos[i];
+		}
 	}
 
 	Arbol getGenotipo(int pos) {
@@ -172,6 +181,7 @@ public:
 			y = maps[i].getY();
 			media += evaluaMapa(maps[i], x, y, pintar);
 		}
+		this->_adaptacion = media / maps.size();
 		return media / maps.size(); //se divide sin restar, ya que size da el total (de 1 a n)
 	}
 
@@ -179,6 +189,14 @@ public:
 		for (std::size_t i = 0; i < 2; ++i) {
 			_genotipo[i].eliminaIntrones();
 		}
+	}
+
+	double* getValores(){
+		return _valores;
+	}
+
+	double* getPesos(){
+		return _pesos;
 	}
 
 private:
@@ -453,27 +471,31 @@ private:
 			if (dibujar) imprimeEstado(this->_genotipo[1], m, explorado, enemigo, jugador, ataque);
 		}
 		double evaluacion = 0;
-		double pesos[] = {0.5, 0.15, 0.05, 0.30 }; //casillasExploradas (maximizar), golpes (maximizar), heridasBloqueadas (maximizar), daño (maximizar)
 		double dim = m.getHeight() * m.getWidth();
 		double optimos[] = {dim, 20.f, 10.f, 3.f };
-		double valores[5];
+		int cExpl = casillasExploradas(explorado);
+		/*
+		_valores[0] = 1 - (abs(casillasExploradas(explorado) - optimos[0]) / optimos[0]);
+		if (_valores[0] < 0) _valores[0] = 0;
 
-		valores[0] = 1 - (abs(casillasExploradas(explorado) - optimos[0]) / optimos[0]);
-		if (valores[0] < 0) valores[0] = 0;
+		_valores[1] = 1 - (abs(enemigo.golpes - optimos[1]) / optimos[1]);
+		if (_valores[1] < 0) _valores[1] = 0;
 
-		valores[1] = 1 - (abs(enemigo.golpes - optimos[1]) / optimos[1]);
-		if (valores[1] < 0) valores[1] = 0;
+		_valores[2] = 1 - (abs(enemigo.golpesEvitados - optimos[2]) / optimos[2]);
+		if (_valores[2] < 0) _valores[2] = 0;
 
-		valores[2] = 1 - (abs(enemigo.golpesEvitados - optimos[2]) / optimos[2]);
-		if (valores[2] < 0) valores[2] = 0;
+		_valores[3] = 1 - (abs(jugador.heridas - optimos[3]) / optimos[3]);
+		if (_valores[3] < 0) _valores[3] = 0;
+		*/
 
-		valores[3] = 1 - (abs(jugador.heridas * optimos[3]) / optimos[3]);
-		if (valores[3] < 0) valores[3] = 0;
+		_valores[0] = cExpl;
+		_valores[1] = enemigo.golpes;
+		_valores[2] = enemigo.golpesEvitados;
+		_valores[3] = jugador.heridas;
 
 		for (int i = 0; i < 4; ++i){
-			evaluacion += valores[i] * pesos[i];
+			evaluacion += _valores[i] * _pesos[i];
 		}
-		this->_adaptacion = evaluacion;
 		return evaluacion;
 	}
 
@@ -579,6 +601,8 @@ private:
 	double _punt;
 	double _puntAcum;
 	double _adaptacion;
+	double _valores[4];
+	double _pesos[4]; //casillasExploradas (maximizar), golpes (maximizar), heridasBloqueadas (maximizar), daño (maximizar)
 };
 
 #endif
