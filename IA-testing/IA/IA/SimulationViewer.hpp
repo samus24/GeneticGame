@@ -32,11 +32,11 @@ public:
 		_enemyFacing[1].color = sf::Color(200, 0, 0);
 		_enemyFacing[2].color = sf::Color(200, 0, 0);
 
+		_selected = false;
 	}
 
 	void handleClick(sf::Vector2f point){
 	}
-
 
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -160,6 +160,10 @@ private:
 		for (size_t i = 0; i < m_vertices.getVertexCount(); ++i){
 			m_vertices[i].position += sf::Vector2f(10, 30);
 		}
+		for (size_t i = 0; i < _playerFacing.getVertexCount(); ++i){
+			_playerFacing[i].position += sf::Vector2f(10, 30);
+			_enemyFacing[i].position += sf::Vector2f(10, 30);
+		}
 		
 		std::string info = "Estado: ";
 		if (enemigo.turnosPatrulla > 0){
@@ -171,9 +175,9 @@ private:
 		info += "\n";
 		info += "Arbol patrulla:\n";
 		info += arbPatrulla.toString();
-		info += "Arbol ataque:\n";
+		info += "\nArbol ataque:\n";
 		info += arbAtaque.toString();
-		info += "<Enemigo> Tur: " + std::to_string(enemigo._turnos) + " G: " + std::to_string(enemigo.golpes) + " GE: " + std::to_string(enemigo.golpesEvitados) + " H: " + std::to_string(enemigo.heridas) + "\n";
+		info += "\n<Enemigo> Tur: " + std::to_string(enemigo._turnos) + " G: " + std::to_string(enemigo.golpes) + " GE: " + std::to_string(enemigo.golpesEvitados) + " H: " + std::to_string(enemigo.heridas) + "\n";
 		info += "<Jugador> H: " + std::to_string(jugador.heridas) + " B: " + std::to_string(jugador.bloqueando) + "\n";
 
 		_simulationInfo.setString(info);
@@ -193,6 +197,8 @@ private:
 	sf::VertexArray _playerFacing;
 	sf::VertexArray _enemyFacing;
 	sf::Text _simulationInfo;
+
+	bool _selected;
 
 	const unsigned int _TILESIZE = 64;
 };

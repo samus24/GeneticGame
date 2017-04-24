@@ -32,6 +32,7 @@ public:
 		_ctrl->addCromosomaObserver(*(this));
 		_tabPane.addTab("Plotter", _plotter);
 		_tabPane.addTab("SimViewer", _simViewer);
+		finalizada = false;
 	}
 
 	void run(unsigned int maxIter){
@@ -61,6 +62,7 @@ public:
 						_valorMejor.clear();
 						_valorMejorGen.clear();
 
+						finalizada = false;
 						_generacion = 0;
 						_logger.clearLog();
 						_logger.append("Ejecutando\n");
@@ -82,7 +84,8 @@ public:
 				}
 				else if (event.type == sf::Event::KeyPressed){
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)){
-				
+						if (finalizada)
+							_mejor.evalua(_ctrl->getMapas());
 					}
 					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
 						_plotter.removeAllData();
@@ -90,7 +93,7 @@ public:
 						_valorMedia.clear();
 						_valorMejor.clear();
 						_valorMejorGen.clear();
-
+						finalizada = false;
 						_generacion = 0;
 						_logger.clearLog();
 						_logger.append("Ejecutando AG\n");
@@ -124,6 +127,7 @@ public:
 	}
 
 	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval){
+		_mejor = mejor;
 		_plotter.setEjeX(_ejeX);
 
 		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media Poblacion");
@@ -145,12 +149,14 @@ public:
 	}
 
 	void onTurno(Arbol arbPatrulla, Arbol arbAtaque, npc jugador, npc enemigo, Mapa m, Mapa explorado){
-		_window.draw(_tabPane);
-		_window.display();
+		if (finalizada){
+			_window.draw(_tabPane);
+			_window.display();
+		}
 	}
 
 	void onSimulacionTerminada(double fitness){
-
+		finalizada = true;
 	}
 private:
 	sf::RenderWindow _window;
@@ -161,12 +167,15 @@ private:
 	Logger _logger;
 	TextButton _botonRun;
 	SimulationViewer _simViewer;
+	Cromosoma _mejor;
 	Controlador* _ctrl;
 	unsigned int _generacion;
 	std::vector<double> _ejeX;
 	std::vector<double> _valorMejor;
 	std::vector<double> _valorMejorGen;
 	std::vector<double> _valorMedia;
+
+	bool finalizada;
 };
 
 #endif

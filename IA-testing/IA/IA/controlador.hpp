@@ -24,6 +24,10 @@ public:
 		_ag->addCromosomaObserver(o);
 	}
 
+	std::vector<Mapa> getMapas(){
+		return _ag->getMapas();
+	}
+
 private:
 	AG* _ag;
 

@@ -132,6 +132,10 @@ public:
 		return ret;
 	}
 
+	std::vector<Mapa> getMapas() const{
+		return maps;
+	}
+
 	void addObserver(IAGObserver& o){
 		_obs.push_back(&o);
 	}
