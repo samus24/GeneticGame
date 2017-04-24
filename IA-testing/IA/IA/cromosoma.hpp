@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <stack>
+#include <algorithm>
 #include <Windows.h>
 #include "Arbol.hpp"
 #include "myrandom.hpp"
@@ -208,7 +209,8 @@ private:
 		std::stack<Nodo*> pila;
 		Mapa explorado = m;
 		npc jugador(posX, posY, m.getHeight(), m.getWidth());
-		npc enemigo = setRandomPosition(m);
+		npc enemigo(0, 0, m.getHeight(), m.getWidth());
+		setPositionInRange(jugador, enemigo, 5, 10, m);
 		bool ataque = false;
 		Nodo* actual;
 		int x = 0, y = 0;
@@ -583,7 +585,7 @@ private:
 		}
 		enemigo.bloqueando = false;
 	}
-
+	/*
 	npc setRandomPosition(Mapa &m) {
 		int x, y;
 		do {
@@ -592,6 +594,27 @@ private:
 		} while (m.getCasilla(x, y) != m.VACIO);
 		npc enemigo(x, y, m.getHeight(), m.getWidth());
 		return enemigo;
+	}*/
+
+	void setPositionInRange(npc jugador, npc &enemigo, int minRan, int maxRan, Mapa m){
+		int xJug = jugador._posX;
+		int yJug = jugador._posY;
+		std::vector<std::pair<int, int>> posibles;
+		for (int i = xJug - maxRan; i <= xJug + maxRan; ++i){
+			for (int j = yJug - maxRan; j <= yJug + maxRan; ++j){
+				if (i < xJug - minRan || i > xJug + minRan){
+					if (j < yJug - minRan || j > yJug + minRan){
+						if (m.coordValidas(i, j) && !m.estaBloqueado(i,j)){
+							posibles.emplace_back(i, j);
+						}
+					}
+				}
+			}
+		}
+		std::random_shuffle(posibles.begin(), posibles.end());
+		enemigo._posX = posibles.front().first;
+		enemigo._posY = posibles.front().second;
+		return;
 	}
 
 	

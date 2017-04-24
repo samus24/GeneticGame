@@ -1,4 +1,4 @@
-﻿Build started 24/04/2017 16:43:36.
+﻿Build started 24/04/2017 17:09:23.
      1>Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -18,10 +18,10 @@
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(195): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(288): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(302): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(32): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(33): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(505): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(506): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(34): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(507): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(508): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(20): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(26): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(38): warning C4018: '<' : signed/unsigned mismatch
@@ -38,4 +38,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.45
+Time Elapsed 00:00:01.38
