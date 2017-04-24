@@ -1,7 +1,7 @@
-﻿Build started 24/04/2017 17:09:23.
+﻿Build started 24/04/2017 17:35:34.
      1>Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(22): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(24): warning C4018: '<' : signed/unsigned mismatch
@@ -18,10 +18,10 @@
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(195): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(288): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(302): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(33): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(34): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(507): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(508): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(35): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(36): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(509): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(510): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(20): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(26): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(38): warning C4018: '<' : signed/unsigned mismatch
@@ -31,11 +31,42 @@
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(59): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(77): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(126): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(105): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(106): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(107): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(111): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(112): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(144): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\progressbar.hpp(15): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\progressbar.hpp(45): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\progressbar.hpp(56): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(26): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(27): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(29): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(30): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(31): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(44): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(46): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(87): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(88): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(93): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(128): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\tabpane.hpp(13): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\tabpane.hpp(20): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\tabpane.hpp(21): warning C4244: '+=' : conversion from 'const float' to 'unsigned int', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(19): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(20): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(20): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(21): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(22): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(23): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(23): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
        Link:
-         C:\software\programacion\MSVStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.lib" /MACHINE:X86 Debug\main.obj
+         C:\software\programacion\MSVStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.exe" /INCREMENTAL /NOLOGO "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-graphics-d.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-window-d.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisfile.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisenc.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbis.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\openal32.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\ogg.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\jpeg.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\freetype.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\flac.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-system-d.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\sfml-main-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.lib" /MACHINE:X86 Debug\main.obj
+         Debug\ScrollBar.obj
          IA.vcxproj -> C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.exe
      1>Done Building Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.38
+Time Elapsed 00:00:01.89

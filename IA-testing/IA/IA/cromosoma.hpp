@@ -1,6 +1,8 @@
 #ifndef CROMOSOMA_HPP
 #define CROMOSOMA_HPP
 
+#define NOMINMAX
+
 #include <iostream>
 #include <stack>
 #include <algorithm>
@@ -624,7 +626,7 @@ private:
 	double _puntAcum;
 	double _adaptacion;
 	double _valores[4];
-	double _pesos[4]; //casillasExploradas (maximizar), golpes (maximizar), heridasBloqueadas (maximizar), daño (maximizar)
+	double _pesos[4]; //casillasExploradas (maximizar), golpes evitados (maximizar), heridasBloqueadas (maximizar), daño (maximizar)
 };
 
 #endif

@@ -5,6 +5,7 @@
 #include "MetodoSeleccion.hpp"
 #include "MetodoMutacion.hpp"
 #include "metodoCruce.hpp"
+#include "Ventana.hpp"
 
 int main() {
 
@@ -23,8 +24,10 @@ int main() {
 	p.mutacion = new mutacionArbol();
 	AG ag(p);
 	Controlador c(ag);
-	VistaTerminal v(c);
-	v.ejecuta();
+	VistaTerminal term(c);
+	Ventana v(c);
+
+	v.run(p.iteraciones);
 
 	return 0;
 }
