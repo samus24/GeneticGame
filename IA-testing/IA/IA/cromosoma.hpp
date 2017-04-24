@@ -9,6 +9,7 @@
 #include <Windows.h>
 #include "Arbol.hpp"
 #include "myrandom.hpp"
+#include "ICromosomaObserver.hpp"
 
 const int AZUL = 9;
 const int VERDE = 10;
@@ -186,6 +187,7 @@ public:
 			media += evaluaMapa(maps[i], x, y, pintar);
 		}
 		this->_adaptacion = media / maps.size();
+		notifySimulacionTerminada(_adaptacion);
 		return media / maps.size(); //se divide sin restar, ya que size da el total (de 1 a n)
 	}
 
@@ -201,6 +203,10 @@ public:
 
 	double* getPesos(){
 		return _pesos;
+	}
+
+	void addObserver(ICromosomaObserver& obs){
+		_obs.push_back(&obs);
 	}
 
 private:
@@ -332,6 +338,7 @@ private:
 			}
 			mueveJugador(jugador, enemigo, m);
 			if (dibujar) imprimeEstado(this->_genotipo[0], m, explorado, enemigo, jugador, ataque);
+			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado);
 		}
 
 		enemigo.turnosPatrulla = enemigo._turnos;
@@ -474,6 +481,7 @@ private:
 			}
 			mueveJugador(jugador, enemigo, m);
 			if (dibujar) imprimeEstado(this->_genotipo[1], m, explorado, enemigo, jugador, ataque);
+			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado);
 		}
 		double evaluacion = 0;
 		double dim = m.getHeight() * m.getWidth();
@@ -619,7 +627,17 @@ private:
 		return;
 	}
 
-	
+	void notifyTurno(Arbol patrulla, Arbol ataque, npc jugador, npc enemigo, Mapa m, Mapa explorado) const{
+		for (ICromosomaObserver* i : _obs){
+			i->onTurno(patrulla, ataque, jugador, enemigo, m, explorado);
+		}
+	}
+
+	void notifySimulacionTerminada(double fitness) const{
+		for (ICromosomaObserver* i : _obs){
+			i->onSimulacionTerminada(fitness);
+		}
+	}
 
 	Arbol _genotipo[2]; //la primera posición es el árbol de patrulla y la segunda el de ataque.
 	double _punt;
@@ -627,6 +645,8 @@ private:
 	double _adaptacion;
 	double _valores[4];
 	double _pesos[4]; //casillasExploradas (maximizar), golpes evitados (maximizar), heridasBloqueadas (maximizar), daño (maximizar)
+
+	std::vector<ICromosomaObserver*> _obs;
 };
 
 #endif

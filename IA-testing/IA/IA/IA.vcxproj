@@ -81,6 +81,7 @@
     <ClInclude Include="Cronometro.hpp" />
     <ClInclude Include="FactoriaCromosoma.hpp" />
     <ClInclude Include="iagobserver.hpp" />
+    <ClInclude Include="ICromosomaObserver.hpp" />
     <ClInclude Include="Logger.hpp" />
     <ClInclude Include="Mapa.hpp" />
     <ClInclude Include="metodoCruce.hpp" />
@@ -94,6 +95,7 @@
     <ClInclude Include="myrandom.hpp" />
     <ClInclude Include="ProgressBar.hpp" />
     <ClInclude Include="ScrollBar.hpp" />
+    <ClInclude Include="SimulationViewer.hpp" />
     <ClInclude Include="TabPane.hpp" />
     <ClInclude Include="Ventana.hpp" />
     <ClInclude Include="VistaTerminal.hpp" />

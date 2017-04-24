@@ -10,8 +10,9 @@
 #include "ScrollBar.hpp"
 #include "Controlador.hpp"
 #include "TabPane.hpp"
+#include "SimulationViewer.hpp"
 
-class Ventana : public IAGObserver{
+class Ventana : public IAGObserver, public ICromosomaObserver{
 public:
 	Ventana(Controlador& c) :
 		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
@@ -20,13 +21,17 @@ public:
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.19, 400)),
 		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200)),
-		_progress(sf::Vector2f(_window.getSize().x *0.8, _window.getSize().y -50), sf::Vector2f(_window.getSize().x * 0.1, 30))
+		_progress(sf::Vector2f(_window.getSize().x *0.8, _window.getSize().y -50), sf::Vector2f(_window.getSize().x * 0.1, 30)),
+		_simViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y))
 	{
 		_font.loadFromFile("arial.ttf");
 		_ctrl = &c;
 		_generacion = 0;
 		_ctrl->addObserver(*(this));
+		_ctrl->addCromosomaObserver(_simViewer);
+		_ctrl->addCromosomaObserver(*(this));
 		_tabPane.addTab("Plotter", _plotter);
+		_tabPane.addTab("SimViewer", _simViewer);
 	}
 
 	void run(unsigned int maxIter){
@@ -139,7 +144,14 @@ public:
 		}
 	}
 
+	void onTurno(Arbol arbPatrulla, Arbol arbAtaque, npc jugador, npc enemigo, Mapa m, Mapa explorado){
+		_window.draw(_tabPane);
+		_window.display();
+	}
 
+	void onSimulacionTerminada(double fitness){
+
+	}
 private:
 	sf::RenderWindow _window;
 	sf::Font _font;
@@ -148,6 +160,7 @@ private:
 	Plotter _plotter;
 	Logger _logger;
 	TextButton _botonRun;
+	SimulationViewer _simViewer;
 	Controlador* _ctrl;
 	unsigned int _generacion;
 	std::vector<double> _ejeX;

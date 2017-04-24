@@ -128,6 +128,12 @@
     <ClInclude Include="Ventana.hpp">
       <Filter>Archivos de encabezado\vista</Filter>
     </ClInclude>
+    <ClInclude Include="SimulationViewer.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="ICromosomaObserver.hpp">
+      <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

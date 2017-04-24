@@ -41,6 +41,9 @@ public:
 		_crono.iniciaMedida("init", std::chrono::high_resolution_clock::now());
 		_pob.generaPoblacionAleatoria(_param.tamPob, _param.minNodos, _param.maxNodos);
 		_crono.finalizaMedida("init", std::chrono::high_resolution_clock::now());
+		for (size_t i = 0; i < _obsCrom.size(); ++i){
+			_pob.addCromosomaObserver(*_obsCrom.at(i));
+		}
 		_pob.evalua(maps);
 
 		/*
@@ -114,7 +117,7 @@ public:
 
 		}
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
-		_elMejor.evalua(maps, true);
+		_elMejor.evalua(maps);
 		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("eval"));
 		return _elMejor;
 	}
@@ -131,6 +134,10 @@ public:
 
 	void addObserver(IAGObserver& o){
 		_obs.push_back(&o);
+	}
+
+	void addCromosomaObserver(ICromosomaObserver& o){
+		_obsCrom.push_back(&o);
 	}
 
 private:
@@ -264,6 +271,7 @@ private:
 	Cromosoma _elMejor;
 	Cronometro _crono;
 	std::vector<IAGObserver*> _obs;
+	std::vector<ICromosomaObserver*> _obsCrom;
 	std::vector<Mapa> maps;
 };
 

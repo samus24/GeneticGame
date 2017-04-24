@@ -3,6 +3,7 @@
 
 #include "AG.hpp"
 #include "IAGObserver.hpp"
+#include "ICromosomaObserver.hpp"
 
 class Controlador {
 public:
@@ -17,6 +18,10 @@ public:
 
 	void addObserver(IAGObserver& o){
 		_ag->addObserver(o);
+	}
+
+	void addCromosomaObserver(ICromosomaObserver& o){
+		_ag->addCromosomaObserver(o);
 	}
 
 private:

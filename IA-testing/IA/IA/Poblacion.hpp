@@ -40,6 +40,12 @@ public:
 			individuos[i].bloating(maxNodos, m);
 		}
 	}
+
+	void addCromosomaObserver(ICromosomaObserver& o){
+		for (std::size_t i = 0; i < _tam; ++i) {
+			this->individuos[i].addObserver(o);
+		}
+	}
 };
 
 #endif
