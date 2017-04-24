@@ -25,6 +25,10 @@ public:
 	void onAGTerminado(Cromosoma mejor, double tEjec, double tmSel, double tmCruce, double tmMut, double tInit, double eval){
 		gen = 0;
 		std::cout << " -- AG finalizado -- " << std::endl;
+		std::cout << "--Arbol patrulla--" << std::endl;
+		std::cout << mejor.getGenotipo(0).toString() << std::endl;
+		std::cout << "--Arbol ataque--" << std::endl;
+		std::cout << mejor.getGenotipo(1).toString() << std::endl;
 		std::cout << "Fitness mejor: " << mejor.getAdaptacion() << std::endl;
 		std::cout << "casillasExploradas, golpes, heridasBloqueadas, daño";
 		std::cout << "Valores mejor: ";
