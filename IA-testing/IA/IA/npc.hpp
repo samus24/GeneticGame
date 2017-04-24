@@ -173,6 +173,10 @@ public:
 		return true;
 	}
 
+	bool estaEn(int x, int y) {
+		return   (_posX == x && _posY == y);
+	}
+
 private:
 	int _ancho;
 	int _alto;

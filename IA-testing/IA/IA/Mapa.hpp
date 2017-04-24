@@ -2,6 +2,7 @@
 #define MAPA_HPP
 
 #include <vector>
+#include <unordered_map>
 
 class Mapa {
 public:
@@ -68,6 +69,32 @@ public:
 
 	int getCasilla(int x, int y) const{
 		return _mapa[y][x];
+	}
+
+	bool estaBloqueado(int x, int y) {
+		return _mapa[y][x] != VACIO;
+	}
+
+	bool coordValidas(int x, int y){
+		return (x >= 0 && x < _width && y >= 0 && y < _height);
+	}
+
+	std::string toString() const{
+		std::unordered_map<int, char> symbols = {
+			{ VACIO, '-' },
+			{ MURO, '#' },
+			{ COFRE, '*' },
+
+		};
+		std::string ret = "";
+		for (size_t j = 0; j < _height; ++j){
+			for (size_t i = 0; i < _width; ++i){
+				ret += symbols[_mapa[j][i]];
+			}
+			ret += '\n'; 
+		}
+		ret += '\n';
+		return ret;
 	}
 private:
 	int _width;

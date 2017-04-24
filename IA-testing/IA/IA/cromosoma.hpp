@@ -176,6 +176,7 @@ public:
 	double evalua(std::vector<Mapa> maps, bool pintar = false) {
 		int x, y;
 		double media = 0;
+		maps[0].toString();
 		for (std::size_t i = 0; i < maps.size(); ++i) {
 			x = maps[i].getX();
 			y = maps[i].getY();
@@ -243,7 +244,7 @@ private:
 				if (!enemigo.getCasillaDelante(x, y)) {
 					pila.push(&actual->getHijos()[0]);
 				}
-				else if (estaBloqueado(x, y, m)) {
+				else if (m.estaBloqueado(x, y)) {
 					pila.push(&actual->getHijos()[0]);
 				}
 				else {
@@ -271,13 +272,13 @@ private:
 					default:
 						break;
 					}
-					while (!fin && !(x < 0 || x >= m.getWidth() || y < 0 || y >= m.getHeight())) {
-						if (estaNpc(x, y, jugador)) {
+					while (!fin && m.coordValidas(x,y)) {
+						if (jugador.estaEn(x, y)) {
 							fin = true;
 							pila.push(&actual->getHijos()[0]);
 							explorado.setCasilla(x, y, 5);
 						}
-						else if (estaBloqueado(x, y, m)) {
+						else if (m.estaBloqueado(x, y)) {
 							fin = true;
 							pila.push(&actual->getHijos()[1]);
 						}
@@ -285,7 +286,7 @@ private:
 							explorado.setCasilla(x, y, 1);
 							x += incx;
 							y += incy;
-							if (x < 0 || x >= m.getWidth() || y < 0 || y >= m.getHeight()) {
+							if (!m.coordValidas(x,y)) {
 								fin = true;
 								pila.push(&actual->getHijos()[1]);
 							}
@@ -299,7 +300,7 @@ private:
 			case Avanza:
 				x = 0; y = 0;
 				if (enemigo.getCasillaDelante(x, y)) {
-					if (!estaBloqueado(x, y, m)) {
+					if (!m.estaBloqueado(x, y)) {
 						enemigo.avanza();
 					}
 				}
@@ -357,7 +358,7 @@ private:
 			case SiJugador:
 				x = 0; y = 0;
 				enemigo.getCasillaDelante(x, y);
-				if (estaNpc(x, y, jugador)) {
+				if (jugador.estaEn(x, y)) {
 					pila.push(&actual->getHijos()[0]);
 				}
 				else {
@@ -369,7 +370,7 @@ private:
 				if (!enemigo.getCasillaDelante(x, y)) {
 					pila.push(&actual->getHijos()[0]);
 				}
-				else if (estaBloqueado(x, y, m)) {
+				else if (m.estaBloqueado(x, y)) {
 					pila.push(&actual->getHijos()[0]);
 				}
 				else {
@@ -397,19 +398,19 @@ private:
 					default:
 						break;
 					}
-					while (cont < enemigo.rango && !fin && !(x < 0 || x >= m.getWidth() || y < 0 || y >= m.getHeight())) {
-						if (estaNpc(x, y, jugador)) {
+					while (cont < enemigo.rango && !fin && m.coordValidas(x,y)) {
+						if (jugador.estaEn(x, y)) {
 							fin = true;
 							pila.push(&actual->getHijos()[0]);
 						}
-						else if (!estaBloqueado(x, y, m)) {
+						else if (!m.estaBloqueado(x, y)) {
 							fin = true;
 							pila.push(&actual->getHijos()[1]);
 						}
 						else {
 							x += incx;
 							y += incy;
-							if (x < 0 || x >= m.getWidth() || y < 0 || y >= m.getHeight()) {
+							if (!m.coordValidas(x,y)) {
 								fin = true;
 								pila.push(&actual->getHijos()[1]);
 							}
@@ -424,7 +425,7 @@ private:
 			case Avanza:
 				x = 0; y = 0;
 				if (enemigo.getCasillaDelante(x, y)) {
-					if (!estaBloqueado(x, y, m)) {
+					if (!m.estaBloqueado(x, y)) {
 						enemigo.avanza();
 					}
 				}
@@ -445,7 +446,7 @@ private:
 			case Atacar:
 				x = 0; y = 0;
 				enemigo.getCasillaDelante(x, y);
-				if (estaNpc(x, y, jugador)) {
+				if (jugador.estaEn(x, y)) {
 					enemigo.golpes++;
 					if (!jugador.bloqueando) {
 						jugador.heridas++;
@@ -456,7 +457,7 @@ private:
 			case Retroceder:
 				x = 0; y = 0;
 				if (enemigo.getCasillaDetras(x, y)) {
-					if (!estaBloqueado(x, y, m)) {
+					if (!m.estaBloqueado(x, y)) {
 						enemigo.retroceder();
 					}
 				}
@@ -518,13 +519,17 @@ private:
 		int intentos = 2;
 		Operacion op;
 		jugador.getCasillaDelante(x, y);
-		if (estaNpc(x, y, enemigo)) {
-			int n = myRandom::getRandom(0, 2);
-			if (n != 0) {
+		if (enemigo.estaEn(x, y)) {
+			int n = myRandom::getRandom(0, 3);
+			if (n < 2) {
 				op = Operacion::Atacar;
 			}
-			else {
+			else if(n == 2){
 				op = Operacion::BloquearN;
+			}
+			else{
+				op = Operacion::Retroceder;	
+				// Le damos la oportunidad de retirarse, sino, se queda siempre delante atacando o bloqueando
 			}
 		}
 		else {
@@ -539,7 +544,7 @@ private:
 		case Avanza:
 			x = 0; y = 0;
 			if (jugador.getCasillaDelante(x, y)) {
-				if (!estaBloqueado(x, y, m)) {
+				if (!m.estaBloqueado(x, y)) {
 					jugador.avanza();
 				}
 			}
@@ -556,7 +561,7 @@ private:
 		case Atacar:
 			x = 0; y = 0;
 			jugador.getCasillaDelante(x, y);
-			if (estaNpc(x, y, enemigo)) {
+			if (enemigo.estaEn(x, y)) {
 				if (!enemigo.bloqueando) {
 					enemigo.heridas++;
 				}
@@ -568,7 +573,7 @@ private:
 		case Retroceder:
 			x = 0; y = 0;
 			if (jugador.getCasillaDetras(x, y)) {
-				if (!estaBloqueado(x, y, m)) {
+				if (!m.estaBloqueado(x, y)) {
 					jugador.retroceder();
 				}
 			}
@@ -589,13 +594,7 @@ private:
 		return enemigo;
 	}
 
-	bool estaBloqueado(int x, int y, Mapa m) {
-		return m.getCasilla(x, y) != m.VACIO;
-	}
-
-	bool estaNpc(int x, int y, npc pnj) {
-		return   (pnj._posX == x && pnj._posY == y);
-	}
+	
 
 	Arbol _genotipo[2]; //la primera posición es el árbol de patrulla y la segunda el de ataque.
 	double _punt;
