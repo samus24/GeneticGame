@@ -105,7 +105,7 @@ public:
 		_punt = 0;
 		_puntAcum = 0;
 		_adaptacion = 0;
-		double pesos[4] = { 0.5, 0.15, 0.05, 0.30 };
+		double pesos[5] = { 0.3, 0.2, 0.15, 0.05, 0.30 };
 		for (size_t i = 0; i < 4; ++i){
 			_pesos[i] = pesos[i];
 		}
@@ -114,8 +114,8 @@ public:
 	Cromosoma(int profMin, int profMax) {
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
-		double pesos[4] = { 0.5, 0.15, 0.05, 0.30 };
-		for (size_t i = 0; i < 4; ++i){
+		double pesos[5] = { 0.3, 0.2, 0.15, 0.05, 0.30 };
+		for (size_t i = 0; i < 5; ++i){
 			_pesos[i] = pesos[i];
 		}
 	}
@@ -217,6 +217,7 @@ private:
 
 		std::stack<Nodo*> pila;
 		Mapa explorado = m;
+		Mapa andado = m;
 		npc jugador(posX, posY, m.getHeight(), m.getWidth());
 		npc enemigo(0, 0, m.getHeight(), m.getWidth());
 		setPositionInRange(jugador, enemigo, 5, 10, m);
@@ -294,7 +295,9 @@ private:
 							pila.push(&actual->getHijos()[1]);
 						}
 						else {
-							explorado.setCasilla(x, y, 1);
+							if (explorado.getCasilla(x, y) != 5) {
+								explorado.setCasilla(x, y, 1);
+							}
 							x += incx;
 							y += incy;
 							if (!m.coordValidas(x,y)) {
@@ -313,6 +316,7 @@ private:
 				if (enemigo.getCasillaDelante(x, y)) {
 					if (!m.estaBloqueado(x, y)) {
 						enemigo.avanza();
+						andado.setCasilla(enemigo.posX, enemigo.posY, 1);
 					}
 				}
 				enemigo.turnos++;
@@ -439,6 +443,7 @@ private:
 				if (enemigo.getCasillaDelante(x, y)) {
 					if (!m.estaBloqueado(x, y)) {
 						enemigo.avanza();
+						andado.setCasilla(enemigo.posX, enemigo.posY, 1);
 					}
 				}
 				enemigo.turnos++;
@@ -471,6 +476,7 @@ private:
 				if (enemigo.getCasillaDetras(x, y)) {
 					if (!m.estaBloqueado(x, y)) {
 						enemigo.retroceder();
+						andado.setCasilla(enemigo.posX, enemigo.posY, 1);
 					}
 				}
 				enemigo.turnos++;
@@ -485,7 +491,8 @@ private:
 			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado);
 		}
 		double evaluacion = 0;
-		double optimos[] = {dim, 20.f, 10.f, 3.f };
+		//double optimos[] = {dim, 20.f, 10.f, 3.f };
+		int cAndadas = casillasAndadas(andado);
 		int cExpl = casillasExploradas(explorado);
 		/*
 		_valores[0] = 1 - (abs(casillasExploradas(explorado) - optimos[0]) / optimos[0]);
@@ -502,11 +509,12 @@ private:
 		*/
 
 		_valores[0] = cExpl;
+		_valores[1] = cAndadas;
 		_valores[1] = enemigo.golpes;
 		_valores[2] = enemigo.golpesEvitados;
 		_valores[3] = jugador.heridas;
 
-		for (int i = 0; i < 4; ++i){
+		for (int i = 0; i < 5; ++i){
 			evaluacion += _valores[i] * _pesos[i];
 		}
 		return evaluacion;
@@ -517,6 +525,18 @@ private:
 		for (std::size_t i = 0; i < m.getWidth(); ++i) {
 			for (std::size_t j = 0; j < m.getHeight(); ++j) {
 				if (m.getCasilla(i, j) > 0) {
+					ret += m.getCasilla(i, j);
+				}
+			}
+		}
+		return ret;
+	}
+
+	int casillasAndadas(Mapa m) {
+		int ret = 0;
+		for (std::size_t i = 0; i < m.getWidth(); ++i) {
+			for (std::size_t j = 0; j < m.getHeight(); ++j) {
+				if (m.getCasilla(i, j) == 1) {
 					ret += m.getCasilla(i, j);
 				}
 			}
@@ -643,8 +663,8 @@ private:
 	double _punt;
 	double _puntAcum;
 	double _adaptacion;
-	double _valores[4];
-	double _pesos[4]; //casillasExploradas (maximizar), golpes evitados (maximizar), heridasBloqueadas (maximizar), daño (maximizar)
+	double _valores[5];
+	double _pesos[5]; //casillas exploradas, casillas andadas, golpes evitados, heridasBloqueadas, daño
 
 	std::vector<ICromosomaObserver*> _obs;
 };
