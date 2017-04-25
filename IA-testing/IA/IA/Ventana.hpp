@@ -146,6 +146,7 @@ public:
 		for (size_t i = 0; i < 4; ++i){
 			_logger.append(valoresText[i] + std::to_string(valores[i]) + "/" + std::to_string(valores[i]*pesos[i]) + "\n");
 		}
+		finalizada = true;
 	}
 
 	void onTurno(Arbol arbPatrulla, Arbol arbAtaque, npc jugador, npc enemigo, Mapa m, Mapa explorado){
@@ -156,7 +157,7 @@ public:
 	}
 
 	void onSimulacionTerminada(double fitness){
-		finalizada = true;
+		
 	}
 private:
 	sf::RenderWindow _window;

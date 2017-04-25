@@ -171,10 +171,11 @@ public:
 	}
 
 	void bloating(int prof, std::vector<Mapa> m) {
+		bool cambios = false;
 		for (std::size_t i = 0; i < 2; ++i) {
-			_genotipo[i].bloating(prof, (TipoArbol)i);
+			cambios |= _genotipo[i].bloating(prof, (TipoArbol)i);
 		}
-		this->evalua(m);
+		if (cambios) this->evalua(m);
 	}
 
 	double evalua(std::vector<Mapa> maps, bool pintar = false) {
@@ -191,10 +192,12 @@ public:
 		return media / maps.size(); //se divide sin restar, ya que size da el total (de 1 a n)
 	}
 
-	void eliminaIntrones() {
+	void eliminaIntrones(std::vector<Mapa> maps) {
+		bool cambios = false;
 		for (std::size_t i = 0; i < 2; ++i) {
-			_genotipo[i].eliminaIntrones();
+			cambios |= _genotipo[i].eliminaIntrones();
 		}
+		if (cambios) this->evalua(maps);
 	}
 
 	double* getValores(){
@@ -443,7 +446,6 @@ private:
 				if (enemigo.getCasillaDelante(x, y)) {
 					if (!m.estaBloqueado(x, y)) {
 						enemigo.avanza();
-						andado.setCasilla(enemigo.posX, enemigo.posY, 1);
 					}
 				}
 				enemigo.turnos++;
@@ -476,7 +478,6 @@ private:
 				if (enemigo.getCasillaDetras(x, y)) {
 					if (!m.estaBloqueado(x, y)) {
 						enemigo.retroceder();
-						andado.setCasilla(enemigo.posX, enemigo.posY, 1);
 					}
 				}
 				enemigo.turnos++;

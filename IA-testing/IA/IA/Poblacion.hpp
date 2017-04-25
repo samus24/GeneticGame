@@ -41,6 +41,13 @@ public:
 		}
 	}
 
+	void eliminaIntrones(std::vector<Mapa> m){
+		for (size_t i = 0; i < _tam; ++i){
+			// Esto habrá que ponerlo bien, con todos los mapas
+			individuos[i].eliminaIntrones(m);
+		}
+	}
+
 	void addCromosomaObserver(ICromosomaObserver& o){
 		for (std::size_t i = 0; i < _tam; ++i) {
 			this->individuos[i].addObserver(o);

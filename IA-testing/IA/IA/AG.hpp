@@ -83,6 +83,9 @@ public:
 			if (_param.bloating){
 				_pob.bloating(_param.maxNodos, maps);
 			}
+
+			_pob.eliminaIntrones(maps);
+
 			if (_param.elitismo){
 				/*
 				_pob.ordenar();
@@ -117,7 +120,7 @@ public:
 
 		}
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
-		_elMejor.evalua(maps);
+		//_elMejor.evalua(maps);
 		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("eval"));
 		return _elMejor;
 	}

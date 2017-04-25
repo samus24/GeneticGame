@@ -268,14 +268,16 @@ public:
 		this->_raiz.actualizaNumNodos();
 	}
 
-	void bloating(int pMax, TipoArbol tipo) {
-		this->_raiz.bloating(pMax, 0, tipo);
-		this->_raiz.actualizaNumNodos();
+	bool bloating(int pMax, TipoArbol tipo) {
+		bool cambios = this->_raiz.bloating(pMax, 0, tipo);
+		if (cambios) this->_raiz.actualizaNumNodos();
+		return cambios;
 	}
 
-	void eliminaIntrones() {
-		_raiz.eliminaIntrones();
-		_raiz.actualizaNumNodos();
+	bool eliminaIntrones() {
+		bool cambios = _raiz.eliminaIntrones();
+		if (cambios) _raiz.actualizaNumNodos();
+		return cambios;
 	}
 
 	std::string toString() const{

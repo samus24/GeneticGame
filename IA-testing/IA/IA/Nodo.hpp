@@ -192,21 +192,26 @@ public:
 		//aquí habría que ejecutar el arbol sobre el mapa
 		return 0.f;
 	}
-	void bloating(int pMax, int nivel, TipoArbol tipo) {
+
+	bool bloating(int pMax, int nivel, TipoArbol tipo) {
+		bool cambios = false;
 		if (nivel == pMax) {
 			this->_hijos = nullptr;
 			Operacion op = Nodo::getTerminalAleatorio(tipo);
 			this->_elem = op;
 			this->_nHijos = 0;
+			cambios = true;
 		}
 		else {
 			for (std::size_t i = 0; i < this->_nHijos; ++i) {
-				this->_hijos[i].bloating(pMax, nivel + 1, tipo);
+				cambios |= this->_hijos[i].bloating(pMax, nivel + 1, tipo);
 			}
 		}
+		return cambios;
 	}
 
-	void eliminaIntrones() {
+	bool eliminaIntrones() {
+		bool cambios = false;
 		Operacion hijoA;
 		Operacion hijoB;
 		bool esTerminal;
@@ -226,49 +231,49 @@ public:
 				if (hijoB == Operacion::GiraIz) {
 					Operacion op = Nodo::getTerminalAleatorio();
 					this->_elem = op;
-					Nodo* _hijosAux;
-					this->_hijos = _hijosAux;
+					this->_hijos = nullptr;
 					this->_nHijos = 0;
+					cambios = true;
 				}
 			}
 			else if (hijoB == Operacion::GiraDer) {
 				if (hijoA == Operacion::GiraIz) {
 					Operacion op = Nodo::getTerminalAleatorio();
 					this->_elem = op;
-					Nodo* _hijosAux;
-					this->_hijos = _hijosAux;
+					this->_hijos = nullptr;
 					this->_nHijos = 0;
+					cambios = true;
 				}
 			}
 			else if (hijoA == Operacion::Avanza) {
 				if (hijoB == Operacion::Retroceder) {
 					Operacion op = Nodo::getTerminalAleatorio();
 					this->_elem = op;
-					Nodo* _hijosAux;
-					this->_hijos = _hijosAux;
+					this->_hijos = nullptr;
 					this->_nHijos = 0;
+					cambios = true;
 				}
 			}
 			else if (hijoB == Operacion::Retroceder) {
 				if (hijoA == Operacion::Avanza) {
 					Operacion op = Nodo::getTerminalAleatorio();
 					this->_elem = op;
-					Nodo* _hijosAux;
-					this->_hijos = _hijosAux;
+					this->_hijos = nullptr;
 					this->_nHijos = 0;
+					cambios = true;
 				}
 			}
 			else {
-				this->_hijos[0].eliminaIntrones();
-				this->_hijos[1].eliminaIntrones();
+				cambios |= this->_hijos[0].eliminaIntrones();
+				cambios |= this->_hijos[1].eliminaIntrones();
 			}
 			break;
 		case Operacion::ProgN3:
-			this->_hijos[0].eliminaIntrones();
-			this->_hijos[1].eliminaIntrones();
-			this->_hijos[2].eliminaIntrones();
+			cambios |= this->_hijos[0].eliminaIntrones();
+			cambios |= this->_hijos[1].eliminaIntrones();
+			cambios |= this->_hijos[2].eliminaIntrones();
 			break;
-		/*case Operacion::ProgN4:
+			/*case Operacion::ProgN4:
 			this->_hijos[0].eliminaIntrones();
 			this->_hijos[1].eliminaIntrones();
 			this->_hijos[2].eliminaIntrones();
@@ -280,13 +285,13 @@ public:
 			esTerminal = Nodo::esOperacionTerminal(hijoA);
 			if (hijoA == hijoB && esTerminal) {
 				this->_elem = hijoA;
-				Nodo* _hijosAux;
-				this->_hijos = _hijosAux;
+				this->_hijos = nullptr;
 				this->_nHijos = 0;
+				cambios = true;
 			}
 			else {
-				this->_hijos[0].eliminaIntrones();
-				this->_hijos[1].eliminaIntrones();
+				cambios |= this->_hijos[0].eliminaIntrones();
+				cambios |= this->_hijos[1].eliminaIntrones();
 			}
 			break;
 		case Operacion::SiDetectado:
@@ -295,13 +300,13 @@ public:
 			esTerminal = Nodo::esOperacionTerminal(hijoA);
 			if (hijoA == hijoB && esTerminal) {
 				this->_elem = hijoA;
-				Nodo* _hijosAux;
-				this->_hijos = _hijosAux;
+				this->_hijos = nullptr;
 				this->_nHijos = 0;
+				cambios = true;
 			}
 			else {
-				this->_hijos[0].eliminaIntrones();
-				this->_hijos[1].eliminaIntrones();
+				cambios |= this->_hijos[0].eliminaIntrones();
+				cambios |= this->_hijos[1].eliminaIntrones();
 			}
 			break;
 		case Operacion::SiJugador:
@@ -310,13 +315,13 @@ public:
 			esTerminal = Nodo::esOperacionTerminal(hijoA);
 			if (hijoA == hijoB && esTerminal) {
 				this->_elem = hijoA;
-				Nodo* _hijosAux;
-				this->_hijos = _hijosAux;
+				this->_hijos = nullptr;
 				this->_nHijos = 0;
+				cambios = true;
 			}
 			else {
-				this->_hijos[0].eliminaIntrones();
-				this->_hijos[1].eliminaIntrones();
+				cambios |= this->_hijos[0].eliminaIntrones();
+				cambios |= this->_hijos[1].eliminaIntrones();
 			}
 			break;
 		case Operacion::SiRango:
@@ -325,18 +330,19 @@ public:
 			esTerminal = Nodo::esOperacionTerminal(hijoA);
 			if (hijoA == hijoB && esTerminal) {
 				this->_elem = hijoA;
-				Nodo* _hijosAux;
-				this->_hijos = _hijosAux;
+				this->_hijos = nullptr;
 				this->_nHijos = 0;
+				cambios = true;
 			}
 			else {
-				this->_hijos[0].eliminaIntrones();
-				this->_hijos[1].eliminaIntrones();
+				cambios |= this->_hijos[0].eliminaIntrones();
+				cambios |= this->_hijos[1].eliminaIntrones();
 			}
 			break;
 		default:
 			break;
 		}
+		return cambios;
 	}
 
 	int actualizaNumNodos() {
