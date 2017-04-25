@@ -30,12 +30,12 @@ void imprimeEstado(Arbol gen, Mapa m, Mapa explorado, npc enemigo, npc jugador, 
 	char c;
 	std::cout << "Estado: " << ((ataque) ? "Ataque" : "Patrulla") << std::endl;
 	std::cout << gen.toString() << std::endl;
-	std::cout << "<Enemigo> Tur: " << enemigo._turnos << " G: " << enemigo.golpes << " GE: " << enemigo.golpesEvitados << " B: " << enemigo.bloqueando << std::endl;
+	std::cout << "<Enemigo> Tur: " << enemigo.turnos << " G: " << enemigo.golpes << " GE: " << enemigo.golpesEvitados << " B: " << enemigo.bloqueando << std::endl;
 	std::cout << "<Jugador> " << "H: " << jugador.heridas << " B: " << jugador.bloqueando << std::endl;
 
 	for (std::size_t j = 0; j < m.getHeight(); ++j) {
 		for (std::size_t i = 0; i < m.getWidth(); ++i) {
-			if (enemigo._posX == i && enemigo._posY == j){
+			if (enemigo.posX == i && enemigo.posY == j){
 				cambiaColor(ROJO);
 				switch (enemigo.f) {
 				case NORTE:
@@ -54,7 +54,7 @@ void imprimeEstado(Arbol gen, Mapa m, Mapa explorado, npc enemigo, npc jugador, 
 					break;
 				}
 			}
-			else if (jugador._posX == i && jugador._posY == j){
+			else if (jugador.posX == i && jugador.posY == j){
 				cambiaColor(VERDE);
 				switch (jugador.f) {
 				case NORTE:
@@ -212,7 +212,8 @@ public:
 private:
 
 	double evaluaMapa(Mapa m, int posX, int posY, bool dibujar) {
-		int maxTurnos = 100;
+		double dim = m.getHeight() * m.getWidth();
+		int maxTurnos = (dim*30/100); //Los turnos son el 30% del total de casillas del mapa
 
 		std::stack<Nodo*> pila;
 		Mapa explorado = m;
@@ -226,7 +227,7 @@ private:
 		bool fin = false;
 		int cont = 0;
 
-		while (enemigo._turnos < maxTurnos && !ataque) {
+		while (enemigo.turnos < maxTurnos && !ataque) {
 			if (pila.empty()) {
 				pila.push(_genotipo[0].getRaiz());
 			}
@@ -314,21 +315,21 @@ private:
 						enemigo.avanza();
 					}
 				}
-				enemigo._turnos++;
+				enemigo.turnos++;
 				break;
 			case GiraIz:
 				enemigo.izquierda();
-				enemigo._turnos++;
+				enemigo.turnos++;
 				break;
 			case GiraDer:
 				enemigo.derecha();
-				enemigo._turnos++;
+				enemigo.turnos++;
 				break;
 			case CambiarEst:
 				while (!pila.empty()) {
 					pila.pop(); //vaciamos la pila por si quedasen nodos sin evaluar pero ya hemos cambiado a ataque.
 				}
-				enemigo._turnos++;
+				enemigo.turnos++;
 				ataque = true;
 				break;
 			default:
@@ -341,9 +342,9 @@ private:
 			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado);
 		}
 
-		enemigo.turnosPatrulla = enemigo._turnos;
+		enemigo.turnosPatrulla = enemigo.turnos;
 
-		while (enemigo._turnos < maxTurnos && jugador.heridas < 3) {
+		while (enemigo.turnos < maxTurnos && jugador.heridas < 3) {
 			if (pila.empty()) {
 				pila.push(_genotipo[1].getRaiz());
 			}
@@ -440,19 +441,19 @@ private:
 						enemigo.avanza();
 					}
 				}
-				enemigo._turnos++;
+				enemigo.turnos++;
 				break;
 			case GiraIz:
 				enemigo.izquierda();
-				enemigo._turnos++;
+				enemigo.turnos++;
 				break;
 			case GiraDer:
 				enemigo.derecha();
-				enemigo._turnos++;
+				enemigo.turnos++;
 				break;
 			case BloquearN:
 				enemigo.bloqueando = true;
-				enemigo._turnos++;
+				enemigo.turnos++;
 				break;
 			case Atacar:
 				x = 0; y = 0;
@@ -463,7 +464,7 @@ private:
 						jugador.heridas++;
 					}
 				}
-				enemigo._turnos++;
+				enemigo.turnos++;
 				break;
 			case Retroceder:
 				x = 0; y = 0;
@@ -472,7 +473,7 @@ private:
 						enemigo.retroceder();
 					}
 				}
-				enemigo._turnos++;
+				enemigo.turnos++;
 				break;
 			default:
 				std::cerr << "El arbol de ataque tenia nodos indebidos (" << op << ")" << std::endl;
@@ -484,7 +485,6 @@ private:
 			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado);
 		}
 		double evaluacion = 0;
-		double dim = m.getHeight() * m.getWidth();
 		double optimos[] = {dim, 20.f, 10.f, 3.f };
 		int cExpl = casillasExploradas(explorado);
 		/*
@@ -607,8 +607,8 @@ private:
 	}*/
 
 	void setPositionInRange(npc jugador, npc &enemigo, int minRan, int maxRan, Mapa m){
-		int xJug = jugador._posX;
-		int yJug = jugador._posY;
+		int xJug = jugador.posX;
+		int yJug = jugador.posY;
 		std::vector<std::pair<int, int>> posibles;
 		for (int i = xJug - maxRan; i <= xJug + maxRan; ++i){
 			for (int j = yJug - maxRan; j <= yJug + maxRan; ++j){
@@ -622,8 +622,8 @@ private:
 			}
 		}
 		std::random_shuffle(posibles.begin(), posibles.end());
-		enemigo._posX = posibles.front().first;
-		enemigo._posY = posibles.front().second;
+		enemigo.posX = posibles.front().first;
+		enemigo.posY = posibles.front().second;
 		return;
 	}
 

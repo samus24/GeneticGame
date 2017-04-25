@@ -12,9 +12,9 @@ enum facing {
 
 class npc {
 public:
-	int _turnos; //turnos totales de la simulacion.
-	int _posX;
-	int _posY;
+	int turnos; //turnos totales de la simulacion.
+	int posX;
+	int posY;
 	facing f;
 	int golpes; //golpes que hemos dado al jugador
 	int heridas; //heridas que hemos recibido
@@ -24,12 +24,12 @@ public:
 	int rango = 1;
 
 	npc(int x, int y, int alto, int ancho) {
-		this->_posX = x;
-		this->_posY = y;
+		this->posX = x;
+		this->posY = y;
 		this->_alto = alto;
 		this->_ancho = ancho;
 		this->f = (facing)myRandom::getRandom(facing::NORTE, facing::OESTE); //esto funciona?
-		this->_turnos = 0;
+		this->turnos = 0;
 		this->golpes = 0;
 		this->heridas = 0;
 		this->turnosPatrulla = 0;
@@ -40,20 +40,20 @@ public:
 	void avanza() {
 		switch (f) {
 		case NORTE:
-			_posY--;
-			if (_posY < 0) _posY++; //si te sales, no haces nada
+			posY--;
+			if (posY < 0) posY++; //si te sales, no haces nada
 			break;
 		case SUR:
-			_posY++;
-			if (_posY >= this->_alto) _posY--;
+			posY++;
+			if (posY >= this->_alto) posY--;
 			break;
 		case ESTE:
-			_posX++;
-			if (_posX >= this->_ancho) _posX--;
+			posX++;
+			if (posX >= this->_ancho) posX--;
 			break;
 		case OESTE:
-			_posX--;
-			if (_posX < 0) _posX++;
+			posX--;
+			if (posX < 0) posX++;
 			break;
 		default:
 			break;
@@ -63,20 +63,20 @@ public:
 	void retroceder() {
 		switch (f) {
 		case SUR:
-			_posY--;
-			if (_posY < 0) _posY++; //si te sales, no haces nada
+			posY--;
+			if (posY < 0) posY++; //si te sales, no haces nada
 			break;
 		case NORTE:
-			_posY++;
-			if (_posY >= this->_alto) _posY--;
+			posY++;
+			if (posY >= this->_alto) posY--;
 			break;
 		case OESTE:
-			_posX++;
-			if (_posX >= this->_ancho) _posX--;
+			posX++;
+			if (posX >= this->_ancho) posX--;
 			break;
 		case ESTE:
-			_posX--;
-			if (_posX < 0) _posX++;
+			posX--;
+			if (posX < 0) posX++;
 			break;
 		default:
 			break;
@@ -122,8 +122,8 @@ public:
 	}
 
 	bool getCasillaDelante(int &x, int &y) {
-		x = _posX;
-		y = _posY;
+		x = posX;
+		y = posY;
 		switch (f) {
 		case NORTE:
 			(y)--;
@@ -148,8 +148,8 @@ public:
 	}
 
 	bool getCasillaDetras(int &x, int &y) {
-		x = _posX;
-		y = _posY;
+		x = posX;
+		y = posY;
 		switch (f) {
 		case SUR:
 			(y)--;
@@ -174,7 +174,7 @@ public:
 	}
 
 	bool estaEn(int x, int y) {
-		return   (_posX == x && _posY == y);
+		return   (posX == x && posY == y);
 	}
 
 private:

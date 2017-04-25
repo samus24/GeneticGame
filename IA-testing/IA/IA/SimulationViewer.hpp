@@ -177,7 +177,7 @@ private:
 		info += arbPatrulla.toString();
 		info += "\nArbol ataque:\n";
 		info += arbAtaque.toString();
-		info += "\n<Enemigo> Tur: " + std::to_string(enemigo._turnos) + " G: " + std::to_string(enemigo.golpes) + " GE: " + std::to_string(enemigo.golpesEvitados) + " H: " + std::to_string(enemigo.heridas) + "\n";
+		info += "\n<Enemigo> Tur: " + std::to_string(enemigo.turnos) + " G: " + std::to_string(enemigo.golpes) + " GE: " + std::to_string(enemigo.golpesEvitados) + " H: " + std::to_string(enemigo.heridas) + "\n";
 		info += "<Jugador> H: " + std::to_string(jugador.heridas) + " B: " + std::to_string(jugador.bloqueando) + "\n";
 
 		_simulationInfo.setString(info);
