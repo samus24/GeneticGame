@@ -14,6 +14,8 @@ public:
 	int _tam;
 	Cromosoma* individuos;
 
+	poblacion() {}
+
 	void generaPoblacionAleatoria(int tam, int profMin, int profMax) {
 		this->_tam = tam;
 		this->individuos = new Cromosoma[tam];

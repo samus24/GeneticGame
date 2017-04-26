@@ -121,7 +121,7 @@ public:
 		}
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
 		//_elMejor.evalua(maps);
-		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("eval"));
+		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("eval"), _pob);
 		return _elMejor;
 	}
 
@@ -236,9 +236,9 @@ private:
 		}
 	}
 
-	void notifyAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval){
+	void notifyAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval, poblacion pob){
 		for (IAGObserver* o : _obs){
-			o->onAGTerminado(mejor, total, tmSel, tmCruce, tmMut, tInit, tmEval);
+			o->onAGTerminado(mejor, total, tmSel, tmCruce, tmMut, tInit, tmEval, pob);
 		}
 	}
 

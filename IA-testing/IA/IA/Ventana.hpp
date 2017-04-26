@@ -3,6 +3,8 @@
 
 #include <SFML\Graphics.hpp>
 #include <thread>
+#include <fstream>
+#include <sstream>
 #include "Plotter.hpp"
 #include "ProgressBar.hpp"
 #include "Logger.hpp"
@@ -126,13 +128,23 @@ public:
 		_generacion++;
 	}
 
-	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval){
+	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval, poblacion pob){
 		_mejor = mejor;
 		_plotter.setEjeX(_ejeX);
 
 		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media Poblacion");
 		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
 		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");
+		for (std::size_t i = 0; i < pob._tam; ++i) {
+			writeToLog("Nuevo individuo: " );
+			writeToLog("Árbol de patrulla");
+			writeToLog(pob.individuos->getGenotipo(0).toString());
+			writeToLog("Árbol de ataque");
+			writeToLog(pob.individuos->getGenotipo(1).toString());
+			writeToLog("Adaptación del individuo");
+			writeToLog(pob.individuos->getAdaptacion());
+			writeToLog("");
+		}
 		
 		std::string valoresText[] = {
 			"Exploradas: ",
@@ -156,10 +168,21 @@ public:
 		}
 	}
 
+	void writeToLog(const std::string &text) {
+		std::ofstream log_file("log.txt", std::ios_base::out | std::ios_base::app);
+		log_file << text << std::endl;
+	}
+
+	void writeToLog(const double &text) {
+		std::ofstream log_file("log.txt", std::ios_base::out | std::ios_base::app);
+		log_file << text << std::endl;
+	}
+
 	void onSimulacionTerminada(double fitness){
 		
 	}
 private:
+
 	sf::RenderWindow _window;
 	sf::Font _font;
 	ProgressBar _progress;

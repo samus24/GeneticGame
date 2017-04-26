@@ -22,7 +22,7 @@ public:
 		gen++;
 	}
 
-	void onAGTerminado(Cromosoma mejor, double tEjec, double tmSel, double tmCruce, double tmMut, double tInit, double eval){
+	void onAGTerminado(Cromosoma mejor, double tEjec, double tmSel, double tmCruce, double tmMut, double tInit, double eval, poblacion pob){
 		gen = 0;
 		std::cout << " -- AG finalizado -- " << std::endl;
 		std::cout << "--Arbol patrulla--" << std::endl;

@@ -1,4 +1,4 @@
-﻿Compilación iniciada a las 26/04/2017 13:36:26.
+﻿Compilación iniciada a las 26/04/2017 14:27:38.
      1>Proyecto "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          D:\VisualStudio2013\VC\bin\CL.exe /c /I"D:\Github\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"D:\Github\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"D:\Github\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -25,11 +25,11 @@
      1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(527): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(538): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(539): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(20): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(26): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(38): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(45): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(52): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(22): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(28): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(40): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(47): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(54): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(22): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(32): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(50): warning C4018: '<' : no coinciden signed/unsigned
@@ -98,15 +98,16 @@
      1>d:\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(149): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
      1>d:\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(150): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
      1>d:\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(151): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
-     1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(20): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(21): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
-     1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(21): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
      1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(22): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(23): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
      1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(23): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(24): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
      1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(24): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(25): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
      1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(25): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(26): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(26): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(27): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(27): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>d:\github\geneticgame\ia-testing\ia\ia\ventana.hpp(138): warning C4018: '<' : no coinciden signed/unsigned
        Link:
          D:\VisualStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Github\GeneticGame\IA-testing\IA\Debug\IA.exe" /INCREMENTAL /NOLOGO "D:\Github\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-graphics-d.lib" "D:\Github\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-window-d.lib" "D:\Github\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisfile.lib" "D:\Github\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisenc.lib" "D:\Github\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbis.lib" "D:\Github\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\openal32.lib" "D:\Github\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\ogg.lib" "D:\Github\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\jpeg.lib" "D:\Github\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\freetype.lib" "D:\Github\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\flac.lib" "D:\Github\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-system-d.lib" "D:\Github\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\sfml-main-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Github\GeneticGame\IA-testing\IA\Debug\IA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Github\GeneticGame\IA-testing\IA\Debug\IA.lib" /MACHINE:X86 Debug\main.obj
          Debug\ScrollBar.obj
@@ -115,4 +116,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:02.27
+Tiempo transcurrido 00:00:01.92
