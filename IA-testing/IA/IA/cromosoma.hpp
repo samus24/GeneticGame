@@ -195,7 +195,7 @@ public:
 	void eliminaIntrones(std::vector<Mapa> maps) {
 		bool cambios = false;
 		for (std::size_t i = 0; i < 2; ++i) {
-			cambios |= _genotipo[i].eliminaIntrones(i);
+			cambios |= _genotipo[i].eliminaIntrones((TipoArbol)i);
 		}
 		if (cambios) this->evalua(maps);
 	}
