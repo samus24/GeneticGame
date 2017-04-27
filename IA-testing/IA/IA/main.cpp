@@ -11,7 +11,7 @@ int main() {
 
 	Parametros p;
 	p.tamPob = 100;
-	p.iteraciones = 100;// 30;
+	p.iteraciones = 30;// 30;
 	p.minNodos = 1;
 	p.maxNodos = 5;// 7; Cambio para debug
 	p.elitismo = false;
@@ -29,5 +29,6 @@ int main() {
 
 	v.run(p.iteraciones);
 
+	std::cout << "hola";
 	return 0;
 }

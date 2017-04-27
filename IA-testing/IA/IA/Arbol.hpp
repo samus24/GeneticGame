@@ -274,8 +274,8 @@ public:
 		return cambios;
 	}
 
-	bool eliminaIntrones() {
-		bool cambios = _raiz.eliminaIntrones();
+	bool eliminaIntrones(TipoArbol tipo) {
+		bool cambios = _raiz.eliminaIntrones(tipo);
 		if (cambios) _raiz.actualizaNumNodos();
 		return cambios;
 	}

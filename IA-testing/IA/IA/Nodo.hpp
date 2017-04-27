@@ -210,7 +210,7 @@ public:
 		return cambios;
 	}
 
-	bool eliminaIntrones() {
+	bool eliminaIntrones(TipoArbol tipo) {
 		bool cambios = false;
 		Operacion hijoA;
 		Operacion hijoB;
@@ -229,7 +229,7 @@ public:
 			hijoB = this->_hijos[1]._elem;
 			if (hijoA == Operacion::GiraDer) {
 				if (hijoB == Operacion::GiraIz) {
-					Operacion op = Nodo::getTerminalAleatorio();
+					Operacion op = Nodo::getTerminalAleatorio(tipo);
 					this->_elem = op;
 					this->_hijos = nullptr;
 					this->_nHijos = 0;
@@ -238,7 +238,7 @@ public:
 			}
 			else if (hijoB == Operacion::GiraDer) {
 				if (hijoA == Operacion::GiraIz) {
-					Operacion op = Nodo::getTerminalAleatorio();
+					Operacion op = Nodo::getTerminalAleatorio(tipo);
 					this->_elem = op;
 					this->_hijos = nullptr;
 					this->_nHijos = 0;
@@ -247,7 +247,7 @@ public:
 			}
 			else if (hijoA == Operacion::Avanza) {
 				if (hijoB == Operacion::Retroceder) {
-					Operacion op = Nodo::getTerminalAleatorio();
+					Operacion op = Nodo::getTerminalAleatorio(tipo);
 					this->_elem = op;
 					this->_hijos = nullptr;
 					this->_nHijos = 0;
@@ -256,7 +256,7 @@ public:
 			}
 			else if (hijoB == Operacion::Retroceder) {
 				if (hijoA == Operacion::Avanza) {
-					Operacion op = Nodo::getTerminalAleatorio();
+					Operacion op = Nodo::getTerminalAleatorio(tipo);
 					this->_elem = op;
 					this->_hijos = nullptr;
 					this->_nHijos = 0;
@@ -264,14 +264,14 @@ public:
 				}
 			}
 			else {
-				cambios |= this->_hijos[0].eliminaIntrones();
-				cambios |= this->_hijos[1].eliminaIntrones();
+				cambios |= this->_hijos[0].eliminaIntrones(tipo);
+				cambios |= this->_hijos[1].eliminaIntrones(tipo);
 			}
 			break;
 		case Operacion::ProgN3:
-			cambios |= this->_hijos[0].eliminaIntrones();
-			cambios |= this->_hijos[1].eliminaIntrones();
-			cambios |= this->_hijos[2].eliminaIntrones();
+			cambios |= this->_hijos[0].eliminaIntrones(tipo);
+			cambios |= this->_hijos[1].eliminaIntrones(tipo);
+			cambios |= this->_hijos[2].eliminaIntrones(tipo);
 			break;
 			/*case Operacion::ProgN4:
 			this->_hijos[0].eliminaIntrones();
@@ -290,8 +290,8 @@ public:
 				cambios = true;
 			}
 			else {
-				cambios |= this->_hijos[0].eliminaIntrones();
-				cambios |= this->_hijos[1].eliminaIntrones();
+				cambios |= this->_hijos[0].eliminaIntrones(tipo);
+				cambios |= this->_hijos[1].eliminaIntrones(tipo);
 			}
 			break;
 		case Operacion::SiDetectado:
@@ -305,8 +305,8 @@ public:
 				cambios = true;
 			}
 			else {
-				cambios |= this->_hijos[0].eliminaIntrones();
-				cambios |= this->_hijos[1].eliminaIntrones();
+				cambios |= this->_hijos[0].eliminaIntrones(tipo);
+				cambios |= this->_hijos[1].eliminaIntrones(tipo);
 			}
 			break;
 		case Operacion::SiJugador:
@@ -320,8 +320,8 @@ public:
 				cambios = true;
 			}
 			else {
-				cambios |= this->_hijos[0].eliminaIntrones();
-				cambios |= this->_hijos[1].eliminaIntrones();
+				cambios |= this->_hijos[0].eliminaIntrones(tipo);
+				cambios |= this->_hijos[1].eliminaIntrones(tipo);
 			}
 			break;
 		case Operacion::SiRango:
@@ -335,8 +335,8 @@ public:
 				cambios = true;
 			}
 			else {
-				cambios |= this->_hijos[0].eliminaIntrones();
-				cambios |= this->_hijos[1].eliminaIntrones();
+				cambios |= this->_hijos[0].eliminaIntrones(tipo);
+				cambios |= this->_hijos[1].eliminaIntrones(tipo);
 			}
 			break;
 		default:

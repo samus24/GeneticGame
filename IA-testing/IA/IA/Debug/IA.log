@@ -1,4 +1,4 @@
-﻿Compilación iniciada a las 26/04/2017 14:27:38.
+﻿Compilación iniciada a las 27/04/2017 13:18:01.
      1>Proyecto "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          D:\VisualStudio2013\VC\bin\CL.exe /c /I"D:\Github\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"D:\Github\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"D:\Github\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -116,4 +116,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:01.92
+Tiempo transcurrido 00:00:02.26
