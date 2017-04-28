@@ -61,7 +61,7 @@ private:
 		target.draw(_simulationInfo);
 	}
 
-	void onTurno(Arbol arbPatrulla, Arbol arbAtaque, npc jugador, npc enemigo, Mapa m, Mapa explorado){
+	void onTurno(Arbol arbPatrulla, Arbol arbAtaque, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
 		unsigned int realTileSize = std::min(_size.x, _size.y) / 40;
 		m_vertices.clear();
 		m_vertices.setPrimitiveType(sf::Quads);
@@ -136,8 +136,16 @@ private:
 						break;
 					}
 				}
+				else if ((explorado.getCasilla(i, j) > 0) && (andado.getCasilla(i, j) > 0)){
+					c = sf::Color::Magenta;
+					c.a = 127;
+				}
 				else if (explorado.getCasilla(i, j) > 0){
 					c = sf::Color::Blue;
+					c.a = 127;
+				}
+				else if (andado.getCasilla(i, j) > 0){
+					c = sf::Color::Red;
 					c.a = 127;
 				}
 

@@ -161,7 +161,8 @@ public:
 		finalizada = true;
 	}
 
-	void onTurno(Arbol arbPatrulla, Arbol arbAtaque, npc jugador, npc enemigo, Mapa m, Mapa explorado){
+	void onTurno(Arbol arbPatrulla, Arbol arbAtaque, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
+		finalizada = true;
 		if (finalizada){
 			_window.draw(_tabPane);
 			_window.display();

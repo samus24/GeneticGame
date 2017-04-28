@@ -8,7 +8,7 @@ class ICromosomaObserver{
 public:
 	virtual ~ICromosomaObserver() {};
 
-	virtual void onTurno(Arbol, Arbol, npc, npc, Mapa, Mapa) = 0;	// jugador, enemigo, mapa, explorado
+	virtual void onTurno(Arbol, Arbol, npc, npc, Mapa, Mapa, Mapa) = 0;	// jugador, enemigo, mapa, explorado, andado
 
 	virtual void onSimulacionTerminada(double) = 0;
 };

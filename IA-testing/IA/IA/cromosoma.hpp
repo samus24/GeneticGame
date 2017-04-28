@@ -346,7 +346,7 @@ private:
 			}
 			mueveJugador(jugador, enemigo, m);
 			if (dibujar) imprimeEstado(this->_genotipo[0], m, explorado, enemigo, jugador, ataque);
-			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado);
+			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado, andado);
 		}
 
 		enemigo.turnosPatrulla = enemigo.turnos;
@@ -489,25 +489,12 @@ private:
 			}
 			mueveJugador(jugador, enemigo, m);
 			if (dibujar) imprimeEstado(this->_genotipo[1], m, explorado, enemigo, jugador, ataque);
-			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado);
+			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado, andado);
 		}
 		double evaluacion = 0;
 		//double optimos[] = {dim, 20.f, 10.f, 3.f };
 		int cAndadas = casillasAndadas(andado);
 		int cExpl = casillasExploradas(explorado);
-		/*
-		_valores[0] = 1 - (abs(casillasExploradas(explorado) - optimos[0]) / optimos[0]);
-		if (_valores[0] < 0) _valores[0] = 0;
-
-		_valores[1] = 1 - (abs(enemigo.golpes - optimos[1]) / optimos[1]);
-		if (_valores[1] < 0) _valores[1] = 0;
-
-		_valores[2] = 1 - (abs(enemigo.golpesEvitados - optimos[2]) / optimos[2]);
-		if (_valores[2] < 0) _valores[2] = 0;
-
-		_valores[3] = 1 - (abs(jugador.heridas - optimos[3]) / optimos[3]);
-		if (_valores[3] < 0) _valores[3] = 0;
-		*/
 
 		_valores[0] = cExpl;
 		_valores[1] = cAndadas;
@@ -648,9 +635,9 @@ private:
 		return;
 	}
 
-	void notifyTurno(Arbol patrulla, Arbol ataque, npc jugador, npc enemigo, Mapa m, Mapa explorado) const{
+	void notifyTurno(Arbol patrulla, Arbol ataque, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado) const{
 		for (ICromosomaObserver* i : _obs){
-			i->onTurno(patrulla, ataque, jugador, enemigo, m, explorado);
+			i->onTurno(patrulla, ataque, jugador, enemigo, m, explorado, andado);
 		}
 	}
 
