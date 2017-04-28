@@ -511,9 +511,9 @@ private:
 
 		_valores[0] = cExpl;
 		_valores[1] = cAndadas;
-		_valores[1] = enemigo.golpes;
-		_valores[2] = enemigo.golpesEvitados;
-		_valores[3] = jugador.heridas;
+		_valores[2] = enemigo.golpes;
+		_valores[3] = enemigo.golpesEvitados;
+		_valores[4] = jugador.heridas;
 
 		for (int i = 0; i < 5; ++i){
 			evaluacion += _valores[i] * _pesos[i];
