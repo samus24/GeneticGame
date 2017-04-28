@@ -231,7 +231,7 @@ private:
 		bool fin = false;
 		int cont = 0;
 
-		while (enemigo.turnos < maxTurnos && !ataque) {
+		while (enemigo.turnos < maxTurnos && !ataque && enemigo.heridas < 3) {
 			if (pila.empty()) {
 				pila.push(_genotipo[0].getRaiz());
 			}
@@ -351,7 +351,7 @@ private:
 
 		enemigo.turnosPatrulla = enemigo.turnos;
 
-		while (enemigo.turnos < maxTurnos && jugador.heridas < 3) {
+		while (enemigo.turnos < maxTurnos && jugador.heridas < 3 && enemigo.heridas < 3) {
 			if (pila.empty()) {
 				pila.push(_genotipo[1].getRaiz());
 			}
@@ -502,7 +502,7 @@ private:
 		_valores[3] = enemigo.golpesEvitados;
 		_valores[4] = jugador.heridas;
 
-		for (int i = 0; i < 5; ++i){
+		for (std::size_t i = 0; i < 5; ++i){
 			evaluacion += _valores[i] * _pesos[i];
 		}
 		return evaluacion;
