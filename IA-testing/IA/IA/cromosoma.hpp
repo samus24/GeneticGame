@@ -123,8 +123,8 @@ public:
 	void crear(int profMin, int profMax){
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
-		double pesos[4] = { 0.5, 0.15, 0.05, 0.30 };
-		for (size_t i = 0; i < 4; ++i){
+		double pesos[5] = { 0.3, 0.2, 0.15, 0.05, 0.30 };
+		for (size_t i = 0; i < 5; ++i){
 			_pesos[i] = pesos[i];
 		}
 	}
@@ -133,9 +133,8 @@ public:
 		return _genotipo[pos];
 	}
 
-	void setGenotipo(Arbol genotipo, int pos, std::vector<Mapa> m) {
+	void setGenotipo(Arbol genotipo, int pos) {
 		this->_genotipo[pos] = genotipo;
-		this->evalua(m);
 	}
 
 	double getPunt() {
@@ -170,12 +169,12 @@ public:
 		return _genotipo[pos].getNodoFuncionAleatorio();
 	}
 
-	void bloating(int prof, std::vector<Mapa> m) {
+	bool bloating(int prof) {
 		bool cambios = false;
 		for (std::size_t i = 0; i < 2; ++i) {
 			cambios |= _genotipo[i].bloating(prof, (TipoArbol)i);
 		}
-		if (cambios) this->evalua(m);
+		return cambios;
 	}
 
 	double evalua(std::vector<Mapa> maps, bool pintar = false) {
@@ -192,12 +191,12 @@ public:
 		return media / maps.size(); //se divide sin restar, ya que size da el total (de 1 a n)
 	}
 
-	void eliminaIntrones(std::vector<Mapa> maps) {
+	bool eliminaIntrones() {
 		bool cambios = false;
 		for (std::size_t i = 0; i < 2; ++i) {
 			cambios |= _genotipo[i].eliminaIntrones((TipoArbol)i);
 		}
-		if (cambios) this->evalua(maps);
+		return cambios;
 	}
 
 	double* getValores(){

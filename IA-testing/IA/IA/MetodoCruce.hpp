@@ -18,13 +18,13 @@ bool sonIguales(const Nodo &a, const Nodo &b){
 
 class metodoCruce {
 public:
-	virtual void cruzar(Cromosoma* a, Cromosoma* b, TipoArbol tipo, std::vector<Mapa> m) = 0;
+	virtual void cruzar(Cromosoma* a, Cromosoma* b, TipoArbol tipo) = 0;
 	virtual std::string toString() = 0;
 };
 
 class cruceSimple : public metodoCruce {
 public:
-	void cruzar(Cromosoma* a, Cromosoma* b, TipoArbol tipo, std::vector<Mapa> m) {
+	void cruzar(Cromosoma* a, Cromosoma* b, TipoArbol tipo) {
 		Arbol arbA = a->getGenotipo(tipo);
 		Arbol arbB = b->getGenotipo(tipo);
 		int corteA, corteB;
@@ -75,8 +75,8 @@ public:
 		arbA.actualizaNumNodos();
 		arbB.actualizaNumNodos();
 
-		a->setGenotipo(arbA, tipo, m);
-		b->setGenotipo(arbB, tipo, m);
+		a->setGenotipo(arbA, tipo);
+		b->setGenotipo(arbB, tipo);
 	}
 
 	std::string toString() {

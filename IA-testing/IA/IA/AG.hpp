@@ -46,16 +46,14 @@ public:
 		}
 		_pob.evalua(maps);
 
-		/*
-		for (size_t i = 0; i < _pob._tam; ++i){
-			std::cout << "I[" << i << "]: " << _pob.individuos[i].getAdaptacion() << std::endl;
-		}
-		*/
 		_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
 		mediaAnterior = evaluarPoblacion();
 		_crono.finalizaMedida("eval", std::chrono::high_resolution_clock::now());
 
+		std::cout << _pob._tam << " individuos evaluados, comienza el AG" << std::endl;
+
 		while (_generacion < _param.iteraciones){
+			_marcados.clear();
 			int nElite = (int)(_param.tamPob * 0.02);
 			std::vector<Cromosoma> elite;
 			if (_param.elitismo){
@@ -81,10 +79,14 @@ public:
 			_crono.finalizaMedida("mutacion", std::chrono::high_resolution_clock::now());
 
 			if (_param.bloating){
-				_pob.bloating(_param.maxNodos, maps);
+				_pob.bloating(_param.maxNodos, _marcados);
 			}
 
-			_pob.eliminaIntrones(maps);
+			_pob.eliminaIntrones(_marcados);
+
+			std::cout << "Hay " << _marcados.size() << " marcados en la generacion " << _generacion << std::endl;
+
+			_pob.evaluaMarcados(maps, _marcados);
 
 			if (_param.elitismo){
 				/*
@@ -208,25 +210,29 @@ private:
 			numSeleCruce--;
 		}
 		for (int i = 0; i < numSeleCruce; i += 2){
-			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]], tipo, maps);
+			_marcados.insert(seleccionados[i]);
+			_marcados.insert(seleccionados[i+1]);
+			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]], tipo);
 		}
 
 	}
 
 	void mutacion(TipoArbol tipo){
-		Cromosoma* seleccionados = new Cromosoma[_pob._tam];
+		//Cromosoma* seleccionados = new Cromosoma[_pob._tam];
+		int* seleccionados = new int[_pob._tam];
 		int actualPos = 0;
 		double prob;
 		for (int i = 0; i < _pob._tam; ++i){
 			prob = myRandom::getRandom(0.f, 1.f);
 			if (prob < _param.probMutacion){
-				seleccionados[actualPos] = _pob.individuos[i];
+				seleccionados[actualPos] = i;
 				actualPos++;
 			}
 		}
 
 		for (int i = 0; i < actualPos; ++i){
-			_param.mutacion->mutar(&seleccionados[i], tipo, maps);
+			_marcados.insert(seleccionados[i]);
+			_param.mutacion->mutar(&_pob.individuos[seleccionados[i]], tipo);
 		}
 	}
 
@@ -280,6 +286,7 @@ private:
 	std::vector<IAGObserver*> _obs;
 	std::vector<ICromosomaObserver*> _obsCrom;
 	std::vector<Mapa> maps;
+	std::set<unsigned int> _marcados;
 };
 
 #endif

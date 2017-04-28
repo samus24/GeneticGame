@@ -162,7 +162,7 @@ public:
 	}
 
 	void onTurno(Arbol arbPatrulla, Arbol arbAtaque, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
-		finalizada = true;
+		//finalizada = true; // Descomentar esto si se quiere ver simul. por cada individuo
 		if (finalizada){
 			_window.draw(_tabPane);
 			_window.display();

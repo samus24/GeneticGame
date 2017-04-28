@@ -30,23 +30,31 @@ public:
 		}
 	}
 
+	void evaluaMarcados(std::vector<Mapa> m, std::set<unsigned int> marcados) {
+		for (auto it = marcados.begin(); it != marcados.end(); ++it){
+			this->individuos[(*it)].evalua(m);
+		}
+	}
+
 	void ordenar(){
 		std::sort(individuos, individuos + _tam, [](Cromosoma a, Cromosoma b){
 			return a.getAdaptacion() > b.getAdaptacion();
 		});
 	}
 
-	void bloating(unsigned int maxNodos, std::vector<Mapa> m){
+	void bloating(unsigned int maxNodos, std::set<unsigned int> marcados){
 		for (size_t i = 0; i < _tam; ++i){
-			// Esto habrá que ponerlo bien, con todos los mapas
-			individuos[i].bloating(maxNodos, m);
+			if (individuos[i].bloating(maxNodos)){
+				marcados.insert(i);
+			}
 		}
 	}
 
-	void eliminaIntrones(std::vector<Mapa> m){
+	void eliminaIntrones(std::set<unsigned int> marcados){
 		for (size_t i = 0; i < _tam; ++i){
-			// Esto habrá que ponerlo bien, con todos los mapas
-			individuos[i].eliminaIntrones(m);
+			if (individuos[i].eliminaIntrones()){
+				marcados.insert(i);
+			}
 		}
 	}
 

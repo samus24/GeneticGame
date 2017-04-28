@@ -6,13 +6,13 @@
 
 class metodoMutacion {
 public:
-	virtual void mutar(Cromosoma* c, TipoArbol tipo, std::vector<Mapa> m) = 0;
+	virtual void mutar(Cromosoma* c, TipoArbol tipo) = 0;
 	virtual std::string toString() = 0;
 };
 
 class mutacionArbol : public metodoMutacion {
 public:
-	void mutar(Cromosoma* c, TipoArbol tipo, std::vector<Mapa> m) {
+	void mutar(Cromosoma* c, TipoArbol tipo) {
 		Arbol arb = c->getGenotipo(tipo);
 		Nodo n;
 		n = arb.getNodoFuncionAleatorio();
@@ -23,7 +23,7 @@ public:
 			if (!arb.compruebaIntegridad()){
 				return;
 			}
-			c->setGenotipo(arb, tipo, m);
+			c->setGenotipo(arb, tipo);
 		}
 	}
 
@@ -35,7 +35,7 @@ public:
 
 class mutacionFuncion : public metodoMutacion {
 public:
-	void mutar(Cromosoma* c, TipoArbol tipo, std::vector<Mapa> m) {
+	void mutar(Cromosoma* c, TipoArbol tipo) {
 		Arbol arb = c->getGenotipo(tipo);
 		Nodo n;
 		n = arb.getNodoFuncionAleatorio();
@@ -51,7 +51,7 @@ public:
 				if (!arb.compruebaIntegridad()){
 					return;
 				}
-				c->setGenotipo(arb, tipo, m);
+				c->setGenotipo(arb, tipo);
 			}
 		}
 	}
@@ -63,7 +63,7 @@ public:
 
 class mutacionTerminal : public metodoMutacion {
 public:
-	void mutar(Cromosoma* c, TipoArbol tipo, std::vector<Mapa> m) {
+	void mutar(Cromosoma* c, TipoArbol tipo) {
 		Arbol arb = c->getGenotipo(tipo);
 		Nodo n;
 		n = arb.getTerminalAleatorio();
@@ -77,7 +77,7 @@ public:
 			if (!arb.compruebaIntegridad()){
 				return;
 			}
-			c->setGenotipo(arb, tipo, m);
+			c->setGenotipo(arb, tipo);
 		}
 	}
 
