@@ -498,15 +498,22 @@ private:
 			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado, andado);
 		}
 		double evaluacion = 0;
-		//double optimos[] = {dim, 20.f, 10.f, 3.f };
 		int cAndadas = casillasAndadas(andado);
 		int cExpl = casillasExploradas(explorado);
-
+		/*
 		_valores[0] = cExpl;
 		_valores[1] = cAndadas;
 		_valores[2] = enemigo.golpes;
 		_valores[3] = enemigo.golpesEvitados;
 		_valores[4] = jugador.heridas;
+		*/
+		double optimos[] = { dim, dim, 20.f, 10.f, 3.f };
+
+		_valores[0] = cExpl / optimos[0];
+		_valores[1] = cAndadas / optimos[1];
+		_valores[2] = enemigo.golpes / optimos[2];
+		_valores[3] = enemigo.golpesEvitados / optimos[3];
+		_valores[4] = jugador.heridas / optimos[4];
 
 		for (std::size_t i = 0; i < 5; ++i){
 			evaluacion += _valores[i] * _pesos[i];
