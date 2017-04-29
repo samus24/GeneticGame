@@ -39,8 +39,8 @@ public:
 
 		_labelAux.setFont(_font);
 		_labelAux.setFillColor(sf::Color::Black);
-		_labelAux.setPosition(sf::Vector2f(200, 5));
-		_labelAux.setString("<-- Seleccionar la pestaña SimView para ver las evaluaciones (con boton VER SIM activado)");
+		_labelAux.setPosition(sf::Vector2f(200, 0));
+		_labelAux.setString("<-- Seleccionar la pestaña SimView para ver TODAS las evaluaciones (con boton VER SIM activado)\nPulsar E al finalizar para ver evaluacion del mejor");
 		_labelAux.setCharacterSize(14);
 	}
 
@@ -126,8 +126,8 @@ public:
 			_window.draw(_botonRun);
 			_window.draw(_botonSim);
 			_window.draw(_progress);
-			_window.draw(_labelAux);
 			_window.draw(_tabPane);
+			_window.draw(_labelAux);
 			_window.display();
 		}
 	}

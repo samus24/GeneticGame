@@ -289,6 +289,24 @@ public:
 				this->_nHijos = 0;
 				cambios = true;
 			}
+			else if (hijoA == this->_elem){
+				// Se sustituye el hijo izq por su hijo izq
+				Nodo* hijo = &this->_hijos[0];
+				Nodo *nieto = &hijo->getHijos()[0];
+				hijo->setElem(nieto->getElem());
+				hijo->setNhijos(nieto->getNhijos());
+				hijo->setNumNodos(nieto->getNumNodos());
+				hijo->setHijos(nieto->getHijos());
+			}
+			else if (hijoB == this->_elem){
+				// Se sustituye el hijo der por su hijo der
+				Nodo* hijo = &this->_hijos[1];
+				Nodo *nieto = &hijo->getHijos()[1];
+				hijo->setElem(nieto->getElem());
+				hijo->setNhijos(nieto->getNhijos());
+				hijo->setNumNodos(nieto->getNumNodos());
+				hijo->setHijos(nieto->getHijos());
+			}
 			else {
 				cambios |= this->_hijos[0].eliminaIntrones(tipo);
 				cambios |= this->_hijos[1].eliminaIntrones(tipo);
@@ -303,6 +321,24 @@ public:
 				this->_hijos = nullptr;
 				this->_nHijos = 0;
 				cambios = true;
+			}
+			else if (hijoA == this->_elem){
+				// Se sustituye el hijo izq por su hijo izq
+				Nodo* hijo = &this->_hijos[0];
+				Nodo *nieto = &hijo->getHijos()[0];
+				hijo->setElem(nieto->getElem());
+				hijo->setNhijos(nieto->getNhijos());
+				hijo->setNumNodos(nieto->getNumNodos());
+				hijo->setHijos(nieto->getHijos());
+			}
+			else if (hijoB == this->_elem){
+				// Se sustituye el hijo der por su hijo der
+				Nodo* hijo = &this->_hijos[1];
+				Nodo *nieto = &hijo->getHijos()[1];
+				hijo->setElem(nieto->getElem());
+				hijo->setNhijos(nieto->getNhijos());
+				hijo->setNumNodos(nieto->getNumNodos());
+				hijo->setHijos(nieto->getHijos());
 			}
 			else {
 				cambios |= this->_hijos[0].eliminaIntrones(tipo);
@@ -319,6 +355,24 @@ public:
 				this->_nHijos = 0;
 				cambios = true;
 			}
+			else if (hijoA == this->_elem){
+				// Se sustituye el hijo izq por su hijo izq
+				Nodo* hijo = &this->_hijos[0];
+				Nodo *nieto = &hijo->getHijos()[0];
+				hijo->setElem(nieto->getElem());
+				hijo->setNhijos(nieto->getNhijos());
+				hijo->setNumNodos(nieto->getNumNodos());
+				hijo->setHijos(nieto->getHijos());
+			}
+			else if (hijoB == this->_elem){
+				// Se sustituye el hijo der por su hijo der
+				Nodo* hijo = &this->_hijos[1];
+				Nodo *nieto = &hijo->getHijos()[1];
+				hijo->setElem(nieto->getElem());
+				hijo->setNhijos(nieto->getNhijos());
+				hijo->setNumNodos(nieto->getNumNodos());
+				hijo->setHijos(nieto->getHijos());
+			}
 			else {
 				cambios |= this->_hijos[0].eliminaIntrones(tipo);
 				cambios |= this->_hijos[1].eliminaIntrones(tipo);
@@ -333,6 +387,24 @@ public:
 				this->_hijos = nullptr;
 				this->_nHijos = 0;
 				cambios = true;
+			}
+			else if (hijoA == this->_elem){
+				// Se sustituye el hijo izq por su hijo izq
+				Nodo* hijo = &this->_hijos[0];
+				Nodo *nieto = &hijo->getHijos()[0];
+				hijo->setElem(nieto->getElem());
+				hijo->setNhijos(nieto->getNhijos());
+				hijo->setNumNodos(nieto->getNumNodos());
+				hijo->setHijos(nieto->getHijos());
+			}
+			else if (hijoB == this->_elem){
+				// Se sustituye el hijo der por su hijo der
+				Nodo* hijo = &this->_hijos[1];
+				Nodo *nieto = &hijo->getHijos()[1];
+				hijo->setElem(nieto->getElem());
+				hijo->setNhijos(nieto->getNhijos());
+				hijo->setNumNodos(nieto->getNumNodos());
+				hijo->setHijos(nieto->getHijos());
 			}
 			else {
 				cambios |= this->_hijos[0].eliminaIntrones(tipo);

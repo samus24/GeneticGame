@@ -1,4 +1,4 @@
-﻿Compilación iniciada a las 29/04/2017 14:15:46.
+﻿Compilación iniciada a las 29/04/2017 14:30:23.
      1>Proyecto "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Rebuild destinos).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp ScrollBar.cpp
@@ -11,7 +11,7 @@
      1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(91): warning C4018: '<' : no coinciden signed/unsigned
      1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(121): warning C4018: '<' : no coinciden signed/unsigned
      1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(206): warning C4018: '<' : no coinciden signed/unsigned
-     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(350): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(422): warning C4018: '<' : no coinciden signed/unsigned
      1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(64): warning C4018: '<' : no coinciden signed/unsigned
      1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(69): warning C4018: '<' : no coinciden signed/unsigned
      1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(117): warning C4018: '<' : no coinciden signed/unsigned
@@ -120,4 +120,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:02.67
+Tiempo transcurrido 00:00:02.71
