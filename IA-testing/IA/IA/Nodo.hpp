@@ -146,6 +146,9 @@ public:
 
 	void setHijos(Nodo* hijos) {
 		this->_hijos = hijos;
+		for (size_t i = 0; i < _nHijos; ++i){
+			_hijos[i].setPadre(this);
+		}
 	}
 
 

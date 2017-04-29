@@ -48,7 +48,7 @@ public:
 			_pob.addCromosomaObserver(*_obsCrom.at(i));
 		}
 		_crono.iniciaMedida("evalua", std::chrono::high_resolution_clock::now());
-		_pob.evalua(maps);
+		//_pob.evalua(maps);
 		_crono.finalizaMedida("evalua", std::chrono::high_resolution_clock::now());
 
 		_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());

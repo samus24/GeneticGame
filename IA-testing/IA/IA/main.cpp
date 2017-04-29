@@ -10,7 +10,7 @@
 int main() {
 
 	Parametros p;
-	p.tamPob = 50;
+	p.tamPob = 30;
 	p.iteraciones = 50;// 30;
 	p.minNodos = 1;
 	p.maxNodos = 3;// 7; Cambio para debug

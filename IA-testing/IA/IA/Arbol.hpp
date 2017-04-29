@@ -276,6 +276,7 @@ public:
 
 	bool eliminaIntrones(TipoArbol tipo) {
 		bool cambios = _raiz.eliminaIntrones(tipo);
+		if (!compruebaIntegridad()) exit(-42);
 		if (cambios) _raiz.actualizaNumNodos();
 		return cambios;
 	}
