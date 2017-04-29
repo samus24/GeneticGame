@@ -179,16 +179,23 @@ public:
 
 	double evalua(std::vector<Mapa> maps, bool pintar = false) {
 		int x, y;
+		double actual = 1;
 		double media = 0;
 		maps[0].toString();
-		for (std::size_t i = 0; i < maps.size(); ++i) {
+		for (std::size_t i = 0; i < maps.size() && actual != 0; ++i) {
 			x = maps[i].getX();
 			y = maps[i].getY();
-			media += evaluaMapa(maps[i], x, y, pintar);
+			actual = evaluaMapa(maps[i], x, y, pintar);
+			media += actual;
 		}
-		this->_adaptacion = media / maps.size();
+		if (actual != 0){
+			this->_adaptacion = media / maps.size();
+		}
+		else{
+			this->_adaptacion = 0;
+		}
 		notifySimulacionTerminada(_adaptacion);
-		return media / maps.size(); //se divide sin restar, ya que size da el total (de 1 a n)
+		return _adaptacion;
 	}
 
 	bool eliminaIntrones() {

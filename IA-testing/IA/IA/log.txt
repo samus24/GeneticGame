@@ -78,3 +78,43 @@ SiRango[0], ProgN2[1], Atacar[2], BloquearN[3], Atacar[4]
 Adaptación del individuo
 3.17308
 
+Nuevo individuo: 
+Árbol de patrulla
+ProgN2[0], CambiarEst[1], CambiarEst[2]
+Árbol de ataque
+ProgN2[0], GiraDer[1], GiraDer[2]
+Adaptación del individuo
+0
+
+Nuevo individuo: 
+Árbol de patrulla
+ProgN2[0], CambiarEst[1], CambiarEst[2]
+Árbol de ataque
+ProgN2[0], GiraDer[1], GiraDer[2]
+Adaptación del individuo
+0
+
+Nuevo individuo: 
+Árbol de patrulla
+ProgN2[0], CambiarEst[1], CambiarEst[2]
+Árbol de ataque
+ProgN2[0], GiraDer[1], GiraDer[2]
+Adaptación del individuo
+0
+
+Nuevo individuo: 
+Árbol de patrulla
+ProgN2[0], CambiarEst[1], CambiarEst[2]
+Árbol de ataque
+ProgN2[0], GiraDer[1], GiraDer[2]
+Adaptación del individuo
+0
+
+Nuevo individuo: 
+Árbol de patrulla
+ProgN2[0], CambiarEst[1], CambiarEst[2]
+Árbol de ataque
+ProgN2[0], GiraDer[1], GiraDer[2]
+Adaptación del individuo
+0
+

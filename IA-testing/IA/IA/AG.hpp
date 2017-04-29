@@ -19,6 +19,8 @@ public:
 		_crono.creaMedida("cruce");
 		_crono.creaMedida("mutacion");
 
+		_crono.creaMedida("evalua");
+
 		_crono.creaMedida("init");
 		_crono.creaMedida("eval");
 	}
@@ -28,6 +30,7 @@ public:
 		_crono.limpiaMedida("seleccion");
 		_crono.limpiaMedida("cruce");
 		_crono.limpiaMedida("mutacion");
+		_crono.limpiaMedida("evalua");
 
 		_crono.limpiaMedida("init");
 		_crono.limpiaMedida("eval");
@@ -44,13 +47,15 @@ public:
 		for (size_t i = 0; i < _obsCrom.size(); ++i){
 			_pob.addCromosomaObserver(*_obsCrom.at(i));
 		}
+		_crono.iniciaMedida("evalua", std::chrono::high_resolution_clock::now());
 		_pob.evalua(maps);
+		_crono.finalizaMedida("evalua", std::chrono::high_resolution_clock::now());
 
 		_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
 		mediaAnterior = evaluarPoblacion();
 		_crono.finalizaMedida("eval", std::chrono::high_resolution_clock::now());
 
-		std::cout << _pob._tam << " individuos evaluados, comienza el AG" << std::endl;
+		std::cout << _pob._tam << " individuos evaluados en " << (_crono.getMediaAsMilli("evalua") / 1000.f) << "seg, comienza el AG" << std::endl;
 
 		while (_generacion < _param.iteraciones){
 			_marcados.clear();
@@ -86,7 +91,11 @@ public:
 
 			std::cout << "Hay " << _marcados.size() << " marcados en la generacion " << _generacion << std::endl;
 
+			_crono.iniciaMedida("evalua", std::chrono::high_resolution_clock::now());
 			_pob.evaluaMarcados(maps, _marcados);
+			_crono.finalizaMedida("evalua", std::chrono::high_resolution_clock::now());
+
+			std::cout << "La media de evaluacion de pob es de " << (_crono.getMediaAsMilli("evalua") / 1000.f) << "seg" << std::endl;
 
 			if (_param.elitismo){
 				/*
@@ -181,13 +190,13 @@ private:
 		if (evMejorActual > evElMejor){
 			_elMejor = _pob.individuos[_indexMejor];
 		}
-
+		/*
 		// Se calcula la media de aptitud de esta generacion
 		for (std::size_t i = 0; i < _param.tamPob; ++i){
 			media += _pob.individuos[i].getAdaptacion();
 		}
-
-		return (media / _param.tamPob);
+		*/
+		return (sumaAptitud / _param.tamPob);
 	}
 
 	void seleccion(){
