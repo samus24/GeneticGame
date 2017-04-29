@@ -134,6 +134,9 @@
     <ClInclude Include="ICromosomaObserver.hpp">
       <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
     </ClInclude>
+    <ClInclude Include="TreeViewer.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

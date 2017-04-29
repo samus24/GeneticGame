@@ -97,6 +97,7 @@
     <ClInclude Include="ScrollBar.hpp" />
     <ClInclude Include="SimulationViewer.hpp" />
     <ClInclude Include="TabPane.hpp" />
+    <ClInclude Include="TreeViewer.hpp" />
     <ClInclude Include="Ventana.hpp" />
     <ClInclude Include="VistaTerminal.hpp" />
   </ItemGroup>

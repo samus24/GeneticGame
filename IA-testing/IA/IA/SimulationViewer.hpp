@@ -6,6 +6,7 @@
 #include "Cromosoma.hpp"
 #include "Button.hpp"
 #include "ICromosomaObserver.hpp"
+#include "TreeViewer.hpp"
 
 class Leyenda : public sf::Drawable, public sf::Transformable{
 public:
@@ -89,7 +90,9 @@ class SimulationViewer : public sf::Rect<float>, public sf::Drawable, public sf:
 public:
 	SimulationViewer(sf::Vector2f pos, sf::Vector2f size) :
 		sf::Rect<float>(pos, size),
-		_leyenda(sf::Vector2f(pos.x + size.x + 10, pos.y + (0.6 * size.y)))
+		_leyenda(sf::Vector2f(pos.x + size.x + 10, pos.y + (0.6 * size.y))),
+		_visorPatrulla(sf::Vector2f(pos.x + 400 , pos.y+30), sf::Vector2f(600,300)),
+		_visorAtaque(sf::Vector2f(pos.x + 400, pos.y + 300), sf::Vector2f(600,300))
 	{
 		_size = size;
 		_font.loadFromFile("arial.ttf");
@@ -98,6 +101,12 @@ public:
 		_simulationInfo.setFont(_font);
 		_simulationInfo.setPosition(this->getPosition());
 		_simulationInfo.move(10, size.y-100);
+
+		_lastFitness.setFont(_font);
+		_lastFitness.setCharacterSize(15);
+		_lastFitness.setFillColor(sf::Color::Red);
+		_lastFitness.setPosition(this->getPosition());
+		_lastFitness.move(10, size.y-120);
 
 		_playerFacing.setPrimitiveType(sf::Triangles);
 		_playerFacing.resize(3);
@@ -147,10 +156,16 @@ private:
 		target.draw(_enemyFacing, states);
 		
 		target.draw(_simulationInfo);
+		target.draw(_lastFitness);
+
+		target.draw(_visorPatrulla);
+		target.draw(_visorAtaque);
 	}
 
 	void onTurno(Arbol arbPatrulla, Arbol arbAtaque, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
 		unsigned int realTileSize = std::min(_size.x, _size.y) / 40;
+		_visorPatrulla.update(arbPatrulla, TipoArbol::Patrulla);
+		_visorAtaque.update(arbAtaque, TipoArbol::Ataque);
 		if ((m.getWidth()*m.getHeight() * 4) != m_vertices.getVertexCount()){
 			m_vertices.clear();
 			m_vertices.setPrimitiveType(sf::Quads);
@@ -281,7 +296,8 @@ private:
 	}
 
 	void onSimulacionTerminada(double fitness){
-
+		std::string s = "Fitness del ultimo individuo: " + std::to_string(fitness);
+		_lastFitness.setString(s);
 	}
 
 	void update(){
@@ -294,7 +310,11 @@ private:
 	sf::VertexArray _playerFacing;
 	sf::VertexArray _enemyFacing;
 	sf::Text _simulationInfo;
+	sf::Text _lastFitness;
 	Leyenda _leyenda;
+
+	TreeViewer _visorPatrulla;
+	TreeViewer _visorAtaque;
 
 	bool _selected;
 
