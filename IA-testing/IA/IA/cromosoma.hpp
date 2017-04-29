@@ -236,11 +236,13 @@ private:
 		int incx = 0, incy = 0;
 		bool fin = false;
 		int cont = 0;
+		int turnosIni;
 
 		while (enemigo.turnos < maxTurnos && !ataque && enemigo.heridas < 3) {
 			if (pila.empty()) {
 				pila.push(_genotipo[0].getRaiz());
 			}
+			turnosIni = enemigo.turnos;
 			actual = pila.top();
 			pila.pop();
 			Operacion op = actual->getElem();
@@ -350,7 +352,7 @@ private:
 				exit(-1);
 				break;
 			}
-			mueveJugador(jugador, enemigo, m);
+			if(turnosIni != enemigo.turnos) mueveJugador(jugador, enemigo, m);
 			if (dibujar) imprimeEstado(this->_genotipo[0], m, explorado, enemigo, jugador, ataque);
 			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado, andado);
 		}
@@ -358,6 +360,7 @@ private:
 		enemigo.turnosPatrulla = enemigo.turnos;
 
 		while (enemigo.turnos < maxTurnos && jugador.heridas < 3 && enemigo.heridas < 3) {
+			turnosIni = enemigo.turnos;
 			if (pila.empty()) {
 				pila.push(_genotipo[1].getRaiz());
 			}
@@ -493,7 +496,7 @@ private:
 				exit(-1);
 				break;
 			}
-			mueveJugador(jugador, enemigo, m);
+			if (turnosIni != enemigo.turnos) mueveJugador(jugador, enemigo, m);
 			if (dibujar) imprimeEstado(this->_genotipo[1], m, explorado, enemigo, jugador, ataque);
 			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado, andado);
 		}
