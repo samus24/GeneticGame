@@ -300,6 +300,7 @@ public:
 				hijo->setNhijos(nieto->getNhijos());
 				hijo->setNumNodos(nieto->getNumNodos());
 				hijo->setHijos(nieto->getHijos());
+				cambios = true;
 			}
 			else if (hijoB == this->_elem){
 				// Se sustituye el hijo der por su hijo der
@@ -309,6 +310,7 @@ public:
 				hijo->setNhijos(nieto->getNhijos());
 				hijo->setNumNodos(nieto->getNumNodos());
 				hijo->setHijos(nieto->getHijos());
+				cambios = true;
 			}
 			else {
 				cambios |= this->_hijos[0].eliminaIntrones(tipo);
@@ -333,6 +335,7 @@ public:
 				hijo->setNhijos(nieto->getNhijos());
 				hijo->setNumNodos(nieto->getNumNodos());
 				hijo->setHijos(nieto->getHijos());
+				cambios = true;
 			}
 			else if (hijoB == this->_elem){
 				// Se sustituye el hijo der por su hijo der
@@ -342,6 +345,7 @@ public:
 				hijo->setNhijos(nieto->getNhijos());
 				hijo->setNumNodos(nieto->getNumNodos());
 				hijo->setHijos(nieto->getHijos());
+				cambios = true;
 			}
 			else {
 				cambios |= this->_hijos[0].eliminaIntrones(tipo);
@@ -366,6 +370,7 @@ public:
 				hijo->setNhijos(nieto->getNhijos());
 				hijo->setNumNodos(nieto->getNumNodos());
 				hijo->setHijos(nieto->getHijos());
+				cambios = true;
 			}
 			else if (hijoB == this->_elem){
 				// Se sustituye el hijo der por su hijo der
@@ -375,6 +380,7 @@ public:
 				hijo->setNhijos(nieto->getNhijos());
 				hijo->setNumNodos(nieto->getNumNodos());
 				hijo->setHijos(nieto->getHijos());
+				cambios = true;
 			}
 			else {
 				cambios |= this->_hijos[0].eliminaIntrones(tipo);
@@ -399,6 +405,7 @@ public:
 				hijo->setNhijos(nieto->getNhijos());
 				hijo->setNumNodos(nieto->getNumNodos());
 				hijo->setHijos(nieto->getHijos());
+				cambios = true;
 			}
 			else if (hijoB == this->_elem){
 				// Se sustituye el hijo der por su hijo der
@@ -408,6 +415,7 @@ public:
 				hijo->setNhijos(nieto->getNhijos());
 				hijo->setNumNodos(nieto->getNumNodos());
 				hijo->setHijos(nieto->getHijos());
+				cambios = true;
 			}
 			else {
 				cambios |= this->_hijos[0].eliminaIntrones(tipo);
