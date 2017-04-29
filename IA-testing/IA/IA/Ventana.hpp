@@ -23,7 +23,7 @@ public:
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.19, 400)),
 		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200)),
-		_progress(sf::Vector2f(_window.getSize().x *0.8, _window.getSize().y -50), sf::Vector2f(_window.getSize().x * 0.1, 30)),
+		_progress(sf::Vector2f(_window.getSize().x *0.8, 550), sf::Vector2f(_window.getSize().x * 0.1, 30)),
 		_simViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y))
 	{
 		_font.loadFromFile("arial.ttf");

@@ -1,0 +1,80 @@
+Nuevo individuo: 
+Árbol de patrulla
+ProgN3[0], SiDetectado[1], GiraIz[2], Avanza[3], ProgN2[4], GiraDer[5], ProgN2[6], Avanza[7], GiraIz[8], Avanza[9]
+Árbol de ataque
+SiRango[0], ProgN2[1], Atacar[2], BloquearN[3], Atacar[4]
+Adaptación del individuo
+3.17308
+
+Nuevo individuo: 
+Árbol de patrulla
+ProgN3[0], SiDetectado[1], GiraIz[2], Avanza[3], ProgN2[4], GiraDer[5], ProgN2[6], Avanza[7], GiraIz[8], Avanza[9]
+Árbol de ataque
+SiRango[0], ProgN2[1], Atacar[2], BloquearN[3], Atacar[4]
+Adaptación del individuo
+3.17308
+
+Nuevo individuo: 
+Árbol de patrulla
+ProgN3[0], SiDetectado[1], GiraIz[2], Avanza[3], ProgN2[4], GiraDer[5], ProgN2[6], Avanza[7], GiraIz[8], Avanza[9]
+Árbol de ataque
+SiRango[0], ProgN2[1], Atacar[2], BloquearN[3], Atacar[4]
+Adaptación del individuo
+3.17308
+
+Nuevo individuo: 
+Árbol de patrulla
+ProgN3[0], SiDetectado[1], GiraIz[2], Avanza[3], ProgN2[4], GiraDer[5], ProgN2[6], Avanza[7], GiraIz[8], Avanza[9]
+Árbol de ataque
+SiRango[0], ProgN2[1], Atacar[2], BloquearN[3], Atacar[4]
+Adaptación del individuo
+3.17308
+
+Nuevo individuo: 
+Árbol de patrulla
+ProgN3[0], SiDetectado[1], GiraIz[2], Avanza[3], ProgN2[4], GiraDer[5], ProgN2[6], Avanza[7], GiraIz[8], Avanza[9]
+Árbol de ataque
+SiRango[0], ProgN2[1], Atacar[2], BloquearN[3], Atacar[4]
+Adaptación del individuo
+3.17308
+
+Nuevo individuo: 
+Árbol de patrulla
+ProgN3[0], SiDetectado[1], GiraIz[2], Avanza[3], ProgN2[4], GiraDer[5], ProgN2[6], Avanza[7], GiraIz[8], Avanza[9]
+Árbol de ataque
+SiRango[0], ProgN2[1], Atacar[2], BloquearN[3], Atacar[4]
+Adaptación del individuo
+3.17308
+
+Nuevo individuo: 
+Árbol de patrulla
+ProgN3[0], SiDetectado[1], GiraIz[2], Avanza[3], ProgN2[4], GiraDer[5], ProgN2[6], Avanza[7], GiraIz[8], Avanza[9]
+Árbol de ataque
+SiRango[0], ProgN2[1], Atacar[2], BloquearN[3], Atacar[4]
+Adaptación del individuo
+3.17308
+
+Nuevo individuo: 
+Árbol de patrulla
+ProgN3[0], SiDetectado[1], GiraIz[2], Avanza[3], ProgN2[4], GiraDer[5], ProgN2[6], Avanza[7], GiraIz[8], Avanza[9]
+Árbol de ataque
+SiRango[0], ProgN2[1], Atacar[2], BloquearN[3], Atacar[4]
+Adaptación del individuo
+3.17308
+
+Nuevo individuo: 
+Árbol de patrulla
+ProgN3[0], SiDetectado[1], GiraIz[2], Avanza[3], ProgN2[4], GiraDer[5], ProgN2[6], Avanza[7], GiraIz[8], Avanza[9]
+Árbol de ataque
+SiRango[0], ProgN2[1], Atacar[2], BloquearN[3], Atacar[4]
+Adaptación del individuo
+3.17308
+
+Nuevo individuo: 
+Árbol de patrulla
+ProgN3[0], SiDetectado[1], GiraIz[2], Avanza[3], ProgN2[4], GiraDer[5], ProgN2[6], Avanza[7], GiraIz[8], Avanza[9]
+Árbol de ataque
+SiRango[0], ProgN2[1], Atacar[2], BloquearN[3], Atacar[4]
+Adaptación del individuo
+3.17308
+
