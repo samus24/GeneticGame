@@ -4,6 +4,8 @@
 #include <SFML\Graphics.hpp>
 #include "Button.hpp"
 
+class Ventana;
+
 class TabPane : public sf::Rect<float>, public sf::Drawable, public sf::Transformable{
 public:
 	TabPane(sf::Vector2f pos, sf::Vector2f size) :

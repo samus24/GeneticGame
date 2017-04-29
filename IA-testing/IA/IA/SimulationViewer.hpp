@@ -7,10 +7,89 @@
 #include "Button.hpp"
 #include "ICromosomaObserver.hpp"
 
+class Leyenda : public sf::Drawable, public sf::Transformable{
+public:
+	Leyenda(sf::Vector2f pos){
+		_font.loadFromFile("arial.ttf");
+		_pos = pos;
+		int realTileSize = 20;
+		int space = 5;
+		std::vector<sf::Color> colores = {
+			sf::Color(127, 127, 127),	// Vacio
+			sf::Color::Cyan,			// Muro
+			sf::Color::Yellow,			// Cofre
+			sf::Color::Red,				// Enemigo (IA)
+			sf::Color::Green,			// Jugador
+			sf::Color(0, 0, 255, 127),	// Explorado
+			sf::Color(255, 0, 0, 127),	// Andado (en patrulla)
+			sf::Color(255, 0, 255, 127) // Explorado y andado
+		};
+		std::vector<std::string> cadenas = {
+			"Vacio",
+			"Muro",
+			"Cofre",
+			"Enemigo (IA)",
+			"Jugador",
+			"Explorado",
+			"Andado (patrulla)",
+			"Expl. y andado"
+		};
+		m_vertices.setPrimitiveType(sf::Quads);
+		m_vertices.resize(8 * 4);
+		
+		for (size_t i = 0; i < 8; ++i){
+			sf::Text texto;
+			sf::Vertex* quad = &m_vertices[i * 4];
+
+			quad[0].position = sf::Vector2f(pos.x, pos.y + (i*(realTileSize + space)));
+			quad[1].position = sf::Vector2f(pos.x + realTileSize, pos.y + (i*(realTileSize + space)));
+			quad[2].position = sf::Vector2f(pos.x + realTileSize, pos.y + (i*(realTileSize + space) + realTileSize));
+			quad[3].position = sf::Vector2f(pos.x, pos.y + (i*(realTileSize + space) + realTileSize));
+
+			// define its 4 texture coordinates
+			quad[0].color = colores[i];
+			quad[1].color = colores[i];
+			quad[2].color = colores[i];
+			quad[3].color = colores[i];
+
+			texto.setFont(_font);
+			texto.setString(cadenas[i]);
+			texto.setPosition(pos.x, pos.y + (i*(realTileSize + space)));
+			texto.setFillColor(sf::Color::Black);
+			texto.setCharacterSize(13);
+			float hueco = texto.getLocalBounds().width + space;
+			texto.move(-hueco, 0);
+			_textos.push_back(texto);
+		}
+	}
+
+	sf::VertexArray m_vertices;
+	sf::Font _font;
+	std::vector<sf::Text> _textos;
+	sf::Vector2f _pos;
+private:
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
+	{
+		states.transform *= getTransform();
+		sf::RectangleShape r;
+		r.setPosition(_pos);
+		sf::Vector2f size;
+		size.x = 20;
+		size.y = 25*8;
+		r.setSize(size);
+		r.setFillColor(sf::Color::White);
+		target.draw(r, states);
+		target.draw(m_vertices, states);
+		for (auto it = _textos.begin(); it != _textos.end(); ++it)
+			target.draw(*it, states);
+	}
+};
+
 class SimulationViewer : public sf::Rect<float>, public sf::Drawable, public sf::Transformable, public ICromosomaObserver{
 public:
 	SimulationViewer(sf::Vector2f pos, sf::Vector2f size) :
-		sf::Rect<float>(pos, size)
+		sf::Rect<float>(pos, size),
+		_leyenda(sf::Vector2f(pos.x + size.x + 10, pos.y + (0.6 * size.y)))
 	{
 		_size = size;
 		_font.loadFromFile("arial.ttf");
@@ -52,8 +131,17 @@ private:
 		r.setFillColor(sf::Color::White);
 		target.draw(r, states);
 
+		sf::RectangleShape r2;
+		r2.setPosition(sf::Vector2f(0, _size.y - 110));
+		size.x = _size.x*2;
+		size.y = 110;
+		r2.setSize(size);
+		r2.setFillColor(sf::Color::White);
+		target.draw(r2, states);
+
 		// draw the vertex array
 		target.draw(m_vertices, states);
+		target.draw(_leyenda, states);
 
 		target.draw(_playerFacing, states);
 		target.draw(_enemyFacing, states);
@@ -63,10 +151,11 @@ private:
 
 	void onTurno(Arbol arbPatrulla, Arbol arbAtaque, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
 		unsigned int realTileSize = std::min(_size.x, _size.y) / 40;
-		m_vertices.clear();
-		m_vertices.setPrimitiveType(sf::Quads);
-		m_vertices.resize(m.getWidth()*m.getHeight() * 4);
-
+		if ((m.getWidth()*m.getHeight() * 4) != m_vertices.getVertexCount()){
+			m_vertices.clear();
+			m_vertices.setPrimitiveType(sf::Quads);
+			m_vertices.resize(m.getWidth()*m.getHeight() * 4);
+		}
 		for (unsigned int i = 0; i < m.getWidth(); ++i)
 			for (unsigned int j = 0; j < m.getHeight(); ++j)
 			{
@@ -205,6 +294,7 @@ private:
 	sf::VertexArray _playerFacing;
 	sf::VertexArray _enemyFacing;
 	sf::Text _simulationInfo;
+	Leyenda _leyenda;
 
 	bool _selected;
 

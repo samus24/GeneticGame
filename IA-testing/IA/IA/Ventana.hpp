@@ -22,7 +22,8 @@ public:
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, 25)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.19, 400)),
-		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200)),
+		_botonRun(sf::Vector2f(_window.getSize().x * 0.8, 10), sf::Vector2f(100, 50), "RUN", sf::Color(100, 200, 200)),
+		_botonSim(sf::Vector2f(_window.getSize().x * 0.8 + 110, 10), sf::Vector2f(100, 50), "VER SIM", sf::Color(120, 10, 10)),
 		_progress(sf::Vector2f(_window.getSize().x *0.8, 550), sf::Vector2f(_window.getSize().x * 0.1, 30)),
 		_simViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y))
 	{
@@ -35,6 +36,12 @@ public:
 		_tabPane.addTab("Plotter", _plotter);
 		_tabPane.addTab("SimViewer", _simViewer);
 		finalizada = false;
+
+		_labelAux.setFont(_font);
+		_labelAux.setFillColor(sf::Color::Black);
+		_labelAux.setPosition(sf::Vector2f(200, 5));
+		_labelAux.setString("<-- Seleccionar la pestaña SimView para ver las evaluaciones (con boton VER SIM activado)");
+		_labelAux.setCharacterSize(14);
 	}
 
 	void run(unsigned int maxIter){
@@ -64,7 +71,6 @@ public:
 						_valorMejor.clear();
 						_valorMejorGen.clear();
 
-						finalizada = false;
 						_generacion = 0;
 						_logger.clearLog();
 						_logger.append("Ejecutando\n");
@@ -74,6 +80,15 @@ public:
 						_window.display();
 						_ctrl->run();
 					}
+					else if (_botonSim.contains(point)){
+						finalizada = !finalizada;
+						if (finalizada){
+							_botonSim.setColor(sf::Color(10, 120, 10));
+						}
+						else{
+							_botonSim.setColor(sf::Color(120, 10, 10));
+						}						
+					}
 					else if (_tabPane.contains(point)){
 						_tabPane.handleClick(point);
 					}
@@ -82,7 +97,7 @@ public:
 					}
 				}
 				else if (event.type == sf::Event::MouseButtonReleased){
-
+					
 				}
 				else if (event.type == sf::Event::KeyPressed){
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)){
@@ -95,7 +110,6 @@ public:
 						_valorMedia.clear();
 						_valorMejor.clear();
 						_valorMejorGen.clear();
-						finalizada = false;
 						_generacion = 0;
 						_logger.clearLog();
 						_logger.append("Ejecutando AG\n");
@@ -108,10 +122,12 @@ public:
 				}
 			}
 			_window.clear(sf::Color::White);
-			_window.draw(_tabPane);
 			_window.draw(_logger);
 			_window.draw(_botonRun);
+			_window.draw(_botonSim);
 			_window.draw(_progress);
+			_window.draw(_labelAux);
+			_window.draw(_tabPane);
 			_window.display();
 		}
 	}
@@ -162,11 +178,13 @@ public:
 	}
 
 	void onTurno(Arbol arbPatrulla, Arbol arbAtaque, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
-		//finalizada = true; // Descomentar esto si se quiere ver simul. por cada individuo
 		if (finalizada){
 			_window.draw(_tabPane);
 			_window.display();
 		}
+	}
+
+	void onSimulacionTerminada(double fitness){
 	}
 
 	void writeToLog(const std::string &text) {
@@ -179,9 +197,6 @@ public:
 		log_file << text << std::endl;
 	}
 
-	void onSimulacionTerminada(double fitness){
-		
-	}
 private:
 
 	sf::RenderWindow _window;
@@ -191,6 +206,7 @@ private:
 	Plotter _plotter;
 	Logger _logger;
 	TextButton _botonRun;
+	TextButton _botonSim;
 	SimulationViewer _simViewer;
 	Cromosoma _mejor;
 	Controlador* _ctrl;
@@ -199,6 +215,8 @@ private:
 	std::vector<double> _valorMejor;
 	std::vector<double> _valorMejorGen;
 	std::vector<double> _valorMedia;
+
+	sf::Text _labelAux;
 
 	bool finalizada;
 };
