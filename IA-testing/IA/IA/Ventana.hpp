@@ -151,6 +151,7 @@ public:
 		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media Poblacion");
 		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
 		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");
+		/*
 		for (std::size_t i = 0; i < pob._tam; ++i) {
 			writeToLog("Nuevo individuo: " );
 			writeToLog("Árbol de patrulla");
@@ -161,30 +162,32 @@ public:
 			writeToLog(pob.individuos->getAdaptacion());
 			writeToLog("");
 		}
-		
+		*/
 		std::string valoresText[] = {
 			"Exploradas: ",
-			"Golpes Evitados: ",
-			"Heridas Recibidas: ",
-			"Daño: "
+			"Andadas: ",
+			"Golpes intentados: ",
+			"Golpes evitados: ",
+			"Daño al jugador: "
 		};
 		_logger.append("-- Nota mejor --\n");
-		double* valores = mejor.getValores();
-		double* pesos = mejor.getPesos();
+		const double* valores = mejor.getMediaValores();
+		const double* pesos = mejor.getPesos();
 		for (size_t i = 0; i < 4; ++i){
 			_logger.append(valoresText[i] + std::to_string(valores[i]) + "/" + std::to_string(valores[i]*pesos[i]) + "\n");
 		}
+		
 		finalizada = true;
 	}
 
-	void onTurno(Arbol arbPatrulla, Arbol arbAtaque, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
+	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
 		if (finalizada){
 			_window.draw(_tabPane);
 			_window.display();
 		}
 	}
 
-	void onSimulacionTerminada(double fitness){
+	void onSimulacionTerminada(const Cromosoma* c){
 	}
 
 	void writeToLog(const std::string &text) {

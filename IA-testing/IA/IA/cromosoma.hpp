@@ -108,7 +108,10 @@ public:
 		double pesos[5] = { 0.3, 0.2, 0.15, 0.05, 0.30 };
 		for (size_t i = 0; i < 4; ++i){
 			_pesos[i] = pesos[i];
+			_mediaValores[i] = 0;
 		}
+
+		_descartado = false;
 	}
 
 	Cromosoma(int profMin, int profMax) {
@@ -117,7 +120,10 @@ public:
 		double pesos[5] = { 0.3, 0.2, 0.15, 0.05, 0.30 };
 		for (size_t i = 0; i < 5; ++i){
 			_pesos[i] = pesos[i];
+			_mediaValores[i] = 0;
 		}
+
+		_descartado = false;
 	}
 
 	void crear(int profMin, int profMax){
@@ -126,10 +132,13 @@ public:
 		double pesos[5] = { 0.3, 0.2, 0.15, 0.05, 0.30 };
 		for (size_t i = 0; i < 5; ++i){
 			_pesos[i] = pesos[i];
+			_mediaValores[i] = 0;
 		}
+
+		_descartado = false;
 	}
 
-	Arbol getGenotipo(int pos) {
+	Arbol getGenotipo(int pos) const{
 		return _genotipo[pos];
 	}
 
@@ -137,7 +146,7 @@ public:
 		this->_genotipo[pos] = genotipo;
 	}
 
-	double getPunt() {
+	double getPunt() const{
 		return _punt;
 	}
 
@@ -145,7 +154,7 @@ public:
 		this->_punt = punt;
 	}
 
-	double getPuntAcum() {
+	double getPuntAcum() const{
 		return this->_puntAcum;
 	}
 
@@ -153,7 +162,7 @@ public:
 		this->_puntAcum = p;
 	}
 
-	double getAdaptacion() {
+	double getAdaptacion() const{
 		return this->_adaptacion;
 	}
 
@@ -181,20 +190,28 @@ public:
 		int x, y;
 		double actual = 1;
 		double media = 0;
-		maps[0].toString();
+		_descartado = false;
 		for (std::size_t i = 0; i < maps.size() && actual != 0; ++i) {
 			x = maps[i].getX();
 			y = maps[i].getY();
 			actual = evaluaMapa(maps[i], x, y, pintar);
 			media += actual;
 		}
+		_mediaValores[0] /= maps.size();
+		_mediaValores[1] /= maps.size();
+		_mediaValores[2] /= maps.size();
+		_mediaValores[3] /= maps.size();
+		_mediaValores[4] /= maps.size();
+
 		if (actual != 0){
 			this->_adaptacion = media / maps.size();
+			_descartado = false;
 		}
 		else{
 			this->_adaptacion = 0;
+			_descartado = true;
 		}
-		notifySimulacionTerminada(_adaptacion);
+		notifySimulacionTerminada();
 		return _adaptacion;
 	}
 
@@ -206,12 +223,16 @@ public:
 		return cambios;
 	}
 
-	double* getValores(){
-		return _valores;
+	const double* getMediaValores() const{
+		return _mediaValores;
 	}
 
-	double* getPesos(){
+	const double* getPesos() const{
 		return _pesos;
+	}
+
+	bool getDescartado() const{
+		return _descartado;
 	}
 
 	void addObserver(ICromosomaObserver& obs){
@@ -354,7 +375,7 @@ private:
 			}
 			if(turnosIni != enemigo.turnos) mueveJugador(jugador, enemigo, m);
 			if (dibujar) imprimeEstado(this->_genotipo[0], m, explorado, enemigo, jugador, ataque);
-			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado, andado);
+			notifyTurno(jugador, enemigo, m, explorado, andado);
 		}
 
 		enemigo.turnosPatrulla = enemigo.turnos;
@@ -498,7 +519,7 @@ private:
 			}
 			if (turnosIni != enemigo.turnos) mueveJugador(jugador, enemigo, m);
 			if (dibujar) imprimeEstado(this->_genotipo[1], m, explorado, enemigo, jugador, ataque);
-			notifyTurno(this->_genotipo[0], this->_genotipo[1], jugador, enemigo, m, explorado, andado);
+			notifyTurno(jugador, enemigo, m, explorado, andado);
 		}
 		double evaluacion = 0;
 		int cAndadas = casillasAndadas(andado);
@@ -517,6 +538,12 @@ private:
 		_valores[2] = enemigo.golpes / optimos[2];
 		_valores[3] = enemigo.golpesEvitados / optimos[3];
 		_valores[4] = jugador.heridas / optimos[4];
+
+		_mediaValores[0] += _valores[0];
+		_mediaValores[1] += _valores[1];
+		_mediaValores[2] += _valores[2];
+		_mediaValores[3] += _valores[3];
+		_mediaValores[4] += _valores[4];
 
 		for (std::size_t i = 0; i < 5; ++i){
 			evaluacion += _valores[i] * _pesos[i];
@@ -651,15 +678,15 @@ private:
 		return;
 	}
 
-	void notifyTurno(Arbol patrulla, Arbol ataque, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado) const{
+	void notifyTurno(npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado) const{
 		for (ICromosomaObserver* i : _obs){
-			i->onTurno(patrulla, ataque, jugador, enemigo, m, explorado, andado);
+			i->onTurno(this, jugador, enemigo, m, explorado, andado);
 		}
 	}
 
-	void notifySimulacionTerminada(double fitness) const{
+	void notifySimulacionTerminada() const{
 		for (ICromosomaObserver* i : _obs){
-			i->onSimulacionTerminada(fitness);
+			i->onSimulacionTerminada(this);
 		}
 	}
 
@@ -668,7 +695,10 @@ private:
 	double _puntAcum;
 	double _adaptacion;
 	double _valores[5];
+	double _mediaValores[5];
 	double _pesos[5]; //casillas exploradas, casillas andadas, golpes evitados, heridasBloqueadas, daño
+
+	bool _descartado;
 
 	std::vector<ICromosomaObserver*> _obs;
 };

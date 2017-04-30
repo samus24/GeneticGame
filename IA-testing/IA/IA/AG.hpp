@@ -22,7 +22,6 @@ public:
 		_crono.creaMedida("evalua");
 
 		_crono.creaMedida("init");
-		_crono.creaMedida("eval");
 	}
 
 	Cromosoma ejecuta(){
@@ -51,9 +50,7 @@ public:
 		_pob.evalua(maps);
 		_crono.finalizaMedida("evalua", std::chrono::high_resolution_clock::now());
 
-		_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
 		mediaAnterior = evaluarPoblacion();
-		_crono.finalizaMedida("eval", std::chrono::high_resolution_clock::now());
 
 		std::cout << _pob._tam << " individuos evaluados en " << (_crono.getMediaAsMilli("evalua") / 1000.f) << "seg, comienza el AG" << std::endl;
 
@@ -108,9 +105,7 @@ public:
 				}*/
 			}
 
-			_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
 			mediaActual = evaluarPoblacion();
-			_crono.finalizaMedida("eval", std::chrono::high_resolution_clock::now());
 
 			if (_param.contractividad){
 				if (mediaAnterior < mediaActual){
@@ -132,7 +127,7 @@ public:
 		}
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
 		//_elMejor.evalua(maps);
-		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("eval"), _pob);
+		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("evalua"), _pob);
 		return _elMejor;
 	}
 

@@ -80,6 +80,7 @@
     <ClInclude Include="Cromosoma.hpp" />
     <ClInclude Include="Cronometro.hpp" />
     <ClInclude Include="FactoriaCromosoma.hpp" />
+    <ClInclude Include="FileLogger.hpp" />
     <ClInclude Include="iagobserver.hpp" />
     <ClInclude Include="ICromosomaObserver.hpp" />
     <ClInclude Include="Logger.hpp" />

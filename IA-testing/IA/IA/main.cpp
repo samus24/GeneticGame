@@ -6,6 +6,7 @@
 #include "MetodoMutacion.hpp"
 #include "metodoCruce.hpp"
 #include "Ventana.hpp"
+#include "FileLogger.hpp"
 
 int main() {
 
@@ -24,6 +25,7 @@ int main() {
 	p.mutacion = new mutacionFuncion();
 	AG ag(p);
 	Controlador c(ag);
+	FileLogger fl(c);
 	VistaTerminal term(c);
 	Ventana v(c);
 

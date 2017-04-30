@@ -33,13 +33,13 @@ public:
 		std::cout << "casillasExploradas, golpes, heridasBloqueadas, daño";
 		std::cout << "Valores mejor: ";
 		for (size_t i = 0; i < 4; ++i){
-			std::cout << mejor.getValores()[i];
+			std::cout << mejor.getMediaValores()[i];
 			if (i != 3) std::cout << ", ";
 		}
 		std::cout << std::endl;
 		std::cout << "Ponderacion mejor: ";
 		for (size_t i = 0; i < 4; ++i){
-			std::cout << mejor.getValores()[i] * mejor.getPesos()[i] << "(x" << mejor.getPesos()[i] << ")";
+			std::cout << mejor.getMediaValores()[i] * mejor.getPesos()[i] << "(x" << mejor.getPesos()[i] << ")";
 			if (i != 3) std::cout << ", ";
 		}
 		std::cout << std::endl;

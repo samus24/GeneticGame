@@ -162,8 +162,10 @@ private:
 		target.draw(_visorAtaque);
 	}
 
-	void onTurno(Arbol arbPatrulla, Arbol arbAtaque, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
+	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
 		unsigned int realTileSize = std::min(_size.x, _size.y) / 40;
+		Arbol arbPatrulla = c->getGenotipo(0);
+		Arbol arbAtaque = c->getGenotipo(1);
 		_visorPatrulla.update(arbPatrulla, TipoArbol::Patrulla);
 		_visorAtaque.update(arbAtaque, TipoArbol::Ataque);
 		if ((m.getWidth()*m.getHeight() * 4) != m_vertices.getVertexCount()){
@@ -295,8 +297,8 @@ private:
 		_simulationInfo.setString(info);
 	}
 
-	void onSimulacionTerminada(double fitness){
-		std::string s = "Fitness del ultimo individuo: " + std::to_string(fitness);
+	void onSimulacionTerminada(const Cromosoma* c){
+		std::string s = "Fitness del ultimo individuo: " + std::to_string(c->getAdaptacion());
 		_lastFitness.setString(s);
 	}
 
