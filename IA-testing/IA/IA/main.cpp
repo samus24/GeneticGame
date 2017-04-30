@@ -11,8 +11,8 @@
 int main() {
 
 	Parametros p;
-	p.tamPob = 30;
-	p.iteraciones = 50;// 30;
+	p.tamPob = 200;
+	p.iteraciones = 30;// 30;
 	p.minNodos = 1;
 	p.maxNodos = 3;// 7; Cambio para debug
 	p.elitismo = false;
@@ -22,7 +22,7 @@ int main() {
 	p.probMutacion = 0.2;
 	p.seleccion = new seleccionTorneo();
 	p.cruce = new cruceSimple();
-	p.mutacion = new mutacionFuncion();
+	p.mutacion = new mutacionTerminal();
 	AG ag(p);
 	Controlador c(ag);
 	FileLogger fl(c);

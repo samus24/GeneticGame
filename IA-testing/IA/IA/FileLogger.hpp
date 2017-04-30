@@ -27,6 +27,8 @@ public:
 	void onGeneracionTerminada(double mejor, double mejorGen, double media){
 		_regAG << "Gen " + std::to_string(generacion) + ":" << std::endl;
 		_regAG << "Fitness mejor: " + std::to_string(mejor) + "; Fitness medio: " + std::to_string(media) << std::endl;
+
+		_regPob << std::endl << "Nueva Generacion " << generacion << std::endl;
 		generacion++;
 	}
 
