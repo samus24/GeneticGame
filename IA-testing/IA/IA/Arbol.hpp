@@ -218,10 +218,19 @@ public:
 	}
 
 	Nodo getTerminalAleatorio() {
+		if (_raiz.getNumNodos() <= 1) {
+			return _raiz;
+		}
+		/*
+		Nodo n;
+		do {
+			int r = myRandom::getRandom(0, _raiz.getNumNodos() - 1);
+			n = buscaNodo(r);
+		} while (!n.esTerminal());*/
 		Nodo actual = _raiz;
 		int numHijos = _raiz.getNhijos();
 		while (!actual.esTerminal()) {
-			int h = myRandom::getRandom(0, actual.getNhijos());
+			int h = myRandom::getRandom(0, actual.getNhijos()-1);
 			actual = actual.getHijos()[h];
 			numHijos = actual.getNhijos();
 		}

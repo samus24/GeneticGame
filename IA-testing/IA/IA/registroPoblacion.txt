@@ -1637,3 +1637,16 @@ Punt. golpes intentados: 0.000000(0.000000 sobre el total)
 Punt. golpes evitados: 0.000000(0.000000 sobre el total)
 Punt. daño al jugador: 0.000000(0.000000 sobre el total)
 
+
+
+NUEVA EJECUCION
+Fitness Individuo: 0.004818
+Arbol patrulla: SiDetectado[0], GiraDer[1], CambiarEst[2]
+Arbol ataque: SiBloqueado[0], Avanza[1], Retroceder[2]
+Notas
+Punt. exploracion: 0.016059(0.004818 sobre el total)
+Punt. andar: 0.000000(0.000000 sobre el total)
+Punt. golpes intentados: 0.000000(0.000000 sobre el total)
+Punt. golpes evitados: 0.000000(0.000000 sobre el total)
+Punt. daño al jugador: 0.000000(0.000000 sobre el total)
+
