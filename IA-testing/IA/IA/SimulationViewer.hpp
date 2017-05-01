@@ -114,11 +114,21 @@ public:
 		_playerFacing[1].color = sf::Color(0, 200, 0);
 		_playerFacing[2].color = sf::Color(0, 200, 0);
 
+		_playerHealth.setFont(_font);
+		_playerHealth.setCharacterSize(13);
+		_playerHealth.setFillColor(sf::Color::Green);
+		_playerHealth.setStyle(sf::Text::Bold);
+
 		_enemyFacing.setPrimitiveType(sf::Triangles);
 		_enemyFacing.resize(3);
 		_enemyFacing[0].color = sf::Color(200, 0, 0);
 		_enemyFacing[1].color = sf::Color(200, 0, 0);
 		_enemyFacing[2].color = sf::Color(200, 0, 0);
+
+		_enemyHealth.setFont(_font);
+		_enemyHealth.setCharacterSize(13);
+		_enemyHealth.setFillColor(sf::Color::Green);
+		_enemyHealth.setStyle(sf::Text::Bold);
 
 		_selected = false;
 	}
@@ -154,6 +164,9 @@ private:
 
 		target.draw(_playerFacing, states);
 		target.draw(_enemyFacing, states);
+
+		target.draw(_playerHealth, states);
+		target.draw(_enemyHealth, states);
 		
 		target.draw(_simulationInfo);
 		target.draw(_lastFitness);
@@ -168,6 +181,8 @@ private:
 		Arbol arbAtaque = c->getGenotipo(1);
 		_visorPatrulla.update(arbPatrulla, TipoArbol::Patrulla);
 		_visorAtaque.update(arbAtaque, TipoArbol::Ataque);
+		_playerHealth.setString(std::to_string(3 - jugador.heridas));
+		_enemyHealth.setString(std::to_string(3 - enemigo.heridas));
 		if ((m.getWidth()*m.getHeight() * 4) != m_vertices.getVertexCount()){
 			m_vertices.clear();
 			m_vertices.setPrimitiveType(sf::Quads);
@@ -216,6 +231,7 @@ private:
 						_enemyFacing[2].position = sf::Vector2f((i + 1) * realTileSize, (j + 1) * realTileSize);
 						break;
 					}
+					_enemyHealth.setPosition(sf::Vector2f((i+0.4)*realTileSize, (j-1)*realTileSize));
 				}
 				else if (jugador.estaEn(i, j)){
 					c = sf::Color::Green;
@@ -241,6 +257,7 @@ private:
 						_playerFacing[2].position = sf::Vector2f((i + 1) * realTileSize, (j + 1) * realTileSize);
 						break;
 					}
+					_playerHealth.setPosition(sf::Vector2f((i+0.4)*realTileSize, (j - 1)*realTileSize));
 				}
 				else if ((explorado.getCasilla(i, j) > 0) && (andado.getCasilla(i, j) > 0)){
 					c = sf::Color::Magenta;
@@ -278,6 +295,8 @@ private:
 			_playerFacing[i].position += sf::Vector2f(10, 30);
 			_enemyFacing[i].position += sf::Vector2f(10, 30);
 		}
+		_playerHealth.move(10, 30);
+		_enemyHealth.move(10, 30);
 		
 		std::string info = "Estado: ";
 		if (enemigo.turnosPatrulla > 0){
@@ -310,7 +329,9 @@ private:
 	sf::Font _font;
 	sf::VertexArray m_vertices;
 	sf::VertexArray _playerFacing;
+	sf::Text _playerHealth;
 	sf::VertexArray _enemyFacing;
+	sf::Text _enemyHealth;
 	sf::Text _simulationInfo;
 	sf::Text _lastFitness;
 	Leyenda _leyenda;
