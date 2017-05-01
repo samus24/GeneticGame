@@ -221,7 +221,7 @@ public:
 		Nodo actual = _raiz;
 		int numHijos = _raiz.getNhijos();
 		while (!actual.esTerminal()) {
-			int h = 0 + (rand() % (int)(numHijos - 0 + 1));
+			int h = myRandom::getRandom(0, actual.getNhijos());
 			actual = actual.getHijos()[h];
 			numHijos = actual.getNhijos();
 		}
