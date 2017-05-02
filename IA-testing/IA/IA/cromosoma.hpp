@@ -144,6 +144,7 @@ public:
 
 	void setGenotipo(Arbol genotipo, int pos) {
 		this->_genotipo[pos] = genotipo;
+		this->_genotipo[pos].actualizaNumNodos();
 	}
 
 	double getPunt() const{
@@ -187,6 +188,8 @@ public:
 	}
 
 	double evalua(std::vector<Mapa> maps, bool pintar = false) {
+		this->_adaptacion = (_genotipo[0].getNumNodos() + _genotipo[1].getNumNodos());
+		return this->_adaptacion;
 		int x, y;
 		double actual = 1;
 		double media = 0;

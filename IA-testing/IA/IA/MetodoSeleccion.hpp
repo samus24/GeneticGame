@@ -7,33 +7,33 @@
 
 class metodoSeleccion {
 public:
-	virtual void seleccionar(poblacion pob, bool maximizar) = 0;
+	virtual void seleccionar(poblacion* pob, bool maximizar) = 0;
 	virtual std::string toString() = 0;
 };
 
 class seleccionEstocastica : public metodoSeleccion {
 	
-	void seleccionar(poblacion pob, bool maximizar) {
-		std::vector<int> seleccionados(pob._tam);
+	void seleccionar(poblacion* pob, bool maximizar) {
+		std::vector<int> seleccionados(pob->_tam);
 		double prob;
 		int posSuper;
-		double segmento = 1 / pob._tam; //El segmento es 1/N
+		double segmento = 1 / pob->_tam; //El segmento es 1/N
 		prob = myRandom::getRandom(0.f, segmento);
-		for (std::size_t i = 0; i < pob._tam; ++i) {
+		for (std::size_t i = 0; i < pob->_tam; ++i) {
 			posSuper = 0;
-			while ((posSuper < pob._tam) && (prob > pob.individuos[posSuper].getPuntAcum())) {
+			while ((posSuper < pob->_tam) && (prob > pob->individuos[posSuper].getPuntAcum())) {
 				posSuper++;
 			}
 			seleccionados[i] = posSuper;
 			prob += segmento;
 		}
 
-		Cromosoma* nuevaPob = new Cromosoma[pob._tam];
-		for (std::size_t i = 0; i < pob._tam; ++i) {
-			nuevaPob[i] = pob.individuos[seleccionados[i]];
+		Cromosoma* nuevaPob = new Cromosoma[pob->_tam];
+		for (std::size_t i = 0; i < pob->_tam; ++i) {
+			nuevaPob[i] = pob->individuos[seleccionados[i]];
 		}
 
-		pob.individuos = nuevaPob;
+		pob->individuos = nuevaPob;
 	}
 
 	std::string toString() {
@@ -43,24 +43,24 @@ class seleccionEstocastica : public metodoSeleccion {
 };
 
 class seleccionRuleta : public metodoSeleccion {
-	void seleccionar(poblacion pob, bool maximizar) {
-		std::vector<int> seleccionados(pob._tam);
+	void seleccionar(poblacion* pob, bool maximizar) {
+		std::vector<int> seleccionados(pob->_tam);
 		double prob;
 		int posSuper;
-		for (std::size_t i = 0; i < pob._tam; ++i) {
+		for (std::size_t i = 0; i < pob->_tam; ++i) {
 			prob = myRandom::getRandom(0.f, 1.f); //un double entre 0.0 y 1.0
 			posSuper = 0;
-			while ((posSuper < pob._tam) && (prob > pob.individuos[posSuper].getPuntAcum()))
+			while ((posSuper < pob->_tam) && (prob > pob->individuos[posSuper].getPuntAcum()))
 				posSuper++;
 			seleccionados[i] = posSuper;
 		}
-		//std::vector<Cromosoma> nuevaPob(pob._tam);
-		Cromosoma* nuevaPob = new Cromosoma[pob._tam];
-		for (std::size_t i = 0; i < pob._tam; ++i) {
-			nuevaPob[i] = pob.individuos[seleccionados[i]];
+		//std::vector<Cromosoma> nuevaPob(pob->_tam);
+		Cromosoma* nuevaPob = new Cromosoma[pob->_tam];
+		for (std::size_t i = 0; i < pob->_tam; ++i) {
+			nuevaPob[i] = pob->individuos[seleccionados[i]];
 		}
 
-		pob.individuos = nuevaPob;
+		pob->individuos = nuevaPob;
 	}
 
 	std::string toString() {
@@ -70,22 +70,22 @@ class seleccionRuleta : public metodoSeleccion {
 
 class seleccionTorneo : public metodoSeleccion {
 
-	void seleccionar(poblacion pob, bool maximizar) {
-		std::vector<int> seleccionados(pob._tam);
+	void seleccionar(poblacion* pob, bool maximizar) {
+		std::vector<int> seleccionados(pob->_tam);
 		int posMejor, indexA, indexB, indexC;
 
-		for (std::size_t i = 0; i < pob._tam; ++i) {
-			indexA = (int)(myRandom::getRandom(0.f, 1.f) * pob._tam);
+		for (std::size_t i = 0; i < pob->_tam; ++i) {
+			indexA = (int)(myRandom::getRandom(0.f, 1.f) * pob->_tam);
 			do {
-				indexB = (int)(myRandom::getRandom(0.f, 1.f) * pob._tam);
+				indexB = (int)(myRandom::getRandom(0.f, 1.f) * pob->_tam);
 			} while (indexB == indexA);
 			do {
-				indexC = (int)(myRandom::getRandom(0.f, 1.f) * pob._tam);
+				indexC = (int)(myRandom::getRandom(0.f, 1.f) * pob->_tam);
 			} while (indexB == indexC || indexA == indexC);
 
 			if (maximizar) {
-				if (pob.individuos[indexA].getAdaptacion() > pob.individuos[indexB].getAdaptacion()) {
-					if (pob.individuos[indexA].getAdaptacion() > pob.individuos[indexC].getAdaptacion()) {
+				if (pob->individuos[indexA].getAdaptacion() > pob->individuos[indexB].getAdaptacion()) {
+					if (pob->individuos[indexA].getAdaptacion() > pob->individuos[indexC].getAdaptacion()) {
 						posMejor = indexA;
 					}
 					else {
@@ -93,7 +93,7 @@ class seleccionTorneo : public metodoSeleccion {
 					}
 				}
 				else {
-					if (pob.individuos[indexC].getAdaptacion() > pob.individuos[indexB].getAdaptacion()) {
+					if (pob->individuos[indexC].getAdaptacion() > pob->individuos[indexB].getAdaptacion()) {
 						posMejor = indexC;
 					}
 					else {
@@ -102,8 +102,8 @@ class seleccionTorneo : public metodoSeleccion {
 				}
 			}
 			else {
-				if (pob.individuos[indexA].getAdaptacion() < pob.individuos[indexB].getAdaptacion()){
-					if (pob.individuos[indexA].getAdaptacion() < pob.individuos[indexC].getAdaptacion()){
+				if (pob->individuos[indexA].getAdaptacion() < pob->individuos[indexB].getAdaptacion()){
+					if (pob->individuos[indexA].getAdaptacion() < pob->individuos[indexC].getAdaptacion()){
 						posMejor = indexA;
 					}
 					else{
@@ -111,7 +111,7 @@ class seleccionTorneo : public metodoSeleccion {
 					}
 				}
 				else{
-					if (pob.individuos[indexC].getAdaptacion() < pob.individuos[indexB].getAdaptacion()){
+					if (pob->individuos[indexC].getAdaptacion() < pob->individuos[indexB].getAdaptacion()){
 						posMejor = indexC;
 					}
 					else{
@@ -121,13 +121,13 @@ class seleccionTorneo : public metodoSeleccion {
 			}
 			seleccionados[i] = posMejor;
 		}
-		//std::vector<Cromosoma> nuevaPob(pob._tam);
-		Cromosoma* nuevaPob = new Cromosoma[pob._tam];
-		for (std::size_t i = 0; i < pob._tam; ++i) {
-			nuevaPob[i] = pob.individuos[seleccionados[i]];
+		//std::vector<Cromosoma> nuevaPob(pob->_tam);
+		Cromosoma* nuevaPob = new Cromosoma[pob->_tam];
+		for (std::size_t i = 0; i < pob->_tam; ++i) {
+			nuevaPob[i] = pob->individuos[seleccionados[i]];	// Aqui hay que hacer un getCopia
 		}
 
-		pob.individuos = nuevaPob;
+		pob->individuos = nuevaPob;
 	}
 
 	std::string toString() {

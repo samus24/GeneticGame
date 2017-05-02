@@ -25,6 +25,7 @@ public:
 				std::string error = "Fallo al insertar el nodo " + opToString(elem) + "e n el padre " + opToString(buscado.getElem()) + " en pos " + std::to_string(pos);
 				throw std::runtime_error(error);
 			}
+			actualizaNumNodos();
 		}
 	}
 
@@ -34,6 +35,7 @@ public:
 				std::string error = "Fallo al insertar el nodo " + opToString(elem) + " en el padre " + opToString(padre->getElem()) + " en pos " + std::to_string(pos);
 				throw std::runtime_error(error);
 			}
+			actualizaNumNodos();
 		}
 	}
 
@@ -43,8 +45,7 @@ public:
 				std::string error = "Fallo al insertar el nodo " + opToString(hijo.getElem()) + " en el padre " + opToString(padre->getElem()) + " en pos " + std::to_string(pos);
 				throw std::runtime_error(error);
 			}
-
-				
+			actualizaNumNodos();
 		}
 	}
 
@@ -56,8 +57,8 @@ public:
 	Nodo buscaNodo(Nodo* origen, int numeroBuscado) {
 		std::queue<Nodo> q;
 		std::queue<Nodo> qC;
-		q.push(_raiz);
-		qC.push(_raiz);
+		q.push(*origen);
+		qC.push(*origen);
 		while (!q.empty()) {
 			Nodo head = q.front();
 			q.pop();
@@ -73,6 +74,7 @@ public:
 	}
 
 	int getNumNodos() {
+		actualizaNumNodos();
 		return _raiz.getNumNodos();
 	}
 
@@ -80,6 +82,7 @@ public:
 		this->_profMin = profMin;
 		this->_profMax = profMax;
 		this->_raiz = creaArbol(nullptr, &_raiz, profMin, profMax, 0, tipo);
+		actualizaNumNodos();
 	}
 
 	Nodo creaArbol(Nodo* padre, Nodo* a, int pMin, int pMax, int pos, TipoArbol tipo) {
@@ -221,12 +224,6 @@ public:
 		if (_raiz.getNumNodos() <= 1) {
 			return _raiz;
 		}
-		/*
-		Nodo n;
-		do {
-			int r = myRandom::getRandom(0, _raiz.getNumNodos() - 1);
-			n = buscaNodo(r);
-		} while (!n.esTerminal());*/
 		Nodo actual = _raiz;
 		int numHijos = _raiz.getNhijos();
 		while (!actual.esTerminal()) {
@@ -242,6 +239,7 @@ public:
 			return _raiz;
 		}
 		Nodo n;
+		_raiz.actualizaNumNodos();
 		do {
 			int r = myRandom::getRandom(0, _raiz.getNumNodos()-1);
 			n = buscaNodo(r);
@@ -285,7 +283,6 @@ public:
 
 	bool eliminaIntrones(TipoArbol tipo) {
 		bool cambios = _raiz.eliminaIntrones(tipo);
-		if (!compruebaIntegridad()) exit(-42);
 		if (cambios) _raiz.actualizaNumNodos();
 		return cambios;
 	}
@@ -308,6 +305,8 @@ public:
 	}
 
 	bool compruebaIntegridad() const{
+		return _raiz.compruebaIntegridad();
+		/*
 		std::queue<Nodo> nodos;
 		nodos.push(_raiz);
 		while (!nodos.empty()){
@@ -319,7 +318,7 @@ public:
 			}
 			nodos.pop();
 		}
-		return true;
+		return true;*/
 	}
 
 private:

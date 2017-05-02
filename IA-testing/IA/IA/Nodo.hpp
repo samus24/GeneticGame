@@ -118,6 +118,7 @@ public:
 	bool addHijo(Nodo h, int pos) {
 		if (pos >= _nHijos) return false;
 		this->_hijos[pos] = h;
+		this->_hijos[pos].setPadre(this);
 		for (size_t i = 0; i < h.getNhijos(); ++i){
 			h.getHijos()[i].setPadre(&this->_hijos[pos]);
 		}
@@ -460,6 +461,19 @@ public:
 
 	bool operator!=(const Nodo &other) const{
 		return !operator==(other);
+	}
+
+	bool compruebaIntegridad() const{
+		for (size_t i = 0; i < _nHijos; ++i){
+			if (_hijos[i].getPadre() != this){
+				return false;
+			}
+		}
+		bool ok = true;
+		for (size_t i = 0; i < _nHijos && ok; ++i){
+			ok &= _hijos[i].compruebaIntegridad();
+		}
+		return ok;
 	}
 
 public:

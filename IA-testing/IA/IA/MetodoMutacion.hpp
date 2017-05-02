@@ -20,9 +20,6 @@ public:
 			Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos(), tipo);
 			n.getPadre()->addHijo(nuevo, n.getPos());
 			arb.actualizaNumNodos();
-			if (!arb.compruebaIntegridad()){
-				return;
-			}
 			c->setGenotipo(arb, tipo);
 		}
 	}
@@ -48,9 +45,6 @@ public:
 				} while (elem == n.getElem() || GRADOS[elem] != 2);
 				n.setElem(elem);
 				arb.actualizaNumNodos();
-				if (!arb.compruebaIntegridad()){
-					return;
-				}
 				c->setGenotipo(arb, tipo);
 			}
 		}
@@ -74,9 +68,6 @@ public:
 			} while (elem == n.getElem());
 			n.setElem(elem);
 			arb.actualizaNumNodos();
-			if (!arb.compruebaIntegridad()){
-				return;
-			}
 			c->setGenotipo(arb, tipo);
 		}
 	}

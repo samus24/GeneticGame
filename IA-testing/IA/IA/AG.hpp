@@ -195,7 +195,7 @@ private:
 	}
 
 	void seleccion(){
-		_param.seleccion->seleccionar(_pob, true);
+		_param.seleccion->seleccionar(&_pob, true);
 	}
 
 	void cruce(TipoArbol tipo){
