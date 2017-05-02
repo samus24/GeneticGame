@@ -194,8 +194,13 @@ public:
 		for (std::size_t i = 0; i < maps.size() && actual != 0; ++i) {
 			x = maps[i].getX();
 			y = maps[i].getY();
-			actual = evaluaMapa(maps[i], x, y, pintar);
-			media += actual;
+			if (i == 0){
+				actual = evaluaMapa(maps[i], x, y, pintar);
+				media += actual;
+			}
+			else{
+				media += evaluaMapa(maps[i], x, y, pintar);
+			}
 		}
 		_mediaValores[0] /= maps.size();
 		_mediaValores[1] /= maps.size();
@@ -211,6 +216,9 @@ public:
 			this->_adaptacion = 0;
 			_descartado = true;
 		}
+
+		
+
 		notifySimulacionTerminada();
 		return _adaptacion;
 	}
@@ -531,7 +539,7 @@ private:
 		_valores[3] = enemigo.golpesEvitados;
 		_valores[4] = jugador.heridas;
 		*/
-		double optimos[] = { dim, dim, 20.f, 10.f, 3.f };
+		double optimos[] = { dim/4, dim/4, 5.f, 3.f, 3.f };
 
 		_valores[0] = cExpl / optimos[0];
 		_valores[1] = cAndadas / optimos[1];
@@ -597,11 +605,11 @@ private:
 		}
 		else {
 			do{
-				op = (Operacion)myRandom::getRandom(Operacion::Avanza, Operacion::Retroceder);
-				if (op != Operacion::Atacar) {
+				op = (Operacion)myRandom::getRandom(Operacion::Avanza, Operacion::Atacar);
+				if (op != Operacion::Avanza) {
 					intentos--;
 				}
-			} while (intentos > 0 && (op == Operacion::GiraDer || op == Operacion::GiraIz || op == Operacion::BloquearN || op == Operacion::Retroceder || op == Operacion::Atacar));
+			} while (intentos > 0 && (op == Operacion::GiraDer || op == Operacion::GiraIz || op == Operacion::BloquearN || op == Operacion::Atacar));
 		}
 		switch (op) {
 		case Avanza:
