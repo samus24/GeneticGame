@@ -178,6 +178,37 @@ public:
 		}
 		
 		finalizada = true;
+
+		time_t t = time(0);   // get time now
+		struct tm now;
+		localtime_s(&now, &t);
+
+		std::string date = "[" + std::to_string(now.tm_year + 1900) + "-" + std::to_string(now.tm_mon + 1) + "-" + std::to_string(now.tm_mday) + "][" + std::to_string(now.tm_hour) + "-" + std::to_string(now.tm_min) + "-" + std::to_string(now.tm_sec) + "]";
+		std::string pathPlotter = "Resultados/" + date + "grafica.png";
+		std::string pathArbol = "Resultados/" + date + "arbol.png";
+
+		sf::RenderWindow wAux(sf::VideoMode::getFullscreenModes()[6], "IA");
+		sf::Texture tx;
+		tx.create(wAux.getSize().x, wAux.getSize().y);
+		TreeViewer visorArbolP(sf::Vector2f(20,20), sf::Vector2f(400,300));
+		TreeViewer visorArbolA(sf::Vector2f(20, 320), sf::Vector2f(400, 300));
+		visorArbolP.update(mejor.getGenotipo(0), TipoArbol::Patrulla);
+		visorArbolA.update(mejor.getGenotipo(1), TipoArbol::Ataque);
+
+		wAux.clear(sf::Color::White);
+		wAux.draw(_plotter);
+		//wAux.display();
+		tx.update(wAux);
+		sf::Image imPlotter = tx.copyToImage();
+		imPlotter.saveToFile(pathPlotter);
+
+		wAux.clear(sf::Color::White);
+		wAux.draw(visorArbolP);
+		wAux.draw(visorArbolA);
+		//wAux.display();
+		tx.update(wAux);
+		sf::Image imArbol = tx.copyToImage();
+		imArbol.saveToFile(pathArbol);
 	}
 
 	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){

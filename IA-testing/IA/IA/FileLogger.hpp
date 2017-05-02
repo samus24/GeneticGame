@@ -8,9 +8,7 @@
 
 class FileLogger : public IAGObserver, public ICromosomaObserver{
 public:
-	FileLogger(Controlador& c):
-		_regAG("registroAG.txt", std::ios_base::out | std::ios_base::app),
-		_regPob("registroPoblacion.txt", std::ios_base::out | std::ios_base::app)
+	FileLogger(Controlador& c)
 	{
 		_ctrl = &c;
 
@@ -19,6 +17,17 @@ public:
 
 		generacion = 0;
 		individuo = 0;
+
+		time_t t = time(0);   // get time now
+		struct tm now;
+		localtime_s(&now, &t);
+
+		_date = "[" + std::to_string(now.tm_year+1900) + "-" + std::to_string(now.tm_mon + 1) + "-" + std::to_string(now.tm_mday) + "][" + std::to_string(now.tm_hour) + "-" + std::to_string(now.tm_min) + "-" + std::to_string(now.tm_sec) + "]";
+		std::string pathAG = "Registros/" + _date + "registroAG.txt";
+		std::string pathPob = "Registros/" + _date + "registroPob.txt";
+
+		_regAG.open(pathAG, std::ios_base::out | std::ios_base::app);
+		_regPob.open(pathPob, std::ios_base::out | std::ios_base::app);
 
 		_regAG << "\n\nNUEVA EJECUCION" << std::endl;
 		_regPob << "\n\nNUEVA EJECUCION" << std::endl;
@@ -52,7 +61,7 @@ public:
 		_regAG << "Tiempo medio evaluacion: " + std::to_string((tmEval / 1000)) + " seg\n\n" << std::endl;
 		_regAG << "Datos de Poblacion" << std::endl;
 		for (size_t i = 0; i < pob._tam; ++i){
-			_regAG << "Individuo " + std::to_string(i) + ": " + std::to_string(pob.individuos[i].getAdaptacion()) << std::endl;
+			_regAG << "Individuo " + std::to_string(i) + ": " + std::to_string(pob.individuos[i].getAdaptacion()) << ((pob.individuos[i].getDescartado()) ? "(descartado)" : "") << std::endl;
 			_regAG << "Arbol patrulla: " + pob.individuos[i].getGenotipo(0).toString() << std::endl;
 			_regAG << "Arbol ataque: " + pob.individuos[i].getGenotipo(1).toString() + "\n" << std::endl;
 		}
@@ -74,9 +83,6 @@ public:
 		_regPob << "Punt. golpes intentados: " + std::to_string(c->getMediaValores()[2]) + "(" + std::to_string(c->getMediaValores()[2] * c->getPesos()[2]) + " sobre el total)" << std::endl;
 		_regPob << "Punt. golpes evitados: " + std::to_string(c->getMediaValores()[3]) + "(" + std::to_string(c->getMediaValores()[3] * c->getPesos()[3]) + " sobre el total)" << std::endl;
 		_regPob << "Punt. daño al jugador: " + std::to_string(c->getMediaValores()[4]) + "(" + std::to_string(c->getMediaValores()[4] * c->getPesos()[4]) + " sobre el total)\n" << std::endl;
-
-		_regPob.close();	// Forzar escritura
-		_regPob.open("registroPoblacion.txt", std::ios_base::out | std::ios_base::app);
 	}
 
 
@@ -87,5 +93,7 @@ private:
 	std::ofstream _regAG;
 	std::ofstream _regPob;
 	Controlador* _ctrl;
+
+	std::string _date;
 };
 #endif
