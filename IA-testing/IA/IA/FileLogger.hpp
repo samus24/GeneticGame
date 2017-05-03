@@ -69,6 +69,9 @@ public:
 		_regAG.close();
 		_regPob.close();
 	}
+	void onSimulacionIniciada(const Cromosoma* c){
+		
+	}
 
 	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
 	}

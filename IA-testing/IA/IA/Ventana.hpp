@@ -67,7 +67,7 @@ public:
 
 		_hiloArboles.launch();
 		_window.setVerticalSyncEnabled(true);
-		_window.setFramerateLimit(30);
+		_window.setFramerateLimit(60);
 
 		while (_window.isOpen())
 		{
@@ -212,19 +212,21 @@ public:
 		imArbol.saveToFile(pathArbol);
 	}
 
+	void onSimulacionIniciada(const Cromosoma* c){
+		sf::Lock lock(_mutex);
+		//_nuevo = true;
+		Arbol arbPatrulla = c->getGenotipo(0);
+		Arbol arbAtaque = c->getGenotipo(1);
+		_visorPatrulla.update(arbPatrulla, TipoArbol::Patrulla);
+		_visorAtaque.update(arbAtaque, TipoArbol::Ataque);
+	}
+
 	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
-		if (finalizada){
-			sf::Lock lock(_mutex);
-			Arbol arbPatrulla = c->getGenotipo(0);
-			Arbol arbAtaque = c->getGenotipo(1);
-			_visorPatrulla.update(arbPatrulla, TipoArbol::Patrulla);
-			_visorAtaque.update(arbAtaque, TipoArbol::Ataque);
-		}
+		
 	}
 
 	void onSimulacionTerminada(const Cromosoma* c){
-		sf::Lock lock(_mutex);
-		_nuevo = true;
+		
 	}
 
 	void writeToLog(const std::string &text) {
@@ -241,7 +243,9 @@ private:
 
 	void ventanaArboles(){
 		_windowTrees.setActive(true);
-		_windowTrees.clear(sf::Color::White);
+		_windowTrees.setFramerateLimit(30);
+		_windowTrees.setVerticalSyncEnabled(true);
+		_windowTrees.clear(sf::Color(127,127,127));
 		while (_windowTrees.isOpen())
 		{
 			_windowTrees.setVisible(finalizada);
@@ -254,15 +258,15 @@ private:
 			if (!_window.isOpen()){
 				_windowTrees.close();
 			}
-			if (_nuevo){
+			//if (_nuevo){
 				sf::Lock lock(_mutex);
-				_windowTrees.clear(sf::Color::White);
+				_windowTrees.clear(sf::Color(127, 127, 127));
 				_windowTrees.draw(_visorPatrulla);
 				_windowTrees.draw(_visorAtaque);
 				_windowTrees.display();
-				_nuevo = false;
+			//	_nuevo = false;
 				_mutex.unlock();
-			}
+			//}
 		}
 	}
 

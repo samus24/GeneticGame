@@ -32,7 +32,7 @@ public:
 		this->turnos = 0;
 		this->golpes = 0;
 		this->heridas = 0;
-		this->turnosPatrulla = 0;
+		this->turnosPatrulla = -1;
 		this->golpesEvitados = 0;
 		this->bloqueando = false;
 	}

@@ -113,8 +113,8 @@ public:
 		_playerFacing[2].color = sf::Color(0, 200, 0);
 
 		_playerHealth.setFont(_font);
-		_playerHealth.setCharacterSize(13);
-		_playerHealth.setFillColor(sf::Color::Green);
+		_playerHealth.setCharacterSize(14);
+		_playerHealth.setFillColor(sf::Color::Black);
 		_playerHealth.setStyle(sf::Text::Bold);
 
 		_enemyFacing.setPrimitiveType(sf::Triangles);
@@ -124,9 +124,12 @@ public:
 		_enemyFacing[2].color = sf::Color(200, 0, 0);
 
 		_enemyHealth.setFont(_font);
-		_enemyHealth.setCharacterSize(13);
-		_enemyHealth.setFillColor(sf::Color::Green);
+		_enemyHealth.setCharacterSize(14);
+		_enemyHealth.setFillColor(sf::Color::Black);
 		_enemyHealth.setStyle(sf::Text::Bold);
+
+		_enemyState.setFillColor(sf::Color::Transparent);
+		_enemyState.setOutlineThickness(3);
 
 		_selected = false;
 	}
@@ -139,6 +142,7 @@ private:
 	{
 		// apply the transform
 		states.transform *= getTransform();
+		/*
 		sf::RectangleShape r;
 		r.setPosition(sf::Vector2f(0, 30));
 		sf::Vector2f size;
@@ -154,7 +158,7 @@ private:
 		size.y = 110;
 		r2.setSize(size);
 		r2.setFillColor(sf::Color::White);
-		target.draw(r2, states);
+		target.draw(r2, states);*/
 
 		// draw the vertex array
 		target.draw(m_vertices, states);
@@ -165,12 +169,18 @@ private:
 
 		target.draw(_playerHealth, states);
 		target.draw(_enemyHealth, states);
+
+		target.draw(_enemyState, states);
 		
 		target.draw(_simulationInfo);
 		target.draw(_lastFitness);
 	}
+	void onSimulacionIniciada(const Cromosoma* c){
+		
+	}
 
 	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
+		sf::Vector2f origin(10, 30);
 		unsigned int realTileSize = std::min(_size.x, _size.y) / 40;
 		Arbol arbPatrulla = c->getGenotipo(0);
 		Arbol arbAtaque = c->getGenotipo(1);
@@ -204,53 +214,61 @@ private:
 					c = sf::Color::Red;
 					switch (enemigo.f){
 					case NORTE:
-						_enemyFacing[0].position = sf::Vector2f((i + 0.5) * realTileSize, j * realTileSize);
-						_enemyFacing[1].position = sf::Vector2f(i * realTileSize, (j + 1) * realTileSize);
-						_enemyFacing[2].position = sf::Vector2f((i + 1) * realTileSize, (j + 1) * realTileSize);
+						_enemyFacing[0].position = origin + sf::Vector2f((i + 0.5) * realTileSize, j * realTileSize);
+						_enemyFacing[1].position = origin + sf::Vector2f(i * realTileSize, (j + 1) * realTileSize);
+						_enemyFacing[2].position = origin + sf::Vector2f((i + 1) * realTileSize, (j + 1) * realTileSize);
 						break;
 					case SUR:
-						_enemyFacing[0].position = sf::Vector2f((i + 0.5) * realTileSize, (j + 1) * realTileSize);
-						_enemyFacing[1].position = sf::Vector2f(i * realTileSize, j * realTileSize);
-						_enemyFacing[2].position = sf::Vector2f((i + 1) * realTileSize, j * realTileSize);
+						_enemyFacing[0].position = origin + sf::Vector2f((i + 0.5) * realTileSize, (j + 1) * realTileSize);
+						_enemyFacing[1].position = origin + sf::Vector2f(i * realTileSize, j * realTileSize);
+						_enemyFacing[2].position = origin + sf::Vector2f((i + 1) * realTileSize, j * realTileSize);
 						break;
 					case ESTE:
-						_enemyFacing[0].position = sf::Vector2f((i + 1) * realTileSize, (j + 0.5) * realTileSize);
-						_enemyFacing[1].position = sf::Vector2f(i * realTileSize, j * realTileSize);
-						_enemyFacing[2].position = sf::Vector2f(i * realTileSize, (j + 1) * realTileSize);
+						_enemyFacing[0].position = origin + sf::Vector2f((i + 1) * realTileSize, (j + 0.5) * realTileSize);
+						_enemyFacing[1].position = origin + sf::Vector2f(i * realTileSize, j * realTileSize);
+						_enemyFacing[2].position = origin + sf::Vector2f(i * realTileSize, (j + 1) * realTileSize);
 						break;
 					case OESTE:
-						_enemyFacing[0].position = sf::Vector2f(i * realTileSize, (j + 0.5) * realTileSize);
-						_enemyFacing[1].position = sf::Vector2f((i + 1) * realTileSize, j * realTileSize);
-						_enemyFacing[2].position = sf::Vector2f((i + 1) * realTileSize, (j + 1) * realTileSize);
+						_enemyFacing[0].position = origin + sf::Vector2f(i * realTileSize, (j + 0.5) * realTileSize);
+						_enemyFacing[1].position = origin + sf::Vector2f((i + 1) * realTileSize, j * realTileSize);
+						_enemyFacing[2].position = origin + sf::Vector2f((i + 1) * realTileSize, (j + 1) * realTileSize);
 						break;
 					}
-					_enemyHealth.setPosition(sf::Vector2f((i+0.4)*realTileSize, (j-1)*realTileSize));
+					_enemyState.setSize(sf::Vector2f(realTileSize, realTileSize));
+					_enemyState.setPosition(origin + sf::Vector2f(i * realTileSize, j * realTileSize));
+					if (enemigo.turnosPatrulla != -1){
+						_enemyState.setOutlineColor(sf::Color(200, 0, 0));
+					}
+					else{
+						_enemyState.setOutlineColor(sf::Color(0, 0, 250));
+					}
+					_enemyHealth.setPosition(origin + sf::Vector2f((i + 0.4)*realTileSize, (j - 1)*realTileSize));
 				}
 				else if (jugador.estaEn(i, j)){
 					c = sf::Color::Green;
 					switch (jugador.f){
 					case NORTE:
-						_playerFacing[0].position = sf::Vector2f((i + 0.5) * realTileSize, j * realTileSize);
-						_playerFacing[1].position = sf::Vector2f(i * realTileSize, (j + 1) * realTileSize);
-						_playerFacing[2].position = sf::Vector2f((i + 1) * realTileSize, (j + 1) * realTileSize);
+						_playerFacing[0].position = origin + sf::Vector2f((i + 0.5) * realTileSize, j * realTileSize);
+						_playerFacing[1].position = origin + sf::Vector2f(i * realTileSize, (j + 1) * realTileSize);
+						_playerFacing[2].position = origin + sf::Vector2f((i + 1) * realTileSize, (j + 1) * realTileSize);
 						break;
 					case SUR:
-						_playerFacing[0].position = sf::Vector2f((i + 0.5) * realTileSize, (j + 1) * realTileSize);
-						_playerFacing[1].position = sf::Vector2f(i * realTileSize, j * realTileSize);
-						_playerFacing[2].position = sf::Vector2f((i + 1) * realTileSize, j * realTileSize);
+						_playerFacing[0].position = origin + sf::Vector2f((i + 0.5) * realTileSize, (j + 1) * realTileSize);
+						_playerFacing[1].position = origin + sf::Vector2f(i * realTileSize, j * realTileSize);
+						_playerFacing[2].position = origin + sf::Vector2f((i + 1) * realTileSize, j * realTileSize);
 						break;
 					case ESTE:
-						_playerFacing[0].position = sf::Vector2f((i + 1) * realTileSize, (j + 0.5) * realTileSize);
-						_playerFacing[1].position = sf::Vector2f(i * realTileSize, j * realTileSize);
-						_playerFacing[2].position = sf::Vector2f(i * realTileSize, (j + 1) * realTileSize);
+						_playerFacing[0].position = origin + sf::Vector2f((i + 1) * realTileSize, (j + 0.5) * realTileSize);
+						_playerFacing[1].position = origin + sf::Vector2f(i * realTileSize, j * realTileSize);
+						_playerFacing[2].position = origin + sf::Vector2f(i * realTileSize, (j + 1) * realTileSize);
 						break;
 					case OESTE:
-						_playerFacing[0].position = sf::Vector2f(i * realTileSize, (j + 0.5) * realTileSize);
-						_playerFacing[1].position = sf::Vector2f((i + 1) * realTileSize, j * realTileSize);
-						_playerFacing[2].position = sf::Vector2f((i + 1) * realTileSize, (j + 1) * realTileSize);
+						_playerFacing[0].position = origin + sf::Vector2f(i * realTileSize, (j + 0.5) * realTileSize);
+						_playerFacing[1].position = origin + sf::Vector2f((i + 1) * realTileSize, j * realTileSize);
+						_playerFacing[2].position = origin + sf::Vector2f((i + 1) * realTileSize, (j + 1) * realTileSize);
 						break;
 					}
-					_playerHealth.setPosition(sf::Vector2f((i+0.4)*realTileSize, (j - 1)*realTileSize));
+					_playerHealth.setPosition(origin + sf::Vector2f((i + 0.4)*realTileSize, (j - 1)*realTileSize));
 				}
 				else if ((explorado.getCasilla(i, j) > 0) && (andado.getCasilla(i, j) > 0)){
 					c = sf::Color::Magenta;
@@ -269,28 +287,17 @@ private:
 				sf::Vertex* quad = &m_vertices[(i + j * m.getWidth()) * 4];
 
 				// define its 4 corners
-				quad[0].position = sf::Vector2f(i * realTileSize, j * realTileSize);
-				quad[1].position = sf::Vector2f((i + 1) * realTileSize, j * realTileSize);
-				quad[2].position = sf::Vector2f((i + 1) * realTileSize, (j + 1) * realTileSize);
-				quad[3].position = sf::Vector2f(i * realTileSize, (j + 1) * realTileSize);
+				quad[0].position = origin + sf::Vector2f(i * realTileSize, j * realTileSize);
+				quad[1].position = origin + sf::Vector2f((i + 1) * realTileSize, j * realTileSize);
+				quad[2].position = origin + sf::Vector2f((i + 1) * realTileSize, (j + 1) * realTileSize);
+				quad[3].position = origin + sf::Vector2f(i * realTileSize, (j + 1) * realTileSize);
 
 				// define its 4 texture coordinates
 				quad[0].color = c;
 				quad[1].color = c;
 				quad[2].color = c;
 				quad[3].color = c;
-			}
-		// Move all tiles from (0,0) to (10,30) in order to avoid the tabPane
-		for (size_t i = 0; i < m_vertices.getVertexCount(); ++i){
-			m_vertices[i].position += sf::Vector2f(10, 30);
-		}
-		for (size_t i = 0; i < _playerFacing.getVertexCount(); ++i){
-			_playerFacing[i].position += sf::Vector2f(10, 30);
-			_enemyFacing[i].position += sf::Vector2f(10, 30);
-		}
-		_playerHealth.move(10, 30);
-		_enemyHealth.move(10, 30);
-		
+			}		
 		std::string info = "Estado: ";
 		if (enemigo.turnosPatrulla > 0){
 			info += "Ataque";
@@ -328,7 +335,7 @@ private:
 	sf::Text _simulationInfo;
 	sf::Text _lastFitness;
 	Leyenda _leyenda;
-
+	sf::RectangleShape _enemyState;
 	
 
 	bool _selected;

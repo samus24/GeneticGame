@@ -192,6 +192,7 @@ public:
 		double actual = 1;
 		double media = 0;
 		_descartado = false;
+		notifySimulacionInciada();
 		for (std::size_t i = 0; i < maps.size() && actual != 0; ++i) {
 			x = maps[i].getX();
 			y = maps[i].getY();
@@ -702,6 +703,12 @@ private:
 		enemigo.posX = posibles.front().first;
 		enemigo.posY = posibles.front().second;
 		return;
+	}
+
+	void notifySimulacionInciada() const{
+		for (ICromosomaObserver* i : _obs){
+			i->onSimulacionIniciada(this);
+		}
 	}
 
 	void notifyTurno(npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado) const{

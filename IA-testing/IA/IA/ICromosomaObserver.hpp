@@ -12,6 +12,8 @@ class ICromosomaObserver{
 public:
 	virtual ~ICromosomaObserver() {};
 
+	virtual void onSimulacionIniciada(const Cromosoma*) = 0;
+
 	virtual void onTurno(const Cromosoma*, npc, npc, Mapa, Mapa, Mapa) = 0;	// jugador, enemigo, mapa, explorado, andado
 
 	virtual void onSimulacionTerminada(const Cromosoma*) = 0;

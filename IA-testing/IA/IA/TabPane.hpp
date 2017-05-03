@@ -61,11 +61,11 @@ private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
 		if (_tabButtons.size() > 0){
+			target.draw(*(_tabs[_tabToShow]), states);
 			for (size_t i = 0; i < _tabButtons.size(); ++i){
 				target.draw(_tabButtons[i], states);
 			}
 			target.draw(_tabButtons[_tabToShow], states);	// Redraw selected button to be in front
-			target.draw(*(_tabs[_tabToShow]), states);
 		}
 	}
 

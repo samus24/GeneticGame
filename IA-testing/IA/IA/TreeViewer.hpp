@@ -52,8 +52,8 @@ private:
 		/*
 		sf::FloatRect bounds = t.getLocalBounds();
 		float ancho = bounds.width / 2;
-		float alto = bounds.height / 2;
-		t.move(-ancho, -alto);*/
+		float alto = bounds.height / 2;*/
+		t.move(-30, 0);
 		_nodos.push_back(c);
 		_textos.push_back(t);
 		if (n->getNhijos() > 0){
