@@ -321,6 +321,14 @@ public:
 		return true;*/
 	}
 
+	Arbol getCopia() const{
+		Arbol ret;
+		ret._raiz = _raiz.getCopia();
+		ret.setProfMax(_profMax);
+		ret.setProfMin(_profMin);
+		return ret;
+	}
+
 private:
 	Nodo _raiz;
 	int _profMin;

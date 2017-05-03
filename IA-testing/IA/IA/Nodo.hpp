@@ -126,7 +126,7 @@ public:
 	}
 
 
-	bool esTerminal() {
+	bool esTerminal() const{
 		return (this->_nHijos == 0);
 	}
 
@@ -476,6 +476,28 @@ public:
 		return ok;
 	}
 
+	Nodo getCopia() const{
+		Nodo ret;
+		if (this->esTerminal()){
+			ret.setElem(_elem);
+			ret.setHijos(nullptr);
+			ret.setNhijos(0);
+			ret.setNumNodos(1);
+		}
+		else{
+			ret.setElem(_elem);
+			ret.setNhijos(_nHijos);
+			ret.setNumNodos(_numNodos);
+			Nodo* auxHijos = new Nodo[_nHijos];
+			for (size_t i = 0; i < _nHijos; ++i){
+				auxHijos[i] = _hijos[i].getCopia();
+				auxHijos[i].setPos(i);
+				auxHijos[i].setPadre(&ret);
+			}
+			ret.setHijos(auxHijos);
+		}
+		return ret;
+	}
 public:
 	static Operacion getTerminalAleatorio(){
 		return (Operacion)myRandom::getRandom(7, 13);
