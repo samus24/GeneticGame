@@ -106,7 +106,7 @@ public:
 		_puntAcum = 0;
 		_adaptacion = 0;
 		double pesos[5] = { 0.3, 0.2, 0.15, 0.05, 0.30 };
-		for (size_t i = 0; i < 4; ++i){
+		for (size_t i = 0; i < 5; ++i){
 			_pesos[i] = pesos[i];
 			_mediaValores[i] = 0;
 		}
@@ -203,6 +203,7 @@ public:
 				media += evaluaMapa(maps[i], x, y, pintar);
 			}
 		}
+
 		_mediaValores[0] /= maps.size();
 		_mediaValores[1] /= maps.size();
 		_mediaValores[2] /= maps.size();
