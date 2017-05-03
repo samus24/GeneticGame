@@ -90,9 +90,7 @@ class SimulationViewer : public sf::Rect<float>, public sf::Drawable, public sf:
 public:
 	SimulationViewer(sf::Vector2f pos, sf::Vector2f size) :
 		sf::Rect<float>(pos, size),
-		_leyenda(sf::Vector2f(pos.x + size.x + 10, pos.y + (0.6 * size.y))),
-		_visorPatrulla(sf::Vector2f(pos.x + 400 , pos.y+30), sf::Vector2f(600,300)),
-		_visorAtaque(sf::Vector2f(pos.x + 400, pos.y + 300), sf::Vector2f(600,300))
+		_leyenda(sf::Vector2f(pos.x + size.x + 10, pos.y + (0.6 * size.y)))
 	{
 		_size = size;
 		_font.loadFromFile("arial.ttf");
@@ -170,17 +168,12 @@ private:
 		
 		target.draw(_simulationInfo);
 		target.draw(_lastFitness);
-
-		target.draw(_visorPatrulla);
-		target.draw(_visorAtaque);
 	}
 
 	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
 		unsigned int realTileSize = std::min(_size.x, _size.y) / 40;
 		Arbol arbPatrulla = c->getGenotipo(0);
 		Arbol arbAtaque = c->getGenotipo(1);
-		_visorPatrulla.update(arbPatrulla, TipoArbol::Patrulla);
-		_visorAtaque.update(arbAtaque, TipoArbol::Ataque);
 		_playerHealth.setString(std::to_string(3 - jugador.heridas));
 		_enemyHealth.setString(std::to_string(3 - enemigo.heridas));
 		if ((m.getWidth()*m.getHeight() * 4) != m_vertices.getVertexCount()){
@@ -336,8 +329,7 @@ private:
 	sf::Text _lastFitness;
 	Leyenda _leyenda;
 
-	TreeViewer _visorPatrulla;
-	TreeViewer _visorAtaque;
+	
 
 	bool _selected;
 

@@ -19,13 +19,18 @@ public:
 	Ventana(Controlador& c) :
 		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
 		//_window(sf::VideoMode(1200,600), "AG"),					// descomentar esta si no se representa bien en pantalla
+		_windowTrees(sf::VideoMode(800,800), "Arboles"),
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, 25)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.19, 400)),
 		_botonRun(sf::Vector2f(_window.getSize().x * 0.8, 10), sf::Vector2f(100, 50), "RUN", sf::Color(100, 200, 200)),
 		_botonSim(sf::Vector2f(_window.getSize().x * 0.8 + 110, 10), sf::Vector2f(100, 50), "VER SIM", sf::Color(120, 10, 10)),
 		_progress(sf::Vector2f(_window.getSize().x *0.8, 550), sf::Vector2f(_window.getSize().x * 0.1, 30)),
-		_simViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y))
+		_simViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
+		_visorPatrulla(sf::Vector2f(20, 20), sf::Vector2f(800-40, 400)),
+		_visorAtaque(sf::Vector2f(20, 420), sf::Vector2f(800-40, 400)),
+		_hiloArboles(&Ventana::ventanaArboles, this),
+		_hiloAG(&Ventana::ejecutaAG, this)
 	{
 		_font.loadFromFile("arial.ttf");
 		_ctrl = &c;
@@ -42,6 +47,12 @@ public:
 		_labelAux.setPosition(sf::Vector2f(200, 0));
 		_labelAux.setString("<-- Seleccionar la pestaña SimView para ver TODAS las evaluaciones (con boton VER SIM activado)\nPulsar E al finalizar para ver evaluacion del mejor");
 		_labelAux.setCharacterSize(14);
+
+		_nuevo = true;
+		_windowTrees.setVisible(false);
+		_windowTrees.setActive(false);
+
+		running = false;
 	}
 
 	void run(unsigned int maxIter){
@@ -54,6 +65,10 @@ public:
 		_plotter.setNombreEjeY("Adaptación");
 		_plotter.setEjeX(_ejeX);
 
+		_hiloArboles.launch();
+		_window.setVerticalSyncEnabled(true);
+		_window.setFramerateLimit(30);
+
 		while (_window.isOpen())
 		{
 			// handle events
@@ -65,20 +80,19 @@ public:
 				else if (event.type == sf::Event::MouseButtonPressed){
 					sf::Vector2f point = sf::Vector2f(sf::Mouse::getPosition(_window));
 					if (_botonRun.contains(point)){
-						_plotter.removeAllData();
-						_ejeX.clear();
-						_valorMedia.clear();
-						_valorMejor.clear();
-						_valorMejorGen.clear();
-
-						_generacion = 0;
-						_logger.clearLog();
-						_logger.append("Ejecutando\n");
-						_progress.clearProgress();
-						_window.draw(_progress);
-						_window.draw(_logger);
-						_window.display();
-						_ctrl->run();
+						if (!running){
+							_plotter.removeAllData();
+							_ejeX.clear();
+							_valorMedia.clear();
+							_valorMejor.clear();
+							_valorMejorGen.clear();
+							_generacion = 0;
+							_logger.clearLog();
+							_logger.append("Ejecutando AG\n");
+							_progress.clearProgress();
+							_hiloAG.launch();
+							_nuevo = true;
+						}
 					}
 					else if (_botonSim.contains(point)){
 						finalizada = !finalizada;
@@ -105,19 +119,19 @@ public:
 							_mejor.evalua(_ctrl->getMapas());
 					}
 					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
-						_plotter.removeAllData();
-						_ejeX.clear();
-						_valorMedia.clear();
-						_valorMejor.clear();
-						_valorMejorGen.clear();
-						_generacion = 0;
-						_logger.clearLog();
-						_logger.append("Ejecutando AG\n");
-						_progress.clearProgress();
-						_window.draw(_progress);
-						_window.draw(_logger);
-						_window.display();
-						_ctrl->run();
+						if (!running){
+							_plotter.removeAllData();
+							_ejeX.clear();
+							_valorMedia.clear();
+							_valorMejor.clear();
+							_valorMejorGen.clear();
+							_generacion = 0;
+							_logger.clearLog();
+							_logger.append("Ejecutando AG\n");
+							_progress.clearProgress();
+							_hiloAG.launch();
+							_nuevo = true;
+						}
 					}
 				}
 			}
@@ -126,43 +140,32 @@ public:
 			_window.draw(_botonRun);
 			_window.draw(_botonSim);
 			_window.draw(_progress);
+			sf::Lock lock(_mutex);
 			_window.draw(_tabPane);
 			_window.draw(_labelAux);
 			_window.display();
+			_mutex.unlock();
 		}
 	}
 
 	void onGeneracionTerminada(double mejor, double mejorGen, double media){
+		sf::Lock lock(_mutex);
 		_ejeX.push_back(_generacion);
 		_valorMejor.push_back(mejor);
 		_valorMejorGen.push_back(mejorGen);
 		_valorMedia.push_back(media);
-		_window.draw(_logger);
 		_progress.updateProgress(_generacion);
-		_window.draw(_progress);
-		_window.display();
 		_generacion++;
 	}
 
 	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval, poblacion pob){
+		sf::Lock lock(_mutex);
 		_mejor = mejor;
 		_plotter.setEjeX(_ejeX);
 
 		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media Poblacion");
 		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
 		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");
-		/*
-		for (std::size_t i = 0; i < pob._tam; ++i) {
-			writeToLog("Nuevo individuo: " );
-			writeToLog("Árbol de patrulla");
-			writeToLog(pob.individuos->getGenotipo(0).toString());
-			writeToLog("Árbol de ataque");
-			writeToLog(pob.individuos->getGenotipo(1).toString());
-			writeToLog("Adaptación del individuo");
-			writeToLog(pob.individuos->getAdaptacion());
-			writeToLog("");
-		}
-		*/
 		std::string valoresText[] = {
 			"Exploradas: ",
 			"Andadas: ",
@@ -197,7 +200,6 @@ public:
 
 		wAux.clear(sf::Color::White);
 		wAux.draw(_plotter);
-		//wAux.display();
 		tx.update(wAux);
 		sf::Image imPlotter = tx.copyToImage();
 		imPlotter.saveToFile(pathPlotter);
@@ -205,7 +207,6 @@ public:
 		wAux.clear(sf::Color::White);
 		wAux.draw(visorArbolP);
 		wAux.draw(visorArbolA);
-		//wAux.display();
 		tx.update(wAux);
 		sf::Image imArbol = tx.copyToImage();
 		imArbol.saveToFile(pathArbol);
@@ -213,12 +214,17 @@ public:
 
 	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
 		if (finalizada){
-			_window.draw(_tabPane);
-			_window.display();
+			sf::Lock lock(_mutex);
+			Arbol arbPatrulla = c->getGenotipo(0);
+			Arbol arbAtaque = c->getGenotipo(1);
+			_visorPatrulla.update(arbPatrulla, TipoArbol::Patrulla);
+			_visorAtaque.update(arbAtaque, TipoArbol::Ataque);
 		}
 	}
 
 	void onSimulacionTerminada(const Cromosoma* c){
+		sf::Lock lock(_mutex);
+		_nuevo = true;
 	}
 
 	void writeToLog(const std::string &text) {
@@ -233,7 +239,43 @@ public:
 
 private:
 
+	void ventanaArboles(){
+		_windowTrees.setActive(true);
+		_windowTrees.clear(sf::Color::White);
+		while (_windowTrees.isOpen())
+		{
+			_windowTrees.setVisible(finalizada);
+			sf::Event event;
+			while (_windowTrees.pollEvent(event))
+			{
+				if (event.type == sf::Event::Closed)
+					_windowTrees.close();
+			}
+			if (!_window.isOpen()){
+				_windowTrees.close();
+			}
+			if (_nuevo){
+				sf::Lock lock(_mutex);
+				_windowTrees.clear(sf::Color::White);
+				_windowTrees.draw(_visorPatrulla);
+				_windowTrees.draw(_visorAtaque);
+				_windowTrees.display();
+				_nuevo = false;
+				_mutex.unlock();
+			}
+		}
+	}
+
+	void ejecutaAG(){
+		if (!running){
+			running = true;
+			_ctrl->run();
+			running = false;
+		}
+	}
+
 	sf::RenderWindow _window;
+	sf::RenderWindow _windowTrees;
 	sf::Font _font;
 	ProgressBar _progress;
 	TabPane _tabPane;
@@ -250,7 +292,16 @@ private:
 	std::vector<double> _valorMejorGen;
 	std::vector<double> _valorMedia;
 
+	TreeViewer _visorPatrulla;
+	TreeViewer _visorAtaque;
+
 	sf::Text _labelAux;
+
+	sf::Thread _hiloArboles;
+	sf::Thread _hiloAG;
+	sf::Mutex _mutex;
+	bool _nuevo;
+	bool running;
 
 	bool finalizada;
 };

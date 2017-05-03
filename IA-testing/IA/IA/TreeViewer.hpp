@@ -46,11 +46,14 @@ private:
 		int radio = 20;
 		sf::CircleShape c = creaCirculo(radio, tip);
 		c.setPosition(pos);
-		sf::Text t = creaTexto(opToString(n->getElem()), tip);
+		sf::Text t;
+		creaTexto(t, opToString(n->getElem()), tip);
 		t.setPosition(pos);
-		float ancho = t.getLocalBounds().width / 2;
-		float alto = t.getLocalBounds().height / 2;
-		t.move(-ancho, -alto);
+		/*
+		sf::FloatRect bounds = t.getLocalBounds();
+		float ancho = bounds.width / 2;
+		float alto = bounds.height / 2;
+		t.move(-ancho, -alto);*/
 		_nodos.push_back(c);
 		_textos.push_back(t);
 		if (n->getNhijos() > 0){
@@ -95,8 +98,8 @@ private:
 		yo.setOutlineThickness(2);
 		return yo;
 	}
-	sf::Text creaTexto(std::string texto, TipoArbol t){
-		sf::Text ret;
+	void creaTexto(sf::Text &ret, std::string texto, TipoArbol t){
+		//sf::Text ret;
 		ret.setFont(_font);
 		if (t == TipoArbol::Patrulla){
 			ret.setFillColor(sf::Color::Yellow);
@@ -106,7 +109,7 @@ private:
 		}
 		ret.setCharacterSize(12);
 		ret.setString(texto);
-		return ret;
+		//return ret;
 	}
 
 	sf::Vector2f _pos;
