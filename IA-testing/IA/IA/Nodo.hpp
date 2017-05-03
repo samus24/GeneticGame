@@ -160,6 +160,9 @@ public:
 
 	void setNhijos(int nHijos) {
 		this->_nHijos = nHijos;
+		if (nHijos > 0){
+			this->_hijos = new Nodo[nHijos];
+		}
 	}
 
 
@@ -487,13 +490,20 @@ public:
 			ret.setElem(_elem);
 			ret.setNhijos(_nHijos);
 			ret.setNumNodos(_numNodos);
-			Nodo* auxHijos = new Nodo[_nHijos];
+			//Nodo auxHijos[3];
 			for (size_t i = 0; i < _nHijos; ++i){
-				_hijos[i].getCopia(auxHijos[i]);
-				auxHijos[i].setPos(i);
-				auxHijos[i].setPadre(&ret);
+				_hijos[i].getCopia(ret.getHijos()[i]);
+				ret.getHijos()[i].setPos(i);
+				ret.getHijos()[i].setPadre(&ret);
 			}
-			ret.setHijos(auxHijos);
+			//ret.setHijos(auxHijos);
+		}
+	}
+
+	void reparaReferencias(){
+		for (size_t i = 0; i < _nHijos; ++i){
+			_hijos[i]._padre = this;
+			_hijos[i].reparaReferencias();
 		}
 	}
 public:

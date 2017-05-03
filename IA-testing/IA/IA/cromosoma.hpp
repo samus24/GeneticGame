@@ -188,8 +188,6 @@ public:
 	}
 
 	double evalua(std::vector<Mapa> maps, bool pintar = false) {
-		this->_adaptacion = (_genotipo[0].getNumNodos() + _genotipo[1].getNumNodos());
-		return this->_adaptacion;
 		int x, y;
 		double actual = 1;
 		double media = 0;
@@ -254,6 +252,8 @@ public:
 		Arbol ap, aa;
 		_genotipo[0].getCopia(ap);
 		_genotipo[1].getCopia(aa);
+		ap.reparaReferencias();
+		aa.reparaReferencias();
 		ret.setGenotipo(ap, 0);
 		ret.setGenotipo(aa, 1);
 		ret.setPunt(_punt);

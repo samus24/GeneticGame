@@ -28,6 +28,10 @@ public:
 		Arbol arbA = a->getGenotipo(tipo);
 		Arbol arbB = b->getGenotipo(tipo);
 		int corteA, corteB;
+
+		arbA.reparaReferencias();
+		arbB.reparaReferencias();
+
 		arbA.actualizaNumNodos();
 		arbB.actualizaNumNodos();
 		
@@ -71,6 +75,8 @@ public:
 		catch (std::runtime_error e){
 			std::cerr << e.what() << std::endl;
 		}
+		arbA.reparaReferencias();
+		arbB.reparaReferencias();
 
 		arbA.actualizaNumNodos();
 		arbB.actualizaNumNodos();
