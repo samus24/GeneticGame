@@ -476,12 +476,11 @@ public:
 		return ok;
 	}
 
-	Nodo getCopia() const{
-		Nodo ret;
+	void getCopia(Nodo &ret) const{
 		if (this->esTerminal()){
 			ret.setElem(_elem);
-			ret.setHijos(nullptr);
 			ret.setNhijos(0);
+			ret.setHijos(nullptr);
 			ret.setNumNodos(1);
 		}
 		else{
@@ -490,13 +489,12 @@ public:
 			ret.setNumNodos(_numNodos);
 			Nodo* auxHijos = new Nodo[_nHijos];
 			for (size_t i = 0; i < _nHijos; ++i){
-				auxHijos[i] = _hijos[i].getCopia();
+				_hijos[i].getCopia(auxHijos[i]);
 				auxHijos[i].setPos(i);
 				auxHijos[i].setPadre(&ret);
 			}
 			ret.setHijos(auxHijos);
 		}
-		return ret;
 	}
 public:
 	static Operacion getTerminalAleatorio(){

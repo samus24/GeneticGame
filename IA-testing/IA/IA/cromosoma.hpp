@@ -250,18 +250,18 @@ public:
 		_obs.push_back(&obs);
 	}
 
-	Cromosoma getCopia() const{
-		Cromosoma ret;
-		ret.setGenotipo(_genotipo[0].getCopia(), 0);
-		ret.setGenotipo(_genotipo[1].getCopia(), 1);
+	void getCopia(Cromosoma &ret) const{
+		Arbol ap, aa;
+		_genotipo[0].getCopia(ap);
+		_genotipo[1].getCopia(aa);
+		ret.setGenotipo(ap, 0);
+		ret.setGenotipo(aa, 1);
 		ret.setPunt(_punt);
 		ret.setPuntAcum(_puntAcum);
 		ret.setAdaptacion(_adaptacion);
 		for (size_t i = 0; i < _obs.size(); ++i){
 			ret.addObserver(*(_obs[i]));
 		}
-
-		return ret;
 	}
 
 private:
