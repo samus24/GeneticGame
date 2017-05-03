@@ -135,16 +135,15 @@ public:
 					}
 				}
 			}
+			sf::Lock lock(_mutex);
 			_window.clear(sf::Color::White);
 			_window.draw(_logger);
 			_window.draw(_botonRun);
 			_window.draw(_botonSim);
 			_window.draw(_progress);
-			sf::Lock lock(_mutex);
 			_window.draw(_tabPane);
 			_window.draw(_labelAux);
 			_window.display();
-			_mutex.unlock();
 		}
 	}
 
@@ -265,7 +264,7 @@ private:
 				_windowTrees.draw(_visorAtaque);
 				_windowTrees.display();
 			//	_nuevo = false;
-				_mutex.unlock();
+				//_mutex.unlock();
 			//}
 		}
 	}
