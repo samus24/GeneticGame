@@ -558,7 +558,7 @@ private:
 		_valores[3] = enemigo.golpesEvitados;
 		_valores[4] = jugador.heridas;
 		*/
-		double optimos[] = { dim/4, dim/4, 5.f, 3.f, 3.f };
+		double optimos[] = { dim/3, dim/3, 5.f, 3.f, 3.f };
 
 		_valores[0] = cExpl / optimos[0];
 		_valores[1] = cAndadas / optimos[1];
