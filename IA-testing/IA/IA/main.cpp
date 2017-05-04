@@ -22,7 +22,7 @@ int main() {
 	p.probMutacion = 0.2;
 	p.seleccion = new seleccionTorneo();
 	p.cruce = new cruceSimple();
-	p.mutacion = new mutacionTerminal();
+	p.mutacion = new mutacionFuncion();
 	AG ag(p);
 	Controlador c(ag);
 	FileLogger fl(c);

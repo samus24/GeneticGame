@@ -1,0 +1,135 @@
+
+
+NUEVA EJECUCION
+Gen 0:
+Fitness mejor: 0.096182; Fitness medio: 0.040044
+Gen 1:
+Fitness mejor: 0.175258; Fitness medio: 0.070151
+Gen 2:
+Fitness mejor: 0.180725; Fitness medio: 0.084755
+Gen 3:
+Fitness mejor: 0.220756; Fitness medio: 0.102737
+Gen 4:
+Fitness mejor: 0.220756; Fitness medio: 0.108159
+Gen 5:
+Fitness mejor: 0.220756; Fitness medio: 0.132482
+Gen 6:
+Fitness mejor: 0.220756; Fitness medio: 0.130330
+Gen 7:
+Fitness mejor: 0.257765; Fitness medio: 0.133842
+Gen 8:
+Fitness mejor: 0.257765; Fitness medio: 0.134743
+Gen 9:
+Fitness mejor: 0.257765; Fitness medio: 0.135205
+Gen 10:
+Fitness mejor: 0.257765; Fitness medio: 0.141067
+Gen 11:
+Fitness mejor: 0.257765; Fitness medio: 0.136515
+Gen 12:
+Fitness mejor: 0.257765; Fitness medio: 0.113611
+Gen 13:
+Fitness mejor: 0.257765; Fitness medio: 0.123964
+Gen 14:
+Fitness mejor: 0.257765; Fitness medio: 0.141857
+Gen 15:
+Fitness mejor: 0.257765; Fitness medio: 0.153504
+Gen 16:
+Fitness mejor: 0.257765; Fitness medio: 0.151537
+Gen 17:
+Fitness mejor: 0.257765; Fitness medio: 0.138133
+Gen 18:
+Fitness mejor: 0.257765; Fitness medio: 0.134074
+Gen 19:
+Fitness mejor: 0.257765; Fitness medio: 0.136626
+Gen 20:
+Fitness mejor: 0.257765; Fitness medio: 0.138471
+Gen 21:
+Fitness mejor: 0.257765; Fitness medio: 0.143689
+Gen 22:
+Fitness mejor: 0.257765; Fitness medio: 0.129877
+Gen 23:
+Fitness mejor: 0.259744; Fitness medio: 0.129418
+Gen 24:
+Fitness mejor: 0.259744; Fitness medio: 0.159683
+Gen 25:
+Fitness mejor: 0.259744; Fitness medio: 0.136787
+Gen 26:
+Fitness mejor: 0.259744; Fitness medio: 0.130605
+Gen 27:
+Fitness mejor: 0.259744; Fitness medio: 0.153623
+Gen 28:
+Fitness mejor: 0.259744; Fitness medio: 0.141187
+Gen 29:
+Fitness mejor: 0.259744; Fitness medio: 0.145570
+Gen 30:
+Fitness mejor: 0.259744; Fitness medio: 0.141720
+Gen 31:
+Fitness mejor: 0.259744; Fitness medio: 0.140048
+Gen 32:
+Fitness mejor: 0.419471; Fitness medio: 0.146449
+Gen 33:
+Fitness mejor: 0.700056; Fitness medio: 0.201499
+Gen 34:
+Fitness mejor: 0.700056; Fitness medio: 0.252949
+Gen 35:
+Fitness mejor: 0.705494; Fitness medio: 0.255130
+Gen 36:
+Fitness mejor: 0.705494; Fitness medio: 0.319759
+Gen 37:
+Fitness mejor: 0.705494; Fitness medio: 0.296793
+Gen 38:
+Fitness mejor: 0.705494; Fitness medio: 0.300643
+Gen 39:
+Fitness mejor: 0.705494; Fitness medio: 0.368915
+Gen 40:
+Fitness mejor: 0.707746; Fitness medio: 0.463616
+Gen 41:
+Fitness mejor: 0.707746; Fitness medio: 0.371134
+Gen 42:
+Fitness mejor: 0.707746; Fitness medio: 0.532126
+Gen 43:
+Fitness mejor: 0.707746; Fitness medio: 0.457635
+Gen 44:
+Fitness mejor: 0.707746; Fitness medio: 0.415280
+Gen 45:
+Fitness mejor: 0.707746; Fitness medio: 0.473112
+Gen 46:
+Fitness mejor: 0.707746; Fitness medio: 0.362460
+Gen 47:
+Fitness mejor: 0.718886; Fitness medio: 0.380416
+Gen 48:
+Fitness mejor: 0.718886; Fitness medio: 0.375131
+Gen 49:
+Fitness mejor: 0.718886; Fitness medio: 0.399671
+Gen 50:
+Fitness mejor: 0.718886; Fitness medio: 0.444215
+Gen 51:
+Fitness mejor: 0.718886; Fitness medio: 0.385747
+Gen 52:
+Fitness mejor: 0.718886; Fitness medio: 0.282310
+Gen 53:
+Fitness mejor: 0.718886; Fitness medio: 0.373529
+Gen 54:
+Fitness mejor: 0.718886; Fitness medio: 0.338840
+Gen 55:
+Fitness mejor: 0.718886; Fitness medio: 0.363995
+Gen 56:
+Fitness mejor: 0.718886; Fitness medio: 0.431152
+Gen 57:
+Fitness mejor: 0.718886; Fitness medio: 0.385555
+Gen 58:
+Fitness mejor: 0.724336; Fitness medio: 0.385716
+Gen 59:
+Fitness mejor: 0.724336; Fitness medio: 0.383763
+Gen 60:
+Fitness mejor: 0.724336; Fitness medio: 0.351293
+Gen 61:
+Fitness mejor: 0.724336; Fitness medio: 0.403267
+Gen 62:
+Fitness mejor: 0.724336; Fitness medio: 0.506835
+Gen 63:
+Fitness mejor: 0.724336; Fitness medio: 0.423647
+Gen 64:
+Fitness mejor: 0.724336; Fitness medio: 0.450261
+Gen 65:
+Fitness mejor: 0.724336; Fitness medio: 0.416386
