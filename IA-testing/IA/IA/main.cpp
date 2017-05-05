@@ -18,11 +18,11 @@ int main() {
 	p.elitismo = false;
 	p.bloating = true;
 	p.contractividad = false;
-	p.probCruce = 0.6;
-	p.probMutacion = 0.2;
+	p.probCruce = 0.7;
+	p.probMutacion = 0.3;
 	p.seleccion = new seleccionTorneo();
 	p.cruce = new cruceSimple();
-	p.mutacion = new mutacionFuncion();
+	p.mutacion = new mutacionArbol();
 	AG ag(p);
 	Controlador c(ag);
 	FileLogger fl(c);

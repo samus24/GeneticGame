@@ -14,11 +14,13 @@ class mutacionArbol : public metodoMutacion {
 public:
 	void mutar(Cromosoma* c, TipoArbol tipo) {
 		Arbol arb = c->getGenotipo(tipo);
+		arb.reparaReferencias();
 		Nodo n;
 		n = arb.getNodoFuncionAleatorio();
 		if (n.getPadre() != nullptr) {
 			Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos(), tipo);
 			n.getPadre()->addHijo(nuevo, n.getPos());
+			arb.reparaReferencias();
 			arb.actualizaNumNodos();
 			c->setGenotipo(arb, tipo);
 		}
