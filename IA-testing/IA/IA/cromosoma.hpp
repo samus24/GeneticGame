@@ -105,7 +105,7 @@ public:
 		_punt = 0;
 		_puntAcum = 0;
 		_adaptacion = 0;
-		double pesos[5] = { 0.3, 0.2, 0.15, 0.05, 0.30 };
+		double pesos[5] = { 0.2, 0.1, 0.25, 0.05, 0.4 };
 		for (size_t i = 0; i < 5; ++i){
 			_pesos[i] = pesos[i];
 			_mediaValores[i] = 0;
@@ -117,7 +117,7 @@ public:
 	Cromosoma(int profMin, int profMax) {
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
-		double pesos[5] = { 0.2, 0.1, 0.25, 0.1, 0.35 };
+		double pesos[5] = { 0.2, 0.1, 0.25, 0.05, 0.4 };
 		for (size_t i = 0; i < 5; ++i){
 			_pesos[i] = pesos[i];
 			_mediaValores[i] = 0;
@@ -129,7 +129,7 @@ public:
 	void crear(int profMin, int profMax){
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
-		double pesos[5] = { 0.2, 0.1, 0.25, 0.1, 0.35 };
+		double pesos[5] = { 0.2, 0.1, 0.25, 0.05, 0.4 };
 		for (size_t i = 0; i < 5; ++i){
 			_pesos[i] = pesos[i];
 			_mediaValores[i] = 0;
