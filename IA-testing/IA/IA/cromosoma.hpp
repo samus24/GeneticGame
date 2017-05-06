@@ -575,6 +575,8 @@ private:
 		for (std::size_t i = 0; i < 5; ++i){
 			evaluacion += _valores[i] * _pesos[i];
 		}
+		if (enemigo.turnosPatrulla < enemigo.turnos*0.2)
+			evaluacion *= 2;
 		return evaluacion;
 	}
 
