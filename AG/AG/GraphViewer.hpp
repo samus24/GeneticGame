@@ -20,6 +20,12 @@ public:
 		for (size_t i = 0; i < _cols; ++i){
 			_virtualGrid[i] = new bool[_rows];
 		}
+
+		std::vector<sf::Color> colors = { sf::Color::Green, sf::Color(0, 128, 0), sf::Color(255, 128, 0) };
+		for (size_t i = 0; i < colors.size(); ++i){
+			ROL_COLORS.push_back(colors[i]);
+		}
+
 		_drawableLinks.setPrimitiveType(sf::Lines);
 		clearGrid();
 	}
@@ -90,9 +96,9 @@ private:
 		auto it = nodos.begin();
 		while (it != nodos.cend()){
 			if (drawn.find(it->first) == drawn.cend()){
-				// the node hasn't benn drawn yet
+				// the node hasn't been drawn yet
 				// drawNode(g, it->first, drawn, findFreePos());
-				drawNode(g, it->first, drawn, findNearestPositionTo(sf::Vector2i(_cols / 2, _rows / 2)));
+				drawNode(g, it->first, drawn, findNearestPositionTo(sf::Vector2i(_cols / 2, _rows / 2)), _model.getRolesSala());
 			}
 			it++;
 		}
@@ -111,7 +117,7 @@ private:
 
 	}
 
-	void drawNode(Grafo<Gen> g, unsigned int idNodo, std::set<unsigned int> &drawn, sf::Vector2i parentCoord){
+	void drawNode(Grafo<Gen> g, unsigned int idNodo, std::set<unsigned int> &drawn, sf::Vector2i parentCoord, std::vector<unsigned int> roles){
 		drawn.insert(idNodo);
 		Gen nodo = g.getNodos()[idNodo];
 		sf::RectangleShape n;
@@ -127,6 +133,11 @@ private:
 			}
 			else{
 				n.setOutlineColor(sf::Color::Blue);
+			}
+			for (size_t i = 0; i < roles.size(); ++i){
+				if (idNodo == roles[i]){
+					n.setOutlineColor(ROL_COLORS[i]);
+				}
 			}
 			n.setOutlineThickness(idNodo);			
 			// ^ Por evitar mucho cambio, voy a usar este parametro para identificar cada nodo en _drawableNodes
@@ -172,7 +183,7 @@ private:
 
 			while (it != ady.cend()){
 				if (drawn.find(*it) == drawn.cend()){
-					drawNode(g, *it,drawn, myCoords);
+					drawNode(g, *it,drawn, myCoords, roles);
 				}
 				else{
 					for (size_t i = 0; i < _drawableNodes.size(); ++i){
@@ -254,6 +265,8 @@ private:
 	std::vector<sf::Text> _drawableLoots;
 	sf::Font _font;
 	sf::VertexArray _drawableLinks;
+
+	std::vector<sf::Color> ROL_COLORS;
 };
 
 #endif

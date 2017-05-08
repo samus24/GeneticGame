@@ -47,7 +47,7 @@ private:
 	const unsigned int _MAXSIZE = 40;
 	const unsigned int _MINSIZE = 5;
 	const unsigned int _MINENEMIGOS = 0;
-	const unsigned int _MAXENEMIGOS = 8;
+	const unsigned int _MAXENEMIGOS = 3;
 	const unsigned int _MINCOFRES = 0;
 	const unsigned int _MAXCOFRES = 2;
 };

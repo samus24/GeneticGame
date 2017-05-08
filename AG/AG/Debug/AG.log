@@ -1,9 +1,7 @@
-﻿Compilación iniciada a las 28/03/2017 1:10:16.
+﻿Compilación iniciada a las 09/05/2017 0:01:38.
      1>Proyecto "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp ScrollBar.cpp
-         ScrollBar.cpp
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\scrollbar.cpp(73): warning C4244: 'return' : conversión de 'float' a 'int'; posible pérdida de datos
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
          Main.cpp
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\gen.hpp(11): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\metodomutacion.hpp(26): warning C4101: 'vecinos2' : variable local sin referencia
@@ -47,20 +45,20 @@
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\tabpane.hpp(13): warning C4244: '=' : conversión de 'float' a 'unsigned int'; posible pérdida de datos
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\tabpane.hpp(20): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\tabpane.hpp(21): warning C4244: '+=' : conversión de 'const float' a 'unsigned int'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(51): warning C4244: 'argumento' : conversión de 'const unsigned int' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(52): warning C4244: 'argumento' : conversión de 'const unsigned int' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(55): warning C4244: 'argumento' : conversión de 'const unsigned int' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(56): warning C4244: 'argumento' : conversión de 'const unsigned int' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(105): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(106): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(121): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(131): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(137): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(138): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(139): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(196): warning C4018: '<' : no coinciden signed/unsigned
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(209): warning C4018: '<' : no coinciden signed/unsigned
-     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(210): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(57): warning C4244: 'argumento' : conversión de 'const unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(58): warning C4244: 'argumento' : conversión de 'const unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(61): warning C4244: 'argumento' : conversión de 'const unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(62): warning C4244: 'argumento' : conversión de 'const unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(111): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(112): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(127): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(142): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(148): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(149): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(150): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(207): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(220): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ag\ag\graphviewer.hpp(221): warning C4018: '<' : no coinciden signed/unsigned
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\roomviewer.hpp(89): warning C4244: 'inicializando' : conversión de 'const float' a 'unsigned int'; posible pérdida de datos
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\roomviewer.hpp(130): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\roomviewer.hpp(131): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
@@ -91,13 +89,12 @@
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\ventana.hpp(28): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(59): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
                  c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(57) : durante la compilación de la función miembro de plantilla de clase 'Grafo<Gen>::Grafo(void)'
-                 c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(11) : vea la referencia a la creación de instancias de plantilla de función 'Grafo<Gen>::Grafo(void)' que se está compilando
-                 c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(121) : vea la referencia a la creación de instancias de plantilla de clase 'Grafo<Gen>' que se está compilando
+                 c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(20) : vea la referencia a la creación de instancias de plantilla de función 'Grafo<Gen>::Grafo(void)' que se está compilando
+                 c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(150) : vea la referencia a la creación de instancias de plantilla de clase 'Grafo<Gen>' que se está compilando
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(64): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
                  c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(62) : durante la compilación de la función miembro de plantilla de clase 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)'
-                 c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(25) : vea la referencia a la creación de instancias de plantilla de función 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)' que se está compilando
+                 c:\users\alvaro\documents\github\geneticgame\ag\ag\cromosoma.hpp(35) : vea la referencia a la creación de instancias de plantilla de función 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)' que se está compilando
      1>c:\users\alvaro\documents\github\geneticgame\ag\ag\grafo.hpp(71): warning C4244: 'inicializando' : conversión de 'double' a 'unsigned int'; posible pérdida de datos
-         Generando código...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\Debug\AG.exe" /INCREMENTAL /NOLOGO "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-graphics-d.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-window.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-window-d.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisfile.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisenc.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbis.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\openal32.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\ogg.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\jpeg.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\freetype.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\flac.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-system-d.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\sfml-main-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\Debug\AG.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\Debug\AG.lib" /MACHINE:X86 Debug\Main.obj
          Debug\ScrollBar.obj
@@ -106,4 +103,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:03.20
+Tiempo transcurrido 00:00:03.47

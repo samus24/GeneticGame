@@ -5,6 +5,15 @@
 #include "Gen.hpp"
 #include "ParametrosEval.hpp"
 #include <cmath>
+#include <queue>
+#include <iostream>
+
+enum RolSala{
+	Inicio,
+	Fin,
+	Llave,
+	RolCount
+};
 
 class Cromosoma {
 public:
@@ -21,8 +30,18 @@ public:
 	}
 
 	Cromosoma(unsigned int minNodos, unsigned int maxNodos, double densidad) :
-		_grafo(minNodos, maxNodos, densidad)
+		_grafo(minNodos, maxNodos, densidad),
+		_rolesSala(RolSala::RolCount)
 	{
+		_rolesSala[RolSala::Inicio] = RandomGen::getRandom(0, int(_grafo.size() - 1));
+		do{
+			_rolesSala[RolSala::Fin] = RandomGen::getRandom(0, int(_grafo.size() - 1));
+		} while (_rolesSala[RolSala::Inicio] == _rolesSala[RolSala::Fin]);
+
+		do{
+			_rolesSala[RolSala::Llave] = RandomGen::getRandom(0, int(_grafo.size() - 1));
+		} while (_rolesSala[RolSala::Llave] == _rolesSala[RolSala::Inicio] || _rolesSala[RolSala::Llave] == _rolesSala[RolSala::Fin]);
+
 		double auxpesos[] = { 0.5, 0.16, 0.03, 0.02, 0, 0.19, 0.10 };	// {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
 		for (size_t i = 0; i < 7; ++i){
 			_pesos[i] = auxpesos[i];
@@ -61,6 +80,14 @@ public:
 		return _pesos;
 	}
 
+	std::vector<unsigned int> getRolesSala() const{
+		return _rolesSala;
+	}
+
+	void setRolesSala(std::vector<unsigned int> roles){
+		_rolesSala = roles;
+	}
+
 	void setIndexElMejor(unsigned int i){
 		_indexMejorCC = i;
 	}
@@ -84,10 +111,11 @@ public:
 
 	double evalua(ParametrosEval param){
 		// IMPORTANTE, contamos con que la funcion evalua establece automaticamente el valor de _adaptacion
-		double mejorCC = -1;
+		double mejorCC = -999999999999999;
 		_indexMejorCC = -1;
 		double componente;
 		std::vector<Grafo<Gen>::ComponenteConexa<Gen>> CC = _grafo.getComponentesConexas();
+		int tam = CC.size();
 		for (std::size_t i = 0; i < CC.size(); ++i) {
 			componente = evaluaCC(CC[i], param);
 			if (componente > mejorCC){
@@ -114,11 +142,133 @@ public:
 		_adaptacion = other.getAdaptacion();
 		_punt = other.getPunt();
 		_puntAcum = other.getPuntAcum();
+		_rolesSala = other.getRolesSala();
 		return *this;
 	}
 
 private:
 	double evaluaCC(Grafo<Gen>::ComponenteConexa<Gen> CC, ParametrosEval param) {
+		/*
+		La nueva funcion de evaluacion debe:
+		- Minimizar el numero de nodos de la CC						:: Pendiente
+		- Maximizar las distancias entre Inicio-Llave y Llave-Fin	:: Pendiente
+		- Minimizar la media de grado de las salas					:: Pendiente
+		- Maximizar la dispersion de enemigos y cofres				:: Pendiente
+		*/
+		unsigned int numNodos = CC.size();
+		unsigned int distanciaTotal = 0;
+		if (CC.contieneNodo(_rolesSala[RolSala::Inicio]) && CC.contieneNodo(_rolesSala[RolSala::Llave])){
+			distanciaTotal += CC.bfs(_rolesSala[RolSala::Inicio], _rolesSala[RolSala::Llave]);
+		}
+		if (CC.contieneNodo(_rolesSala[RolSala::Fin]) && CC.contieneNodo(_rolesSala[RolSala::Llave])){
+			distanciaTotal += CC.bfs(_rolesSala[RolSala::Fin], _rolesSala[RolSala::Llave]);
+		}
+
+		double mediaGrado = 0;
+		auto adyacencia = CC.getAdyacencia();
+		auto itAdy = adyacencia.begin();
+		while (itAdy != adyacencia.cend()){
+			mediaGrado += itAdy->second.size();
+			itAdy++;
+		}
+		mediaGrado /= numNodos;
+
+		int enemigosTotales = 0;
+		int cofresTotales = 0;
+		auto nodos = CC.getNodos();
+		auto itNodos = nodos.begin();
+		while (itNodos != nodos.cend()){
+			enemigosTotales += itNodos->second.getEnemigos();
+			cofresTotales += itNodos->second.getCofres();
+			++itNodos;
+		}
+
+		double dispCofres = 0;
+		for (auto it = nodos.begin(); it != nodos.end(); ++it){
+			unsigned int cofres = it->second.getCofres();
+			double mediaDist = 0;
+			if (cofres > 0){
+				auto distancias = CC.bfsDist(it->first);
+				for (auto it2 = nodos.begin(); it2 != nodos.end(); ++it2){
+					unsigned int cofres2 = it2->second.getCofres();
+					if (cofres2 > 0){
+						mediaDist += distancias[it2->first] * cofres2;
+					}
+				}
+				if (cofresTotales > 1)
+					mediaDist /= (cofresTotales - 1);
+				dispCofres += (mediaDist * cofres);
+			}
+		}
+		if (cofresTotales > 0)
+			dispCofres /= cofresTotales;
+
+
+		double dispEnemigos = 0;
+		for (auto it = nodos.begin(); it != nodos.end(); ++it){
+			unsigned int enemigos = it->second.getEnemigos();
+			double mediaDist = 0;
+			if (enemigos > 0){
+				auto distancias = CC.bfsDist(it->first);
+				for (auto it2 = nodos.begin(); it2 != nodos.end(); ++it2){
+					unsigned int enemigos2 = it2->second.getEnemigos();
+					if (enemigos2 > 0){
+						mediaDist += distancias[it2->first] * enemigos2;
+					}
+				}
+				if (enemigosTotales > 1)
+					mediaDist /= (enemigosTotales - 1);
+				dispEnemigos += (mediaDist * enemigos);
+			}
+		}
+		if (enemigosTotales > 0)
+			dispEnemigos /= enemigosTotales;
+		/*
+		double dispCofres = 0;
+		for (auto it = nodos.begin(); it != nodos.end(); ++it){
+			unsigned int cofres = it->second.getCofres();
+			double mediaDist = 0;
+			if (cofres > 0){
+				for (auto it2 = nodos.begin(); it2 != nodos.end(); ++it2){
+					unsigned int cofres2 = it2->second.getCofres();
+					if (cofres2 > 0){
+						mediaDist += CC.bfs(it->first, it2->first) * cofres2;
+					}
+				}
+				if (cofresTotales > 1)
+					mediaDist /= (cofresTotales - 1);
+				dispCofres += (mediaDist * cofres);
+			}
+		}
+		if (cofresTotales > 0)
+			dispCofres /= cofresTotales;
+
+		double dispEnemigos = 0;
+		for (auto it = nodos.begin(); it != nodos.end(); ++it){
+			unsigned int enemigos = it->second.getEnemigos();
+			double mediaDist = 0;
+			if (enemigos > 0){
+				for (auto it2 = nodos.begin(); it2 != nodos.end(); ++it2){
+					unsigned int enemigos2 = it2->second.getEnemigos();
+					if (enemigos2 > 0){
+						mediaDist += CC.bfs(it->first, it2->first) * enemigos2;
+					}
+				}
+				if (enemigosTotales > 1)
+					mediaDist /= (enemigosTotales - 1);
+				dispEnemigos += (mediaDist * enemigos);
+			}
+		}
+		if (enemigosTotales > 0)
+			dispEnemigos /= enemigosTotales;
+		*/
+		double pesos = {};
+		double fitness = distanciaTotal*6 - mediaGrado - numNodos + dispCofres + dispEnemigos;
+		std::cout << "Fitness: " << fitness << " Dist: " << distanciaTotal << " Media Grado: " << mediaGrado << " NumNodos: " << numNodos << " Disp Cofres: " << dispCofres << " Disp Enem: " << dispEnemigos << std::endl;
+		this->_adaptacion = fitness;
+		return fitness;
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		/*
 		//double _pesos[] = { 0.375, 0.35, 0.05, 0.05, 0.05, 0.07, 0.055 }; 
 		//double _pesos[] = { 0.45, 0.2, 0.03, 0.02, 0, 0.195, 0.105 };
 		// Notese que el peso de los ciclos es 0. En ninguna de las ejecuciones he visto que alguno de los
@@ -183,7 +333,7 @@ private:
 		/*
 		_valores[4] = 1 - (abs(int(ciclosActuales - param.ciclosOptimos)) / (float)param.ciclosOptimos);
 		if (_valores[4] < 0)	_valores[4] = 0;
-		*/
+		//
 		_valores[4] = 0;
 
 		_valores[5] = 1 - (abs(int(enemigosActuales - param.enemigosOptimos)) / (float)param.enemigosOptimos);
@@ -196,10 +346,11 @@ private:
 			evaluacion += _valores[i] * _pesos[i];
 		}
 
-		return evaluacion;
+		return evaluacion;*/
 	}
 
 	Grafo<Gen> _grafo;
+	std::vector<unsigned int> _rolesSala;
 
 	double _punt;
 	double _puntAcum;

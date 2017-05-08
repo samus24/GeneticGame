@@ -89,6 +89,7 @@ public:
 			} while (!ok);
 		}
 		else{
+			auto roles = c->getRolesSala();
 			unsigned int randNodo;
 			auto nodos = g.getNodos();
 			auto ady = g.getAdyacencia();
@@ -101,6 +102,25 @@ public:
 			ady.erase(randNodo);
 			g.setNodos(nodos);
 			g.setAdyacencia(ady);
+
+			// Si el nodo borrado tenia un rol, se asigna ese rol a otro nodo
+			for (size_t i = 0; i < roles.size(); ++i){
+				if (roles[i] = randNodo){
+					bool ok;
+					do{
+						ok = true;
+						roles[i] = RandomGen::getRandom(0, int(ady.size() - 1));
+						for (size_t j = 0; j < roles.size() && ok; ++j){
+							if (i != j){
+								if (roles[i] == roles[j]){
+									ok = false;
+								}
+							}
+						}
+					} while (!ok);
+				}
+			}
+			c->setRolesSala(roles);
 		}
 		c->setGenotipo(g, p);
 	}

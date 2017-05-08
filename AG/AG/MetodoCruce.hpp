@@ -25,6 +25,50 @@ public:
 
 			Grafo<Gen> hijo1 = Grafo<Gen>::unirGrafo(subsA[0], subsB[1]);
 			Grafo<Gen> hijo2 = Grafo<Gen>::unirGrafo(subsB[0], subsA[1]);
+
+
+			// Se comprueba que ninguna sala fuera del rango sea vital (tenga un rol)
+			std::vector<unsigned int> rolesA = a->getRolesSala();
+			std::vector<unsigned int> rolesACopia = a->getRolesSala();
+			for (size_t i = 0; i < rolesA.size(); ++i){
+				if (rolesA[i] >= hijo1.size()){
+					bool ok;
+					do{
+						ok = true;
+						rolesA[i] = RandomGen::getRandom(0, int(hijo1.size() - 1));
+						for (size_t j = 0; j < rolesA.size() && ok; ++j){
+							if (i != j){
+								if (rolesA[i] == rolesA[j]){
+									ok = false;
+								}
+							}
+						}
+					} while (!ok);
+				}
+			}
+
+			a->setRolesSala(rolesA);
+
+			std::vector<unsigned int> rolesB = b->getRolesSala();
+			std::vector<unsigned int> rolesBCopia = b->getRolesSala();
+			for (size_t i = 0; i < rolesB.size(); ++i){
+				if (rolesB[i] >= hijo1.size()){
+					bool ok;
+					do{
+						ok = true;
+						rolesB[i] = RandomGen::getRandom(0, int(hijo1.size() - 1));
+						for (size_t j = 0; j < rolesB.size() && ok; ++j){
+							if (i != j){
+								if (rolesB[i] == rolesB[j]){
+									ok = false;
+								}
+							}
+						}
+					} while (!ok);
+				}
+			}
+
+			b->setRolesSala(rolesB);
 			
 			a->setGenotipo(hijo1, p);
 			b->setGenotipo(hijo2, p);
@@ -34,11 +78,14 @@ public:
 			if (adapHijoA < adaptacionA){
 				// Si el hijo A no es mejor que el padre A se restituye
 				a->setGenotipo(grafoA, p);
+				a->setRolesSala(rolesACopia);
 			}
 			if (adapHijoB < adaptacionB){
 				// Si el hijo A no es mejor que el padre A se restituye
 				b->setGenotipo(grafoB, p);
+				b->setRolesSala(rolesBCopia);
 			}
+
 		}
 		
 	}

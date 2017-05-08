@@ -17,15 +17,16 @@
 class Ventana : public IAGObserver{
 public:
 	Ventana(Controlador& c) :
-		//_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
-		_window(sf::VideoMode(1200,600), "AG"),					// descomentar esta si no se representa bien en pantalla
+		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
+		//_window(sf::VideoMode(1200,600), "AG"),					// descomentar esta si no se representa bien en pantalla
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, 25)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_graphViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_roomViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.19, 400)),
 		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200)),
-		_progress(sf::Vector2f(_window.getSize().x *0.8, _window.getSize().y -50), sf::Vector2f(_window.getSize().x * 0.1, 30))
+		_progress(sf::Vector2f(_window.getSize().x *0.8, _window.getSize().y -50), sf::Vector2f(_window.getSize().x * 0.1, 30)),
+		_hiloAG(&Ventana::ejecutaAG, this)
 	{
 		_font.loadFromFile("arial.ttf");
 		_ctrl = &c;
@@ -34,6 +35,8 @@ public:
 		_tabPane.addTab("Plotter", _plotter);
 		_tabPane.addTab("Graph", _graphViewer);
 		_tabPane.addTab("Rooms", _roomViewer);
+
+		running = false;
 	}
 
 	void run(unsigned int maxIter){
@@ -57,22 +60,21 @@ public:
 				else if (event.type == sf::Event::MouseButtonPressed){
 					sf::Vector2f point = sf::Vector2f(sf::Mouse::getPosition(_window));
 					if (_botonRun.contains(point)){
-						_plotter.removeAllData();
-						_ejeX.clear();
-						_valorMedia.clear();
-						_valorMejor.clear();
-						_valorMejorGen.clear();
+						if (!running){
+							_plotter.removeAllData();
+							_ejeX.clear();
+							_valorMedia.clear();
+							_valorMejor.clear();
+							_valorMejorGen.clear();
 
-						_valorMediaSel.clear();
+							_valorMediaSel.clear();
 
-						_generacion = 0;
-						_logger.clearLog();
-						_logger.append("Ejecutando AG\n");
-						_progress.clearProgress();
-						_window.draw(_progress);
-						_window.draw(_logger);
-						_window.display();
-						_ctrl->run();
+							_generacion = 0;
+							_logger.clearLog();
+							_logger.append("Ejecutando AG\n");
+							_progress.clearProgress();
+							_hiloAG.launch();
+						}
 					}
 					else if (_tabPane.contains(point)){
 						_tabPane.handleClick(point);
@@ -93,25 +95,25 @@ public:
 						_roomViewer.setModel(_roomViewer.getModel(), Rellenador::rellenaMazmorra(_roomViewer.getModel().getMejorCC()));
 					}
 					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
-						_plotter.removeAllData();
-						_ejeX.clear();
-						_valorMedia.clear();
-						_valorMejor.clear();
-						_valorMejorGen.clear();
+						if (!running){
+							_plotter.removeAllData();
+							_ejeX.clear();
+							_valorMedia.clear();
+							_valorMejor.clear();
+							_valorMejorGen.clear();
 
-						_valorMediaSel.clear();
+							_valorMediaSel.clear();
 
-						_generacion = 0;
-						_logger.clearLog();
-						_logger.append("Ejecutando AG\n");
-						_progress.clearProgress();
-						_window.draw(_progress);
-						_window.draw(_logger);
-						_window.display();
-						_ctrl->run();
+							_generacion = 0;
+							_logger.clearLog();
+							_logger.append("Ejecutando AG\n");
+							_progress.clearProgress();
+							_hiloAG.launch();
+						}
 					}
 				}
 			}
+			sf::Lock lock(_mutex);
 			_window.clear(sf::Color::White);
 			_window.draw(_tabPane);
 			_window.draw(_logger);
@@ -121,20 +123,20 @@ public:
 		}
 	}
 
-	void onGeneracionTerminada(double mejor, double mejorGen, double media, double mediaSel){
+	void onGeneracionTerminada(Cromosoma elMejor, double mejor, double mejorGen, double media, double mediaSel){
+		sf::Lock lock(_mutex);
 		_ejeX.push_back(_generacion);
+		_graphViewer.setModel(elMejor);
 		_valorMejor.push_back(mejor);
 		_valorMejorGen.push_back(mejorGen);
 		_valorMedia.push_back(media);
 		_valorMediaSel.push_back(mediaSel);
-		_window.draw(_logger);
 		_progress.updateProgress(_generacion);
-		_window.draw(_progress);
-		_window.display();
 		_generacion++;
 	}
 
 	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval){
+		sf::Lock lock(_mutex);
 		_plotter.setEjeX(_ejeX);
 
 		_plotter.pushEjeY(_valorMediaSel, sf::Color::Magenta, "Media Seleccion");
@@ -173,6 +175,15 @@ public:
 
 
 private:
+
+	void ejecutaAG(){
+		if (!running){
+			running = true;
+			_ctrl->run();
+			running = false;
+		}
+	}
+
 	sf::RenderWindow _window;
 	sf::Font _font;
 	ProgressBar _progress;
@@ -189,6 +200,10 @@ private:
 	std::vector<double> _valorMejorGen;
 	std::vector<double> _valorMedia;
 	std::vector<double> _valorMediaSel;
+
+	bool running;
+	sf::Thread _hiloAG;
+	sf::Mutex _mutex;
 };
 
 #endif

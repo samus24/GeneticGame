@@ -31,10 +31,10 @@ int main(){
 	pEval.anchoOptimo = 30;
 	pEval.altoOptimo = 20;
 	pEval.ciclosOptimos = 4;
-	pEval.enemigosOptimos = 35;			
-	pEval.cofresOptimos = 10;	
+	pEval.enemigosOptimos = 0.7;			
+	pEval.cofresOptimos = 0.4;
 
-	
+	/*
 	AG ag(p, pEval);
 	Controlador c(ag);
 	Testbench tb(c);
@@ -43,12 +43,12 @@ int main(){
 	tb.openFile("Testbench03.txt");
 
 	tb.launchTestbench(); 
+	*/
 	
-	/*
 	AG ag(p,pEval);
 	Controlador c(ag);
 	Ventana v(c);
 	v.run(p.iteraciones);
-	*/
+	
 	return 0;
 }

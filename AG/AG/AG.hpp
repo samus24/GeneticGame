@@ -55,7 +55,7 @@ public:
 		mediaAnterior = evaluarPoblacion();
 		_crono.finalizaMedida("eval", std::chrono::high_resolution_clock::now());
 
-		while (_generacion < _param.iteraciones && _elMejor.getAdaptacion() < 0.85){
+		while (_generacion < _param.iteraciones){
 			int nElite = (int)(_param.tamPob * 0.02);
 			std::vector<Cromosoma> elite;
 			if (_param.elitismo){
@@ -233,7 +233,7 @@ private:
 
 	void notifyGeneracionTerminada(double mejor, double mejorGen, double media, double mediaSel){
 		for (IAGObserver* o : _obs){
-			o->onGeneracionTerminada(mejor, mejorGen, media, mediaSel);
+			o->onGeneracionTerminada(_elMejor, mejor, mejorGen, media, mediaSel);
 		}
 	}
 

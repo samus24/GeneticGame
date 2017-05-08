@@ -78,18 +78,17 @@ public:
 				--nAristas;
 			}
 		}
-
 	}
 
-	std::unordered_map< unsigned int, std::set<unsigned int> > getAdyacencia(){
+	std::unordered_map< unsigned int, std::set<unsigned int> > getAdyacencia() const{
 		return _ady;
 	}
 
-	std::unordered_map< unsigned int, N > getNodos(){
+	std::unordered_map< unsigned int, N > getNodos() const{
 		return _nodos;
 	}
 
-	unsigned int size(){
+	unsigned int size() const{
 		return _nodos.size();
 	}
 
@@ -125,6 +124,18 @@ public:
 				throw std::invalid_argument("El nodo con id " + std::to_string(id) + "ya existe en el grafo");
 			}
 		}
+	}
+
+	/**
+	\brief Indica si el grafo contiene el nodo n
+	\param nodo  Nuevo nodo a anadir
+	@throws Invalid argument si el id del nodo ya esta en el grafo
+	*/
+	bool contieneNodo(unsigned int n) const{
+		if (n < _nodos.size()){
+			return (_nodos.find(n) != _nodos.end());
+		}
+		return false;
 	}
 
 	/**
@@ -365,6 +376,61 @@ public:
 			it++;
 		}
 		return ret;
+	}
+
+	int bfs(unsigned int idOrigen, unsigned int idDestino) const{
+		std::queue<unsigned int> queue;
+		std::set<unsigned int> marcados;
+		std::unordered_map<unsigned int, unsigned int> distancias;
+		if (_nodos.find(idOrigen) != _nodos.end()){
+			unsigned int actual;
+			queue.push(idOrigen);
+			marcados.emplace(actual);
+			distancias[idOrigen] = 0;
+			while (!queue.empty()){
+				actual = queue.front();
+				unsigned int dist = distancias[actual] + 1;
+				queue.pop();
+				if (actual == idDestino){
+					return distancias[actual];
+				}
+				std::set<unsigned int> vecinos = _ady.at(actual);
+				for (auto i = vecinos.begin(); i != vecinos.end(); ++i){
+					if (marcados.find(*i) == marcados.end()){
+						queue.push(*i);
+						marcados.emplace(*i);
+						distancias[*i] = dist;
+					}
+				}
+			}
+		}
+		return -1;
+	}
+
+	std::unordered_map<unsigned int, unsigned int> bfsDist(unsigned int idOrigen) const{
+		std::queue<unsigned int> queue;
+		std::set<unsigned int> marcados;
+		std::unordered_map<unsigned int, unsigned int> distancias;
+		if (_nodos.find(idOrigen) != _nodos.end()){
+			unsigned int actual;
+			queue.push(idOrigen);
+			marcados.emplace(actual);
+			distancias[idOrigen] = 0;
+			while (!queue.empty()){
+				actual = queue.front();
+				unsigned int dist = distancias[actual] + 1;
+				queue.pop();
+				std::set<unsigned int> vecinos = _ady.at(actual);
+				for (auto i = vecinos.begin(); i != vecinos.end(); ++i){
+					if (marcados.find(*i) == marcados.end()){
+						queue.push(*i);
+						marcados.emplace(*i);
+						distancias[*i] = dist;
+					}
+				}
+			}
+		}
+		return distancias;
 	}
 
 private:
