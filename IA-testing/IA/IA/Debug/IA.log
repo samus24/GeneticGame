@@ -1,4 +1,4 @@
-﻿Compilación iniciada a las 08/05/2017 19:00:21.
+﻿Compilación iniciada a las 08/05/2017 19:34:23.
      1>Proyecto "D:\Github\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          D:\VisualStudio2013\VC\bin\CL.exe /c /I"D:\Github\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"D:\Github\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"D:\Github\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -25,10 +25,10 @@
      1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(36): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(37): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(273): warning C4244: 'inicializando' : conversión de 'double' a 'int'; posible pérdida de datos
-     1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(596): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(597): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(612): warning C4018: '<' : no coinciden signed/unsigned
-     1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(613): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(600): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(601): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(616): warning C4018: '<' : no coinciden signed/unsigned
+     1>d:\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(617): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(22): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(28): warning C4018: '<' : no coinciden signed/unsigned
      1>d:\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(46): warning C4018: '<' : no coinciden signed/unsigned
@@ -135,4 +135,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:01.98
+Tiempo transcurrido 00:00:02.43

@@ -572,8 +572,12 @@ private:
 		_valores[3] = enemigo.golpesEvitados / optimos[3];
 		_valores[4] = jugador.heridas / optimos[4];
 		_valores[5] = cAndadasAtaque / optimos[5];
-		if (ataque)
-			_valores[6] = optimos[6] / distancia;
+		if (ataque) {
+			if (distancia != 0)
+				_valores[6] = optimos[6] / distancia;
+			else
+				_valores[6] = 1;
+		}
 		else
 			_valores[6] = 0;
 
@@ -604,7 +608,7 @@ private:
 	}
 
 	double calculaDistancia(npc jugador, npc enemigo) {
-		return sqrt((enemigo.posX - jugador.posX)*(enemigo.posX - jugador.posX) + (enemigo.posY - jugador.posY)*(enemigo.posY - jugador.posY));
+		return sqrt(((enemigo.posX - jugador.posX)*(enemigo.posX - jugador.posX)) + ((enemigo.posY - jugador.posY)*(enemigo.posY - jugador.posY)));
 	}
 
 	int casillasAndadas(Mapa m) {
