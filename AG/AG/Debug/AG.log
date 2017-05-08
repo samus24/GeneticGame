@@ -1,4 +1,4 @@
-﻿Compilación iniciada a las 09/05/2017 0:01:38.
+﻿Compilación iniciada a las 09/05/2017 0:15:54.
      1>Proyecto "C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\AG\AG.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\AG\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
@@ -103,4 +103,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:03.47
+Tiempo transcurrido 00:00:02.47

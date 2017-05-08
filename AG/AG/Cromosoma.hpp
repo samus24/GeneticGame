@@ -157,10 +157,18 @@ private:
 		*/
 		unsigned int numNodos = CC.size();
 		unsigned int distanciaTotal = 0;
+		/*
 		if (CC.contieneNodo(_rolesSala[RolSala::Inicio]) && CC.contieneNodo(_rolesSala[RolSala::Llave])){
 			distanciaTotal += CC.bfs(_rolesSala[RolSala::Inicio], _rolesSala[RolSala::Llave]);
 		}
 		if (CC.contieneNodo(_rolesSala[RolSala::Fin]) && CC.contieneNodo(_rolesSala[RolSala::Llave])){
+			distanciaTotal += CC.bfs(_rolesSala[RolSala::Fin], _rolesSala[RolSala::Llave]);
+		}
+		*/
+
+		// Si no contiene las 3, es posible que a la mazmorra final le falte una sala clave
+		if (CC.contieneNodo(_rolesSala[RolSala::Inicio]) && CC.contieneNodo(_rolesSala[RolSala::Llave]) && CC.contieneNodo(_rolesSala[RolSala::Fin])){
+			distanciaTotal += CC.bfs(_rolesSala[RolSala::Inicio], _rolesSala[RolSala::Llave]);
 			distanciaTotal += CC.bfs(_rolesSala[RolSala::Fin], _rolesSala[RolSala::Llave]);
 		}
 
@@ -263,7 +271,7 @@ private:
 			dispEnemigos /= enemigosTotales;
 		*/
 		double pesos = {};
-		double fitness = distanciaTotal*6 - mediaGrado - numNodos + dispCofres + dispEnemigos;
+		double fitness = distanciaTotal*4 - mediaGrado - numNodos + dispCofres + dispEnemigos;
 		std::cout << "Fitness: " << fitness << " Dist: " << distanciaTotal << " Media Grado: " << mediaGrado << " NumNodos: " << numNodos << " Disp Cofres: " << dispCofres << " Disp Enem: " << dispEnemigos << std::endl;
 		this->_adaptacion = fitness;
 		return fitness;
