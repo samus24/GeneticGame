@@ -105,8 +105,8 @@ public:
 		_punt = 0;
 		_puntAcum = 0;
 		_adaptacion = 0;
-		double pesos[5] = { 0.2, 0.1, 0.25, 0.05, 0.4 };
-		for (size_t i = 0; i < 5; ++i){
+		double pesos[7] = { 0.2, 0.1, 0.1, 0.05, 0.3, 0.15, 0.05 };
+		for (size_t i = 0; i < 7; ++i){
 			_pesos[i] = pesos[i];
 			_mediaValores[i] = 0;
 		}
@@ -117,8 +117,8 @@ public:
 	Cromosoma(int profMin, int profMax) {
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
-		double pesos[5] = { 0.2, 0.1, 0.25, 0.05, 0.4 };
-		for (size_t i = 0; i < 5; ++i){
+		double pesos[7] = { 0.2, 0.1, 0.1, 0.05, 0.3, 0.15, 0.05 };
+		for (size_t i = 0; i < 7; ++i){
 			_pesos[i] = pesos[i];
 			_mediaValores[i] = 0;
 		}
@@ -129,8 +129,8 @@ public:
 	void crear(int profMin, int profMax){
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
-		double pesos[5] = { 0.2, 0.1, 0.25, 0.05, 0.4 };
-		for (size_t i = 0; i < 5; ++i){
+		double pesos[7] = { 0.2, 0.1, 0.1, 0.05, 0.3, 0.15, 0.05 };
+		for (size_t i = 0; i < 7; ++i){
 			_pesos[i] = pesos[i];
 			_mediaValores[i] = 0;
 		}
@@ -275,6 +275,7 @@ private:
 		std::stack<Nodo*> pila;
 		Mapa explorado = m;
 		Mapa andado = m;
+		Mapa andadoAtaque = m;
 		npc jugador(posX, posY, m.getHeight(), m.getWidth());
 		npc enemigo(0, 0, m.getHeight(), m.getWidth());
 		setPositionInRange(jugador, enemigo, 5, 10, m);
@@ -503,6 +504,7 @@ private:
 				if (enemigo.getCasillaDelante(x, y)) {
 					if (!m.estaBloqueado(x, y)) {
 						enemigo.avanza();
+						andadoAtaque.setCasilla(enemigo.posX, enemigo.posY, 1);
 					}
 				}
 				enemigo.turnos++;
@@ -535,6 +537,7 @@ private:
 				if (enemigo.getCasillaDetras(x, y)) {
 					if (!m.estaBloqueado(x, y)) {
 						enemigo.retroceder();
+						andadoAtaque.setCasilla(enemigo.posX, enemigo.posY, 1);
 					}
 				}
 				enemigo.turnos++;
@@ -550,7 +553,10 @@ private:
 		}
 		double evaluacion = 0;
 		int cAndadas = casillasAndadas(andado);
+		int cAndadasAtaque = casillasAndadas(andadoAtaque);
 		int cExpl = casillasExploradas(explorado);
+		double distancia = calculaDistancia(jugador, enemigo);
+
 		/*
 		_valores[0] = cExpl;
 		_valores[1] = cAndadas;
@@ -558,25 +564,30 @@ private:
 		_valores[3] = enemigo.golpesEvitados;
 		_valores[4] = jugador.heridas;
 		*/
-		double optimos[] = { dim/3, dim/3, 5.f, 3.f, 3.f };
+		double optimos[] = { dim/3, dim/3, 5.f, 3.f, 3.f, dim/3, 1};
 
 		_valores[0] = cExpl / optimos[0];
 		_valores[1] = cAndadas / optimos[1];
 		_valores[2] = enemigo.golpes / optimos[2];
 		_valores[3] = enemigo.golpesEvitados / optimos[3];
 		_valores[4] = jugador.heridas / optimos[4];
+		_valores[5] = cAndadasAtaque / optimos[5];
+		if (ataque)
+			_valores[6] = optimos[6] / distancia;
+		else
+			_valores[6] = 0;
 
 		_mediaValores[0] += _valores[0];
 		_mediaValores[1] += _valores[1];
 		_mediaValores[2] += _valores[2];
 		_mediaValores[3] += _valores[3];
 		_mediaValores[4] += _valores[4];
+		_mediaValores[5] += _valores[5];
+		_mediaValores[6] += _valores[6];
 
-		for (std::size_t i = 0; i < 5; ++i){
+		for (std::size_t i = 0; i < 7; ++i){
 			evaluacion += _valores[i] * _pesos[i];
 		}
-		if (enemigo.turnosPatrulla < enemigo.turnos*0.2)
-			evaluacion *= 2;
 		return evaluacion;
 	}
 
@@ -590,6 +601,10 @@ private:
 			}
 		}
 		return ret;
+	}
+
+	double calculaDistancia(npc jugador, npc enemigo) {
+		return sqrt((enemigo.posX - jugador.posX)*(enemigo.posX - jugador.posX) + (enemigo.posY - jugador.posY)*(enemigo.posY - jugador.posY));
 	}
 
 	int casillasAndadas(Mapa m) {
@@ -729,9 +744,9 @@ private:
 	double _punt;
 	double _puntAcum;
 	double _adaptacion;
-	double _valores[5];
-	double _mediaValores[5];
-	double _pesos[5]; //casillas exploradas, casillas andadas, golpes evitados, heridasBloqueadas, daño
+	double _valores[7];
+	double _mediaValores[7];
+	double _pesos[7]; //casillas exploradas, casillas andadas, golpes evitados, heridasBloqueadas, daño, casillas andadas en ataque, distancia final entre jugador y enemigo
 
 	bool _descartado;
 
