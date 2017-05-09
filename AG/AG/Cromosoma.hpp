@@ -28,6 +28,7 @@ public:
 			"Numero Nodos",
 			"Disp. Cofres",
 			"Disp. Enemigos",
+			"Ratio Ancho/Alto",
 		};
 
 		_tagValores = tags;
@@ -53,6 +54,7 @@ public:
 			"Numero Nodos",
 			"Disp. Cofres",
 			"Disp. Enemigos",
+			"Ratio Ancho/Alto",
 		};
 
 		_tagValores = tags;
@@ -183,6 +185,8 @@ private:
 		}
 		mediaGrado /= numNodos;
 
+		double mediaAncho = 0;
+		double mediaAlto = 0;
 		int enemigosTotales = 0;
 		int cofresTotales = 0;
 		auto nodos = CC.getNodos();
@@ -190,8 +194,12 @@ private:
 		while (itNodos != nodos.cend()){
 			enemigosTotales += itNodos->second.getEnemigos();
 			cofresTotales += itNodos->second.getCofres();
+			mediaAncho += itNodos->second.getAncho();
+			mediaAlto += itNodos->second.getAlto();
 			++itNodos;
 		}
+		mediaAncho /= numNodos;
+		mediaAlto /= numNodos;
 
 		double dispCofres = 0;
 		for (auto it = nodos.begin(); it != nodos.end(); ++it){
@@ -234,13 +242,18 @@ private:
 		if (enemigosTotales > 0)
 			dispEnemigos /= enemigosTotales;
 
+
+		double ratioAnchoAlto = mediaAncho / mediaAlto;
 		
-		double fitness = distanciaTotal*4 - mediaGrado - numNodos + dispCofres + dispEnemigos;
+		double fitness = distanciaTotal*1.5 - mediaGrado - numNodos + dispCofres + dispEnemigos + (ratioAnchoAlto - 1);
+
+		fitness += 50;	// Para evitar fitness negativos que afectan a evaluaPob
 		_valores[0] = distanciaTotal;
 		_valores[1] = mediaGrado;
 		_valores[2] = numNodos;
 		_valores[3] = dispCofres;
 		_valores[4] = dispEnemigos;
+		_valores[5] = ratioAnchoAlto;
 		this->_adaptacion = fitness;
 		return fitness;
 	}

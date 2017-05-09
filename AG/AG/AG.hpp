@@ -86,6 +86,9 @@ public:
 			if (_param.bloating){
 				_pob.bloating(_param.maxNodos, _marcados);
 			}
+
+			_pob.evaluaMarcados(_marcados);
+
 			if (_param.elitismo){
 				_pob.ordenar();
 				for (std::size_t i = 0; i < nElite; ++i){
@@ -95,8 +98,6 @@ public:
 					_pob.individuos.push_back(elite[i]);
 				}
 			}
-
-			_pob.evaluaMarcados(_marcados);
 
 			_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
 			mediaActual = evaluarPoblacion();

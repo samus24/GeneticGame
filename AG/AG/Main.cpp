@@ -11,8 +11,8 @@
 
 int main(){
 	Parametros p;
-	p.tamPob = 30;							// Tamano de la poblacion
-	p.iteraciones = 30;						// Numero maximo de generaciones
+	p.tamPob = 50;							// Tamano de la poblacion
+	p.iteraciones = 50;						// Numero maximo de generaciones
 	p.minNodos = 10;						// Numero minimo de nodos iniciales
 	p.maxNodos = 40;						// Numero maximo de nodos iniciales
 	p.densidad = 0.03;						// Densidad de aristas inciales
@@ -21,7 +21,7 @@ int main(){
 	p.contractividad = false;				// Contractividad (descarta generaciones malas)
 	p.probCruce = 0.6;						// Probabilidad de cruce
 	p.probMutacion = 0.02;					// Probabilidad de mutacion
-	p.seleccion = new SeleccionRanking();	// Metodo de seleccion (Ver "MetodoSeleccion.hpp")
+	p.seleccion = new SeleccionTorneo();	// Metodo de seleccion (Ver "MetodoSeleccion.hpp")
 	p.cruce = new CruceMonopunto();			// Metodo de cruce (Ver "MetodoCruce.hpp")
 	p.mutacion = new MutacionArista();		// Metodo de mutacion (Ver "MetodoMutacion.hpp")
 
