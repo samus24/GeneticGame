@@ -7,14 +7,14 @@
 class MetodoMutacion {
 public:
 
-	virtual void mutar(Cromosoma* c, ParametrosEval p) = 0;
+	virtual void mutar(Cromosoma* c) = 0;
 
 	virtual std::string toString() = 0;
 };
 
 class MutacionArista : public MetodoMutacion {
 public:
-	void mutar(Cromosoma* c, ParametrosEval p){
+	void mutar(Cromosoma* c){
 		Grafo<Gen> g = c->getGenotipo();
 		auto ady = g.getAdyacencia();
 		unsigned int randNodo, randArista;
@@ -60,7 +60,7 @@ public:
 			} while (vecinos == 0 && intentos > 0);
 		}
 		g.setAdyacencia(ady);
-		c->setGenotipo(g,p);	
+		c->setGenotipo(g);	
 	}
 
 	std::string toString(){
@@ -70,7 +70,7 @@ public:
 
 class MutacionNodo : public MetodoMutacion {
 public:
-	void mutar(Cromosoma* c, ParametrosEval p){
+	void mutar(Cromosoma* c){
 		Grafo<Gen> g = c->getGenotipo();
 		if (RandomGen::getRandom(0u, 1u)){
 			// Se crea una nuevo nodo
@@ -122,7 +122,7 @@ public:
 			}
 			c->setRolesSala(roles);
 		}
-		c->setGenotipo(g, p);
+		c->setGenotipo(g);
 	}
 
 	std::string toString(){

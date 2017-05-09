@@ -22,11 +22,16 @@ public:
 		_puntAcum = 0;
 		_adaptacion = 0;
 		_indexMejorCC = 0;
+		std::vector<std::string> tags = {
+			"Distancia I-L-F",
+			"Media Grado",
+			"Numero Nodos",
+			"Disp. Cofres",
+			"Disp. Enemigos",
+		};
 
-		double auxpesos[] = { 0.5, 0.16, 0.03, 0.02, 0, 0.19, 0.10 };	// {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
-		for (size_t i = 0; i < 7; ++i){
-			_pesos[i] = auxpesos[i];
-		}
+		_tagValores = tags;
+		_valores.resize(tags.size());
 	}
 
 	Cromosoma(unsigned int minNodos, unsigned int maxNodos, double densidad) :
@@ -42,10 +47,16 @@ public:
 			_rolesSala[RolSala::Llave] = RandomGen::getRandom(0, int(_grafo.size() - 1));
 		} while (_rolesSala[RolSala::Llave] == _rolesSala[RolSala::Inicio] || _rolesSala[RolSala::Llave] == _rolesSala[RolSala::Fin]);
 
-		double auxpesos[] = { 0.5, 0.16, 0.03, 0.02, 0, 0.19, 0.10 };	// {NumNodos,  MediaGrad, MediaAlto, MediaAncho, Ciclos, NumEnemigos, NumCofres}
-		for (size_t i = 0; i < 7; ++i){
-			_pesos[i] = auxpesos[i];
-		}
+		std::vector<std::string> tags = {
+			"Distancia I-L-F",
+			"Media Grado",
+			"Numero Nodos",
+			"Disp. Cofres",
+			"Disp. Enemigos",
+		};
+
+		_tagValores = tags;
+		_valores.resize(tags.size());
 	}
 
 	Grafo<Gen> getGenotipo() const{
@@ -60,24 +71,24 @@ public:
 		return _indexMejorCC;
 	}
 
-	double getPunt(){
+	double getPunt() const{
 		return _punt;
 	}
 
-	double getPuntAcum(){
+	double getPuntAcum() const{
 		return _puntAcum;
 	}
 
-	double getAdaptacion(){
+	double getAdaptacion() const{
 		return _adaptacion;
 	}
 
-	double* getValores(){
+	std::vector<double> getValores() const{
 		return _mejoresValores;
 	}
 
-	double* getPesos(){
-		return _pesos;
+	std::vector<std::string> getTagValores() const{
+		return _tagValores;
 	}
 
 	std::vector<unsigned int> getRolesSala() const{
@@ -92,9 +103,8 @@ public:
 		_indexMejorCC = i;
 	}
 
-	void setGenotipo(Grafo<Gen> g, ParametrosEval param){
+	void setGenotipo(Grafo<Gen> g){
 		_grafo = g;
-		evalua(param);
 	}
 
 	void setPunt(double punt){
@@ -109,7 +119,7 @@ public:
 		_adaptacion = adaptacion;
 	}
 
-	double evalua(ParametrosEval param){
+	double evalua(){
 		// IMPORTANTE, contamos con que la funcion evalua establece automaticamente el valor de _adaptacion
 		double mejorCC = -999999999999999;
 		_indexMejorCC = -1;
@@ -117,23 +127,20 @@ public:
 		std::vector<Grafo<Gen>::ComponenteConexa<Gen>> CC = _grafo.getComponentesConexas();
 		int tam = CC.size();
 		for (std::size_t i = 0; i < CC.size(); ++i) {
-			componente = evaluaCC(CC[i], param);
+			componente = evaluaCC(CC[i]);
 			if (componente > mejorCC){
 				mejorCC = componente;
 				_indexMejorCC = i;
-				for (size_t i = 0; i < 7; ++i){
-					_mejoresValores[i] = _valores[i];
-				}
+				_mejoresValores = _valores;
 			}
 		}
 		this->_adaptacion = mejorCC;
 		return _adaptacion;
 	}
 	
-	void bloating(unsigned int maxNodos, ParametrosEval param){
+	void bloating(unsigned int maxNodos){
 		if (_grafo.size() > maxNodos){
 			_grafo = _grafo.divideGrafo(maxNodos).at(0);
-			evalua(param);
 		}
 	}
 
@@ -142,29 +149,24 @@ public:
 		_adaptacion = other.getAdaptacion();
 		_punt = other.getPunt();
 		_puntAcum = other.getPuntAcum();
+		_indexMejorCC = other.getIndexElMejor();
+		_mejoresValores = other.getValores();
+		_tagValores = other.getTagValores();
 		_rolesSala = other.getRolesSala();
 		return *this;
 	}
 
 private:
-	double evaluaCC(Grafo<Gen>::ComponenteConexa<Gen> CC, ParametrosEval param) {
+	double evaluaCC(Grafo<Gen>::ComponenteConexa<Gen> CC) {
 		/*
 		La nueva funcion de evaluacion debe:
-		- Minimizar el numero de nodos de la CC						:: Pendiente
-		- Maximizar las distancias entre Inicio-Llave y Llave-Fin	:: Pendiente
-		- Minimizar la media de grado de las salas					:: Pendiente
-		- Maximizar la dispersion de enemigos y cofres				:: Pendiente
+		- Minimizar el numero de nodos de la CC						:: Hecho
+		- Maximizar las distancias entre Inicio-Llave y Llave-Fin	:: Hecho
+		- Minimizar la media de grado de las salas					:: Hecho
+		- Maximizar la dispersion de enemigos y cofres				:: Hecho
 		*/
 		unsigned int numNodos = CC.size();
 		unsigned int distanciaTotal = 0;
-		/*
-		if (CC.contieneNodo(_rolesSala[RolSala::Inicio]) && CC.contieneNodo(_rolesSala[RolSala::Llave])){
-			distanciaTotal += CC.bfs(_rolesSala[RolSala::Inicio], _rolesSala[RolSala::Llave]);
-		}
-		if (CC.contieneNodo(_rolesSala[RolSala::Fin]) && CC.contieneNodo(_rolesSala[RolSala::Llave])){
-			distanciaTotal += CC.bfs(_rolesSala[RolSala::Fin], _rolesSala[RolSala::Llave]);
-		}
-		*/
 
 		// Si no contiene las 3, es posible que a la mazmorra final le falte una sala clave
 		if (CC.contieneNodo(_rolesSala[RolSala::Inicio]) && CC.contieneNodo(_rolesSala[RolSala::Llave]) && CC.contieneNodo(_rolesSala[RolSala::Fin])){
@@ -231,130 +233,16 @@ private:
 		}
 		if (enemigosTotales > 0)
 			dispEnemigos /= enemigosTotales;
-		/*
-		double dispCofres = 0;
-		for (auto it = nodos.begin(); it != nodos.end(); ++it){
-			unsigned int cofres = it->second.getCofres();
-			double mediaDist = 0;
-			if (cofres > 0){
-				for (auto it2 = nodos.begin(); it2 != nodos.end(); ++it2){
-					unsigned int cofres2 = it2->second.getCofres();
-					if (cofres2 > 0){
-						mediaDist += CC.bfs(it->first, it2->first) * cofres2;
-					}
-				}
-				if (cofresTotales > 1)
-					mediaDist /= (cofresTotales - 1);
-				dispCofres += (mediaDist * cofres);
-			}
-		}
-		if (cofresTotales > 0)
-			dispCofres /= cofresTotales;
 
-		double dispEnemigos = 0;
-		for (auto it = nodos.begin(); it != nodos.end(); ++it){
-			unsigned int enemigos = it->second.getEnemigos();
-			double mediaDist = 0;
-			if (enemigos > 0){
-				for (auto it2 = nodos.begin(); it2 != nodos.end(); ++it2){
-					unsigned int enemigos2 = it2->second.getEnemigos();
-					if (enemigos2 > 0){
-						mediaDist += CC.bfs(it->first, it2->first) * enemigos2;
-					}
-				}
-				if (enemigosTotales > 1)
-					mediaDist /= (enemigosTotales - 1);
-				dispEnemigos += (mediaDist * enemigos);
-			}
-		}
-		if (enemigosTotales > 0)
-			dispEnemigos /= enemigosTotales;
-		*/
-		double pesos = {};
+		
 		double fitness = distanciaTotal*4 - mediaGrado - numNodos + dispCofres + dispEnemigos;
-		std::cout << "Fitness: " << fitness << " Dist: " << distanciaTotal << " Media Grado: " << mediaGrado << " NumNodos: " << numNodos << " Disp Cofres: " << dispCofres << " Disp Enem: " << dispEnemigos << std::endl;
+		_valores[0] = distanciaTotal;
+		_valores[1] = mediaGrado;
+		_valores[2] = numNodos;
+		_valores[3] = dispCofres;
+		_valores[4] = dispEnemigos;
 		this->_adaptacion = fitness;
 		return fitness;
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		/*
-		//double _pesos[] = { 0.375, 0.35, 0.05, 0.05, 0.05, 0.07, 0.055 }; 
-		//double _pesos[] = { 0.45, 0.2, 0.03, 0.02, 0, 0.195, 0.105 };
-		// Notese que el peso de los ciclos es 0. En ninguna de las ejecuciones he visto que alguno de los
-		// individuos sume algo de "nota" con los ciclos. Es decir, que se está limitando el fitness máximo
-		// que se puede lograr. Supongo que, en parte, esto está provocado por la forma de evaluar si una CC
-		// tiene ciclos. Mientras no se encuentre una forma más adecuada de hacerlo, sugiero dejarlo a 0, dado
-		// que tras algunas pruebas, los individuos resultantes son bastante buenos. Creo que haber bajado el
-		// parametro "Grado optimo" de 2.5 a 2 ayuda a reducir los ciclos en general. -- Alvaro.
-		double suma_pesos = 0;
-		double evaluacion = 0;
-
-		for (size_t i = 0; i < 7; ++i){
-			suma_pesos += _pesos[i];
-		}
-		double error = 0.00001;
-		if (suma_pesos > 1+error || suma_pesos < 1 - error){
-			throw std::exception("Balance de _pesos incorrecto");
-		}
-		int numNodos = CC.size();
-		double mediaGrado = 0;
-		double mediaAlto = 0;
-		double mediaAncho = 0;
-		int ciclosActuales = 0;
-		int enemigosActuales = 0;
-		int cofresActuales = 0;
-		auto adyacencia = CC.getAdyacencia();
-		auto itAdy = adyacencia.begin();
-
-		while (itAdy != adyacencia.cend()){
-			mediaGrado += itAdy->second.size();
-			itAdy++;
-		}
-		mediaGrado /= numNodos;
-
-		auto nodos = CC.getNodos();
-		auto itNodos = nodos.begin();
-		while (itNodos != nodos.cend()){
-			mediaAlto += itNodos->second.getAlto();
-			mediaAncho += itNodos->second.getAncho();
-			enemigosActuales += itNodos->second.getEnemigos();
-			cofresActuales += itNodos->second.getCofres();
-			itNodos++;
-		}
-		mediaAlto /= numNodos;
-		mediaAncho /= numNodos;
-		//ciclosActuales = CC.tieneCiclos();
-
-		// 1 - abs(x - ideal) / ideal;
-		//[NumNodos, Media - Grado - CC, media - tama�o - sala, penalizar - ciclos]
-		_valores[0] = 1 - (abs(int(numNodos - param.nodosOptimos)) / (float)param.nodosOptimos);
-		if (_valores[0] < 0)	_valores[0] = 0;
-
-		_valores[1] = 1 - (abs(mediaGrado - param.gradoOptimo) / param.gradoOptimo);
-		if (_valores[1] < 0)	_valores[1] = 0;
-
-		_valores[2] = 1 - (abs(mediaAlto - param.altoOptimo) / (float)param.altoOptimo);
-		if (_valores[2] < 0)	_valores[2] = 0;
-
-		_valores[3] = 1 - (abs(mediaAncho - param.anchoOptimo) / (float)param.anchoOptimo);
-		if (_valores[3] < 0)	_valores[3] = 0;
-
-		/*
-		_valores[4] = 1 - (abs(int(ciclosActuales - param.ciclosOptimos)) / (float)param.ciclosOptimos);
-		if (_valores[4] < 0)	_valores[4] = 0;
-		//
-		_valores[4] = 0;
-
-		_valores[5] = 1 - (abs(int(enemigosActuales - param.enemigosOptimos)) / (float)param.enemigosOptimos);
-		if (_valores[5] < 0)	_valores[5] = 0;
-
-		_valores[6] = 1 - (abs(int(cofresActuales - param.cofresOptimos)) / (float)param.cofresOptimos);
-		if (_valores[6] < 0)	_valores[6] = 0;
-
-		for (int i = 0; i < 7; ++i){
-			evaluacion += _valores[i] * _pesos[i];
-		}
-
-		return evaluacion;*/
 	}
 
 	Grafo<Gen> _grafo;
@@ -364,10 +252,10 @@ private:
 	double _puntAcum;
 	double _adaptacion;
 	unsigned int _indexMejorCC;
-	double _valores[7];
-	double _mejoresValores[7];
+	std::vector<double> _valores;
+	std::vector<double> _mejoresValores;
+	std::vector<std::string> _tagValores;
 	
-	double _pesos[7];
 };
 
 #endif

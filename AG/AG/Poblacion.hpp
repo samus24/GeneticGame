@@ -25,9 +25,15 @@ public:
 		}
 	}
 
-	void evalua(ParametrosEval pEval){
+	void evalua(){
 		for (size_t i = 0; i < individuos.size(); ++i){
-			individuos[i].evalua(pEval);
+			individuos[i].evalua();
+		}
+	}
+
+	void evaluaMarcados(std::set<unsigned int> marcados) {
+		for (auto it = marcados.begin(); it != marcados.end(); ++it){
+			this->individuos[(*it)].evalua();
 		}
 	}
 
@@ -37,9 +43,10 @@ public:
 		});
 	}
 
-	void bloating(unsigned int maxNodos, ParametrosEval pEval){
+	void bloating(unsigned int maxNodos, std::set<unsigned int> marcados){
 		for (size_t i = 0; i < individuos.size(); ++i){
-			individuos[i].bloating(maxNodos, pEval);
+			individuos[i].bloating(maxNodos);
+			marcados.insert(i);
 		}
 	}	
 	

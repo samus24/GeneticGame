@@ -49,13 +49,14 @@ public:
 		_pob.generaPoblacionAleatoria(_param.tamPob, _param.minNodos, _param.maxNodos, _param.densidad);
 		_crono.finalizaMedida("init", std::chrono::high_resolution_clock::now());
 		
-		_pob.evalua(_paramEval);	// Lo ideal sería evaluar una vez al principio, y que de cada grafo se actualice su adaptacion solo si cambia
+		_pob.evalua();
 		_elMejor = _pob.individuos[0];
 		_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
 		mediaAnterior = evaluarPoblacion();
 		_crono.finalizaMedida("eval", std::chrono::high_resolution_clock::now());
 
 		while (_generacion < _param.iteraciones){
+			_marcados.clear();
 			int nElite = (int)(_param.tamPob * 0.02);
 			std::vector<Cromosoma> elite;
 			if (_param.elitismo){
@@ -83,7 +84,7 @@ public:
 			_crono.finalizaMedida("mutacion", std::chrono::high_resolution_clock::now());
 
 			if (_param.bloating){
-				_pob.bloating(_param.maxNodos, _paramEval);
+				_pob.bloating(_param.maxNodos, _marcados);
 			}
 			if (_param.elitismo){
 				_pob.ordenar();
@@ -94,6 +95,8 @@ public:
 					_pob.individuos.push_back(elite[i]);
 				}
 			}
+
+			_pob.evaluaMarcados(_marcados);
 
 			_crono.iniciaMedida("eval", std::chrono::high_resolution_clock::now());
 			mediaActual = evaluarPoblacion();
@@ -119,7 +122,7 @@ public:
 
 		}	// Fin while generaciones
 		_crono.finalizaMedida("global", std::chrono::high_resolution_clock::now());
-		_elMejor.evalua(_paramEval);	// Se aegura que el mejor tiene todo actualizado
+		//_elMejor.evalua();	// Se asegura que el mejor tiene todo actualizado
 		notifyAGTerminado(_elMejor, _crono.getMediaAsMilli("global"), _crono.getMediaAsMilli("seleccion"), _crono.getMediaAsMilli("cruce"), _crono.getMediaAsMilli("mutacion"), _crono.getMediaAsMilli("init"), _crono.getMediaAsMilli("eval"));
 		return _elMejor;
 	}
@@ -153,9 +156,6 @@ private:
 		double sumaAptitud = 0;
 		double puntAcum = 0;
 		double media = 0;
-		//_pob.evalua();	
-		// Si los grafos mantienen actualizada su adaptacion al cambiar, esta llamada se puede evitar, lo cual es ideal, porque sin ella la evaluacion
-		// tarda muchisimo menos.
 
 		// Busqueda del mejor
 		for (std::size_t i = 0; i < _param.tamPob; ++i){
@@ -209,26 +209,29 @@ private:
 			numSeleCruce--;
 		}
 		for (int i = 0; i < numSeleCruce; i += 2){
-			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]], _paramEval);
+			_marcados.insert(seleccionados[i]);
+			_marcados.insert(seleccionados[i+1]);
+			_param.cruce->cruzar(&_pob.individuos[seleccionados[i]], &_pob.individuos[seleccionados[i + 1]]);
 		}
 		
 	}
 
 	void mutacion(){
-		std::vector<Cromosoma*> seleccionados;
-		auto it = _pob.individuos.begin();
+		int* seleccionados = new int[_pob._tam];
+		int numSeleMut = 0;
 		double prob;
 		for (int i = 0; i < _pob._tam; ++i){
 			prob = RandomGen::getRandom(0.f, 1.f);
 			if (prob < _param.probMutacion){
-				seleccionados.push_back(&(*it));
+				seleccionados[numSeleMut] = i;
+				numSeleMut++;
 			}
-			++it;
 		}
 
-		for (Cromosoma* i : seleccionados)
-			_param.mutacion->mutar(i, _paramEval);
-		
+		for (int i = 0; i < numSeleMut; ++i){
+			_marcados.insert(seleccionados[i]);
+			_param.mutacion->mutar(&_pob.individuos[seleccionados[i]]);
+		}
 	}
 
 	void notifyGeneracionTerminada(double mejor, double mejorGen, double media, double mediaSel){
@@ -251,6 +254,7 @@ private:
 	unsigned int _indexMejor;
 	Cromosoma _elMejor;
 	Cronometro _crono;
+	std::set<unsigned int> _marcados;
 
 	std::vector<IAGObserver*> _obs;
 };

@@ -17,8 +17,8 @@
 class Ventana : public IAGObserver{
 public:
 	Ventana(Controlador& c) :
-		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
-		//_window(sf::VideoMode(1200,600), "AG"),					// descomentar esta si no se representa bien en pantalla
+		//_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
+		_window(sf::VideoMode(1200,600), "AG"),					// descomentar esta si no se representa bien en pantalla
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, 25)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_graphViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
@@ -132,11 +132,23 @@ public:
 		_valorMedia.push_back(media);
 		_valorMediaSel.push_back(mediaSel);
 		_progress.updateProgress(_generacion);
+
+
+		_plotter.removeAllData();
+		_plotter.setEjeX(_ejeX);
+
+		_plotter.pushEjeY(_valorMediaSel, sf::Color::Magenta, "Media Seleccion");
+
+		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media Poblacion");
+		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
+		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");
+
 		_generacion++;
 	}
 
 	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval){
 		sf::Lock lock(_mutex);
+		_plotter.removeAllData();
 		_plotter.setEjeX(_ejeX);
 
 		_plotter.pushEjeY(_valorMediaSel, sf::Color::Magenta, "Media Seleccion");
@@ -156,20 +168,11 @@ public:
 		_logger.append("T. m. mut.: " + std::to_string(tmMut) + "ms\n");
 		_logger.append("T. init: " + std::to_string(tInit) + "ms\n");
 		_logger.append("T. m. eval.: " + std::to_string(tmEval) + "ms\n");
-		std::string valoresText[] = {
-			"Nodos: ",
-			"Media Grado: ",
-			"Media Alto: ",
-			"Media Ancho: ",
-			"Ciclos: ",
-			"Enemigos: ",
-			"Cofres: "
-		};
+		std::vector<std::string> valoresText = mejor.getTagValores();
 		_logger.append("-- Notas CC --\n");
-		double* valores = mejor.getValores();
-		double* pesos = mejor.getPesos();
-		for (size_t i = 0; i < 7; ++i){
-			_logger.append(valoresText[i] + std::to_string(valores[i]) + "/" + std::to_string(valores[i]*pesos[i]) + "\n");
+		std::vector<double> valores = mejor.getValores();
+		for (size_t i = 0; i < valores.size(); ++i){
+			_logger.append(valoresText[i] + ": " + std::to_string(valores[i]) + "\n");
 		}
 	}
 

@@ -7,14 +7,14 @@
 class MetodoCruce {
 public:
 
-	virtual void cruzar(Cromosoma*, Cromosoma*, ParametrosEval p) = 0;
+	virtual void cruzar(Cromosoma*, Cromosoma*) = 0;
 
 	virtual std::string toString () = 0;
 };
 
 class CruceMonopunto : public MetodoCruce{
 public:
-	void cruzar(Cromosoma* a, Cromosoma* b, ParametrosEval p){
+	void cruzar(Cromosoma* a, Cromosoma* b){
 		Grafo<Gen> grafoA = a->getGenotipo();
 		Grafo<Gen> grafoB = b->getGenotipo();
 		double adaptacionA = a->getAdaptacion();
@@ -70,21 +70,8 @@ public:
 
 			b->setRolesSala(rolesB);
 			
-			a->setGenotipo(hijo1, p);
-			b->setGenotipo(hijo2, p);
-
-			double adapHijoA = a->getAdaptacion();
-			double adapHijoB = b->getAdaptacion();
-			if (adapHijoA < adaptacionA){
-				// Si el hijo A no es mejor que el padre A se restituye
-				a->setGenotipo(grafoA, p);
-				a->setRolesSala(rolesACopia);
-			}
-			if (adapHijoB < adaptacionB){
-				// Si el hijo A no es mejor que el padre A se restituye
-				b->setGenotipo(grafoB, p);
-				b->setRolesSala(rolesBCopia);
-			}
+			a->setGenotipo(hijo1);
+			b->setGenotipo(hijo2);
 
 		}
 		
@@ -99,7 +86,7 @@ private:
 
 class CruceMultipunto : public MetodoCruce{
 public:
-	void cruzar(Cromosoma* a, Cromosoma* b, ParametrosEval p){
+	void cruzar(Cromosoma* a, Cromosoma* b){
 		Grafo<Gen> grafoA = a->getGenotipo();
 		Grafo<Gen> grafoB = b->getGenotipo();
 		double adaptacionA = a->getAdaptacion();
@@ -122,19 +109,8 @@ public:
 			Grafo<Gen> hijo1 = Grafo<Gen>::unirGrafos(subsA);
 			Grafo<Gen> hijo2 = Grafo<Gen>::unirGrafos(subsB);
 
-			a->setGenotipo(hijo1, p);
-			b->setGenotipo(hijo2, p);
-
-			double adapHijoA = a->getAdaptacion();
-			double adapHijoB = b->getAdaptacion();
-			if (adapHijoA < adaptacionA){
-				// Si el hijo A no es mejor que el padre A se restituye
-				a->setGenotipo(grafoA, p);
-			}
-			if (adapHijoB < adaptacionB){
-				// Si el hijo A no es mejor que el padre A se restituye
-				b->setGenotipo(grafoB, p);
-			}
+			a->setGenotipo(hijo1);
+			b->setGenotipo(hijo2);
 		}
 
 	}
