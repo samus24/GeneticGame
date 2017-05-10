@@ -23,6 +23,9 @@ public:
 		_ag->addObserver(o);
 	}
 
+	void addObserverCruce(IObserverCruce& o){
+		_ag->addObserverCruce(o);
+	}
 private:
 	AG* _ag;
 

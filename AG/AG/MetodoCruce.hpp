@@ -3,13 +3,32 @@
 
 #include "RandomGen.hpp"
 #include "Cromosoma.hpp"
+#include "IObserverCruce.hpp"
 
 class MetodoCruce {
 public:
 
 	virtual void cruzar(Cromosoma*, Cromosoma*) = 0;
 
+	void addObserver(IObserverCruce &obs){
+		_obs.push_back(&obs);
+	}
+
+	void notifyCruceIniciado(const Cromosoma& a, const Cromosoma & b, unsigned int corteA, unsigned int corteB){
+		for (IObserverCruce* o : _obs){
+			o->onCruceIniciado(a, b, corteA, corteB);
+		}
+	}
+
+	void notifyCruceTerminado(const Cromosoma& a, const Cromosoma & b, unsigned int corteA, unsigned int corteB){
+		for (IObserverCruce* o : _obs){
+			o->onCruceTerminado(a, b, corteA, corteB);
+		}
+	}
+
 	virtual std::string toString () = 0;
+
+	std::vector<IObserverCruce*> _obs;
 };
 
 class CruceMonopunto : public MetodoCruce{
@@ -20,8 +39,12 @@ public:
 		double adaptacionA = a->getAdaptacion();
 		double adaptacionB = b->getAdaptacion();
 		if (grafoA.size() > 2 && grafoB.size() > 2){	// Solo se cruza si ambos tienen suficientes nodos como para cortar en 2 trozos
-			std::vector<Grafo<Gen>> subsA = grafoA.divideGrafo(RandomGen::getRandom(1u, grafoA.size() - 2));	// comienza en 1 y termina en size-2 para evitar subgrafos sin nodos
-			std::vector<Grafo<Gen>> subsB = grafoB.divideGrafo(RandomGen::getRandom(1u, grafoB.size() - 2));
+			unsigned int corteA = RandomGen::getRandom(1u, grafoA.size() - 2);
+			unsigned int corteB = RandomGen::getRandom(1u, grafoB.size() - 2);
+
+			notifyCruceIniciado(*a, *b, corteA, corteB);
+			std::vector<Grafo<Gen>> subsA = grafoA.divideGrafo(corteA);	// comienza en 1 y termina en size-2 para evitar subgrafos sin nodos
+			std::vector<Grafo<Gen>> subsB = grafoB.divideGrafo(corteB);
 
 			Grafo<Gen> hijo1 = Grafo<Gen>::unirGrafo(subsA[0], subsB[1]);
 			Grafo<Gen> hijo2 = Grafo<Gen>::unirGrafo(subsB[0], subsA[1]);
@@ -72,6 +95,8 @@ public:
 			
 			a->setGenotipo(hijo1);
 			b->setGenotipo(hijo2);
+
+			notifyCruceTerminado(*a, *b, corteA, corteB);
 
 		}
 		

@@ -243,7 +243,7 @@ public:
 	\param b subgrafo b
 	\return Grafo unido
 	*/
-	static Grafo<N> unirGrafo(Grafo<N> a, Grafo<N> b){
+	static Grafo<N> unirGrafo(Grafo<N> a, Grafo<N> b, double densidad = 0.1){
 		Grafo<N> ret;
 		std::unordered_map< unsigned int, N > nodosA = a.getNodos();
 		std::unordered_map< unsigned int, N > nodosB = b.getNodos();
@@ -292,7 +292,9 @@ public:
 				nuevas = 1;
 			}
 			else{
-				nuevas = RandomGen::getRandom(1, (int)(sizeA * nodosB.size() * 0.75));	// Para evitar demasiada densidad, se limita al 75% de las posibles nuevas aristas
+				unsigned int n = sizeA * nodosB.size() * densidad;
+				if (n == 0) n = 1;
+				nuevas = RandomGen::getRandom(1u, n);	// Para evitar demasiada densidad, se limita al 75% de las posibles nuevas aristas
 			}
 			std::vector<Pair<unsigned int, unsigned int>> uniones;
 			for (std::size_t i = 0; i < sizeA; ++i){

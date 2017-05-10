@@ -141,6 +141,9 @@
     <ClInclude Include="Testbench.hpp">
       <Filter>Archivos de encabezado\utiles</Filter>
     </ClInclude>
+    <ClInclude Include="IObserverCruce.hpp">
+      <Filter>Archivos de encabezado\modelo\cruce</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

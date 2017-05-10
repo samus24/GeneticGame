@@ -13,30 +13,43 @@
 #include "GraphViewer.hpp"
 #include "RoomViewer.hpp"
 #include "Rellenador.hpp"
+#include "IObserverCruce.hpp"
 
-class Ventana : public IAGObserver{
+class Ventana : public IAGObserver, public IObserverCruce{
 public:
 	Ventana(Controlador& c) :
 		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
 		//_window(sf::VideoMode(1200,600), "AG"),					// descomentar esta si no se representa bien en pantalla
+		_windowCruce(sf::VideoMode(1500,1000), "Cruce"),
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, 25)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_graphViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_roomViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.19, 400)),
-		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(_window.getSize().x * 0.1, 50), "RUN", sf::Color(100,200,200)),
+		_botonRun(sf::Vector2f(_window.getSize().x * 0.8 , 10), sf::Vector2f(100, 50), "RUN", sf::Color(100,200,200)),
 		_progress(sf::Vector2f(_window.getSize().x *0.8, _window.getSize().y -50), sf::Vector2f(_window.getSize().x * 0.1, 30)),
-		_hiloAG(&Ventana::ejecutaAG, this)
+		_hiloAG(&Ventana::ejecutaAG, this),
+		_hiloCruces(&Ventana::ventanaCruces, this),
+		_botonCruces(sf::Vector2f(_window.getSize().x * 0.8 + 110, 10), sf::Vector2f(100, 50), "Ver Cruces", sf::Color(100, 200, 200)),
+		_gwPadreA(sf::Vector2f(0, 0), sf::Vector2f(_windowCruce.getSize().x / 2, _windowCruce.getSize().y / 2)),
+		_gwPadreB(sf::Vector2f(0, _windowCruce.getSize().y / 2), sf::Vector2f(_windowCruce.getSize().x / 2, _windowCruce.getSize().y / 2)),
+		_gwHijoA(sf::Vector2f(_windowCruce.getSize().x / 2, 0), sf::Vector2f(_windowCruce.getSize().x / 2, _windowCruce.getSize().y / 2)),
+		_gwHijoB(sf::Vector2f(_windowCruce.getSize().x / 2, _windowCruce.getSize().y / 2), sf::Vector2f(_windowCruce.getSize().x / 2, _windowCruce.getSize().y / 2))
 	{
 		_font.loadFromFile("arial.ttf");
 		_ctrl = &c;
 		_generacion = 0;
 		_ctrl->addObserver(*(this));
+		_ctrl->addObserverCruce(*(this));
 		_tabPane.addTab("Plotter", _plotter);
 		_tabPane.addTab("Graph", _graphViewer);
 		_tabPane.addTab("Rooms", _roomViewer);
 
 		running = false;
+
+		_windowCruce.setActive(false);
+		_windowCruce.setVisible(false);
+		verCruces = false;
 	}
 
 	void run(unsigned int maxIter){
@@ -74,7 +87,11 @@ public:
 							_logger.append("Ejecutando AG\n");
 							_progress.clearProgress();
 							_hiloAG.launch();
+							_hiloCruces.launch();
 						}
+					}
+					else if (_botonCruces.contains(point)){
+						verCruces = !verCruces;
 					}
 					else if (_tabPane.contains(point)){
 						_tabPane.handleClick(point);
@@ -109,6 +126,7 @@ public:
 							_logger.append("Ejecutando AG\n");
 							_progress.clearProgress();
 							_hiloAG.launch();
+							_hiloCruces.launch();
 						}
 					}
 				}
@@ -118,9 +136,24 @@ public:
 			_window.draw(_tabPane);
 			_window.draw(_logger);
 			_window.draw(_botonRun);
+			_window.draw(_botonCruces);
 			_window.draw(_progress);
 			_window.display();
 		}
+	}
+
+	void onCruceIniciado(const Cromosoma& a, const Cromosoma& b, unsigned int corteA, unsigned int corteB){
+		sf::Lock lock(_mutex);
+		if (!verCruces) return;
+		_gwPadreA.setModel(a);
+		_gwPadreB.setModel(b);
+	}
+
+	void onCruceTerminado(const Cromosoma& a, const Cromosoma& b, unsigned int corteA, unsigned int corteB){
+		sf::Lock lock(_mutex);
+		if (!verCruces) return;
+		_gwHijoA.setModel(a);
+		_gwHijoB.setModel(b);
 	}
 
 	void onGeneracionTerminada(Cromosoma elMejor, double mejor, double mejorGen, double media, double mediaSel){
@@ -187,6 +220,30 @@ private:
 		}
 	}
 
+	void ventanaCruces(){
+		_windowCruce.setActive(true);
+		
+		while (_window.isOpen() && running)
+		{
+			_windowCruce.setVisible(verCruces);
+			// handle events
+			sf::Event event;
+			while (_windowCruce.pollEvent(event));
+
+			sf::Lock lock(_mutex);
+			if (verCruces){
+				_windowCruce.clear(sf::Color::White);
+				_windowCruce.draw(_gwPadreA);
+				_windowCruce.draw(_gwPadreB);
+				_windowCruce.draw(_gwHijoA);
+				_windowCruce.draw(_gwHijoB);
+				_windowCruce.display();
+			}
+		}
+		_windowCruce.setActive(false);
+
+	}
+
 	sf::RenderWindow _window;
 	sf::Font _font;
 	ProgressBar _progress;
@@ -204,9 +261,18 @@ private:
 	std::vector<double> _valorMedia;
 	std::vector<double> _valorMediaSel;
 
+	sf::RenderWindow _windowCruce;
+	GraphViewer _gwPadreA;
+	GraphViewer _gwPadreB;
+	GraphViewer _gwHijoA;
+	GraphViewer _gwHijoB;
+
 	bool running;
 	sf::Thread _hiloAG;
+	sf::Thread _hiloCruces;
 	sf::Mutex _mutex;
+	bool verCruces;
+	TextButton _botonCruces;
 };
 
 #endif

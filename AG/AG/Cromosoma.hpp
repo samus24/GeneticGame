@@ -66,7 +66,11 @@ public:
 	}
 	
 	Grafo<Gen> getMejorCC() const{
-		return _grafo.getComponentesConexas()[_indexMejorCC];
+		auto ccs = _grafo.getComponentesConexas();
+		auto tam = ccs.size();
+		if (_indexMejorCC >= tam)
+			return ccs[0];
+		return ccs[_indexMejorCC];
 	}
 
 	unsigned int getIndexElMejor() const{
@@ -245,7 +249,7 @@ private:
 
 		double ratioAnchoAlto = mediaAncho / mediaAlto;
 		
-		double fitness = distanciaTotal*1.5 - mediaGrado - numNodos + dispCofres + dispEnemigos + (ratioAnchoAlto - 1);
+		double fitness = distanciaTotal*1 - mediaGrado - numNodos*0.4 + dispCofres + dispEnemigos + (ratioAnchoAlto - 1);
 
 		fitness += 50;	// Para evitar fitness negativos que afectan a evaluaPob
 		_valores[0] = distanciaTotal;

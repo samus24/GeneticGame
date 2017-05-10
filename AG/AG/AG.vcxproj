@@ -92,6 +92,7 @@
     <ClInclude Include="Cronometro.hpp" />
     <ClInclude Include="Gen.hpp" />
     <ClInclude Include="Grafo.hpp" />
+    <ClInclude Include="IObserverCruce.hpp" />
     <ClInclude Include="Logger.hpp" />
     <ClInclude Include="Mazmorra.hpp" />
     <ClInclude Include="MetodoCruce.hpp" />

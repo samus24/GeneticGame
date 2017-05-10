@@ -142,6 +142,10 @@ public:
 		_obs.push_back(&o);
 	}
 
+	void addObserverCruce(IObserverCruce& o){
+		_param.cruce->addObserver(o);
+	}
+
 	/*
 	void removeObserver(IAGObserver o){
 		auto it = std::find(_obs.begin(), _obs.end(), &o);
@@ -182,12 +186,7 @@ private:
 			_elMejor = _pob.individuos[_indexMejor];
 		}
 
-		// Se calcula la media de aptitud de esta generacion
-		for (std::size_t i = 0; i < _param.tamPob; ++i){
-			media += _pob.individuos[i].getAdaptacion();
-		}
-
-		return (media / _param.tamPob);
+		return (sumaAptitud / _param.tamPob);
 	}
 
 	void seleccion(){

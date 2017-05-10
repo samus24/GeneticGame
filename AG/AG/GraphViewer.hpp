@@ -10,6 +10,7 @@ public:
 	GraphViewer(sf::Vector2f pos, sf::Vector2f size) :
 		sf::Rect<float>(pos, size)
 	{
+		_pos = pos;
 		_size = size;
 		_font.loadFromFile("arial.ttf");
 
@@ -54,12 +55,12 @@ private:
 		sf::VertexArray grid;
 		grid.setPrimitiveType(sf::Lines);
 		for (size_t i = 0; i <= _cols; ++i){
-			grid.append(sf::Vertex(sf::Vector2f(_gridSize*i, 25), sf::Color(200, 200, 200)));
-			grid.append(sf::Vertex(sf::Vector2f(_gridSize*i, this->getPosition().y + _gridSize*_rows), sf::Color(200, 200, 200)));
+			grid.append(sf::Vertex(_pos+sf::Vector2f(_gridSize*i, 25), sf::Color(200, 200, 200)));
+			grid.append(sf::Vertex(_pos + sf::Vector2f(_gridSize*i, this->getPosition().y + _gridSize*_rows), sf::Color(200, 200, 200)));
 		}
 		for (size_t i = 0; i < _rows; ++i){
-			grid.append(sf::Vertex(sf::Vector2f(this->getPosition().x, 25 + _gridSize*i), sf::Color(200, 200, 200)));
-			grid.append(sf::Vertex(sf::Vector2f(this->getPosition().x + _gridSize*_cols, 25 + _gridSize*i), sf::Color(200, 200, 200)));
+			grid.append(sf::Vertex(_pos + sf::Vector2f(this->getPosition().x, 25 + _gridSize*i), sf::Color(200, 200, 200)));
+			grid.append(sf::Vertex(_pos + sf::Vector2f(this->getPosition().x + _gridSize*_cols, 25 + _gridSize*i), sf::Color(200, 200, 200)));
 		}
 		target.draw(grid, states);
 
@@ -105,14 +106,22 @@ private:
 		for (size_t i = 0; i < _drawableNodes.size(); ++i){
 			_drawableNodes[i].move(0, 25);
 			_drawableNodes[i].setOutlineThickness(2);
+			_drawableNodes[i].move(_pos);
 		}
 		for (size_t i = 0; i < _drawableIDs.size(); ++i){
 			_drawableIDs[i].move(0, 25);
+			_drawableIDs[i].move(_pos);
 			_drawableEnemies[i].move(_gridSize - 12, 0);
+			_drawableEnemies[i].move(_pos);
 			_drawableLoots[i].move(_gridSize - 5, 0);
+			_drawableLoots[i].move(_pos);
 		}
 		for (size_t i = 0; i < _drawableLinks.getVertexCount(); ++i){
-			_drawableLinks[i].position.y += 25;
+			_drawableLinks[i].position.y += _pos.y + 25;
+			_drawableLinks[i].position.x += _pos.x;
+		}
+		for (size_t i = 0; i < _drawableSizes.size(); ++i){
+			_drawableSizes[i].move(_pos);
 		}
 
 	}
@@ -250,6 +259,7 @@ private:
 	}
 
 
+	sf::Vector2f _pos;
 	sf::Vector2f _size;
 	Cromosoma _model;
 	std::unordered_map<unsigned int, Gen> _mejorCC;
