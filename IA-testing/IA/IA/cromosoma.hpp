@@ -105,8 +105,8 @@ public:
 		_punt = 0;
 		_puntAcum = 0;
 		_adaptacion = 0;
-		double pesos[7] = { 0.2, 0.1, 0.1, 0.05, 0.3, 0.15, 0.05 };
-		for (size_t i = 0; i < 7; ++i){
+		double pesos[6] = { 0.2, 0.1, 0.3, 0.05, 0.2, 0.1 };
+		for (size_t i = 0; i < 6; ++i){
 			_pesos[i] = pesos[i];
 			_mediaValores[i] = 0;
 		}
@@ -117,8 +117,8 @@ public:
 	Cromosoma(int profMin, int profMax) {
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
-		double pesos[7] = { 0.2, 0.1, 0.1, 0.05, 0.3, 0.15, 0.05 };
-		for (size_t i = 0; i < 7; ++i){
+		double pesos[6] = { 0.2, 0.1, 0.3, 0.05, 0.2, 0.1 };
+		for (size_t i = 0; i < 6; ++i){
 			_pesos[i] = pesos[i];
 			_mediaValores[i] = 0;
 		}
@@ -129,8 +129,8 @@ public:
 	void crear(int profMin, int profMax){
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
-		double pesos[7] = { 0.2, 0.1, 0.1, 0.05, 0.3, 0.15, 0.05 };
-		for (size_t i = 0; i < 7; ++i){
+		double pesos[6] = { 0.2, 0.1, 0.3, 0.05, 0.2, 0.1 };
+		for (size_t i = 0; i < 6; ++i){
 			_pesos[i] = pesos[i];
 			_mediaValores[i] = 0;
 		}
@@ -564,22 +564,21 @@ private:
 		_valores[3] = enemigo.golpesEvitados;
 		_valores[4] = jugador.heridas;
 		*/
-		double optimos[] = { dim/3, dim/3, 5.f, 3.f, 3.f, dim/3, 1};
+		double optimos[] = { dim/2, dim/3, 5.f, 3.f, 3.f, dim/3, 1};
 
 		_valores[0] = cExpl / optimos[0];
 		_valores[1] = cAndadas / optimos[1];
-		_valores[2] = enemigo.golpes / optimos[2];
+		_valores[2] = (enemigo.golpes + jugador.heridas) / optimos[2];
 		_valores[3] = enemigo.golpesEvitados / optimos[3];
-		_valores[4] = jugador.heridas / optimos[4];
-		_valores[5] = cAndadasAtaque / optimos[5];
+		_valores[4] = cAndadasAtaque / optimos[5];
 		if (ataque) {
 			if (distancia != 0)
-				_valores[6] = optimos[6] / distancia;
+				_valores[5] = optimos[5] / distancia;
 			else
-				_valores[6] = 1;
+				_valores[5] = 1;
 		}
 		else
-			_valores[6] = 0;
+			_valores[5] = 0;
 
 		_mediaValores[0] += _valores[0];
 		_mediaValores[1] += _valores[1];
@@ -587,9 +586,8 @@ private:
 		_mediaValores[3] += _valores[3];
 		_mediaValores[4] += _valores[4];
 		_mediaValores[5] += _valores[5];
-		_mediaValores[6] += _valores[6];
 
-		for (std::size_t i = 0; i < 7; ++i){
+		for (std::size_t i = 0; i < 6; ++i){
 			evaluacion += _valores[i] * _pesos[i];
 		}
 		return evaluacion;
@@ -748,9 +746,9 @@ private:
 	double _punt;
 	double _puntAcum;
 	double _adaptacion;
-	double _valores[7];
-	double _mediaValores[7];
-	double _pesos[7]; //casillas exploradas, casillas andadas, golpes evitados, heridasBloqueadas, daño, casillas andadas en ataque, distancia final entre jugador y enemigo
+	double _valores[6];
+	double _mediaValores[6];
+	double _pesos[6]; //casillas exploradas, casillas andadas, golpes, heridasBloqueadas, casillas andadas en ataque, distancia final entre jugador y enemigo
 
 	bool _descartado;
 
