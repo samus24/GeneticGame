@@ -564,13 +564,13 @@ private:
 		_valores[3] = enemigo.golpesEvitados;
 		_valores[4] = jugador.heridas;
 		*/
-		double optimos[] = { dim/2, dim/3, 5.f, 3.f, 3.f, dim/3, 1};
+		double optimos[] = { dim/2, dim/3, 10.f, 3.f, dim/3, 1};
 
 		_valores[0] = cExpl / optimos[0];
 		_valores[1] = cAndadas / optimos[1];
 		_valores[2] = (enemigo.golpes + jugador.heridas) / optimos[2];
 		_valores[3] = enemigo.golpesEvitados / optimos[3];
-		_valores[4] = cAndadasAtaque / optimos[5];
+		_valores[4] = cAndadasAtaque / optimos[4];
 		if (ataque) {
 			if (distancia != 0)
 				_valores[5] = optimos[5] / distancia;
@@ -589,6 +589,9 @@ private:
 
 		for (std::size_t i = 0; i < 6; ++i){
 			evaluacion += _valores[i] * _pesos[i];
+		}
+		if (enemigo.turnosPatrulla < (maxTurnos / 10)) {
+			evaluacion /= 2;
 		}
 		return evaluacion;
 	}
@@ -748,7 +751,7 @@ private:
 	double _adaptacion;
 	double _valores[6];
 	double _mediaValores[6];
-	double _pesos[6]; //casillas exploradas, casillas andadas, golpes, heridasBloqueadas, casillas andadas en ataque, distancia final entre jugador y enemigo
+	double _pesos[6]; //casillas exploradas, casillas andadas, golpes realizados, heridasBloqueadas, casillas andadas en ataque, distancia final entre jugador y enemigo
 
 	bool _descartado;
 
