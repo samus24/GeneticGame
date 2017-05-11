@@ -22,7 +22,7 @@ public:
 			_virtualGrid[i] = new bool[_rows];
 		}
 
-		std::vector<sf::Color> colors = { sf::Color::Green, sf::Color(0, 128, 0), sf::Color(255, 128, 0) };
+		std::vector<sf::Color> colors = { sf::Color::Green, sf::Color::Red, sf::Color(255, 128, 0) };
 		for (size_t i = 0; i < colors.size(); ++i){
 			ROL_COLORS.push_back(colors[i]);
 		}

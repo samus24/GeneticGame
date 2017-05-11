@@ -251,7 +251,7 @@ private:
 		
 		double fitness = distanciaTotal*1 - mediaGrado - numNodos*0.4 + dispCofres + dispEnemigos + (ratioAnchoAlto - 1);
 
-		fitness += 50;	// Para evitar fitness negativos que afectan a evaluaPob
+		fitness += 20;	// Para evitar fitness negativos que afectan a evaluaPob
 		_valores[0] = distanciaTotal;
 		_valores[1] = mediaGrado;
 		_valores[2] = numNodos;
