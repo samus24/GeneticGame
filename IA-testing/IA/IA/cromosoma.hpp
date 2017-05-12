@@ -572,7 +572,7 @@ private:
 		_valores[3] = enemigo.golpesEvitados / optimos[3];
 		_valores[4] = cAndadasAtaque / optimos[4];
 		if (ataque) {
-			if (distancia != 0)
+			if (distancia > 0)
 				_valores[5] = optimos[5] / distancia;
 			else
 				_valores[5] = 1;
