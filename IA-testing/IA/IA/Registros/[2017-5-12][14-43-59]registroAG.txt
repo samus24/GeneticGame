@@ -15,3 +15,5 @@ Gen 5:
 Fitness mejor: 0.051908; Fitness medio: 0.024342
 Gen 6:
 Fitness mejor: 0.103212; Fitness medio: 0.037137
+Gen 7:
+Fitness mejor: 0.103212; Fitness medio: 0.030557

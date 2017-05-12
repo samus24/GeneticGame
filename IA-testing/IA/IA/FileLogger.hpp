@@ -49,9 +49,10 @@ public:
 		_regAG << "Notas" << std::endl;
 		_regAG << "Punt. exploracion: " + std::to_string(mejor.getMediaValores()[0]) + "(" + std::to_string(mejor.getMediaValores()[0] * mejor.getPesos()[0]) + " sobre el total)" << std::endl;
 		_regAG << "Punt. andar: " + std::to_string(mejor.getMediaValores()[1]) + "(" + std::to_string(mejor.getMediaValores()[1] * mejor.getPesos()[1]) + " sobre el total)" << std::endl;
-		_regAG << "Punt. golpes intentados: " + std::to_string(mejor.getMediaValores()[2]) + "(" + std::to_string(mejor.getMediaValores()[2] * mejor.getPesos()[2]) + " sobre el total)" << std::endl;
+		_regAG << "Punt. golpes: " + std::to_string(mejor.getMediaValores()[2]) + "(" + std::to_string(mejor.getMediaValores()[2] * mejor.getPesos()[2]) + " sobre el total)" << std::endl;
 		_regAG << "Punt. golpes evitados: " + std::to_string(mejor.getMediaValores()[3]) + "(" + std::to_string(mejor.getMediaValores()[3] * mejor.getPesos()[3]) + " sobre el total)" << std::endl;
-		_regAG << "Punt. daño al jugador: " + std::to_string(mejor.getMediaValores()[4]) + "(" + std::to_string(mejor.getMediaValores()[4] * mejor.getPesos()[4]) + " sobre el total)\n" << std::endl;
+		_regAG << "Punt. Andar Ataque: " + std::to_string(mejor.getMediaValores()[4]) + "(" + std::to_string(mejor.getMediaValores()[4] * mejor.getPesos()[4]) + " sobre el total)" << std::endl;
+		_regAG << "Punt. distancia JyE: " + std::to_string(mejor.getMediaValores()[5]) + "(" + std::to_string(mejor.getMediaValores()[5] * mejor.getPesos()[5]) + " sobre el total)\n" << std::endl;
 		_regAG << "Tiempos de ejecucion" << std::endl;
 		_regAG << "Tiempo total de ej: " + std::to_string((total / 1000)) + " seg" << std::endl;
 		_regAG << "Tiempo inicializacion: " + std::to_string(tInit) + " ms" << std::endl;
