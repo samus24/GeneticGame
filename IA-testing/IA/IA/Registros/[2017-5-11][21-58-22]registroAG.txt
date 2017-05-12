@@ -1,0 +1,265 @@
+
+
+NUEVA EJECUCION
+Gen 0:
+Fitness mejor: 0.112712; Fitness medio: 0.028619
+Gen 1:
+Fitness mejor: 0.112712; Fitness medio: 0.051402
+Gen 2:
+Fitness mejor: 0.112712; Fitness medio: 0.070930
+Gen 3:
+Fitness mejor: 0.124474; Fitness medio: 0.041198
+Gen 4:
+Fitness mejor: 0.124474; Fitness medio: 0.042599
+Gen 5:
+Fitness mejor: 0.135236; Fitness medio: 0.061455
+Gen 6:
+Fitness mejor: 0.135236; Fitness medio: 0.049243
+Gen 7:
+Fitness mejor: 0.135236; Fitness medio: 0.052224
+Gen 8:
+Fitness mejor: 0.135236; Fitness medio: 0.058543
+Gen 9:
+Fitness mejor: 0.135236; Fitness medio: 0.058014
+Gen 10:
+Fitness mejor: 0.210550; Fitness medio: 0.072232
+Gen 11:
+Fitness mejor: 0.210550; Fitness medio: 0.062204
+Gen 12:
+Fitness mejor: 0.210550; Fitness medio: 0.055565
+Gen 13:
+Fitness mejor: 0.210550; Fitness medio: 0.049527
+Gen 14:
+Fitness mejor: 0.210550; Fitness medio: 0.058905
+Gen 15:
+Fitness mejor: 0.210550; Fitness medio: 0.057482
+Gen 16:
+Fitness mejor: 0.210550; Fitness medio: 0.055106
+Gen 17:
+Fitness mejor: 0.210550; Fitness medio: 0.047583
+Gen 18:
+Fitness mejor: 0.210550; Fitness medio: 0.065704
+Gen 19:
+Fitness mejor: 0.210550; Fitness medio: 0.053556
+Gen 20:
+Fitness mejor: 0.210550; Fitness medio: 0.050507
+Gen 21:
+Fitness mejor: 0.210550; Fitness medio: 0.040397
+Gen 22:
+Fitness mejor: 0.210550; Fitness medio: 0.039736
+Gen 23:
+Fitness mejor: 0.210550; Fitness medio: 0.045141
+Gen 24:
+Fitness mejor: 0.228150; Fitness medio: 0.056758
+Gen 25:
+Fitness mejor: 0.228150; Fitness medio: 0.061324
+Gen 26:
+Fitness mejor: 0.228150; Fitness medio: 0.048978
+Gen 27:
+Fitness mejor: 0.228150; Fitness medio: 0.038923
+Gen 28:
+Fitness mejor: 0.228150; Fitness medio: 0.048843
+Gen 29:
+Fitness mejor: 0.228150; Fitness medio: 0.063859
+Gen 30:
+Fitness mejor: 0.228150; Fitness medio: 0.076799
+Gen 31:
+Fitness mejor: 0.228150; Fitness medio: 0.073191
+Gen 32:
+Fitness mejor: 0.228150; Fitness medio: 0.083355
+Gen 33:
+Fitness mejor: 0.228150; Fitness medio: 0.069519
+Gen 34:
+Fitness mejor: 0.228150; Fitness medio: 0.049781
+Gen 35:
+Fitness mejor: 0.228150; Fitness medio: 0.042540
+Gen 36:
+Fitness mejor: 0.228150; Fitness medio: 0.041708
+Gen 37:
+Fitness mejor: 0.228150; Fitness medio: 0.036954
+Gen 38:
+Fitness mejor: 0.228150; Fitness medio: 0.035144
+Gen 39:
+Fitness mejor: 0.228150; Fitness medio: 0.049393
+Gen 40:
+Fitness mejor: 0.228150; Fitness medio: 0.038463
+Gen 41:
+Fitness mejor: 0.228150; Fitness medio: 0.039336
+Gen 42:
+Fitness mejor: 0.228150; Fitness medio: 0.026197
+Gen 43:
+Fitness mejor: 0.228150; Fitness medio: 0.032474
+Gen 44:
+Fitness mejor: 0.228150; Fitness medio: 0.042649
+Gen 45:
+Fitness mejor: 0.228150; Fitness medio: 0.057455
+Gen 46:
+Fitness mejor: 0.228150; Fitness medio: 0.045767
+Gen 47:
+Fitness mejor: 0.228150; Fitness medio: 0.034523
+Gen 48:
+Fitness mejor: 0.228150; Fitness medio: 0.026577
+Gen 49:
+Fitness mejor: 0.228150; Fitness medio: 0.028546
+Gen 50:
+Fitness mejor: 0.228150; Fitness medio: 0.038803
+Gen 51:
+Fitness mejor: 0.228150; Fitness medio: 0.049411
+Gen 52:
+Fitness mejor: 0.228150; Fitness medio: 0.044048
+Gen 53:
+Fitness mejor: 0.228150; Fitness medio: 0.045776
+Gen 54:
+Fitness mejor: 0.228150; Fitness medio: 0.043207
+Gen 55:
+Fitness mejor: 0.228150; Fitness medio: 0.053593
+Gen 56:
+Fitness mejor: 0.228150; Fitness medio: 0.055485
+Gen 57:
+Fitness mejor: 0.228150; Fitness medio: 0.062957
+Gen 58:
+Fitness mejor: 0.228150; Fitness medio: 0.042839
+Gen 59:
+Fitness mejor: 0.228150; Fitness medio: 0.049431
+Gen 60:
+Fitness mejor: 0.228150; Fitness medio: 0.050414
+Gen 61:
+Fitness mejor: 0.228150; Fitness medio: 0.029289
+Gen 62:
+Fitness mejor: 0.228150; Fitness medio: 0.042678
+Gen 63:
+Fitness mejor: 0.228150; Fitness medio: 0.045828
+Gen 64:
+Fitness mejor: 0.228150; Fitness medio: 0.051061
+Gen 65:
+Fitness mejor: 0.228150; Fitness medio: 0.037702
+Gen 66:
+Fitness mejor: 0.228150; Fitness medio: 0.041804
+Gen 67:
+Fitness mejor: 0.228150; Fitness medio: 0.034207
+Gen 68:
+Fitness mejor: 0.228150; Fitness medio: 0.042790
+Gen 69:
+Fitness mejor: 0.228150; Fitness medio: 0.028785
+Gen 70:
+Fitness mejor: 0.228150; Fitness medio: 0.050506
+Gen 71:
+Fitness mejor: 0.228150; Fitness medio: 0.049190
+Gen 72:
+Fitness mejor: 0.228150; Fitness medio: 0.041857
+Gen 73:
+Fitness mejor: 0.228150; Fitness medio: 0.064124
+Gen 74:
+Fitness mejor: 0.228150; Fitness medio: 0.043888
+Gen 75:
+Fitness mejor: 0.228150; Fitness medio: 0.031571
+Gen 76:
+Fitness mejor: 0.228150; Fitness medio: 0.039596
+Gen 77:
+Fitness mejor: 0.228150; Fitness medio: 0.048946
+Gen 78:
+Fitness mejor: 0.228150; Fitness medio: 0.057344
+Gen 79:
+Fitness mejor: 0.228150; Fitness medio: 0.049476
+Gen 80:
+Fitness mejor: 0.228150; Fitness medio: 0.058776
+Gen 81:
+Fitness mejor: 0.228150; Fitness medio: 0.038458
+Gen 82:
+Fitness mejor: 0.228150; Fitness medio: 0.054999
+Gen 83:
+Fitness mejor: 0.228150; Fitness medio: 0.044159
+Gen 84:
+Fitness mejor: 0.228150; Fitness medio: 0.038498
+Gen 85:
+Fitness mejor: 0.228150; Fitness medio: 0.029734
+Gen 86:
+Fitness mejor: 0.228150; Fitness medio: 0.031697
+Gen 87:
+Fitness mejor: 0.228150; Fitness medio: 0.019131
+Gen 88:
+Fitness mejor: 0.228150; Fitness medio: 0.035325
+Gen 89:
+Fitness mejor: 0.228150; Fitness medio: 0.020607
+Gen 90:
+Fitness mejor: 0.228150; Fitness medio: 0.022339
+Gen 91:
+Fitness mejor: 0.228150; Fitness medio: 0.028329
+Gen 92:
+Fitness mejor: 0.228150; Fitness medio: 0.033703
+Gen 93:
+Fitness mejor: 0.228150; Fitness medio: 0.023403
+Gen 94:
+Fitness mejor: 0.228150; Fitness medio: 0.041114
+Gen 95:
+Fitness mejor: 0.228150; Fitness medio: 0.042440
+Gen 96:
+Fitness mejor: 0.228150; Fitness medio: 0.038792
+Gen 97:
+Fitness mejor: 0.228150; Fitness medio: 0.047842
+Gen 98:
+Fitness mejor: 0.228150; Fitness medio: 0.036120
+Gen 99:
+Fitness mejor: 0.228150; Fitness medio: 0.059865
+ -- AG Finalizado --
+Mejor individuo: 0.228150
+Arbol patrulla: SiBloqueado[0], SiDetectado[1], SiDetectado[2], SiBloqueado[3], GiraIz[4], CambiarEst[5], Avanza[6], CambiarEst[7], SiDetectado[8], GiraDer[9], CambiarEst[10]
+Arbol ataque: SiRango[0], SiJugador[1], Avanza[2], BloquearN[3], Avanza[4]
+
+Notas
+Punt. exploracion: 0.198246(0.039649 sobre el total)
+Punt. andar: 0.283094(0.028309 sobre el total)
+Punt. golpes intentados: 0.000000(0.000000 sobre el total)
+Punt. golpes evitados: 6.974359(0.348718 sobre el total)
+Punt. daño al jugador: 0.015258(0.002289 sobre el total)
+
+Tiempos de ejecucion
+Tiempo total de ej: 52798.761492 seg
+Tiempo inicializacion: 9.054100 ms
+Tiempo medio seleccion: 0.669854 ms
+Tiempo medio cruce: 1.074301 ms
+Tiempo medio mutacion: 2.086497 ms
+Tiempo medio evaluacion: 522.646035 seg
+
+
+Datos de Poblacion
+Individuo 0: 0.085674
+Arbol patrulla: CambiarEst[0]
+Arbol ataque: SiRango[0], Atacar[1], SiBloqueado[2], ProgN2[3], Avanza[4], GiraIz[5], SiJugador[6], Atacar[7], Retroceder[8]
+
+Individuo 1: 0.027693
+Arbol patrulla: CambiarEst[0]
+Arbol ataque: SiRango[0], ProgN2[1], SiBloqueado[2], Avanza[3], GiraIz[4], ProgN2[5], Avanza[6], Avanza[7], GiraIz[8]
+
+Individuo 2: 0.052517
+Arbol patrulla: CambiarEst[0]
+Arbol ataque: SiRango[0], ProgN2[1], SiBloqueado[2], SiJugador[3], SiJugador[4], ProgN2[5], Avanza[6], Atacar[7], ProgN2[8], SiBloqueado[9], GiraIz[10], Avanza[11], GiraIz[12], Atacar[13], BloquearN[14], Atacar[15], GiraDer[16]
+
+Individuo 3: 0.061014
+Arbol patrulla: CambiarEst[0]
+Arbol ataque: SiRango[0], Atacar[1], SiBloqueado[2], ProgN2[3], Avanza[4], Avanza[5], GiraIz[6]
+
+Individuo 4: 0.061014
+Arbol patrulla: CambiarEst[0]
+Arbol ataque: SiRango[0], Atacar[1], SiBloqueado[2], ProgN2[3], Avanza[4], Avanza[5], GiraIz[6]
+
+Individuo 5: 0.059614
+Arbol patrulla: CambiarEst[0]
+Arbol ataque: SiRango[0], ProgN2[1], SiBloqueado[2], SiJugador[3], SiJugador[4], ProgN2[5], Avanza[6], Atacar[7], ProgN2[8], Retroceder[9], SiJugador[10], Avanza[11], GiraIz[12], BloquearN[13], BloquearN[14], GiraDer[15], GiraDer[16]
+
+Individuo 6: 0.029392
+Arbol patrulla: CambiarEst[0]
+Arbol ataque: SiRango[0], Avanza[1], SiBloqueado[2], ProgN2[3], Avanza[4], Avanza[5], GiraIz[6]
+
+Individuo 7: 0.061573
+Arbol patrulla: CambiarEst[0]
+Arbol ataque: SiRango[0], ProgN2[1], SiBloqueado[2], SiJugador[3], SiJugador[4], ProgN2[5], Avanza[6], Atacar[7], ProgN2[8], SiBloqueado[9], GiraIz[10], Avanza[11], GiraIz[12], Atacar[13], Retroceder[14], GiraIz[15], BloquearN[16]
+
+Individuo 8: 0.077315
+Arbol patrulla: CambiarEst[0]
+Arbol ataque: SiRango[0], Atacar[1], SiBloqueado[2], GiraIz[3], Avanza[4]
+
+Individuo 9: 0.082842
+Arbol patrulla: CambiarEst[0]
+Arbol ataque: SiRango[0], ProgN2[1], SiBloqueado[2], SiJugador[3], SiJugador[4], ProgN2[5], Avanza[6], Atacar[7], ProgN2[8], SiBloqueado[9], GiraIz[10], Avanza[11], GiraIz[12], Atacar[13], Retroceder[14], Retroceder[15], Atacar[16]
+

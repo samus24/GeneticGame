@@ -105,7 +105,7 @@ public:
 		_punt = 0;
 		_puntAcum = 0;
 		_adaptacion = 0;
-		double pesos[6] = { 0.2, 0.1, 0.3, 0.05, 0.2, 0.1 };
+		double pesos[6] = { 0.2, 0.1, 0.35, 0.05, 0.2, 0.05 };
 		for (size_t i = 0; i < 6; ++i){
 			_pesos[i] = pesos[i];
 			_mediaValores[i] = 0;
@@ -117,7 +117,7 @@ public:
 	Cromosoma(int profMin, int profMax) {
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
-		double pesos[6] = { 0.2, 0.1, 0.3, 0.05, 0.2, 0.1 };
+		double pesos[6] = { 0.2, 0.1, 0.35, 0.05, 0.2, 0.05 };
 		for (size_t i = 0; i < 6; ++i){
 			_pesos[i] = pesos[i];
 			_mediaValores[i] = 0;
@@ -129,7 +129,7 @@ public:
 	void crear(int profMin, int profMax){
 		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
 		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
-		double pesos[6] = { 0.2, 0.1, 0.3, 0.05, 0.2, 0.1 };
+		double pesos[6] = { 0.2, 0.1, 0.35, 0.05, 0.2, 0.05 };
 		for (size_t i = 0; i < 6; ++i){
 			_pesos[i] = pesos[i];
 			_mediaValores[i] = 0;
@@ -590,8 +590,14 @@ private:
 		for (std::size_t i = 0; i < 6; ++i){
 			evaluacion += _valores[i] * _pesos[i];
 		}
-		if (enemigo.turnosPatrulla < (maxTurnos / 10)) {
+		if ((_valores[0] + _valores[1]) == 0 || enemigo.turnosPatrulla < (maxTurnos*0.2)) {
 			evaluacion /= 2;
+		}
+		else if ((_valores[2] + _valores[3] + _valores[4]) == 0) {
+			evaluacion /= 2;
+		}
+		else if ((_valores[2] > 0) && (_valores[4] > 0)) {
+			evaluacion *= 2;
 		}
 		return evaluacion;
 	}
