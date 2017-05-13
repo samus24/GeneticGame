@@ -590,13 +590,13 @@ private:
 		for (std::size_t i = 0; i < 6; ++i){
 			evaluacion += _valores[i] * _pesos[i];
 		}
-		if ((_valores[0] == 0) && (_valores[1] == 0) || (enemigo.turnosPatrulla < (maxTurnos*0.2))) {
+		if ((_valores[0] == 0) || (_valores[1] == 0) || (enemigo.turnosPatrulla < (maxTurnos*0.2))) { //si no cumplimos los 3 casos, dividimos entre 2 el fitness
 			evaluacion /= 2;
 		}
-		else if ((_valores[2] + _valores[3] + _valores[4]) == 0) {
+		else if ((_valores[2] + _valores[3] + _valores[4]) == 0) { //si no puntuamos en ninguno de los 3 dividimos el fitness
 			evaluacion /= 2;
 		}
-		else if ((_valores[2] > 0) && (_valores[4] > 0)) {
+		else if ((_valores[2] > 0) && (_valores[4] > 0)) { //si no hemos dividido el fitness y se cumplen estos dos valores, lo premiamos.
 			evaluacion *= 4;
 		}
 		return evaluacion;
