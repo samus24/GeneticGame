@@ -124,6 +124,10 @@ public:
 			}
 		}
 	}
+
+	std::string toString() {
+		return "combinada";
+	}
 };
 
 

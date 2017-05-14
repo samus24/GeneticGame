@@ -115,3 +115,25 @@ Gen 55:
 Fitness mejor: 0.482913; Fitness medio: 0.150512
 Gen 56:
 Fitness mejor: 0.482913; Fitness medio: 0.039498
+Gen 57:
+Fitness mejor: 0.482913; Fitness medio: 0.054367
+Gen 58:
+Fitness mejor: 0.482913; Fitness medio: 0.049915
+Gen 59:
+Fitness mejor: 0.482913; Fitness medio: 0.048853
+Gen 60:
+Fitness mejor: 0.482913; Fitness medio: 0.050506
+Gen 61:
+Fitness mejor: 0.482913; Fitness medio: 0.064279
+Gen 62:
+Fitness mejor: 0.482913; Fitness medio: 0.060589
+Gen 63:
+Fitness mejor: 0.482913; Fitness medio: 0.049567
+Gen 64:
+Fitness mejor: 0.482913; Fitness medio: 0.075265
+Gen 65:
+Fitness mejor: 0.482913; Fitness medio: 0.093578
+Gen 66:
+Fitness mejor: 0.482913; Fitness medio: 0.083674
+Gen 67:
+Fitness mejor: 0.482913; Fitness medio: 0.049412
