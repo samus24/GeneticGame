@@ -587,9 +587,9 @@ private:
 		_mediaValores[4] += _valores[4];
 		_mediaValores[5] += _valores[5];
 
-		/*for (std::size_t i = 0; i < 6; ++i){
-			evaluacion += _valores[i] * _pesos[i];
-		}*/
+		for (std::size_t i = 0; i < 6; ++i){
+			evaluacion += _valores[i] /* _pesos[i]*/;
+		}
 		if ((_valores[0] + _valores[1]) == 0) { //si no cumplimos ninguno de los 2, dividimos entre 4
 			evaluacion /= 4;
 		}

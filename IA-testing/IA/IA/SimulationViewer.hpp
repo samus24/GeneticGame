@@ -36,7 +36,7 @@ public:
 			"Explorado",
 			"Andado (patrulla)",
 			"Expl. y andado",
-			"Andado (ataque",
+			"Andado (ataque)",
 			"Expl, andado y andado"
 		};
 		m_vertices.setPrimitiveType(sf::Quads);
@@ -274,6 +274,10 @@ private:
 					}
 					_playerHealth.setPosition(origin + sf::Vector2f((i + 0.4)*realTileSize, (j - 1)*realTileSize));
 				}
+				else if ((explorado.getCasilla(i, j) > 0) && (andado.getCasilla(i, j) > 0) && (andadoAtaque.getCasilla(i, j) > 0)){
+					c = sf::Color(174, 108, 72);
+					c.a = 127;
+				}
 				else if ((explorado.getCasilla(i, j) > 0) && (andado.getCasilla(i, j) > 0)){
 					c = sf::Color::Magenta;
 					c.a = 127;
@@ -288,10 +292,6 @@ private:
 				}
 				else if (andadoAtaque.getCasilla(i, j) > 0){
 					c = sf::Color(255,128,0);
-					c.a = 127;
-				}
-				else if ((explorado.getCasilla(i, j) > 0) && (andado.getCasilla(i, j) > 0) && (andadoAtaque.getCasilla(i, j) > 0)){
-					c = sf::Color(174,108,72);
 					c.a = 127;
 				}
 
