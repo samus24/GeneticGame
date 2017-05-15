@@ -590,7 +590,7 @@ private:
 		for (std::size_t i = 0; i < 6; ++i){
 			evaluacion += _valores[i] * _pesos[i];
 		}
-		if ((_valores[0] + _valores[1]) == 0) {
+		if ((_valores[0] + _valores[1]) == 0) { //si no cumplimos ninguno de los 2, dividimos entre 4
 			evaluacion /= 4;
 		}
 		else if ((_valores[0] == 0) || (_valores[1] == 0) || (enemigo.turnosPatrulla < (maxTurnos*0.2))) { //si no cumplimos los 3 casos, dividimos entre 2 el fitness
