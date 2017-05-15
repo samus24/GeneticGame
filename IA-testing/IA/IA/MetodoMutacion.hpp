@@ -19,7 +19,8 @@ public:
 		n = arb.getNodoFuncionAleatorio();
 		if (n.getPadre() != nullptr || n.getNumNodos() == 1) {
 			Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos(), tipo);
-			n.getPadre()->addHijo(nuevo, n.getPos());
+			if (n.getPadre() != nullptr)
+				n.getPadre()->addHijo(nuevo, n.getPos());
 			arb.reparaReferencias();
 			arb.actualizaNumNodos();
 			c->setGenotipo(arb, tipo);
@@ -91,7 +92,8 @@ public:
 			n = arb.getNodoFuncionAleatorio();
 			if (n.getPadre() != nullptr || n.getNumNodos() == 1) {
 				Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos(), tipo);
-				n.getPadre()->addHijo(nuevo, n.getPos());
+				if (n.getPadre() != nullptr)
+					n.getPadre()->addHijo(nuevo, n.getPos());
 				arb.reparaReferencias();
 				arb.actualizaNumNodos();
 				c->setGenotipo(arb, tipo);
