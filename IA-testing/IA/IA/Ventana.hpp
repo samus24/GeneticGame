@@ -220,7 +220,7 @@ public:
 		_visorAtaque.update(arbAtaque, TipoArbol::Ataque);
 	}
 
-	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
+	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado, Mapa andadoAtaque){
 		
 	}
 
