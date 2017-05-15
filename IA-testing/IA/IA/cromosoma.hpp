@@ -403,7 +403,7 @@ private:
 			}
 			if(turnosIni != enemigo.turnos) mueveJugador(jugador, enemigo, m);
 			if (dibujar) imprimeEstado(this->_genotipo[0], m, explorado, enemigo, jugador, ataque);
-			notifyTurno(jugador, enemigo, m, explorado, andado);
+			notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
 		}
 
 		enemigo.turnosPatrulla = enemigo.turnos;
@@ -549,7 +549,7 @@ private:
 			}
 			if (turnosIni != enemigo.turnos) mueveJugador(jugador, enemigo, m);
 			if (dibujar) imprimeEstado(this->_genotipo[1], m, explorado, enemigo, jugador, ataque);
-			notifyTurno(jugador, enemigo, m, explorado, andado);
+			notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
 		}
 		double evaluacion = 0;
 		int cAndadas = casillasAndadas(andado);
@@ -587,9 +587,9 @@ private:
 		_mediaValores[4] += _valores[4];
 		_mediaValores[5] += _valores[5];
 
-		for (std::size_t i = 0; i < 6; ++i){
+		/*for (std::size_t i = 0; i < 6; ++i){
 			evaluacion += _valores[i] * _pesos[i];
-		}
+		}*/
 		if ((_valores[0] + _valores[1]) == 0) { //si no cumplimos ninguno de los 2, dividimos entre 4
 			evaluacion /= 4;
 		}
@@ -742,9 +742,9 @@ private:
 		}
 	}
 
-	void notifyTurno(npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado) const{
+	void notifyTurno(npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado, Mapa andadoAtaque) const{
 		for (ICromosomaObserver* i : _obs){
-			i->onTurno(this, jugador, enemigo, m, explorado, andado);
+			i->onTurno(this, jugador, enemigo, m, explorado, andado, andadoAtaque);
 		}
 	}
 

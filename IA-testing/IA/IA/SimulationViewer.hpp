@@ -23,7 +23,9 @@ public:
 			sf::Color::Green,			// Jugador
 			sf::Color(0, 0, 255, 127),	// Explorado
 			sf::Color(255, 0, 0, 127),	// Andado (en patrulla)
-			sf::Color(255, 0, 255, 127) // Explorado y andado
+			sf::Color(255, 0, 255, 127), // Explorado y andado
+			sf::Color(255, 128, 0, 127), // Andado ataque
+			sf::Color(174, 108, 72, 127) //Explorado, andado y andado
 		};
 		std::vector<std::string> cadenas = {
 			"Vacio",
@@ -33,12 +35,14 @@ public:
 			"Jugador",
 			"Explorado",
 			"Andado (patrulla)",
-			"Expl. y andado"
+			"Expl. y andado",
+			"Andado (ataque",
+			"Expl, andado y andado"
 		};
 		m_vertices.setPrimitiveType(sf::Quads);
-		m_vertices.resize(8 * 4);
+		m_vertices.resize(colores.size() * 4);
 		
-		for (size_t i = 0; i < 8; ++i){
+		for (size_t i = 0; i < colores.size(); ++i){
 			sf::Text texto;
 			sf::Vertex* quad = &m_vertices[i * 4];
 
@@ -179,7 +183,7 @@ private:
 		
 	}
 
-	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado){
+	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado, Mapa andadoAtaque){
 		sf::Vector2f origin(10, 30);
 		unsigned int realTileSize = std::min(_size.x, _size.y) / 40;
 		Arbol arbPatrulla = c->getGenotipo(0);
@@ -280,6 +284,14 @@ private:
 				}
 				else if (andado.getCasilla(i, j) > 0){
 					c = sf::Color::Red;
+					c.a = 127;
+				}
+				else if (andadoAtaque.getCasilla(i, j) > 0){
+					c = sf::Color(255,128,0);
+					c.a = 127;
+				}
+				else if ((explorado.getCasilla(i, j) > 0) && (andado.getCasilla(i, j) > 0) && (andadoAtaque.getCasilla(i, j) > 0)){
+					c = sf::Color(174,108,72);
 					c.a = 127;
 				}
 

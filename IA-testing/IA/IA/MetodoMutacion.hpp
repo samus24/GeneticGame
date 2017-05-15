@@ -17,7 +17,7 @@ public:
 		arb.reparaReferencias();
 		Nodo n;
 		n = arb.getNodoFuncionAleatorio();
-		if (n.getPadre() != nullptr) {
+		if (n.getPadre() != nullptr || n.getNumNodos() == 1) {
 			Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos(), tipo);
 			n.getPadre()->addHijo(nuevo, n.getPos());
 			arb.reparaReferencias();
@@ -89,7 +89,7 @@ public:
 		int r = myRandom::getRandom(0, 2); //elegimos al azar qué mutación vamos a usar
 		if (r == 0) {
 			n = arb.getNodoFuncionAleatorio();
-			if (n.getPadre() != nullptr) {
+			if (n.getPadre() != nullptr || n.getNumNodos() == 1) {
 				Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos(), tipo);
 				n.getPadre()->addHijo(nuevo, n.getPos());
 				arb.reparaReferencias();
