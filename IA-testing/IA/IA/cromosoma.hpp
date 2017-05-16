@@ -564,7 +564,7 @@ private:
 		_valores[3] = enemigo.golpesEvitados;
 		_valores[4] = jugador.heridas;
 		*/
-		double optimos[] = { dim/2, dim/3, 10.f, 20.f, dim/3, 1};
+		/*double optimos[] = { dim/2, dim/3, 10.f, 20.f, dim/3, 1};
 
 		_valores[0] = cExpl / optimos[0];
 		_valores[1] = cAndadas / optimos[1];
@@ -604,7 +604,13 @@ private:
 		}
 		else if ((_valores[2]*optimos[2] > 0) && (cAndadasAtaque > 20)) { //si no hemos dividido el fitness y se cumplen estos dos valores, lo premiamos.
 			evaluacion *= 4;
-		}
+		}*/
+
+		evaluacion = (cAndadas / (dim / 3)) + (cExpl / dim) + (cAndadasAtaque / (dim / 3)) + ((enemigo.golpes + jugador.heridas) / (enemigo.heridas + 1)) + (enemigo.golpesEvitados / 15) - (distancia + 1) + (jugador.turnosPatrulla * (int)ataque);
+
+		if (jugador.heridas > 0)
+			evaluacion *= jugador.heridas;
+
 		return evaluacion;
 	}
 
