@@ -606,10 +606,17 @@ private:
 			evaluacion *= 4;
 		}*/
 
-		evaluacion = (cAndadas / (dim / 3)) + (cExpl / dim) + (cAndadasAtaque / (dim / 3)) + ((enemigo.golpes + jugador.heridas) / (enemigo.heridas + 1)) + (enemigo.golpesEvitados / 15) - (distancia + 1) + (jugador.turnosPatrulla * (int)ataque) + 20;
+		int esAtaque = 0;
+
+		if (ataque)
+			esAtaque = 1;
+		else
+			esAtaque = 0;
+
+		evaluacion = (cAndadas / (dim / 4)) + (cExpl / (dim / 2)) + (cAndadasAtaque / (dim / 4)) + (enemigo.golpes / (enemigo.heridas + 1)) + (enemigo.golpesEvitados / 15) - (distancia + 1) + (jugador.turnosPatrulla * esAtaque) + 20;
 
 		if (jugador.heridas > 0)
-			evaluacion *= jugador.heridas;
+			evaluacion *= (jugador.heridas +1);
 
 		return evaluacion;
 	}
