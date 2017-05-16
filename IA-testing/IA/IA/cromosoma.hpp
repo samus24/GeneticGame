@@ -606,7 +606,7 @@ private:
 			evaluacion *= 4;
 		}*/
 
-		evaluacion = (cAndadas / (dim / 3)) + (cExpl / dim) + (cAndadasAtaque / (dim / 3)) + ((enemigo.golpes + jugador.heridas) / (enemigo.heridas + 1)) + (enemigo.golpesEvitados / 15) - (distancia + 1) + (jugador.turnosPatrulla * (int)ataque);
+		evaluacion = (cAndadas / (dim / 3)) + (cExpl / dim) + (cAndadasAtaque / (dim / 3)) + ((enemigo.golpes + jugador.heridas) / (enemigo.heridas + 1)) + (enemigo.golpesEvitados / 15) - (distancia + 1) + (jugador.turnosPatrulla * (int)ataque) + 20;
 
 		if (jugador.heridas > 0)
 			evaluacion *= jugador.heridas;
