@@ -189,24 +189,23 @@ public:
 		std::string pathPlotter = "Resultados/" + date + "grafica.png";
 		std::string pathArbol = "Resultados/" + date + "arbol.png";
 
-		sf::RenderWindow wAux(sf::VideoMode::getFullscreenModes()[6], "IA");
 		sf::Texture tx;
-		tx.create(wAux.getSize().x, wAux.getSize().y);
-		TreeViewer visorArbolP(sf::Vector2f(20,20), sf::Vector2f(400,300));
-		TreeViewer visorArbolA(sf::Vector2f(20, 320), sf::Vector2f(400, 300));
+		tx.create(_windowTrees.getSize().x, _windowTrees.getSize().y);
+		TreeViewer visorArbolP(sf::Vector2f(20,20), sf::Vector2f(800,400));
+		TreeViewer visorArbolA(sf::Vector2f(20, 420), sf::Vector2f(800, 400));
 		visorArbolP.update(mejor.getGenotipo(0), TipoArbol::Patrulla);
 		visorArbolA.update(mejor.getGenotipo(1), TipoArbol::Ataque);
 
-		wAux.clear(sf::Color::White);
-		wAux.draw(_plotter);
-		tx.update(wAux);
+		_windowTrees.clear(sf::Color::White);
+		_windowTrees.draw(_plotter);
+		tx.update(_windowTrees);
 		sf::Image imPlotter = tx.copyToImage();
 		imPlotter.saveToFile(pathPlotter);
 
-		wAux.clear(sf::Color::White);
-		wAux.draw(visorArbolP);
-		wAux.draw(visorArbolA);
-		tx.update(wAux);
+		_windowTrees.clear(sf::Color::White);
+		_windowTrees.draw(visorArbolP);
+		_windowTrees.draw(visorArbolA);
+		tx.update(_windowTrees);
 		sf::Image imArbol = tx.copyToImage();
 		imArbol.saveToFile(pathArbol);
 	}
@@ -245,27 +244,17 @@ private:
 		_windowTrees.setFramerateLimit(30);
 		_windowTrees.setVerticalSyncEnabled(true);
 		_windowTrees.clear(sf::Color(127,127,127));
-		while (_windowTrees.isOpen())
+		while (_window.isOpen())
 		{
 			_windowTrees.setVisible(finalizada);
 			sf::Event event;
-			while (_windowTrees.pollEvent(event))
-			{
-				if (event.type == sf::Event::Closed)
-					_windowTrees.close();
-			}
-			if (!_window.isOpen()){
-				_windowTrees.close();
-			}
-			//if (_nuevo){
-				sf::Lock lock(_mutex);
-				_windowTrees.clear(sf::Color(127, 127, 127));
-				_windowTrees.draw(_visorPatrulla);
-				_windowTrees.draw(_visorAtaque);
-				_windowTrees.display();
-			//	_nuevo = false;
-				//_mutex.unlock();
-			//}
+			while (_windowTrees.pollEvent(event));
+
+			sf::Lock lock(_mutex);
+			_windowTrees.clear(sf::Color(127, 127, 127));
+			_windowTrees.draw(_visorPatrulla);
+			_windowTrees.draw(_visorAtaque);
+			_windowTrees.display();
 		}
 	}
 

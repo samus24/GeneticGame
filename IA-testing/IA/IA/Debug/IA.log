@@ -1,4 +1,4 @@
-﻿Compilación iniciada a las 17/05/2017 19:42:15.
+﻿Compilación iniciada a las 17/05/2017 20:19:00.
      1>Proyecto "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Rebuild destinos).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp ScrollBar.cpp
@@ -136,4 +136,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:03.64
+Tiempo transcurrido 00:00:03.11

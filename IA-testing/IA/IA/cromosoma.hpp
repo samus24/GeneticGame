@@ -543,7 +543,7 @@ private:
 		double factorPatrulla = (encontrado) ? 1 : -1;
 		int turnosRestantes = (maxTurnos - enemigo.turnosPatrulla);
 		double factorAtaque = jugador.heridas;
-		evaluacion = 20 + factorPatrulla*(cExpl + cAndadas + turnosRestantes) + factorAtaque*(cAndadasAtaque + enemigo.golpesEvitados + enemigo.golpes) - distancia;
+		evaluacion = 1000 + factorPatrulla*(cExpl + cAndadas + turnosRestantes) + factorAtaque*(cAndadasAtaque + enemigo.golpesEvitados + enemigo.golpes) - distancia;
 
 		return evaluacion;
 	}
