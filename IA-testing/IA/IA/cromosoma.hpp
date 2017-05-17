@@ -206,6 +206,7 @@ private:
 		while (enemigo.turnos < maxTurnos && !ataque && enemigo.heridas < 3) {
 			if (pila.empty()) {
 				pila.push(_genotipo[0].getRaiz());
+				siDetectado = false;
 			}
 			turnosIni = enemigo.turnos;
 			actual = pila.top();
@@ -290,7 +291,6 @@ private:
 				break;
 			case Avanza:
 				x = 0; y = 0;
-				siDetectado = false;
 				if (enemigo.getCasillaDelante(x, y)) {
 					if (!m.estaBloqueado(x, y)) {
 						enemigo.avanza();
@@ -300,12 +300,10 @@ private:
 				enemigo.turnos++;
 				break;
 			case GiraIz:
-				siDetectado = false;
 				enemigo.izquierda();
 				enemigo.turnos++;
 				break;
 			case GiraDer:
-				siDetectado = false;
 				enemigo.derecha();
 				enemigo.turnos++;
 				break;
@@ -313,7 +311,6 @@ private:
 				if (siDetectado){
 					encontrado = true;
 				}
-				siDetectado = false;
 				while (!pila.empty()) {
 					pila.pop(); //vaciamos la pila por si quedasen nodos sin evaluar pero ya hemos cambiado a ataque.
 				}
