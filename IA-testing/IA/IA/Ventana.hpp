@@ -189,12 +189,11 @@ public:
 		std::string pathPlotter = "Resultados/" + date + "grafica.png";
 		std::string pathArbol = "Resultados/" + date + "arbol.png";
 
+		/*
 		sf::Texture tx;
 		tx.create(_windowTrees.getSize().x, _windowTrees.getSize().y);
-		TreeViewer visorArbolP(sf::Vector2f(20,20), sf::Vector2f(800,400));
-		TreeViewer visorArbolA(sf::Vector2f(20, 420), sf::Vector2f(800, 400));
-		visorArbolP.update(mejor.getGenotipo(0), TipoArbol::Patrulla);
-		visorArbolA.update(mejor.getGenotipo(1), TipoArbol::Ataque);
+		_visorPatrulla.update(mejor.getGenotipo(0), TipoArbol::Patrulla);
+		_visorAtaque.update(mejor.getGenotipo(1), TipoArbol::Ataque);
 
 		_windowTrees.clear(sf::Color::White);
 		_windowTrees.draw(_plotter);
@@ -203,11 +202,11 @@ public:
 		imPlotter.saveToFile(pathPlotter);
 
 		_windowTrees.clear(sf::Color::White);
-		_windowTrees.draw(visorArbolP);
+		_windowTrees.draw(_visorPatrulla);
 		_windowTrees.draw(visorArbolA);
 		tx.update(_windowTrees);
 		sf::Image imArbol = tx.copyToImage();
-		imArbol.saveToFile(pathArbol);
+		imArbol.saveToFile(pathArbol);*/
 	}
 
 	void onSimulacionIniciada(const Cromosoma* c){
