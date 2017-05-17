@@ -1,2 +1,6 @@
 *.opensdf
 *.sdf
+*.pdb
+*.log
+*.idb
+*.obj
