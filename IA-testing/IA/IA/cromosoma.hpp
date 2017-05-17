@@ -11,93 +11,6 @@
 #include "myrandom.hpp"
 #include "ICromosomaObserver.hpp"
 
-const int AZUL = 9;
-const int VERDE = 10;
-const int TURQUESA = 11;
-const int ROJO = 12;
-const int ROSA = 13;
-const int AMARILLO = 14;
-const int BLANCO = 15;
-
-void cambiaColor(int color){
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, color);
-}
-
-void imprimeEstado(Arbol gen, Mapa m, Mapa explorado, npc enemigo, npc jugador, bool ataque){
-	system("cls");
-	cambiaColor(BLANCO);
-	char c;
-	std::cout << "Estado: " << ((ataque) ? "Ataque" : "Patrulla") << std::endl;
-	std::cout << gen.toString() << std::endl;
-	std::cout << "<Enemigo> Tur: " << enemigo.turnos << " G: " << enemigo.golpes << " GE: " << enemigo.golpesEvitados << " B: " << enemigo.bloqueando << std::endl;
-	std::cout << "<Jugador> " << "H: " << jugador.heridas << " B: " << jugador.bloqueando << std::endl;
-
-	for (std::size_t j = 0; j < m.getHeight(); ++j) {
-		for (std::size_t i = 0; i < m.getWidth(); ++i) {
-			if (enemigo.posX == i && enemigo.posY == j){
-				cambiaColor(ROJO);
-				switch (enemigo.f) {
-				case NORTE:
-					std::cout << "^";
-					break;
-				case SUR:
-					std::cout << "v";
-					break;
-				case ESTE:
-					std::cout << ">";
-					break;
-				case OESTE:
-					std::cout << "<";
-					break;
-				default:
-					break;
-				}
-			}
-			else if (jugador.posX == i && jugador.posY == j){
-				cambiaColor(VERDE);
-				switch (jugador.f) {
-				case NORTE:
-					std::cout << "^";
-					break;
-				case SUR:
-					std::cout << "v";
-					break;
-				case ESTE:
-					std::cout << ">";
-					break;
-				case OESTE:
-					std::cout << "<";
-					break;
-				default:
-					break;
-				}
-			}
-			else{
-				c = '-';
-				if (explorado.getCasilla(i, j) > 0){
-					cambiaColor(AZUL);
-				}
-				else{
-					cambiaColor(BLANCO);
-				}
-
-				if (m.getCasilla(i, j) == m.MURO) {
-					cambiaColor(TURQUESA);
-					c = '#';
-				}
-				else if (m.getCasilla(i,j) == m.COFRE) {
-					cambiaColor(AMARILLO);
-					c = '*';
-				}
-				std::cout << c;
-			}
-		}
-		std::cout << std::endl;
-	}
-	std::cout << std::endl;
-}
-
 class Cromosoma {
 public:
 
@@ -187,7 +100,7 @@ public:
 		return cambios;
 	}
 
-	double evalua(std::vector<Mapa> maps, bool pintar = false) {
+	double evalua(std::vector<Mapa> maps) {
 		int x, y;
 		double actual = 1;
 		double media = 0;
@@ -197,11 +110,11 @@ public:
 			x = maps[i].getX();
 			y = maps[i].getY();
 			if (i == 0){
-				actual = evaluaMapa(maps[i], x, y, pintar);
+				actual = evaluaMapa(maps[i], x, y);
 				media += actual;
 			}
 			else{
-				media += evaluaMapa(maps[i], x, y, pintar);
+				media += evaluaMapa(maps[i], x, y);
 			}
 		}
 
@@ -268,7 +181,7 @@ public:
 
 private:
 
-	double evaluaMapa(Mapa m, int posX, int posY, bool dibujar) {
+	double evaluaMapa(Mapa m, int posX, int posY) {
 		double dim = m.getHeight() * m.getWidth();
 		int maxTurnos = (dim*30/100); //Los turnos son el 30% del total de casillas del mapa
 
@@ -286,6 +199,9 @@ private:
 		bool fin = false;
 		int cont = 0;
 		int turnosIni;
+
+		bool siDetectado = false;
+		bool encontrado = false;
 
 		while (enemigo.turnos < maxTurnos && !ataque && enemigo.heridas < 3) {
 			if (pila.empty()) {
@@ -347,6 +263,7 @@ private:
 					while (!fin && m.coordValidas(x,y)) {
 						if (jugador.estaEn(x, y)) {
 							fin = true;
+							siDetectado = true;
 							pila.push(&actual->getHijos()[0]);
 							explorado.setCasilla(x, y, 5);
 						}
@@ -373,6 +290,7 @@ private:
 				break;
 			case Avanza:
 				x = 0; y = 0;
+				siDetectado = false;
 				if (enemigo.getCasillaDelante(x, y)) {
 					if (!m.estaBloqueado(x, y)) {
 						enemigo.avanza();
@@ -382,14 +300,20 @@ private:
 				enemigo.turnos++;
 				break;
 			case GiraIz:
+				siDetectado = false;
 				enemigo.izquierda();
 				enemigo.turnos++;
 				break;
 			case GiraDer:
+				siDetectado = false;
 				enemigo.derecha();
 				enemigo.turnos++;
 				break;
 			case CambiarEst:
+				if (siDetectado){
+					encontrado = true;
+				}
+				siDetectado = false;
 				while (!pila.empty()) {
 					pila.pop(); //vaciamos la pila por si quedasen nodos sin evaluar pero ya hemos cambiado a ataque.
 				}
@@ -402,7 +326,6 @@ private:
 				break;
 			}
 			if(turnosIni != enemigo.turnos) mueveJugador(jugador, enemigo, m);
-			if (dibujar) imprimeEstado(this->_genotipo[0], m, explorado, enemigo, jugador, ataque);
 			notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
 		}
 
@@ -548,7 +471,6 @@ private:
 				break;
 			}
 			if (turnosIni != enemigo.turnos) mueveJugador(jugador, enemigo, m);
-			if (dibujar) imprimeEstado(this->_genotipo[1], m, explorado, enemigo, jugador, ataque);
 			notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
 		}
 		double evaluacion = 0;
@@ -604,7 +526,7 @@ private:
 		}
 		else if ((_valores[2]*optimos[2] > 0) && (cAndadasAtaque > 20)) { //si no hemos dividido el fitness y se cumplen estos dos valores, lo premiamos.
 			evaluacion *= 4;
-		}*/
+		}
 
 		int esAtaque = 0;
 
@@ -616,7 +538,12 @@ private:
 		evaluacion = (cAndadas / (dim / 4)) + (cExpl / (dim / 2)) + (cAndadasAtaque / (dim / 4)) + (enemigo.golpes / (enemigo.heridas + 1)) + (enemigo.golpesEvitados / 15) - (distancia + 1) + (jugador.turnosPatrulla * esAtaque) + 20;
 
 		if (jugador.heridas > 0)
-			evaluacion *= (jugador.heridas +1);
+			evaluacion *= (jugador.heridas +1);*/
+
+		double factorPatrulla = (encontrado) ? 1 : -1;
+		int turnosRestantes = (maxTurnos - enemigo.turnosPatrulla);
+		double factorAtaque = jugador.heridas;
+		evaluacion = 20 + factorPatrulla*(cExpl + cAndadas + turnosRestantes) + factorAtaque*(cAndadasAtaque + enemigo.golpesEvitados + enemigo.golpes) - distancia;
 
 		return evaluacion;
 	}
