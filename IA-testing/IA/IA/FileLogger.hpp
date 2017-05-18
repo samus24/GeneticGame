@@ -50,6 +50,7 @@ public:
 		_regAG << "Punt. exploracion: " + std::to_string(mejor.getMediaValores()[0]) << std::endl;
 		_regAG << "Punt. Ataque: " + std::to_string(mejor.getMediaValores()[1]) << std::endl;
 		_regAG << "Punt. Distancia: " + std::to_string(mejor.getMediaValores()[2]) << std::endl;
+		_regAG << "Punt. turnos golpeo: " + std::to_string(mejor.getMediaValores()[3]) << std::endl;
 		_regAG << "Tiempos de ejecucion" << std::endl;
 		_regAG << "Tiempo total de ej: " + std::to_string((total / 1000)) + " seg" << std::endl;
 		_regAG << "Tiempo inicializacion: " + std::to_string(tInit) + " ms" << std::endl;
@@ -86,6 +87,7 @@ public:
 		_regPob << "Punt. exploracion: " + std::to_string(c->getMediaValores()[0]) << std::endl;
 		_regPob << "Punt. Ataque: " + std::to_string(c->getMediaValores()[1]) << std::endl;
 		_regPob << "Punt. distancia: " + std::to_string(c->getMediaValores()[2]) << std::endl;
+		_regPob << "Punt. turnos golpeo: " + std::to_string(c->getMediaValores()[3]) << std::endl;
 	}
 
 
