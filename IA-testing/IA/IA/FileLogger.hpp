@@ -75,7 +75,7 @@ public:
 	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado, Mapa andadoAtaque){
 	}
 
-	void onMapaTerminado(double fitness){
+	void onMapaTerminado(double fitness, double factorPatrulla, int cExpl, int cAndadas, int turnosQueValen, double factorAtaque, int cAndadasAtaque, int golpesEvitados, int golpes, double distancia, int turnosGolpeo) {
 
 	}
 

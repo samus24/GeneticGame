@@ -492,7 +492,7 @@ private:
 		_mediaValores[3] += enemigo.turnosGolpeo;
 		evaluacion = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + factorAtaque*(cAndadasAtaque*0.25 + enemigo.golpesEvitados + enemigo.golpes) - distancia - enemigo.turnosGolpeo;
 
-		notifyMapaTerminado(evaluacion);
+		notifyMapaTerminado(evaluacion, factorPatrulla, cExpl, cAndadas, turnosQueValen, factorAtaque, cAndadasAtaque, enemigo.golpesEvitados, enemigo.golpes, distancia, enemigo.turnosGolpeo);
 
 		return evaluacion;
 	}
@@ -634,9 +634,9 @@ private:
 		}
 	}
 
-	void notifyMapaTerminado(double fitness) const{
+	void notifyMapaTerminado(double fitness, double factorPatrulla, int cExpl, int cAndadas,int turnosQueValen, double factorAtaque, int cAndadasAtaque, int golpesEvitados, int golpes, double distancia, int turnosGolpeo) const{
 		for (ICromosomaObserver* i : _obs){
-			i->onMapaTerminado(fitness);
+			i->onMapaTerminado(fitness, factorPatrulla, cExpl, cAndadas, turnosQueValen, factorAtaque, cAndadasAtaque, golpesEvitados, golpes, distancia, turnosGolpeo);
 		}
 	}
 

@@ -222,7 +222,7 @@ public:
 		
 	}
 
-	void onMapaTerminado(double fitness){
+	void onMapaTerminado(double fitness, double factorPatrulla, int cExpl, int cAndadas, int turnosQueValen, double factorAtaque, int cAndadasAtaque, int golpesEvitados, int golpes, double distancia, int turnosGolpeo) {
 
 	}
 

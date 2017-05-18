@@ -111,10 +111,10 @@ public:
 		_lastFitness.move(10, size.y-120);
 
 		_actualFitness.setFont(_font);
-		_actualFitness.setCharacterSize(15);
+		_actualFitness.setCharacterSize(12);
 		_actualFitness.setFillColor(sf::Color::Red);
 		_actualFitness.setPosition(this->getPosition());
-		_actualFitness.move(10, size.y - 140);
+		_actualFitness.move(10, size.y - 160);
 
 		_playerFacing.setPrimitiveType(sf::Triangles);
 		_playerFacing.resize(3);
@@ -335,8 +335,10 @@ private:
 		_simulationInfo.setString(info);
 	}
 
-	void onMapaTerminado(double fitness){
-		std::string s = "Fitness en el ultimo mapa: " + std::to_string(fitness);
+	void onMapaTerminado(double fitness, double factorPatrulla, int cExpl, int cAndadas, int turnosQueValen, double factorAtaque, int cAndadasAtaque, int golpesEvitados, int golpes, double distancia, int turnosGolpeo) {
+		std::string s = "Fitness = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + factorAtaque*(cAndadasAtaque*0.25 + golpesEvitados + golpes) - distancia - turnosGolpeo \n";
+		s += std::to_string(fitness) + " = 1000 + " + std::to_string(factorPatrulla) + "(" + std::to_string(cExpl) + "*0.1 + " + std::to_string(cAndadas) + "*0.25 + " + std::to_string(turnosQueValen);
+		s += ") + " + std::to_string(factorAtaque) + "*(" + std::to_string(cAndadasAtaque) + "*0.25 + " + std::to_string(golpesEvitados) + " + " + std::to_string(golpes) + ") - " + std::to_string(distancia) + " - " + std::to_string(turnosGolpeo);
 		_actualFitness.setString(s);
 	}
 
