@@ -476,70 +476,9 @@ private:
 		int cExpl = casillasExploradas(explorado);
 		double distancia = calculaDistancia(jugador, enemigo);
 
-		/*
-		_valores[0] = cExpl;
-		_valores[1] = cAndadas;
-		_valores[2] = enemigo.golpes;
-		_valores[3] = enemigo.golpesEvitados;
-		_valores[4] = jugador.heridas;
-		*/
-		/*double optimos[] = { dim/2, dim/3, 10.f, 20.f, dim/3, 1};
-
-		_valores[0] = cExpl / optimos[0];
-		_valores[1] = cAndadas / optimos[1];
-		_valores[2] = (enemigo.golpes + jugador.heridas) / optimos[2];
-		_valores[3] = enemigo.golpesEvitados / optimos[3];
-		_valores[4] = cAndadasAtaque / optimos[4];
-		if (ataque) {
-			if (distancia > 0)
-				_valores[5] = optimos[5] / distancia;
-			else
-				_valores[5] = 1;
-		}
-		else
-			_valores[5] = 0;
-
-		_mediaValores[0] += _valores[0];
-		_mediaValores[1] += _valores[1];
-		_mediaValores[2] += _valores[2];
-		_mediaValores[3] += _valores[3];
-		_mediaValores[4] += _valores[4];
-		_mediaValores[5] += _valores[5];
-
-		for (std::size_t i = 0; i < 6; ++i){
-			evaluacion += _valores[i] * _pesos[i];
-		}
-		if ((_valores[0] + _valores[1]) == 0) { //si no cumplimos ninguno de los 2, dividimos entre 4
-			evaluacion = 0;
-		}
-		else if ((_valores[0] == 0) || (_valores[1] == 0) || (enemigo.turnosPatrulla < (maxTurnos*0.2))) { //si no cumplimos los 3 casos, dividimos entre 2 el fitness
-			evaluacion /= 2;
-		}
-		else if ((_valores[2] + _valores[3] + _valores[4]) == 0) { //si no puntuamos en ninguno de los 3 o no andamos dividimos el fitness
-			evaluacion = 0;
-		}
-		else if (_valores[4] == 0) {
-			evaluacion /= 2;
-		}
-		else if ((_valores[2]*optimos[2] > 0) && (cAndadasAtaque > 20)) { //si no hemos dividido el fitness y se cumplen estos dos valores, lo premiamos.
-			evaluacion *= 4;
-		}
-
-		int esAtaque = 0;
-
-		if (ataque)
-			esAtaque = 1;
-		else
-			esAtaque = 0;
-
-		evaluacion = (cAndadas / (dim / 4)) + (cExpl / (dim / 2)) + (cAndadasAtaque / (dim / 4)) + (enemigo.golpes / (enemigo.heridas + 1)) + (enemigo.golpesEvitados / 15) - (distancia + 1) + (jugador.turnosPatrulla * esAtaque) + 20;
-
-		if (jugador.heridas > 0)
-			evaluacion *= (jugador.heridas +1);*/
-
 		double factorPatrulla = (encontrado) ? 1 : -1;
 		int turnosRestantes = (maxTurnos - enemigo.turnosPatrulla);
-		double factorAtaque = jugador.heridas;
+		double factorAtaque = jugador.heridas + 1;
 		_mediaValores[0] += (cExpl + cAndadas + turnosRestantes) *factorPatrulla;
 		_mediaValores[1] += (cAndadasAtaque + enemigo.golpesEvitados + enemigo.golpes) * factorAtaque;
 		_mediaValores[2] += distancia;
