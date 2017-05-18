@@ -474,7 +474,7 @@ private:
 		}
 
 		if (enemigo.turnosGolpeo == -1)
-			enemigo.turnosGolpeo = enemigo.turnos;
+			enemigo.turnosGolpeo = enemigo.turnos - enemigo.turnosPatrulla;
 
 		double evaluacion = 0;
 		int cAndadas = casillasAndadas(andado);
