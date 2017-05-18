@@ -16,6 +16,8 @@ public:
 
 	virtual void onTurno(const Cromosoma*, npc, npc, Mapa, Mapa, Mapa, Mapa) = 0;	// jugador, enemigo, mapa, explorado, andado
 
+	virtual void onMapaTerminado(double fitness) = 0;
+
 	virtual void onSimulacionTerminada(const Cromosoma*) = 0;
 };
 

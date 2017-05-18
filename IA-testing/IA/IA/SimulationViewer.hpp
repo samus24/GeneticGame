@@ -110,6 +110,12 @@ public:
 		_lastFitness.setPosition(this->getPosition());
 		_lastFitness.move(10, size.y-120);
 
+		_actualFitness.setFont(_font);
+		_actualFitness.setCharacterSize(15);
+		_actualFitness.setFillColor(sf::Color::Red);
+		_actualFitness.setPosition(this->getPosition());
+		_actualFitness.move(10, size.y - 140);
+
 		_playerFacing.setPrimitiveType(sf::Triangles);
 		_playerFacing.resize(3);
 		_playerFacing[0].color = sf::Color(0, 200, 0);
@@ -178,6 +184,7 @@ private:
 		
 		target.draw(_simulationInfo);
 		target.draw(_lastFitness);
+		target.draw(_actualFitness);
 	}
 	void onSimulacionIniciada(const Cromosoma* c){
 		
@@ -328,6 +335,11 @@ private:
 		_simulationInfo.setString(info);
 	}
 
+	void onMapaTerminado(double fitness){
+		std::string s = "Fitness en el ultimo mapa: " + std::to_string(fitness);
+		_actualFitness.setString(s);
+	}
+
 	void onSimulacionTerminada(const Cromosoma* c){
 		std::string s = "Fitness del ultimo individuo: " + std::to_string(c->getAdaptacion());
 		_lastFitness.setString(s);
@@ -346,6 +358,7 @@ private:
 	sf::Text _enemyHealth;
 	sf::Text _simulationInfo;
 	sf::Text _lastFitness;
+	sf::Text _actualFitness;
 	Leyenda _leyenda;
 	sf::RectangleShape _enemyState;
 	

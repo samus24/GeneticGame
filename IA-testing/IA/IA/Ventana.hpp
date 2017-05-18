@@ -222,6 +222,10 @@ public:
 		
 	}
 
+	void onMapaTerminado(double fitness){
+
+	}
+
 	void onSimulacionTerminada(const Cromosoma* c){
 		
 	}

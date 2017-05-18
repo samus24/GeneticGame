@@ -74,6 +74,10 @@ public:
 	void onTurno(const Cromosoma* c, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado, Mapa andadoAtaque){
 	}
 
+	void onMapaTerminado(double fitness){
+
+	}
+
 	void onSimulacionTerminada(const Cromosoma* c){
 		_regPob << "Fitness Individuo: " + std::to_string(c->getAdaptacion()) << ((c->getDescartado()) ? "(descartado)" : "") << std::endl;
 		_regPob << "Arbol patrulla: " + c->getGenotipo(0).toString() << std::endl;

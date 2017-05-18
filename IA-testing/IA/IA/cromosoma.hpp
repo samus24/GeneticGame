@@ -487,6 +487,8 @@ private:
 		_mediaValores[2] += distancia;
 		evaluacion = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + factorAtaque*(cAndadasAtaque*0.25 + enemigo.golpesEvitados + enemigo.golpes) - distancia - enemigo.turnosGolpeo;
 
+		notifyMapaTerminado(evaluacion);
+
 		return evaluacion;
 	}
 
@@ -624,6 +626,12 @@ private:
 	void notifySimulacionInciada() const{
 		for (ICromosomaObserver* i : _obs){
 			i->onSimulacionIniciada(this);
+		}
+	}
+
+	void notifyMapaTerminado(double fitness) const{
+		for (ICromosomaObserver* i : _obs){
+			i->onMapaTerminado(fitness);
 		}
 	}
 
