@@ -1,0 +1,320 @@
+Adap mejor: 0,727751
+Tejec: 159,971150
+Adap mejor: 0,709813
+Tejec: 161,476236
+Adap mejor: 0,793086
+Tejec: 100,983776
+Adap mejor: 0,754635
+Tejec: 179,343258
+Adap mejor: 0,841548
+Tejec: 84,926857
+Adap mejor: 0,79538
+Tejec: 105,594040
+Adap mejor: 0,770014
+Tejec: 114,690560
+Adap mejor: 0,822031
+Tejec: 120,250878
+Adap mejor: 0,729802
+Tejec: 177,885174
+Adap mejor: 0,826181
+Tejec: 178,320199
+Adap mejor: 0,787271
+Tejec: 94,889427
+Adap mejor: 0,812481
+Tejec: 56,508232
+Adap mejor: 0,789608
+Tejec: 107,500149
+Adap mejor: 0,749929
+Tejec: 139,578983
+Adap mejor: 0,7977
+Tejec: 148,131473
+Adap mejor: 0,812921
+Tejec: 76,472374
+Adap mejor: 0,855135
+Tejec: 82,473717
+Adap mejor: 0,776016
+Tejec: 149,333541
+Adap mejor: 0,752917
+Tejec: 142,285138
+Adap mejor: 0,794327
+Tejec: 61,103495
+Adap mejor: 0,869356
+Tejec: 73,125183
+Adap mejor: 0,728131
+Tejec: 181,120359
+Adap mejor: 0,6941
+Tejec: 177,635160
+Adap mejor: 0,76056
+Tejec: 56,950257
+Adap mejor: 0,731571
+Tejec: 56,162212
+Adap mejor: 0,789567
+Tejec: 116,741677
+Adap mejor: 0,837271
+Tejec: 114,216533
+Adap mejor: 0,696387
+Tejec: 137,495864
+Adap mejor: 0,741893
+Tejec: 237,800601
+Adap mejor: 0,905326
+Tejec: 124,497121
+Adap mejor: 0,769686
+Tejec: 251,170366
+Adap mejor: 0,78418
+Tejec: 148,221478
+Adap mejor: 0,788249
+Tejec: 65,299735
+Adap mejor: 0,774187
+Tejec: 226,765970
+Adap mejor: 0,730222
+Tejec: 52,528004
+Adap mejor: 0,794514
+Tejec: 67,710873
+Adap mejor: 0,713444
+Tejec: 88,694073
+Adap mejor: 0,856441
+Tejec: 70,808050
+Adap mejor: 0,767257
+Tejec: 108,756221
+Adap mejor: 0,818462
+Tejec: 77,968459
+Adap mejor: 0,772057
+Tejec: 105,895057
+Adap mejor: 0,777633
+Tejec: 191,821972
+Adap mejor: 0,74086
+Tejec: 148,005465
+Adap mejor: 0,704273
+Tejec: 104,557980
+Adap mejor: 0,749431
+Tejec: 98,642642
+Adap mejor: 0,693747
+Tejec: 157,407003
+Adap mejor: 0,772694
+Tejec: 216,059358
+Adap mejor: 0,730347
+Tejec: 64,581694
+Adap mejor: 0,701203
+Tejec: 217,861461
+Adap mejor: 0,716758
+Tejec: 209,218967
+Adap mejor: 0,850333
+Tejec: 123,669074
+Adap mejor: 0,817437
+Tejec: 214,138248
+Adap mejor: 0,720181
+Tejec: 143,999236
+Adap mejor: 0,724132
+Tejec: 101,638813
+Adap mejor: 0,746619
+Tejec: 217,518441
+Adap mejor: 0,751807
+Tejec: 149,341542
+Adap mejor: 0,72325
+Tejec: 229,925151
+Adap mejor: 0,745357
+Tejec: 144,608271
+Adap mejor: 0,721283
+Tejec: 191,306942
+Adap mejor: 0,815172
+Tejec: 272,183568
+Adap mejor: 0,717111
+Tejec: 213,186194
+Adap mejor: 0,84743
+Tejec: 162,183276
+Adap mejor: 0,768133
+Tejec: 77,835452
+Adap mejor: 0,751975
+Tejec: 79,193530
+Adap mejor: 0,734597
+Tejec: 133,797653
+Adap mejor: 0,693227
+Tejec: 220,794629
+Adap mejor: 0,782521
+Tejec: 204,046671
+Adap mejor: 0,722055
+Tejec: 107,392143
+Adap mejor: 0,739341
+Tejec: 86,265934
+Adap mejor: 0,705932
+Tejec: 157,729022
+Adap mejor: 0,782758
+Tejec: 242,062845
+Adap mejor: 0,836636
+Tejec: 110,027293
+Adap mejor: 0,861053
+Tejec: 103,191902
+Adap mejor: 0,759481
+Tejec: 204,988725
+Adap mejor: 0,68896
+Tejec: 173,863944
+Adap mejor: 0,7718
+Tejec: 96,237505
+Adap mejor: 0,871371
+Tejec: 117,120699
+Adap mejor: 0,749938
+Tejec: 86,526949
+Adap mejor: 0,806893
+Tejec: 104,093954
+Adap mejor: 0,731179
+Tejec: 60,814478
+Adap mejor: 0,704868
+Tejec: 137,599870
+Adap mejor: 0,712413
+Tejec: 194,203108
+Adap mejor: 0,731131
+Tejec: 202,132561
+Adap mejor: 0,733516
+Tejec: 165,515467
+Adap mejor: 0,752966
+Tejec: 187,604730
+Adap mejor: 0,745083
+Tejec: 198,614360
+Adap mejor: 0,714201
+Tejec: 129,492407
+Adap mejor: 0,762741
+Tejec: 168,553641
+Adap mejor: 0,785741
+Tejec: 153,757794
+Adap mejor: 0,74697
+Tejec: 171,934834
+Adap mejor: 0,769789
+Tejec: 189,117817
+Adap mejor: 0,725283
+Tejec: 190,167877
+Adap mejor: 0,743833
+Tejec: 150,305597
+Adap mejor: 0,773787
+Tejec: 208,841945
+Adap mejor: 0,732118
+Tejec: 236,981554
+Adap mejor: 0,689406
+Tejec: 169,834714
+Adap mejor: 0,697056
+Tejec: 130,850484
+Adap mejor: 0,711942
+Tejec: 187,041698
+Adap mejor: 0,750891
+Tejec: 238,082618
+Adap mejor: 0,730381
+Tejec: 144,662274
+Adap mejor: 0,712155
+Tejec: 149,059526
+Adap mejor: 0,710839
+Tejec: 125,036152
+Adap mejor: 0,74729
+Tejec: 147,098413
+Adap mejor: 0,718643
+Tejec: 124,046095
+Adap mejor: 0,732917
+Tejec: 192,333001
+Adap mejor: 0,701406
+Tejec: 220,985640
+Adap mejor: 0,760332
+Tejec: 214,819287
+Adap mejor: 0,754967
+Tejec: 158,292054
+Adap mejor: 0,775612
+Tejec: 221,908693
+Adap mejor: 0,694053
+Tejec: 166,612530
+Adap mejor: 0,716101
+Tejec: 199,454408
+Adap mejor: 0,796568
+Tejec: 231,189223
+Adap mejor: 0,699079
+Tejec: 111,072353
+Adap mejor: 0,7035
+Tejec: 199,486410
+Adap mejor: 0,812931
+Tejec: 151,123644
+Adap mejor: 0,725595
+Tejec: 247,878178
+Adap mejor: 0,696447
+Tejec: 136,803825
+Adap mejor: 0,738328
+Tejec: 187,502725
+Adap mejor: 0,795078
+Tejec: 231,431237
+Adap mejor: 0,740059
+Tejec: 156,586956
+Adap mejor: 0,709146
+Tejec: 237,488584
+Adap mejor: 0,701655
+Tejec: 199,020383
+Adap mejor: 0,739489
+Tejec: 182,524440
+Adap mejor: 0,70248
+Tejec: 267,785316
+Adap mejor: 0,705548
+Tejec: 153,446777
+Adap mejor: 0,689864
+Tejec: 182,590444
+Adap mejor: 0,727524
+Tejec: 140,796053
+Adap mejor: 0,717119
+Tejec: 161,492237
+Adap mejor: 0,782093
+Tejec: 180,113302
+Adap mejor: 0,721048
+Tejec: 209,740996
+Adap mejor: 0,72194
+Tejec: 191,271940
+Adap mejor: 0,762873
+Tejec: 262,662023
+Adap mejor: 0,754458
+Tejec: 241,411808
+Adap mejor: 0,714527
+Tejec: 260,984927
+Adap mejor: 0,675868
+Tejec: 199,878432
+Adap mejor: 0,704158
+Tejec: 243,106905
+Adap mejor: 0,689055
+Tejec: 243,447924
+Adap mejor: 0,71696
+Tejec: 179,191249
+Adap mejor: 0,712613
+Tejec: 232,710310
+Adap mejor: 0,699524
+Tejec: 254,058531
+Adap mejor: 0,69481
+Tejec: 194,943150
+Adap mejor: 0,68664
+Tejec: 226,232940
+Adap mejor: 0,68996
+Tejec: 259,097820
+Adap mejor: 0,717114
+Tejec: 263,253057
+Adap mejor: 0,719192
+Tejec: 177,862173
+Adap mejor: 0,718536
+Tejec: 135,651759
+Adap mejor: 0,725475
+Tejec: 199,625418
+Adap mejor: 0,690374
+Tejec: 231,863262
+Adap mejor: 0,766524
+Tejec: 195,970209
+Adap mejor: 0,701556
+Tejec: 212,241140
+Adap mejor: 0,704437
+Tejec: 158,472064
+Adap mejor: 0,708985
+Tejec: 233,193338
+Adap mejor: 0,715113
+Tejec: 179,606273
+Adap mejor: 0,711298
+Tejec: 208,919950
+Adap mejor: 0,698099
+Tejec: 134,625700
+Adap mejor: 0,741988
+Tejec: 200,937493
+Adap mejor: 0,725987
+Tejec: 190,349887
+Adap mejor: 0,708474
+Tejec: 193,865088
+Adap mejor: 0,708823
+Tejec: 300,381181
+Adap mejor: 0,758053
+Tejec: 253,507500
