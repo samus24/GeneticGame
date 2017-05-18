@@ -25,3 +25,9 @@ Gen 10:
 Fitness mejor: 1352.335061; Fitness medio: 1022.433026
 Gen 11:
 Fitness mejor: 1352.335061; Fitness medio: 1118.268445
+Gen 12:
+Fitness mejor: 1352.335061; Fitness medio: 1111.031677
+Gen 13:
+Fitness mejor: 1352.335061; Fitness medio: 1035.574204
+Gen 14:
+Fitness mejor: 1352.335061; Fitness medio: 1182.122242

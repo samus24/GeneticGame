@@ -20,6 +20,7 @@ public:
 	int heridas; //heridas que hemos recibido
 	int golpesEvitados;
 	int turnosPatrulla; //turnos que hemos invertido hasta cambiar al arbol de ataque
+	int turnosGolpeo; //turnos que hemos invertido hasta el primer golpe
 	bool bloqueando;
 	int rango = 1;
 
@@ -33,6 +34,7 @@ public:
 		this->golpes = 0;
 		this->heridas = 0;
 		this->turnosPatrulla = -1;
+		this->turnosGolpeo = -1;
 		this->golpesEvitados = 0;
 		this->bloqueando = false;
 	}

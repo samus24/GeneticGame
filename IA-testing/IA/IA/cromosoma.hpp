@@ -445,6 +445,8 @@ private:
 				x = 0; y = 0;
 				enemigo.getCasillaDelante(x, y);
 				if (jugador.estaEn(x, y)) {
+					if (enemigo.turnosGolpeo == -1)
+						enemigo.turnosGolpeo = enemigo.turnos;
 					enemigo.golpes++;
 					if (!jugador.bloqueando) {
 						jugador.heridas++;
@@ -478,11 +480,12 @@ private:
 
 		double factorPatrulla = (encontrado) ? 1 : -1;
 		int turnosRestantes = (maxTurnos - enemigo.turnosPatrulla);
+		int turnosQueValen = (encontrado) ? turnosRestantes : enemigo.turnosPatrulla;
 		double factorAtaque = jugador.heridas + 1;
-		_mediaValores[0] += (cExpl + cAndadas + turnosRestantes) *factorPatrulla;
+		_mediaValores[0] += (cExpl + cAndadas + turnosRestantes)*factorPatrulla;
 		_mediaValores[1] += (cAndadasAtaque + enemigo.golpesEvitados + enemigo.golpes) * factorAtaque;
 		_mediaValores[2] += distancia;
-		evaluacion = 1000 + factorPatrulla*(cExpl + cAndadas + turnosRestantes) + factorAtaque*(cAndadasAtaque + enemigo.golpesEvitados + enemigo.golpes) - distancia;
+		evaluacion = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + factorAtaque*(cAndadasAtaque*0.25 + enemigo.golpesEvitados + enemigo.golpes) - distancia - enemigo.turnosGolpeo;
 
 		return evaluacion;
 	}
