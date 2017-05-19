@@ -1,0 +1,185 @@
+
+
+NUEVA EJECUCION
+Gen 0:
+Fitness mejor: 1018.796946; Fitness medio: 724.071887
+Gen 1:
+Fitness mejor: 1018.796946; Fitness medio: 779.840922
+Gen 2:
+Fitness mejor: 1050.631635; Fitness medio: 917.862195
+Gen 3:
+Fitness mejor: 1148.029632; Fitness medio: 938.740337
+Gen 4:
+Fitness mejor: 1148.029632; Fitness medio: 937.189722
+Gen 5:
+Fitness mejor: 1148.029632; Fitness medio: 932.246330
+Gen 6:
+Fitness mejor: 1148.029632; Fitness medio: 958.346445
+Gen 7:
+Fitness mejor: 1148.029632; Fitness medio: 954.613611
+Gen 8:
+Fitness mejor: 1159.093152; Fitness medio: 943.389202
+Gen 9:
+Fitness mejor: 1159.093152; Fitness medio: 934.115607
+Gen 10:
+Fitness mejor: 1159.093152; Fitness medio: 899.750939
+Gen 11:
+Fitness mejor: 1159.093152; Fitness medio: 908.130874
+Gen 12:
+Fitness mejor: 1197.431556; Fitness medio: 920.766374
+Gen 13:
+Fitness mejor: 1201.161089; Fitness medio: 955.908701
+Gen 14:
+Fitness mejor: 1201.161089; Fitness medio: 931.313929
+Gen 15:
+Fitness mejor: 1201.161089; Fitness medio: 971.928757
+Gen 16:
+Fitness mejor: 1201.161089; Fitness medio: 948.398569
+Gen 17:
+Fitness mejor: 1201.161089; Fitness medio: 985.731372
+Gen 18:
+Fitness mejor: 1201.161089; Fitness medio: 873.512064
+Gen 19:
+Fitness mejor: 1201.161089; Fitness medio: 800.898618
+Gen 20:
+Fitness mejor: 1201.161089; Fitness medio: 973.623674
+Gen 21:
+Fitness mejor: 1201.161089; Fitness medio: 928.243841
+Gen 22:
+Fitness mejor: 1201.161089; Fitness medio: 962.758307
+Gen 23:
+Fitness mejor: 1201.161089; Fitness medio: 989.323592
+Gen 24:
+Fitness mejor: 1201.161089; Fitness medio: 948.729591
+Gen 25:
+Fitness mejor: 1201.161089; Fitness medio: 942.263733
+Gen 26:
+Fitness mejor: 1201.161089; Fitness medio: 923.518319
+Gen 27:
+Fitness mejor: 1201.161089; Fitness medio: 958.114129
+Gen 28:
+Fitness mejor: 1201.161089; Fitness medio: 952.042297
+Gen 29:
+Fitness mejor: 1201.161089; Fitness medio: 868.431087
+Gen 30:
+Fitness mejor: 1201.161089; Fitness medio: 985.610491
+Gen 31:
+Fitness mejor: 1201.161089; Fitness medio: 979.835099
+Gen 32:
+Fitness mejor: 1201.161089; Fitness medio: 928.898384
+Gen 33:
+Fitness mejor: 1201.161089; Fitness medio: 853.708001
+Gen 34:
+Fitness mejor: 1201.161089; Fitness medio: 911.154574
+Gen 35:
+Fitness mejor: 1201.161089; Fitness medio: 999.544996
+Gen 36:
+Fitness mejor: 1201.161089; Fitness medio: 822.188651
+Gen 37:
+Fitness mejor: 1201.161089; Fitness medio: 767.154518
+Gen 38:
+Fitness mejor: 1201.161089; Fitness medio: 790.799741
+Gen 39:
+Fitness mejor: 1201.161089; Fitness medio: 903.911867
+Gen 40:
+Fitness mejor: 1201.161089; Fitness medio: 914.314710
+Gen 41:
+Fitness mejor: 1201.161089; Fitness medio: 928.855135
+Gen 42:
+Fitness mejor: 1201.161089; Fitness medio: 904.922573
+Gen 43:
+Fitness mejor: 1201.161089; Fitness medio: 855.590699
+Gen 44:
+Fitness mejor: 1201.161089; Fitness medio: 907.824949
+Gen 45:
+Fitness mejor: 1201.161089; Fitness medio: 875.909960
+Gen 46:
+Fitness mejor: 1201.161089; Fitness medio: 959.068414
+Gen 47:
+Fitness mejor: 1201.161089; Fitness medio: 948.065342
+Gen 48:
+Fitness mejor: 1201.161089; Fitness medio: 941.224873
+Gen 49:
+Fitness mejor: 1201.161089; Fitness medio: 945.501851
+Gen 50:
+Fitness mejor: 1201.161089; Fitness medio: 910.719707
+Gen 51:
+Fitness mejor: 1201.161089; Fitness medio: 919.268923
+Gen 52:
+Fitness mejor: 1201.161089; Fitness medio: 900.503078
+Gen 53:
+Fitness mejor: 1201.161089; Fitness medio: 867.942345
+Gen 54:
+Fitness mejor: 1201.161089; Fitness medio: 917.979118
+Gen 55:
+Fitness mejor: 1201.161089; Fitness medio: 889.815540
+Gen 56:
+Fitness mejor: 1201.161089; Fitness medio: 983.582361
+Gen 57:
+Fitness mejor: 1201.161089; Fitness medio: 991.793524
+Gen 58:
+Fitness mejor: 1201.161089; Fitness medio: 939.759501
+Gen 59:
+Fitness mejor: 1201.161089; Fitness medio: 920.629403
+Gen 60:
+Fitness mejor: 1201.161089; Fitness medio: 930.423359
+Gen 61:
+Fitness mejor: 1201.161089; Fitness medio: 937.845695
+Gen 62:
+Fitness mejor: 1201.161089; Fitness medio: 942.171707
+Gen 63:
+Fitness mejor: 1201.161089; Fitness medio: 962.383152
+Gen 64:
+Fitness mejor: 1201.161089; Fitness medio: 1022.015598
+Gen 65:
+Fitness mejor: 1201.161089; Fitness medio: 889.664780
+Gen 66:
+Fitness mejor: 1201.161089; Fitness medio: 910.374702
+Gen 67:
+Fitness mejor: 1201.161089; Fitness medio: 915.450068
+Gen 68:
+Fitness mejor: 1201.161089; Fitness medio: 875.028506
+Gen 69:
+Fitness mejor: 1201.161089; Fitness medio: 943.023032
+Gen 70:
+Fitness mejor: 1201.161089; Fitness medio: 928.994776
+Gen 71:
+Fitness mejor: 1201.161089; Fitness medio: 989.739738
+Gen 72:
+Fitness mejor: 1201.161089; Fitness medio: 940.583043
+Gen 73:
+Fitness mejor: 1201.161089; Fitness medio: 985.520008
+Gen 74:
+Fitness mejor: 1201.161089; Fitness medio: 939.594147
+Gen 75:
+Fitness mejor: 1201.161089; Fitness medio: 909.512418
+Gen 76:
+Fitness mejor: 1201.161089; Fitness medio: 809.840218
+Gen 77:
+Fitness mejor: 1201.161089; Fitness medio: 847.999659
+Gen 78:
+Fitness mejor: 1201.161089; Fitness medio: 778.920653
+Gen 79:
+Fitness mejor: 1201.161089; Fitness medio: 734.444693
+Gen 80:
+Fitness mejor: 1201.161089; Fitness medio: 776.800377
+Gen 81:
+Fitness mejor: 1201.161089; Fitness medio: 878.124704
+Gen 82:
+Fitness mejor: 1201.161089; Fitness medio: 866.467972
+Gen 83:
+Fitness mejor: 1201.161089; Fitness medio: 838.298564
+Gen 84:
+Fitness mejor: 1201.161089; Fitness medio: 918.684788
+Gen 85:
+Fitness mejor: 1201.161089; Fitness medio: 854.291508
+Gen 86:
+Fitness mejor: 1201.161089; Fitness medio: 949.600383
+Gen 87:
+Fitness mejor: 1201.161089; Fitness medio: 824.606134
+Gen 88:
+Fitness mejor: 1201.161089; Fitness medio: 873.606161
+Gen 89:
+Fitness mejor: 1201.161089; Fitness medio: 772.271358
+Gen 90:
+Fitness mejor: 1201.161089; Fitness medio: 789.610578
