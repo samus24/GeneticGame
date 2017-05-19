@@ -546,9 +546,14 @@ private:
 			}
 		}
 		if (jugador.getCasillaDelante(x,y)) {
-			int giro = myRandom::getRandom(0, 20);
-			if (giro != 0)
+			if (m.estaBloqueado(x, y)) {
+				jugador.izquierda();
+				jugador.izquierda();
+			}
+			int giro = myRandom::getRandom(0, 100);
+			if (giro != 23) {
 				op = Operacion::Avanza;
+			}
 			else {
 				giro = myRandom::getRandom(0, 1);
 				if (giro == 0) {
