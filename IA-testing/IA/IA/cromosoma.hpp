@@ -490,7 +490,7 @@ private:
 		_mediaValores[1] += (cAndadasAtaque + enemigo.golpesEvitados + enemigo.golpes) * factorAtaque;
 		_mediaValores[2] += distancia;
 		_mediaValores[3] += enemigo.turnosGolpeo;
-		evaluacion = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + factorAtaque*(cAndadasAtaque*0.25 + enemigo.golpesEvitados + enemigo.golpes) - distancia - enemigo.turnosGolpeo;
+		evaluacion = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + (factorAtaque * factorAtaque)*(cAndadasAtaque*0.45 + enemigo.golpesEvitados + enemigo.golpes) - distancia - enemigo.turnosGolpeo;
 
 		notifyMapaTerminado(evaluacion, factorPatrulla, cExpl, cAndadas, turnosQueValen, factorAtaque, cAndadasAtaque, enemigo.golpesEvitados, enemigo.golpes, distancia, enemigo.turnosGolpeo);
 
@@ -530,7 +530,7 @@ private:
 		int x, y;
 		//Operacion op = (Operacion)myRandom::getRandom(Operacion::Avanza, Operacion::Retroceder);
 		int intentos = 2;
-		Operacion op;
+		Operacion op = Operacion::ProgN3;
 		jugador.getCasillaDelante(x, y);
 		if (enemigo.estaEn(x, y)) {
 			int n = myRandom::getRandom(0, 3);
@@ -545,13 +545,23 @@ private:
 				// Le damos la oportunidad de retirarse, sino, se queda siempre delante atacando o bloqueando
 			}
 		}
-		else {
-			do{
-				op = (Operacion)myRandom::getRandom(Operacion::Avanza, Operacion::Atacar);
-				if (op != Operacion::Avanza) {
-					intentos--;
+		if (jugador.getCasillaDelante(x,y)) {
+			int giro = myRandom::getRandom(0, 20);
+			if (giro != 0)
+				op = Operacion::Avanza;
+			else {
+				giro = myRandom::getRandom(0, 1);
+				if (giro == 0) {
+					op = Operacion::GiraIz;
 				}
-			} while (intentos > 0 && (op == Operacion::GiraDer || op == Operacion::GiraIz || op == Operacion::BloquearN || op == Operacion::Atacar));
+				else {
+					op = Operacion::GiraDer;
+				}
+			}
+		}
+		if (!jugador.getCasillaDelante(x, y)) {
+			jugador.izquierda();
+			jugador.izquierda();
 		}
 		switch (op) {
 		case Avanza:
