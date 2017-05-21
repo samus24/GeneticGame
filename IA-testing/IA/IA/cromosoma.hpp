@@ -199,6 +199,7 @@ private:
 		bool fin = false;
 		int cont = 0;
 		int turnosIni;
+		int encontradoAtaque = 0;
 
 		bool siDetectado = false;
 		bool encontrado = false;
@@ -356,6 +357,7 @@ private:
 				x = 0; y = 0;
 				enemigo.getCasillaDelante(x, y);
 				if (jugador.estaEn(x, y)) {
+					encontradoAtaque++;
 					pila.push(&actual->getHijos()[0]);
 				}
 				else {
@@ -398,6 +400,7 @@ private:
 					while (cont < enemigo.rango && !fin && m.coordValidas(x,y)) {
 						if (jugador.estaEn(x, y)) {
 							fin = true;
+							encontradoAtaque++;
 							pila.push(&actual->getHijos()[0]);
 						}
 						else if (!m.estaBloqueado(x, y)) {
@@ -490,7 +493,7 @@ private:
 		_mediaValores[1] += (cAndadasAtaque + enemigo.golpesEvitados + enemigo.golpes) * factorAtaque;
 		_mediaValores[2] += distancia;
 		_mediaValores[3] += enemigo.turnosGolpeo;
-		evaluacion = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + (factorAtaque * factorAtaque)*(cAndadasAtaque*0.45 + enemigo.golpesEvitados + enemigo.golpes) - distancia - enemigo.turnosGolpeo;
+		evaluacion = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + (factorAtaque * factorAtaque)*(cAndadasAtaque*0.45 + enemigo.golpesEvitados + enemigo.golpes + encontradoAtaque + (maxTurnos - enemigo.turnosGolpeo - turnosQueValen)) - distancia - enemigo.turnosGolpeo;
 		if (_genotipo[0].getNumNodos() - _genotipo[1].getNumNodos() > 5 || _genotipo[1].getNumNodos() < 5) {
 			evaluacion -= 500;
 		}
