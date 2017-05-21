@@ -494,7 +494,7 @@ private:
 		_mediaValores[2] += distancia;
 		_mediaValores[3] += enemigo.turnosGolpeo;
 		evaluacion = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + (factorAtaque * factorAtaque)*(cAndadasAtaque*0.45 + enemigo.golpesEvitados + enemigo.golpes + encontradoAtaque + (maxTurnos - enemigo.turnosGolpeo - turnosQueValen)) - distancia - enemigo.turnosGolpeo;
-		if (_genotipo[0].getNumNodos() - _genotipo[1].getNumNodos() > 5 || _genotipo[1].getNumNodos() < 5) {
+		if (std::abs(_genotipo[0].getNumNodos() - _genotipo[1].getNumNodos()) > 5 || _genotipo[1].getNumNodos() < 5 || _genotipo[0].getNumNodos() < 5) {
 			evaluacion -= 500;
 		}
 
