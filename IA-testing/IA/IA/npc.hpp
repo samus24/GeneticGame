@@ -17,6 +17,7 @@ public:
 	int posY;
 	facing f;
 	int golpes; //golpes que hemos dado al jugador
+	int intentos; //golpes efectuados y fallados
 	int heridas; //heridas que hemos recibido
 	int golpesEvitados;
 	int turnosPatrulla; //turnos que hemos invertido hasta cambiar al arbol de ataque
@@ -32,6 +33,7 @@ public:
 		this->f = (facing)myRandom::getRandom(facing::NORTE, facing::OESTE); //esto funciona?
 		this->turnos = 0;
 		this->golpes = 0;
+		this->intentos = 0;
 		this->heridas = 0;
 		this->turnosPatrulla = -1;
 		this->turnosGolpeo = -1;
