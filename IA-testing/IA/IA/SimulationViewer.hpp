@@ -336,7 +336,7 @@ private:
 	}
 
 	void onMapaTerminado(double fitness, double factorPatrulla, int cExpl, int cAndadas, int turnosQueValen, double factorAtaque, int cAndadasAtaque, int golpesEvitados, int golpes, int turnosAtaque, int intentos, double distancia, int turnosGolpeo) {
-		std::string s = "Fitness = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + factorAtaque*(cAndadasAtaque*0.25 + golpesEvitados + golpes + turnosAtaque) - golpesFallados - distancia - turnosGolpeo \n";
+		std::string s = "Fitness = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + \n + factorAtaque*(cAndadasAtaque*0.25 + golpesEvitados + golpes + turnosAtaque) - golpesFallados - distancia - turnosGolpeo \n";
 		s += std::to_string(fitness) + " = 1000 + " + std::to_string(factorPatrulla) + "(" + std::to_string(cExpl) + "*0.1 + " + std::to_string(cAndadas) + "*0.25 + " + std::to_string(turnosQueValen);
 		s += ") + " + std::to_string(factorAtaque) + "*(" + std::to_string(cAndadasAtaque) + "*0.25 + " + std::to_string(golpesEvitados) + " + " + std::to_string(golpes) + " + " + std::to_string(turnosAtaque) + ") - " + std::to_string(intentos) +" - "  + std::to_string(distancia) + " - " + std::to_string(turnosGolpeo);
 		_actualFitness.setString(s);
