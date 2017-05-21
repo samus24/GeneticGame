@@ -491,6 +491,9 @@ private:
 		_mediaValores[2] += distancia;
 		_mediaValores[3] += enemigo.turnosGolpeo;
 		evaluacion = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + (factorAtaque * factorAtaque)*(cAndadasAtaque*0.45 + enemigo.golpesEvitados + enemigo.golpes) - distancia - enemigo.turnosGolpeo;
+		if (_genotipo[0].getNumNodos() - _genotipo[1].getNumNodos() > 5 || _genotipo[1].getNumNodos() < 5) {
+			evaluacion -= 500;
+		}
 
 		notifyMapaTerminado(evaluacion, factorPatrulla, cExpl, cAndadas, turnosQueValen, factorAtaque, cAndadasAtaque, enemigo.golpesEvitados, enemigo.golpes, distancia, enemigo.turnosGolpeo);
 

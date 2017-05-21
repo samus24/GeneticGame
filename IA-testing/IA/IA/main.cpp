@@ -14,7 +14,7 @@ int main() {
 	p.tamPob = 10;// 12;
 	p.iteraciones = 100;// 100;// 30;
 	p.minNodos = 2;
-	p.maxNodos = 4;// 7; Cambio para debug
+	p.maxNodos = 8;// 7; Cambio para debug
 	p.elitismo = false;
 	p.bloating = true;
 	p.contractividad = false;
