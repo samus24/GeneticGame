@@ -488,14 +488,14 @@ private:
 
 		double factorPatrulla = (encontrado) ? 1 : -1;
 		int turnosRestantes = (maxTurnos - enemigo.turnosPatrulla);
-		int turnosQueValen = (turnosRestantes > enemigo.turnosPatrulla) ? turnosRestantes : enemigo.turnosPatrulla;
+		int turnosQueValen = (encontrado) ? turnosRestantes : enemigo.turnosPatrulla;
 		int turnosAtaque = (maxTurnos - enemigo.turnosGolpeo - turnosQueValen);
 		double factorAtaque = jugador.heridas + 1;
 		_mediaValores[0] += (cExpl + cAndadas + turnosQueValen)*factorPatrulla;
 		_mediaValores[1] += (cAndadasAtaque + enemigo.golpesEvitados + enemigo.golpes) * factorAtaque;
 		_mediaValores[2] += distancia;
 		_mediaValores[3] += enemigo.turnosGolpeo;
-		evaluacion = 1500 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + (factorAtaque * factorAtaque)*(cAndadasAtaque*0.45 + enemigo.golpesEvitados + enemigo.golpes + encontradoAtaque + turnosAtaque) - enemigo.intentos - distancia - enemigo.turnosGolpeo;
+		evaluacion = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + (factorAtaque * factorAtaque)*(cAndadasAtaque*0.45 + enemigo.golpesEvitados + enemigo.golpes + encontradoAtaque + turnosAtaque) - enemigo.intentos - distancia - enemigo.turnosGolpeo;
 		if (std::abs(_genotipo[0].getNumNodos() - _genotipo[1].getNumNodos()) > 5 || _genotipo[1].getNumNodos() < 5 || _genotipo[0].getNumNodos() < 5) {
 			evaluacion -= 500;
 		}
