@@ -42,7 +42,7 @@ public:
 		_text.move(_margin, _margin);
 		_triangle.setPosition(pos);
 		sf::Vector2f size = Button::getSize();
-		_triangle.move(size.x - size.y - _margin, _margin);
+		_triangle.move(size.x, size.y - _margin);
 	}
 
 	void setSize(sf::Vector2f size){
@@ -51,9 +51,11 @@ public:
 		_charSize = size.x / 4.f;
 		if (_charSize > 15) _charSize = 15;
 		_text.setCharacterSize(_charSize);
-		sf::Vector2f pos = Button::getPosition();
+		sf::Vector2f pos = Button::getPos();
+		_triangle.setRadius(size.y / 3);
 		_triangle.setPosition(pos);
-		_triangle.move(size.x - size.y - _margin, _margin);
+		_triangle.move(size.x, size.y - _margin);
+		pos = _triangle.getPosition();
 	}
 
 	void setSelectedIndex(unsigned int i){
@@ -111,7 +113,12 @@ private:
 		
 		target.draw(_rect, states);
 		target.draw(_text, states);
+		sf::Vector2f pos = _triangle.getPosition();
+		sf::VertexArray v;
+		v.setPrimitiveType(sf::PrimitiveType::Points);
+		v.append(sf::Vertex(_triangle.getPosition(), sf::Color::Cyan));
 		target.draw(_triangle, states);
+		target.draw(v, states);
 
 		if (_selected){
 			sf::RectangleShape rect;

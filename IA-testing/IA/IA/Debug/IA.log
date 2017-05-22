@@ -1,4 +1,4 @@
-﻿Compilación iniciada a las 22/05/2017 18:08:14.
+﻿Compilación iniciada a las 22/05/2017 18:31:19.
      1>Proyecto "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -124,9 +124,7 @@
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(28): warning C4244: '=' : conversión de 'float' a 'unsigned int'; posible pérdida de datos
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(35): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(42): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(45): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(51): warning C4244: '=' : conversión de 'float' a 'unsigned int'; posible pérdida de datos
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(56): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(90): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(99): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(103): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
@@ -161,4 +159,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:02.00
+Tiempo transcurrido 00:00:02.01

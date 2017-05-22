@@ -92,7 +92,7 @@ public:
 		}
 
 
-		pos = sf::Vector2f(5 + 100, 5);
+		pos = sf::Vector2f(5 + 110, 5);
 		_tfPob.setPosition(pos);
 		_tfPob.setSize(textFieldsSize);
 		_tfPob.setText(std::to_string(_param.tamPob));

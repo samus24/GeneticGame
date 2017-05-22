@@ -291,7 +291,7 @@ private:
 			}
 
 			sf::Lock lock(_mutex);
-			_windowParam.clear(sf::Color(127,127,127));
+			_windowParam.clear(sf::Color(200, 200, 200));
 			_windowParam.draw(_ventParam);
 			_windowParam.display();
 		}
