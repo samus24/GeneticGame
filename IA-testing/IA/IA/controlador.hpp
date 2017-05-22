@@ -28,6 +28,10 @@ public:
 		return _ag->getMapas();
 	}
 
+	void setParametros(Parametros p){
+		_ag->setParametros(p);
+	}
+
 private:
 	AG* _ag;
 

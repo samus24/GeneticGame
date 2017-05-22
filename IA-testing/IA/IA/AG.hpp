@@ -153,6 +153,10 @@ public:
 		_obsCrom.push_back(&o);
 	}
 
+	void setParametros(Parametros p){
+		_param = p;
+	}
+
 private:
 
 	double evaluarPoblacion(){

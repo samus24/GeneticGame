@@ -68,6 +68,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CheckButton.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ScrollBar.cpp" />
   </ItemGroup>
@@ -75,6 +76,8 @@
     <ClInclude Include="AG.hpp" />
     <ClInclude Include="Arbol.hpp" />
     <ClInclude Include="Button.hpp" />
+    <ClInclude Include="CheckButton.hpp" />
+    <ClInclude Include="ComboBox.hpp" />
     <ClInclude Include="Components.hpp" />
     <ClInclude Include="controlador.hpp" />
     <ClInclude Include="Cromosoma.hpp" />
@@ -98,8 +101,10 @@
     <ClInclude Include="ScrollBar.hpp" />
     <ClInclude Include="SimulationViewer.hpp" />
     <ClInclude Include="TabPane.hpp" />
+    <ClInclude Include="TextField.hpp" />
     <ClInclude Include="TreeViewer.hpp" />
     <ClInclude Include="Ventana.hpp" />
+    <ClInclude Include="VentanaParametros.hpp" />
     <ClInclude Include="VistaTerminal.hpp" />
   </ItemGroup>
   <ItemGroup>

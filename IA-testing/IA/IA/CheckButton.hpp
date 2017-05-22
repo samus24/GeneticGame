@@ -5,7 +5,7 @@
 #define INSIDE_MARGIN(s) 0.1*s
 
 namespace sf{
-	class CheckButton
+	class CheckButton : public sf::Drawable
 	{
 	public:
 		CheckButton(sf::Vector2f position, unsigned int size);
@@ -18,9 +18,10 @@ namespace sf{
 		sf::RectangleShape insideBox;
 	public:
 		bool isMarked();
-		void draw(sf::RenderTarget* target);
+		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 		bool isPointInside(sf::Vector2i pointer);
 		void toogleMarked();
+		void setPosition(sf::Vector2f pos);
 	};
 
 

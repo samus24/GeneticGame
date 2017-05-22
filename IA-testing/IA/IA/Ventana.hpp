@@ -13,13 +13,16 @@
 #include "Controlador.hpp"
 #include "TabPane.hpp"
 #include "SimulationViewer.hpp"
+#include "VentanaParametros.hpp"
 
 class Ventana : public IAGObserver, public ICromosomaObserver{
 public:
 	Ventana(Controlador& c) :
 		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
 		//_window(sf::VideoMode(1200,600), "AG"),					// descomentar esta si no se representa bien en pantalla
-		_windowTrees(sf::VideoMode(800,800), "Arboles"),
+		_windowTrees(sf::VideoMode(800, 800), "Arboles"),
+		_windowParam(sf::VideoMode(300, 500), "Parametros"),
+		_ventParam(sf::Vector2f(300, 500)),
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, 25)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.19, 400)),
@@ -30,7 +33,8 @@ public:
 		_visorPatrulla(sf::Vector2f(20, 20), sf::Vector2f(800-40, 400)),
 		_visorAtaque(sf::Vector2f(20, 420), sf::Vector2f(800-40, 400)),
 		_hiloArboles(&Ventana::ventanaArboles, this),
-		_hiloAG(&Ventana::ejecutaAG, this)
+		_hiloAG(&Ventana::ejecutaAG, this),
+		_hiloParam(&Ventana::ventanaParam, this)
 	{
 		_font.loadFromFile("arial.ttf");
 		_ctrl = &c;
@@ -47,6 +51,9 @@ public:
 		_labelAux.setPosition(sf::Vector2f(200, 0));
 		_labelAux.setString("<-- Seleccionar la pestaña SimView para ver TODAS las evaluaciones (con boton VER SIM activado)\nPulsar E al finalizar para ver evaluacion del mejor");
 		_labelAux.setCharacterSize(14);
+
+		_windowParam.setActive(false);
+		_hiloParam.launch();
 
 		_nuevo = true;
 		_windowTrees.setVisible(false);
@@ -90,6 +97,9 @@ public:
 							_logger.clearLog();
 							_logger.append("Ejecutando AG\n");
 							_progress.clearProgress();
+							Parametros p = _ventParam.getParametros();
+							_ventParam.setLocked(true);
+							_ctrl->setParametros(p);
 							_hiloAG.launch();
 							_nuevo = true;
 						}
@@ -129,6 +139,9 @@ public:
 							_logger.clearLog();
 							_logger.append("Ejecutando AG\n");
 							_progress.clearProgress();
+							Parametros p = _ventParam.getParametros();
+							_ventParam.setLocked(true);
+							_ctrl->setParametros(p);
 							_hiloAG.launch();
 							_nuevo = true;
 						}
@@ -188,6 +201,8 @@ public:
 		std::string date = "[" + std::to_string(now.tm_year + 1900) + "-" + std::to_string(now.tm_mon + 1) + "-" + std::to_string(now.tm_mday) + "][" + std::to_string(now.tm_hour) + "-" + std::to_string(now.tm_min) + "-" + std::to_string(now.tm_sec) + "]";
 		std::string pathPlotter = "Resultados/" + date + "grafica.png";
 		std::string pathArbol = "Resultados/" + date + "arbol.png";
+
+		_ventParam.setLocked(false);
 
 		/*
 		sf::Texture tx;
@@ -261,6 +276,27 @@ private:
 		}
 	}
 
+	void ventanaParam(){
+		while (_window.isOpen())
+		{
+			sf::Event event;
+			while (_windowParam.pollEvent(event)){
+				if (event.type == sf::Event::MouseButtonPressed){
+					sf::Vector2f point = sf::Vector2f(sf::Mouse::getPosition(_windowParam));
+					_ventParam.handleClick(point);
+				}
+				else if (event.type == sf::Event::KeyReleased){
+					_ventParam.handleKeyboardEvent(event);
+				}
+			}
+
+			sf::Lock lock(_mutex);
+			_windowParam.clear(sf::Color(127,127,127));
+			_windowParam.draw(_ventParam);
+			_windowParam.display();
+		}
+	}
+
 	void ejecutaAG(){
 		if (!running){
 			running = true;
@@ -271,6 +307,7 @@ private:
 
 	sf::RenderWindow _window;
 	sf::RenderWindow _windowTrees;
+	sf::RenderWindow _windowParam;
 	sf::Font _font;
 	ProgressBar _progress;
 	TabPane _tabPane;
@@ -286,14 +323,17 @@ private:
 	std::vector<double> _valorMejor;
 	std::vector<double> _valorMejorGen;
 	std::vector<double> _valorMedia;
+	VentanaParametros _ventParam;
 
 	TreeViewer _visorPatrulla;
 	TreeViewer _visorAtaque;
 
 	sf::Text _labelAux;
 
+	sf::Thread _hiloParam;
 	sf::Thread _hiloArboles;
 	sf::Thread _hiloAG;
+
 	sf::Mutex _mutex;
 	bool _nuevo;
 	bool running;

@@ -14,7 +14,7 @@ namespace sf {
 		box.setOutlineThickness(2);
 		box.setPosition(position);
 
-		insideBox.setFillColor(sf::Color::Green);
+		insideBox.setFillColor(sf::Color(63, 63, 63, 255));
 		insideBox.setOutlineColor(sf::Color::Transparent);
 		insideBox.setOutlineThickness(1);
 		insideBox.setPosition(sf::Vector2f(position.x + INSIDE_MARGIN(size) / 2, position.y + INSIDE_MARGIN(size) / 2));
@@ -32,16 +32,10 @@ namespace sf {
 	}
 
 
-	void CheckButton::draw(sf::RenderTarget* target)
+	void CheckButton::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
-		target->draw(box);
-		if (marked){
-			insideBox.setFillColor(sf::Color::Green);
-		}
-		else{
-			insideBox.setFillColor(sf::Color(63, 63, 63, 255));
-		}
-		target->draw(insideBox);
+		target.draw(box);
+		target.draw(insideBox);
 	}
 
 	bool CheckButton::isPointInside(sf::Vector2i pointer){
@@ -49,6 +43,18 @@ namespace sf {
 	}
 	void CheckButton::toogleMarked(){
 		marked = !marked;
+		if (marked){
+			insideBox.setFillColor(sf::Color::Green);
+		}
+		else{
+			insideBox.setFillColor(sf::Color(63, 63, 63, 255));
+		}
+	}
+
+	void CheckButton::setPosition(sf::Vector2f pos){
+		position = pos;
+		box.setPosition(position);
+		insideBox.setPosition(sf::Vector2f(position.x + INSIDE_MARGIN(size) / 2, position.y + INSIDE_MARGIN(size) / 2));
 	}
 
 }

@@ -51,6 +51,9 @@
     <ClCompile Include="ScrollBar.cpp">
       <Filter>Archivos de encabezado\vista</Filter>
     </ClCompile>
+    <ClCompile Include="CheckButton.cpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AG.hpp">
@@ -138,6 +141,18 @@
       <Filter>Archivos de encabezado\vista</Filter>
     </ClInclude>
     <ClInclude Include="FileLogger.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckButton.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="VentanaParametros.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="TextField.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="ComboBox.hpp">
       <Filter>Archivos de encabezado\vista</Filter>
     </ClInclude>
   </ItemGroup>
