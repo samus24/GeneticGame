@@ -353,29 +353,6 @@ private:
 				pila.push(&actual->getHijos()[1]); //Se introducen en orden inverso que es como se quieren ejecutar.
 				pila.push(&actual->getHijos()[0]);
 				break;*/
-			case SiJugador:
-				x = 0; y = 0;
-				enemigo.getCasillaDelante(x, y);
-				if (jugador.estaEn(x, y)) {
-					encontradoAtaque++;
-					pila.push(&actual->getHijos()[0]);
-				}
-				else {
-					pila.push(&actual->getHijos()[1]);
-				}
-				break;
-			case SiBloqueado:
-				x = 0; y = 0;
-				if (!enemigo.getCasillaDelante(x, y)) {
-					pila.push(&actual->getHijos()[0]);
-				}
-				else if (m.estaBloqueado(x, y)) {
-					pila.push(&actual->getHijos()[0]);
-				}
-				else {
-					pila.push(&actual->getHijos()[1]);
-				}
-				break;
 			case SiRango:
 				x = 0; y = 0;
 				cont = 0;
@@ -422,23 +399,11 @@ private:
 					pila.push(&actual->getHijos()[1]);
 				}
 				break;
-			case Avanza:
-				x = 0; y = 0;
-				if (enemigo.getCasillaDelante(x, y)) {
-					if (!m.estaBloqueado(x, y)) {
-						enemigo.avanza();
-						andadoAtaque.setCasilla(enemigo.posX, enemigo.posY, 1);
-					}
-				}
-				enemigo.turnos++;
+			case VidaJugador:
+				pila.push(&actual->getHijos()[2 - jugador.heridas]);
 				break;
-			case GiraIz:
-				enemigo.izquierda();
-				enemigo.turnos++;
-				break;
-			case GiraDer:
-				enemigo.derecha();
-				enemigo.turnos++;
+			case VidaIA:
+				pila.push(&actual->getHijos()[2 - enemigo.heridas]);
 				break;
 			case BloquearN:
 				enemigo.bloqueando = true;
@@ -458,7 +423,7 @@ private:
 				enemigo.intentos++;
 				enemigo.turnos++;
 				break;
-			case Retroceder:
+			case Alejar:
 				x = 0; y = 0;
 				if (enemigo.getCasillaDetras(x, y)) {
 					if (!m.estaBloqueado(x, y)) {
@@ -467,6 +432,19 @@ private:
 					}
 				}
 				enemigo.turnos++;
+				break;
+			case Acercar:
+				//A* o ver qué
+				break;
+			case Curar:
+				unsigned int turnosGastados = 3;
+				for (size_t i = 0; i < turnosGastados && enemigo.heridas < 3; ++i) {
+					mueveJugador();
+					enemigo.turnos++;
+				}
+				if (heridas > 0)
+					enemigo.heridas--;
+				mueveJugador();
 				break;
 			default:
 				std::cerr << "El arbol de ataque tenia nodos indebidos (" << op << ")" << std::endl;
@@ -548,10 +526,6 @@ private:
 			else if(n == 2){
 				op = Operacion::BloquearN;
 			}
-			else{
-				op = Operacion::Retroceder;	
-				// Le damos la oportunidad de retirarse, sino, se queda siempre delante atacando o bloqueando
-			}
 		}
 		if (jugador.getCasillaDelante(x,y)) {
 			if ((m.estaBloqueado(x, y)) || (enemigo.estaEn(x,y))) {
@@ -603,14 +577,6 @@ private:
 				}
 				else {
 					enemigo.golpesEvitados++;
-				}
-			}
-			break;
-		case Retroceder:
-			x = 0; y = 0;
-			if (jugador.getCasillaDetras(x, y)) {
-				if (!m.estaBloqueado(x, y)) {
-					jugador.retroceder();
 				}
 			}
 			break;
