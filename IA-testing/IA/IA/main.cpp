@@ -6,6 +6,7 @@
 #include "MetodoMutacion.hpp"
 #include "metodoCruce.hpp"
 #include "Ventana.hpp"
+#include "VentanaParametros.hpp"
 #include "FileLogger.hpp"
 
 int main() {
