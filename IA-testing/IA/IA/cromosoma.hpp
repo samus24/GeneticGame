@@ -441,10 +441,10 @@ private:
 				if (!jugador.estaEn(path[1].x, path[1].y)){
 					if (enemigo.posX != path[1].x){
 						if (path[1].x > enemigo.posX){
-							enemigo.f = facing::ESTE;
+							enemigo.f = facing::OESTE;
 						}
 						else{
-							enemigo.f = facing::OESTE;
+							enemigo.f = facing::ESTE;
 						}
 					}
 					else{
@@ -458,6 +458,18 @@ private:
 					enemigo.posX = path[1].x;
 					enemigo.posY = path[1].y;
 					andadoAtaque.setCasilla(enemigo.posX, enemigo.posY, 1);
+				}
+				if (jugador.estaEn(enemigo.posX, enemigo.posY + 1)) {
+					enemigo.f = facing::SUR;
+				}
+				if (jugador.estaEn(enemigo.posX, enemigo.posY - 1)) {
+					enemigo.f = facing::NORTE;
+				}
+				if (jugador.estaEn(enemigo.posX + 1, enemigo.posY)) {
+					enemigo.f = facing::ESTE;
+				}
+				if (jugador.estaEn(enemigo.posX - 1, enemigo.posY)) {
+					enemigo.f = facing::OESTE;
 				}
 				enemigo.turnos++;
 				break;
@@ -491,17 +503,18 @@ private:
 
 		double factorPatrulla = (encontrado) ? 1 : -1;
 		int turnosRestantes = (maxTurnos - enemigo.turnosPatrulla);
-		int turnosQueValen = (encontrado) ? turnosRestantes : enemigo.turnosPatrulla;
+		int turnosQueValen = (encontrado) ? turnosRestantes : std::max(turnosRestantes, enemigo.turnosPatrulla);
 		int turnosAtaque = (maxTurnos - enemigo.turnosGolpeo - turnosQueValen);
+		int atacado = -1;
 		double factorAtaque = jugador.heridas + 1;
+		if (factorAtaque > 1)
+			atacado = 1;
 		_mediaValores[0] += (cExpl + cAndadas + turnosQueValen)*factorPatrulla;
 		_mediaValores[1] += (cAndadasAtaque + enemigo.golpesEvitados + enemigo.golpes) * factorAtaque;
 		_mediaValores[2] += distancia;
 		_mediaValores[3] += enemigo.turnosGolpeo;
-		evaluacion = 1000 + factorPatrulla*(cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + (factorAtaque * factorAtaque)*(cAndadasAtaque*0.45 + enemigo.golpesEvitados + enemigo.golpes + encontradoAtaque + turnosAtaque) - enemigo.intentos - distancia - enemigo.turnosGolpeo;
-		if (std::abs(_genotipo[0].getNumNodos() - _genotipo[1].getNumNodos()) > 5 || _genotipo[1].getNumNodos() < 5 || _genotipo[0].getNumNodos() < 5) {
-			evaluacion -= 500;
-		}
+		evaluacion = 10000 + factorPatrulla*((cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + atacado*(factorAtaque * factorAtaque)*(enemigo.golpesEvitados/20 + enemigo.golpes + turnosAtaque) - enemigo.intentos - abs(distancia - enemigo.rango) - enemigo.turnosGolpeo);
+
 
 		notifyMapaTerminado(evaluacion, factorPatrulla, cExpl, cAndadas, turnosQueValen, factorAtaque, cAndadasAtaque, enemigo.golpesEvitados, enemigo.golpes, encontradoAtaque, turnosAtaque, enemigo.intentos, distancia, enemigo.turnosGolpeo);
 
@@ -538,10 +551,12 @@ private:
 
 	void mueveJugador(npc &jugador, npc &enemigo, Mapa m) {
 		jugador.bloqueando = false;
-		int x, y;
+		int x = 0, y = 0;
+		std::vector<Mapa::Coord> path;
 		//Operacion op = (Operacion)myRandom::getRandom(Operacion::Avanza, Operacion::Retroceder);
 		int intentos = 2;
 		Operacion op = Operacion::ProgN3;
+		int r = myRandom::getRandom(0, 3);
 		jugador.getCasillaDelante(x, y);
 		if (enemigo.estaEn(x, y)) {
 			int n = myRandom::getRandom(0, 3);
@@ -552,43 +567,44 @@ private:
 				op = Operacion::BloquearN;
 			}
 		}
-		if (jugador.getCasillaDelante(x,y)) {
-			if ((m.estaBloqueado(x, y)) || (enemigo.estaEn(x,y))) {
-				jugador.izquierda();
-				jugador.izquierda();
-			}
-			int giro = myRandom::getRandom(0, 100);
-			if (giro != 23) {
-				op = Operacion::Avanza;
-			}
-			else {
-				giro = myRandom::getRandom(0, 1);
-				if (giro == 0) {
-					op = Operacion::GiraIz;
-				}
-				else {
-					op = Operacion::GiraDer;
-				}
-			}
-		}
-		if (!jugador.getCasillaDelante(x, y)) {
-			jugador.izquierda();
-			jugador.izquierda();
-		}
+		else if (r == 0) {
+			op = Operacion::Avanza;
+		}		
 		switch (op) {
 		case Avanza:
-			x = 0; y = 0;
-			if (jugador.getCasillaDelante(x, y)) {
-				if (!m.estaBloqueado(x, y) && !enemigo.estaEn(x,y)) {
-					jugador.avanza();
+			path = m.astar(Mapa::Coord(jugador.posX, jugador.posY), Mapa::Coord(enemigo.posX, enemigo.posY));
+			if (!enemigo.estaEn(path[1].x, path[1].y)){
+				if (jugador.posX != path[1].x){
+					if (path[1].x > enemigo.posX){
+						jugador.f = facing::OESTE;
+					}
+					else{
+						jugador.f = facing::ESTE;
+					}
 				}
+				else{
+					if (path[1].y > jugador.posY){
+						jugador.f = facing::SUR;
+					}
+					else{
+						jugador.f = facing::NORTE;
+					}
+				}
+				jugador.posX = path[1].x;
+				jugador.posY = path[1].y;
 			}
-			break;
-		case GiraIz:
-			jugador.izquierda();
-			break;
-		case GiraDer:
-			jugador.derecha();
+			if (enemigo.estaEn(jugador.posX, jugador.posY + 1)) {
+				jugador.f = facing::SUR;
+			}
+			if (enemigo.estaEn(jugador.posX, jugador.posY - 1)) {
+				jugador.f = facing::NORTE;
+			}
+			if (enemigo.estaEn(jugador.posX +1, jugador.posY)) {
+				jugador.f = facing::ESTE;
+			}
+			if (enemigo.estaEn(jugador.posX -1, jugador.posY)) {
+				jugador.f = facing::OESTE;
+			}
 			break;
 		case BloquearN:
 			jugador.bloqueando = true;

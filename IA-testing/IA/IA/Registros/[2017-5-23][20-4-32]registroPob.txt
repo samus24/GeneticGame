@@ -1,0 +1,11 @@
+
+
+NUEVA EJECUCION
+Fitness Individuo: 1698.166667
+Arbol patrulla: ProgN3[0], ProgN2[1], GiraIz[2], SiDetectado[3], ProgN3[4], SiDetectado[5], GiraDer[6], GiraIz[7], ProgN2[8], CambiarEst[9], CambiarEst[10], ProgN2[11], ProgN2[12], ProgN3[13], CambiarEst[14], SiBloqueado[15], ProgN3[16], GiraIz[17], Avanza[18], GiraIz[19], GiraDer[20], CambiarEst[21], GiraDer[22], Avanza[23], GiraIz[24], GiraDer[25], GiraDer[26]
+Arbol ataque: SiRango[0], ProgN3[1], Curar[2], VidaIA[3], Atacar[4], BloquearN[5], VidaJugador[6], Alejar[7], ProgN3[8], Curar[9], Atacar[10], Curar[11], SiRango[12], SiRango[13], VidaJugador[14], Alejar[15], Alejar[16], Acercar[17], Curar[18], BloquearN[19], BloquearN[20], BloquearN[21]
+Notas
+Punt. exploracion: -3.000000
+Punt. Ataque: 4.000000
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 298.000000
