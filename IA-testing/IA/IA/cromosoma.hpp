@@ -10,6 +10,7 @@
 #include "Arbol.hpp"
 #include "myrandom.hpp"
 #include "ICromosomaObserver.hpp"
+#include "Mapa.hpp"
 
 class Cromosoma {
 public:
@@ -204,6 +205,8 @@ private:
 		bool siDetectado = false;
 		bool encontrado = false;
 
+		std::vector<Mapa::Coord> path;
+
 		while (enemigo.turnos < maxTurnos && !ataque && enemigo.heridas < 3) {
 			if (pila.empty()) {
 				pila.push(_genotipo[0].getRaiz());
@@ -231,7 +234,7 @@ private:
 				break;*/
 			case SiBloqueado:
 				x = 0; y = 0;
-				if (!enemigo.getCasillaDelante(x, y)) {
+				if (!enemigo.getCasillaDelante(x, y) || jugador.estaEn(x,y)) {
 					pila.push(&actual->getHijos()[0]);
 				}
 				else if (m.estaBloqueado(x, y)) {
@@ -293,7 +296,7 @@ private:
 			case Avanza:
 				x = 0; y = 0;
 				if (enemigo.getCasillaDelante(x, y)) {
-					if (!m.estaBloqueado(x, y)) {
+					if (!m.estaBloqueado(x, y) && !jugador.estaEn(x,y)) {
 						enemigo.avanza();
 						andado.setCasilla(enemigo.posX, enemigo.posY, 1);
 					}
@@ -426,7 +429,7 @@ private:
 			case Alejar:
 				x = 0; y = 0;
 				if (enemigo.getCasillaDetras(x, y)) {
-					if (!m.estaBloqueado(x, y)) {
+					if (!m.estaBloqueado(x, y) && !jugador.estaEn(x,y)) {
 						enemigo.retroceder();
 						andadoAtaque.setCasilla(enemigo.posX, enemigo.posY, 1);
 					}
@@ -434,17 +437,39 @@ private:
 				enemigo.turnos++;
 				break;
 			case Acercar:
-				//A* o ver qué
+				path = m.astar(Mapa::Coord(enemigo.posX, enemigo.posY), Mapa::Coord(jugador.posX, jugador.posY));
+				if (!jugador.estaEn(path[1].x, path[1].y)){
+					if (enemigo.posX != path[1].x){
+						if (path[1].x > enemigo.posX){
+							enemigo.f = facing::ESTE;
+						}
+						else{
+							enemigo.f = facing::OESTE;
+						}
+					}
+					else{
+						if (path[1].y > enemigo.posY){
+							enemigo.f = facing::SUR;
+						}
+						else{
+							enemigo.f = facing::NORTE;
+						}
+					}
+					enemigo.posX = path[1].x;
+					enemigo.posY = path[1].y;
+					andadoAtaque.setCasilla(enemigo.posX, enemigo.posY, 1);
+				}
+				enemigo.turnos++;
 				break;
 			case Curar:
-				unsigned int turnosGastados = 3;
-				for (size_t i = 0; i < turnosGastados && enemigo.heridas < 3; ++i) {
-					mueveJugador();
+//				unsigned int turnosGastados = 3;
+				for (size_t i = 0; i < 3 && enemigo.heridas < 3; ++i) {
+					mueveJugador(jugador, enemigo, m);
 					enemigo.turnos++;
 				}
-				if (heridas > 0)
+				if (enemigo.heridas > 0 && enemigo.heridas < 3)
 					enemigo.heridas--;
-				mueveJugador();
+				mueveJugador(jugador, enemigo, m);
 				break;
 			default:
 				std::cerr << "El arbol de ataque tenia nodos indebidos (" << op << ")" << std::endl;
@@ -554,7 +579,7 @@ private:
 		case Avanza:
 			x = 0; y = 0;
 			if (jugador.getCasillaDelante(x, y)) {
-				if (!m.estaBloqueado(x, y)) {
+				if (!m.estaBloqueado(x, y) && !enemigo.estaEn(x,y)) {
 					jugador.avanza();
 				}
 			}
