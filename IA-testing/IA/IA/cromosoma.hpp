@@ -513,8 +513,10 @@ private:
 		_mediaValores[1] += (cAndadasAtaque + enemigo.golpesEvitados + enemigo.golpes) * factorAtaque;
 		_mediaValores[2] += distancia;
 		_mediaValores[3] += enemigo.turnosGolpeo;
-		evaluacion = 10000 + factorPatrulla*((cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + atacado*(factorAtaque * factorAtaque)*(enemigo.golpesEvitados/20 + enemigo.golpes + turnosAtaque) - enemigo.intentos - abs(distancia - enemigo.rango) - enemigo.turnosGolpeo);
 
+		//evaluacion = 10000 + factorPatrulla*((cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + atacado*(factorAtaque * factorAtaque)*(enemigo.golpesEvitados/20 + enemigo.golpes + turnosAtaque) - enemigo.intentos - abs(distancia - enemigo.rango) - enemigo.turnosGolpeo);
+
+		evaluacion = factorPatrulla*factorAtaque*((cExpl + cAndadas + turnosQueValen) + atacado*(enemigo.golpesEvitados / 20 + enemigo.golpes + turnosAtaque)) - enemigo.intentos - abs(distancia - enemigo.rango) - enemigo.turnosGolpeo;
 
 		notifyMapaTerminado(evaluacion, factorPatrulla, cExpl, cAndadas, turnosQueValen, factorAtaque, cAndadasAtaque, enemigo.golpesEvitados, enemigo.golpes, encontradoAtaque, turnosAtaque, enemigo.intentos, distancia, enemigo.turnosGolpeo);
 

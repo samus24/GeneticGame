@@ -166,6 +166,21 @@ private:
 		double puntAcum = 0;
 		double media = 0;
 
+		// Se reajustan las adaptaciones para que sean todas >0
+		double minimo = 5000000;
+		for (std::size_t i = 0; i < _param.tamPob; ++i){
+			if (minimo > _pob.individuos[i].getAdaptacion()){
+				minimo = _pob.individuos[i].getAdaptacion();
+			}
+		}
+
+		if (minimo < 0){
+			minimo = -minimo;
+			for (std::size_t i = 0; i < _param.tamPob; ++i){
+				_pob.individuos[i].setAdaptacion(_pob.individuos[i].getAdaptacion() + minimo);
+			}
+		}
+
 		// Busqueda del mejor
 		for (std::size_t i = 0; i < _param.tamPob; ++i){
 			aux = _pob.individuos[i].getAdaptacion();
