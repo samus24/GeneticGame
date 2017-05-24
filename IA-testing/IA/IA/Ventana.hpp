@@ -40,7 +40,7 @@ public:
 		_ctrl = &c;
 		_generacion = 0;
 		_ctrl->addObserver(*(this));
-		//_ctrl->addCromosomaObserver(_simViewer);
+		_ctrl->addCromosomaObserver(_simViewer);
 		_ctrl->addCromosomaObserver(*(this));
 		_tabPane.addTab("Plotter", _plotter);
 		_tabPane.addTab("SimViewer", _simViewer);
@@ -126,7 +126,7 @@ public:
 				else if (event.type == sf::Event::KeyPressed){
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)){
 						if (finalizada)
-							_mejor.evalua(_ctrl->getMapas());
+							_mejor.evalua(_ctrl->getMapas(), false);
 					}
 					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
 						if (!running){

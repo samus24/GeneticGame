@@ -24,15 +24,15 @@ public:
 		}
 	}
 
-	void evalua(std::vector<Mapa> m) {
+	void evalua(std::vector<Mapa> m, bool paralelizar) {
 		for (std::size_t i = 0; i < _tam; ++i) {
-			this->individuos[i].evalua(m);
+			this->individuos[i].evalua(m, paralelizar);
 		}
 	}
 
-	void evaluaMarcados(std::vector<Mapa> m, std::set<unsigned int> marcados) {
+	void evaluaMarcados(std::vector<Mapa> m, std::set<unsigned int> marcados, bool paralelizar) {
 		for (auto it = marcados.begin(); it != marcados.end(); ++it){
-			this->individuos[(*it)].evalua(m);
+			this->individuos[(*it)].evalua(m, paralelizar);
 		}
 	}
 

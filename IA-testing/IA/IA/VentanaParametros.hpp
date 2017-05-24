@@ -24,7 +24,8 @@ public:
 		_tfProbMut(sf::Vector2f(0, 0), sf::Vector2f(0, 0)),
 		_cbSel(sf::Vector2f(0, 0), sf::Vector2f(0, 0)),
 		_cbCru(sf::Vector2f(0, 0), sf::Vector2f(0, 0)),
-		_cbMut(sf::Vector2f(0, 0), sf::Vector2f(0, 0))
+		_cbMut(sf::Vector2f(0, 0), sf::Vector2f(0, 0)),
+		_cbParal(sf::Vector2f(0, 0), 15)
 	{
 		_param.tamPob = 10;
 		_param.iteraciones = 100;
@@ -38,6 +39,7 @@ public:
 		_param.seleccion = new seleccionTorneo();
 		_param.cruce = new cruceSimple();
 		_param.mutacion = new mutacionCombinada();
+		_param.paralelizar = true;
 
 		std::vector<std::string> sel = {
 			"Estocastica",
@@ -68,7 +70,8 @@ public:
 			"Prob. Mutacion",
 			"Met. Seleccion",
 			"Met. Cruce",
-			"Met. Mutacion"
+			"Met. Mutacion",
+			"Eval. Paralela"
 		};
 		sf::Vector2f textFieldsSize(100,20);
 
@@ -146,6 +149,9 @@ public:
 			_cbMut.addElement(s);
 		}
 		_cbMut.setSelectedIndex(0);
+		pos.y += textFieldsSize.y*1.5;
+		_cbParal.setPosition(pos);
+		if (_param.paralelizar) _cbParal.toogleMarked();
 	}
 
 	bool isLocked() const{
@@ -179,6 +185,10 @@ public:
 			_cbSel.setSelected(_cbSel.contains(pos));
 			_cbCru.setSelected(_cbCru.contains(pos));
 			_cbMut.setSelected(_cbMut.contains(pos));
+			if (_cbParal.isPointInside(sf::Vector2i(pos))){
+				_cbParal.toogleMarked();
+				_param.paralelizar = _cbParal.isMarked();
+			}
 			_tipText.setString("Pulsa Enter para establecer el parametro");
 			if (_cbSel.isSelected() || _cbCru.isSelected() || _cbMut.isSelected())
 				_tipText.setString("Usa las flechas para seleccionar");
@@ -389,6 +399,7 @@ private:
 		target.draw(_cbSel, states);
 		target.draw(_cbCru, states);
 		target.draw(_cbMut, states);
+		target.draw(_cbParal, states);
 		if (_cbSel.isSelected()) target.draw(_cbSel, states);
 		if (_cbCru.isSelected()) target.draw(_cbCru, states);
 		if (_cbMut.isSelected()) target.draw(_cbMut, states);
@@ -414,6 +425,7 @@ private:
 	ComboBox _cbSel;
 	ComboBox _cbCru;
 	ComboBox _cbMut;
+	sf::CheckButton _cbParal;
 
 	sf::Text _tipText;
 

@@ -2,6 +2,7 @@
 #define AG_HPP
 
 #include <fstream>
+#include <iostream>
 #include "IAGObserver.hpp"
 #include "Poblacion.hpp"
 #include "Cromosoma.hpp"
@@ -47,7 +48,7 @@ public:
 			_pob.addCromosomaObserver(*_obsCrom.at(i));
 		}
 		_crono.iniciaMedida("evalua", std::chrono::high_resolution_clock::now());
-		_pob.evalua(maps);
+		_pob.evalua(maps, _param.paralelizar);
 		_crono.finalizaMedida("evalua", std::chrono::high_resolution_clock::now());
 
 		mediaAnterior = evaluarPoblacion();
@@ -88,8 +89,11 @@ public:
 
 			std::cout << "Hay " << _marcados.size() << " marcados en la generacion " << _generacion << std::endl;
 
+			//factorPatrulla*factorAtaque*((cExpl + cAndadas + turnosQueValen) + atacado*(enemigo.golpesEvitados / 20 + enemigo.golpes + turnosAtaque)) - enemigo.intentos - abs(distancia - enemigo.rango) - enemigo.turnosGolpeo;
+			//std::cout << "FactorPatrulla - FactorAtaque - SumaPatrulla - Atacado - SumaAtaque - Intentos - Distancia - TurnosGolpeo => Fitness" << std::endl;
+
 			_crono.iniciaMedida("evalua", std::chrono::high_resolution_clock::now());
-			_pob.evaluaMarcados(maps, _marcados);
+			_pob.evaluaMarcados(maps, _marcados, _param.paralelizar);
 			_crono.finalizaMedida("evalua", std::chrono::high_resolution_clock::now());
 
 			std::cout << "La media de evaluacion de pob es de " << (_crono.getMediaAsMilli("evalua") / 1000.f) << "seg" << std::endl;

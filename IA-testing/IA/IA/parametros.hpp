@@ -22,6 +22,8 @@ public:
 	metodoMutacion* mutacion;
 	metodoSeleccion* seleccion;
 
+	bool paralelizar;
+
 	Parametros(){
 
 	}
@@ -30,7 +32,8 @@ public:
 		unsigned int minNodos, unsigned int maxNodos, double densidad,
 		bool elitismo, bool bloating, bool contractividad,
 		double probCruce, double probMutacion, int seed,
-		metodoCruce* cruce, metodoMutacion* mutacion, metodoSeleccion* seleccion){
+		metodoCruce* cruce, metodoMutacion* mutacion, metodoSeleccion* seleccion,
+		bool paralelizar){
 		this->tamPob = tam;
 		this->iteraciones = iter;
 		this->minNodos = minNodos;
@@ -45,6 +48,7 @@ public:
 		this->cruce = cruce;
 		this->mutacion = mutacion;
 		this->seleccion = seleccion;
+		this->paralelizar = paralelizar;
 	}
 };
 

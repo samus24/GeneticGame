@@ -4,6 +4,7 @@
 #define NOMINMAX
 
 #include <iostream>
+#include <iomanip>
 #include <stack>
 #include <algorithm>
 #include <Windows.h>
@@ -103,23 +104,43 @@ public:
 		return cambios;
 	}
 
-	double evalua(std::vector<Mapa> maps) {
+	double evalua(std::vector<Mapa> maps, bool paralelizado) {
 		int x, y;
-		std::vector<std::packaged_task<double(Mapa,int, int)>> hilos;
-		std::vector<std::future<double>> medias;
-		notifySimulacionInciada();
-		for (std::size_t i = 0; i < maps.size(); ++i) {
-			x = maps[i].getX();
-			y = maps[i].getY();
-			medias.push_back(std::move(std::async(&Cromosoma::evaluaMapa, this, maps[i], x, y)));
-		}
+		
 		double mediaTotal = 0;
-		for (std::size_t i = 0; i < medias.size(); ++i){
-			medias[i].wait();
-			mediaTotal += medias[i].get();
-		}
 
-		mediaTotal /= medias.size();
+		notifySimulacionInciada();
+		if (paralelizado){
+			std::vector<std::packaged_task<double(Mapa, int, int)>> hilos;
+			std::vector<std::future<double>> medias;
+			for (std::size_t i = 0; i < maps.size(); ++i) {
+				x = maps[i].getX();
+				y = maps[i].getY();
+				medias.push_back(std::move(std::async(&Cromosoma::evaluaMapa, this, maps[i], x, y, true)));
+			}
+			
+			for (std::size_t i = 0; i < medias.size(); ++i){
+				medias[i].wait();
+				mediaTotal += medias[i].get();
+			}
+
+			mediaTotal /= medias.size();
+		}
+		else{
+			std::vector<double> medias;
+			for (std::size_t i = 0; i < maps.size(); ++i) {
+				x = maps[i].getX();
+				y = maps[i].getY();
+				medias.push_back(evaluaMapa(maps[i], x, y, false));
+			}
+
+			for (std::size_t i = 0; i < medias.size(); ++i){
+				mediaTotal += medias[i];
+			}
+
+			mediaTotal /= medias.size();
+		}
+		
 		
 		_mediaValores[0] /= maps.size();
 		_mediaValores[1] /= maps.size();
@@ -175,7 +196,7 @@ public:
 
 private:
 
-	double evaluaMapa(Mapa m, int posX, int posY) {
+	double evaluaMapa(Mapa m, int posX, int posY, bool paralelizado) {
 		double dim = m.getHeight() * m.getWidth();
 		int maxTurnos = (dim*30/100); //Los turnos son el 30% del total de casillas del mapa
 
@@ -314,7 +335,7 @@ private:
 				break;
 			}
 			if(turnosIni != enemigo.turnos) mueveJugador(jugador, enemigo, m);
-			notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
+			if(!paralelizado) notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
 		}
 
 		enemigo.turnosPatrulla = enemigo.turnos;
@@ -459,6 +480,7 @@ private:
 				for (size_t i = 0; i < 3 && enemigo.heridas < 3; ++i) {
 					mueveJugador(jugador, enemigo, m);
 					enemigo.turnos++;
+					if (!paralelizado) notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
 				}
 				if (enemigo.heridas > 0 && enemigo.heridas < 3)
 					enemigo.heridas--;
@@ -470,7 +492,7 @@ private:
 				break;
 			}
 			if (turnosIni != enemigo.turnos) mueveJugador(jugador, enemigo, m);
-			notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
+			if (!paralelizado) notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
 		}
 
 		if (enemigo.turnosGolpeo == -1)
@@ -497,6 +519,9 @@ private:
 		_mediaValores[3] += enemigo.turnosGolpeo;
 
 		evaluacion = factorPatrulla*factorAtaque*((cExpl + cAndadas + turnosQueValen) + atacado*(enemigo.golpesEvitados / 20 + enemigo.golpes + turnosAtaque)) - enemigo.intentos - abs(distancia - enemigo.rango) - enemigo.turnosGolpeo;
+		//std::cout << "FactorPatrulla - FactorAtaque - SumaPatrulla - Atacado - SumaAtaque - Intentos - Distancia - TurnosGolpeo => Fitness" << std::endl;
+		//std::cout << std::setw(14) << factorPatrulla << std::setw(15) << factorAtaque << std::setw(15) << (cExpl + cAndadas + turnosQueValen) << std::setw(11) << atacado << std::setw(13) << (enemigo.golpesEvitados / 20 + enemigo.golpes + turnosAtaque)
+		//	<< std::setw(11) << enemigo.intentos << std::setw(12) << abs(distancia - enemigo.rango) << std::setw(15) << enemigo.turnosGolpeo << std::setw(11) << evaluacion << std::endl;
 
 		notifyMapaTerminado(evaluacion, factorPatrulla, cExpl, cAndadas, turnosQueValen, factorAtaque, cAndadasAtaque, enemigo.golpesEvitados, enemigo.golpes, encontradoAtaque, turnosAtaque, enemigo.intentos, distancia, enemigo.turnosGolpeo);
 		return evaluacion;
