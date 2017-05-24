@@ -107,49 +107,27 @@ public:
 		int x, y;
 		std::vector<std::packaged_task<double(Mapa,int, int)>> hilos;
 		std::vector<std::future<double>> medias;
-		//medias.resize(maps.size());
 		notifySimulacionInciada();
 		for (std::size_t i = 0; i < maps.size(); ++i) {
 			x = maps[i].getX();
 			y = maps[i].getY();
-			/*
-			auto fn = std::bind((&Cromosoma::evaluaMapa, this, maps[i], x, y);
-			hilos[i] = std::packaged_task<double(Mapa,int, int)>(fn);
-			medias[i] = hilos[i].get_future();
-			*/
 			medias.push_back(std::move(std::async(&Cromosoma::evaluaMapa, this, maps[i], x, y)));
 		}
-		/*
-		for (std::size_t i = 0; i < maps.size(); ++i) {
-			std::thread t(std::move(hilos[i]));
-			t.detach();
-		}*/
 		double mediaTotal = 0;
-		if (!medias[0].valid()){
-			exit(-1);
-		}
 		for (std::size_t i = 0; i < medias.size(); ++i){
 			medias[i].wait();
 			mediaTotal += medias[i].get();
-			//mediaTotal += medias[i].
 		}
+
+		mediaTotal /= medias.size();
 		
 		_mediaValores[0] /= maps.size();
 		_mediaValores[1] /= maps.size();
 		_mediaValores[2] /= maps.size();
 		_mediaValores[3] /= maps.size();
 		_mediaValores[4] /= maps.size();
-		/*
-		if (actual != 0){
-			this->_adaptacion = media / maps.size();
-			_descartado = false;
-		}
-		else{
-			this->_adaptacion = 0;
-			_descartado = true;
-		}
-		*/
 		
+		_adaptacion = mediaTotal;
 
 		notifySimulacionTerminada();
 		return _adaptacion;
@@ -241,12 +219,6 @@ private:
 				pila.push(&actual->getHijos()[1]); //Se introducen en orden inverso que es como se quieren ejecutar.
 				pila.push(&actual->getHijos()[0]);
 				break;
-			/*case ProgN4:
-				pila.push(&actual->getHijos()[3]);
-				pila.push(&actual->getHijos()[2]);
-				pila.push(&actual->getHijos()[1]); //Se introducen en orden inverso que es como se quieren ejecutar.
-				pila.push(&actual->getHijos()[0]);
-				break;*/
 			case SiBloqueado:
 				x = 0; y = 0;
 				if (!enemigo.getCasillaDelante(x, y) || jugador.estaEn(x,y)) {
@@ -365,12 +337,6 @@ private:
 				pila.push(&actual->getHijos()[1]); //Se introducen en orden inverso que es como se quieren ejecutar.
 				pila.push(&actual->getHijos()[0]);
 				break;
-			/*case ProgN4:
-				pila.push(&actual->getHijos()[3]);
-				pila.push(&actual->getHijos()[2]);
-				pila.push(&actual->getHijos()[1]); //Se introducen en orden inverso que es como se quieren ejecutar.
-				pila.push(&actual->getHijos()[0]);
-				break;*/
 			case SiRango:
 				x = 0; y = 0;
 				cont = 0;
@@ -524,17 +490,15 @@ private:
 		double factorAtaque = jugador.heridas + 1;
 		if (factorAtaque > 1)
 			atacado = 1;
+
 		_mediaValores[0] += (cExpl + cAndadas + turnosQueValen)*factorPatrulla;
 		_mediaValores[1] += (cAndadasAtaque + enemigo.golpesEvitados + enemigo.golpes) * factorAtaque;
 		_mediaValores[2] += distancia;
 		_mediaValores[3] += enemigo.turnosGolpeo;
 
-		//evaluacion = 10000 + factorPatrulla*((cExpl*0.1 + cAndadas*0.25 + turnosQueValen) + atacado*(factorAtaque * factorAtaque)*(enemigo.golpesEvitados/20 + enemigo.golpes + turnosAtaque) - enemigo.intentos - abs(distancia - enemigo.rango) - enemigo.turnosGolpeo);
-
 		evaluacion = factorPatrulla*factorAtaque*((cExpl + cAndadas + turnosQueValen) + atacado*(enemigo.golpesEvitados / 20 + enemigo.golpes + turnosAtaque)) - enemigo.intentos - abs(distancia - enemigo.rango) - enemigo.turnosGolpeo;
 
 		notifyMapaTerminado(evaluacion, factorPatrulla, cExpl, cAndadas, turnosQueValen, factorAtaque, cAndadasAtaque, enemigo.golpesEvitados, enemigo.golpes, encontradoAtaque, turnosAtaque, enemigo.intentos, distancia, enemigo.turnosGolpeo);
-
 		return evaluacion;
 	}
 

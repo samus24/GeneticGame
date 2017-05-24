@@ -41,7 +41,7 @@ public:
 		_generacion = 0;
 		_ctrl->addObserver(*(this));
 		//_ctrl->addCromosomaObserver(_simViewer);
-		//_ctrl->addCromosomaObserver(*(this));
+		_ctrl->addCromosomaObserver(*(this));
 		_tabPane.addTab("Plotter", _plotter);
 		_tabPane.addTab("SimViewer", _simViewer);
 		finalizada = false;
@@ -167,6 +167,11 @@ public:
 		_valorMejorGen.push_back(mejorGen);
 		_valorMedia.push_back(media);
 		_progress.updateProgress(_generacion);
+		_plotter.removeAllData();
+		_plotter.setEjeX(_ejeX);
+		_plotter.pushEjeY(_valorMedia, sf::Color::Green, "Media Poblacion");
+		_plotter.pushEjeY(_valorMejorGen, sf::Color::Red, "Mejor Gen");
+		_plotter.pushEjeY(_valorMejor, sf::Color::Blue, "Mejor");
 		_generacion++;
 	}
 

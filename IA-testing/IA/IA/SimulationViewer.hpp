@@ -152,23 +152,6 @@ private:
 	{
 		// apply the transform
 		states.transform *= getTransform();
-		/*
-		sf::RectangleShape r;
-		r.setPosition(sf::Vector2f(0, 30));
-		sf::Vector2f size;
-		size.x = _size.x + 10;
-		size.y = _size.y;
-		r.setSize(size);
-		r.setFillColor(sf::Color::White);
-		target.draw(r, states);
-
-		sf::RectangleShape r2;
-		r2.setPosition(sf::Vector2f(0, _size.y - 110));
-		size.x = _size.x*2;
-		size.y = 110;
-		r2.setSize(size);
-		r2.setFillColor(sf::Color::White);
-		target.draw(r2, states);*/
 
 		// draw the vertex array
 		target.draw(m_vertices, states);
@@ -202,6 +185,7 @@ private:
 			m_vertices.setPrimitiveType(sf::Quads);
 			m_vertices.resize(m.getWidth()*m.getHeight() * 4);
 		}
+		/*
 		for (unsigned int i = 0; i < m.getWidth(); ++i)
 			for (unsigned int j = 0; j < m.getHeight(); ++j)
 			{
@@ -316,7 +300,8 @@ private:
 				quad[1].color = c;
 				quad[2].color = c;
 				quad[3].color = c;
-			}		
+			}	
+			*/
 		std::string info = "Estado: ";
 		if (enemigo.turnosPatrulla > 0){
 			info += "Ataque";
