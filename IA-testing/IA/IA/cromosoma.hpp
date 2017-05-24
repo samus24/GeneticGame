@@ -7,6 +7,8 @@
 #include <stack>
 #include <algorithm>
 #include <Windows.h>
+#include <thread>
+#include <future>
 #include "Arbol.hpp"
 #include "myrandom.hpp"
 #include "ICromosomaObserver.hpp"
@@ -103,28 +105,41 @@ public:
 
 	double evalua(std::vector<Mapa> maps) {
 		int x, y;
-		double actual = 1;
-		double media = 0;
-		_descartado = false;
+		std::vector<std::packaged_task<double(Mapa,int, int)>> hilos;
+		std::vector<std::future<double>> medias;
+		//medias.resize(maps.size());
 		notifySimulacionInciada();
-		for (std::size_t i = 0; i < maps.size() && actual != 0; ++i) {
+		for (std::size_t i = 0; i < maps.size(); ++i) {
 			x = maps[i].getX();
 			y = maps[i].getY();
-			if (i == 0){
-				actual = evaluaMapa(maps[i], x, y);
-				media += actual;
-			}
-			else{
-				media += evaluaMapa(maps[i], x, y);
-			}
+			/*
+			auto fn = std::bind((&Cromosoma::evaluaMapa, this, maps[i], x, y);
+			hilos[i] = std::packaged_task<double(Mapa,int, int)>(fn);
+			medias[i] = hilos[i].get_future();
+			*/
+			medias.push_back(std::move(std::async(&Cromosoma::evaluaMapa, this, maps[i], x, y)));
 		}
-
+		/*
+		for (std::size_t i = 0; i < maps.size(); ++i) {
+			std::thread t(std::move(hilos[i]));
+			t.detach();
+		}*/
+		double mediaTotal = 0;
+		if (!medias[0].valid()){
+			exit(-1);
+		}
+		for (std::size_t i = 0; i < medias.size(); ++i){
+			medias[i].wait();
+			mediaTotal += medias[i].get();
+			//mediaTotal += medias[i].
+		}
+		
 		_mediaValores[0] /= maps.size();
 		_mediaValores[1] /= maps.size();
 		_mediaValores[2] /= maps.size();
 		_mediaValores[3] /= maps.size();
 		_mediaValores[4] /= maps.size();
-
+		/*
 		if (actual != 0){
 			this->_adaptacion = media / maps.size();
 			_descartado = false;
@@ -133,7 +148,7 @@ public:
 			this->_adaptacion = 0;
 			_descartado = true;
 		}
-
+		*/
 		
 
 		notifySimulacionTerminada();

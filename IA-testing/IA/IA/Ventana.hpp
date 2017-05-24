@@ -40,8 +40,8 @@ public:
 		_ctrl = &c;
 		_generacion = 0;
 		_ctrl->addObserver(*(this));
-		_ctrl->addCromosomaObserver(_simViewer);
-		_ctrl->addCromosomaObserver(*(this));
+		//_ctrl->addCromosomaObserver(_simViewer);
+		//_ctrl->addCromosomaObserver(*(this));
 		_tabPane.addTab("Plotter", _plotter);
 		_tabPane.addTab("SimViewer", _simViewer);
 		finalizada = false;
