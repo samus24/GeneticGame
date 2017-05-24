@@ -185,7 +185,7 @@ private:
 			m_vertices.setPrimitiveType(sf::Quads);
 			m_vertices.resize(m.getWidth()*m.getHeight() * 4);
 		}
-		/*
+		
 		for (unsigned int i = 0; i < m.getWidth(); ++i)
 			for (unsigned int j = 0; j < m.getHeight(); ++j)
 			{
@@ -301,7 +301,7 @@ private:
 				quad[2].color = c;
 				quad[3].color = c;
 			}	
-			*/
+			
 		std::string info = "Estado: ";
 		if (enemigo.turnosPatrulla > 0){
 			info += "Ataque";
