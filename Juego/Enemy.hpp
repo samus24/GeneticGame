@@ -10,9 +10,24 @@ class Enemy: public Entity
 
 
 	public:
+
+		Enemy()
+		{}
+
+		Enemy(const std::string &image)
+		{
+			Entity::Entity(image);
+			health = 3;
+		}
+
 		bool attack(Entity rival)
 		{
+			
+		}
 
+		void cure()
+		{
+			health++;
 		}
 };
 
