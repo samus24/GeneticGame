@@ -60,12 +60,11 @@ public:
 			int nElite = (int)(_param.tamPob * 0.02);
 			std::vector<Cromosoma> elite;
 			if (_param.elitismo){
-				/*
+				elite.resize(nElite);
 				_pob.ordenar();
 				for (std::size_t i = 0; i < nElite; ++i){
-					elite.push_back(_pob.individuos[i]);
+					_pob.individuos[i].getCopia(elite[i]);
 				}
-				*/
 			}
 			_crono.iniciaMedida("seleccion", std::chrono::high_resolution_clock::now());
 			seleccion();
@@ -99,14 +98,10 @@ public:
 			std::cout << "La media de evaluacion de pob es de " << (_crono.getMediaAsMilli("evalua") / 1000.f) << "seg" << std::endl;
 
 			if (_param.elitismo){
-				/*
 				_pob.ordenar();
 				for (std::size_t i = 0; i < nElite; ++i){
-					_pob.individuos.pop_back();
+					elite[i].getCopia(_pob.individuos[_param.tamPob - nElite + i]);
 				}
-				for (std::size_t i = 0; i < nElite; ++i){
-					_pob.individuos.push_back(elite[i]);
-				}*/
 			}
 
 			mediaActual = evaluarPoblacion();

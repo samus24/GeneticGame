@@ -215,7 +215,7 @@ private:
 		int cont = 0;
 		int turnosIni;
 		int encontradoAtaque = 0;
-
+		int vecesCuradas = 0;
 		bool siDetectado = false;
 		bool encontrado = false;
 
@@ -433,7 +433,7 @@ private:
 				if (enemigo.getCasillaDetras(x, y)) {
 					if (!m.estaBloqueado(x, y) && !jugador.estaEn(x,y)) {
 						enemigo.retroceder();
-						andadoAtaque.setCasilla(enemigo.posX, enemigo.posY, 1);
+						//andadoAtaque.setCasilla(enemigo.posX, enemigo.posY, 1);
 					}
 				}
 				enemigo.turnos++;
@@ -482,8 +482,10 @@ private:
 					enemigo.turnos++;
 					if (!paralelizado) notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
 				}
-				if (enemigo.heridas > 0 && enemigo.heridas < 3)
+				if (enemigo.heridas > 0 && enemigo.heridas < 3) {
 					enemigo.heridas--;
+					vecesCuradas++;
+				}
 				mueveJugador(jugador, enemigo, m);
 				break;
 			default:
@@ -495,35 +497,25 @@ private:
 			if (!paralelizado) notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
 		}
 
-		if (enemigo.turnosGolpeo == -1)
-			enemigo.turnosGolpeo = enemigo.turnos - enemigo.turnosPatrulla;
-
 		double evaluacion = 0;
 		int cAndadas = casillasAndadas(andado);
 		int cAndadasAtaque = casillasAndadas(andadoAtaque);
 		int cExpl = casillasExploradas(explorado);
-		double distancia = calculaDistancia(jugador, enemigo);
 
-		double factorPatrulla = (encontrado) ? 1 : -1;
-		int turnosRestantes = (maxTurnos - enemigo.turnosPatrulla);
-		int turnosQueValen = (encontrado) ? turnosRestantes : std::max(turnosRestantes, enemigo.turnosPatrulla);
-		int turnosAtaque = (maxTurnos - enemigo.turnosGolpeo - turnosQueValen);
-		int atacado = -1;
-		double factorAtaque = jugador.heridas + 1;
-		if (factorAtaque > 1)
-			atacado = 1;
+		double factorPatrulla = (encontrado) ? 1 : 0;
+		double factorAtaque = jugador.heridas;
 
-		_mediaValores[0] += (cExpl + cAndadas + turnosQueValen)*factorPatrulla;
-		_mediaValores[1] += (cAndadasAtaque + enemigo.golpesEvitados + enemigo.golpes) * factorAtaque;
-		_mediaValores[2] += distancia;
-		_mediaValores[3] += enemigo.turnosGolpeo;
+		evaluacion = factorPatrulla*factorAtaque*(cAndadas + cExpl + enemigo.golpes + enemigo.golpesEvitados + cAndadasAtaque + vecesCuradas - enemigo.intentos) * std::min(1, cAndadas) * std::min(1, cAndadasAtaque);
 
-		evaluacion = factorPatrulla*factorAtaque*((cExpl + cAndadas + turnosQueValen) + atacado*(enemigo.golpesEvitados / 20 + enemigo.golpes + turnosAtaque)) - enemigo.intentos - abs(distancia - enemigo.rango) - enemigo.turnosGolpeo;
+		if (evaluacion == -0.f) {
+			evaluacion = 0.f;
+		}
+		//evaluacion = factorPatrulla*factorAtaque*((cExpl + cAndadas + turnosQueValen) + atacado*(enemigo.golpesEvitados / 20 + enemigo.golpes + turnosAtaque)) - enemigo.intentos - abs(distancia - enemigo.rango) - enemigo.turnosGolpeo;
 		//std::cout << "FactorPatrulla - FactorAtaque - SumaPatrulla - Atacado - SumaAtaque - Intentos - Distancia - TurnosGolpeo => Fitness" << std::endl;
 		//std::cout << std::setw(14) << factorPatrulla << std::setw(15) << factorAtaque << std::setw(15) << (cExpl + cAndadas + turnosQueValen) << std::setw(11) << atacado << std::setw(13) << (enemigo.golpesEvitados / 20 + enemigo.golpes + turnosAtaque)
 		//	<< std::setw(11) << enemigo.intentos << std::setw(12) << abs(distancia - enemigo.rango) << std::setw(15) << enemigo.turnosGolpeo << std::setw(11) << evaluacion << std::endl;
 
-		notifyMapaTerminado(evaluacion, factorPatrulla, cExpl, cAndadas, turnosQueValen, factorAtaque, cAndadasAtaque, enemigo.golpesEvitados, enemigo.golpes, encontradoAtaque, turnosAtaque, enemigo.intentos, distancia, enemigo.turnosGolpeo);
+		//notifyMapaTerminado();
 		return evaluacion;
 	}
 
@@ -562,7 +554,7 @@ private:
 		//Operacion op = (Operacion)myRandom::getRandom(Operacion::Avanza, Operacion::Retroceder);
 		int intentos = 2;
 		Operacion op = Operacion::ProgN3;
-		int r = myRandom::getRandom(0, 3);
+		int r = myRandom::getRandom(0, 9);
 		jugador.getCasillaDelante(x, y);
 		if (enemigo.estaEn(x, y)) {
 			int n = myRandom::getRandom(0, 3);
