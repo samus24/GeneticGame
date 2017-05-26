@@ -75,6 +75,7 @@ public:
 		_hiloArboles.launch();
 		_window.setVerticalSyncEnabled(true);
 		_window.setFramerateLimit(60);
+		sf::Thread hiloMejor(&Ventana::evaluaMejor, this);
 
 		while (_window.isOpen())
 		{
@@ -125,8 +126,7 @@ public:
 				}
 				else if (event.type == sf::Event::KeyPressed){
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)){
-						if (finalizada)
-							_mejor.evalua(_ctrl->getMapas(), false);
+						hiloMejor.launch();
 					}
 					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
 						if (!running){
@@ -261,6 +261,11 @@ public:
 	}
 
 private:
+
+	void evaluaMejor(){
+		if (finalizada)
+			_mejor.evalua(_ctrl->getMapas(), false);
+	}
 
 	void ventanaArboles(){
 		_windowTrees.setActive(true);

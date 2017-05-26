@@ -30,7 +30,7 @@ class seleccionEstocastica : public metodoSeleccion {
 
 		Cromosoma* nuevaPob = new Cromosoma[pob->_tam];
 		for (std::size_t i = 0; i < pob->_tam; ++i) {
-			pob->individuos[seleccionados[i]].getCopia(nuevaPob[i]);	// Aqui hay que hacer un getCopia
+			pob->individuos[seleccionados[i]].getCopia(nuevaPob[i]);
 		}
 		pob->individuos = nuevaPob;
 	}
@@ -56,7 +56,7 @@ class seleccionRuleta : public metodoSeleccion {
 		//std::vector<Cromosoma> nuevaPob(pob->_tam);
 		Cromosoma* nuevaPob = new Cromosoma[pob->_tam];
 		for (std::size_t i = 0; i < pob->_tam; ++i) {
-			pob->individuos[seleccionados[i]].getCopia(nuevaPob[i]);	// Aqui hay que hacer un getCopia
+			pob->individuos[seleccionados[i]].getCopia(nuevaPob[i]);
 		}
 		pob->individuos = nuevaPob;
 	}
@@ -122,7 +122,7 @@ class seleccionTorneo : public metodoSeleccion {
 		//std::vector<Cromosoma> nuevaPob(pob->_tam);
 		Cromosoma* nuevaPob = new Cromosoma[pob->_tam];
 		for (std::size_t i = 0; i < pob->_tam; ++i) {
-			pob->individuos[seleccionados[i]].getCopia(nuevaPob[i]);	// Aqui hay que hacer un getCopia
+			pob->individuos[seleccionados[i]].getCopia(nuevaPob[i]);
 		}
 		pob->individuos = nuevaPob;
 	}
