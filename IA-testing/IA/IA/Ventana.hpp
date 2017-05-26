@@ -21,8 +21,8 @@ public:
 		_window(sf::VideoMode::getFullscreenModes()[6], "AG"),		// Comentar esta linea y
 		//_window(sf::VideoMode(1200,600), "AG"),					// descomentar esta si no se representa bien en pantalla
 		_windowTrees(sf::VideoMode(800, 800), "Arboles"),
-		_windowParam(sf::VideoMode(300, 500), "Parametros"),
-		_ventParam(sf::Vector2f(300, 500)),
+		_windowParam(sf::VideoMode(500, 500), "Parametros"),
+		_ventParam(sf::Vector2f(500, 500)),
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, 25)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.19, 400)),

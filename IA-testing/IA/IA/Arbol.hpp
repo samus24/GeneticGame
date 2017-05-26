@@ -78,14 +78,14 @@ public:
 		return _raiz.getNumNodos();
 	}
 
-	void creaArbolAleatorio(int profMin, int profMax, TipoArbol tipo) {
+	void creaArbolAleatorio(int profMin, int profMax, TipoArbol tipo, std::set<Operacion> opValidas) {
 		this->_profMin = profMin;
 		this->_profMax = profMax;
-		this->_raiz = creaArbol(nullptr, &_raiz, profMin, profMax, 0, tipo);
+		this->_raiz = creaArbol(nullptr, &_raiz, profMin, profMax, 0, tipo, opValidas);
 		actualizaNumNodos();
 	}
 
-	Nodo creaArbol(Nodo* padre, Nodo* a, int pMin, int pMax, int pos, TipoArbol tipo) {
+	Nodo creaArbol(Nodo* padre, Nodo* a, int pMin, int pMax, int pos, TipoArbol tipo, std::set<Operacion> opValidas) {
 		std::stack<Nodo*> padres;
 		std::stack<int> nHijos;
 		std::stack<int> posiciones;
@@ -96,7 +96,7 @@ public:
 		while (!padres.empty()){
 			if (pMin > 0) {
 				// No se ha alcanzado la prof minima, el nodo NO puede ser hoja
-				Operacion op = Nodo::getNoTerminalAleatorio(tipo);
+				Operacion op = Nodo::getNoTerminalAleatorio(tipo, opValidas);
 				*actual = Nodo(op, padres.top(), GRADOS[op], posiciones.top());
 				padres.push(actual);
 				nHijos.push(GRADOS[op]);
@@ -107,7 +107,7 @@ public:
 			}
 			else if (pMax <= 0) {
 				// Se ha alcanzado la prof maxima, el nodo DEBE ser hoja
-				Operacion op = Nodo::getTerminalAleatorio(tipo);
+				Operacion op = Nodo::getTerminalAleatorio(tipo, opValidas);
 				*actual = Nodo(op, padres.top(), GRADOS[op], posiciones.top());
 				actual->setNumNodos(1);
 				int hijos = nHijos.top() - 1;
@@ -158,7 +158,7 @@ public:
 			}
 			else {
 				// Altura intermedia, puede o no ser hoja
-				Operacion op = Nodo::getElementoAleatorio(tipo);
+				Operacion op = Nodo::getElementoAleatorio(tipo, opValidas);
 				*actual = Nodo(op, padres.top(), GRADOS[op], posiciones.top());
 				if (GRADOS[op] > 0){
 					padres.push(actual);
@@ -275,14 +275,14 @@ public:
 		this->_raiz.actualizaNumNodos();
 	}
 
-	bool bloating(int pMax, TipoArbol tipo) {
-		bool cambios = this->_raiz.bloating(pMax, 0, tipo);
+	bool bloating(int pMax, TipoArbol tipo, std::set<Operacion> opValidas) {
+		bool cambios = this->_raiz.bloating(pMax, 0, tipo, opValidas);
 		if (cambios) this->_raiz.actualizaNumNodos();
 		return cambios;
 	}
 
-	bool eliminaIntrones(TipoArbol tipo) {
-		bool cambios = _raiz.eliminaIntrones(tipo);
+	bool eliminaIntrones(TipoArbol tipo, std::set<Operacion> opValidas) {
+		bool cambios = _raiz.eliminaIntrones(tipo, opValidas);
 		if (cambios) _raiz.actualizaNumNodos();
 		return cambios;
 	}

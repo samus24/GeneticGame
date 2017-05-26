@@ -27,11 +27,11 @@ public:
 		_cbMut(sf::Vector2f(0, 0), sf::Vector2f(0, 0)),
 		_cbParal(sf::Vector2f(0, 0), 15)
 	{
-		_param.tamPob = 10;
+		_param.tamPob = 50;
 		_param.iteraciones = 100;
 		_param.minNodos = 2;
 		_param.maxNodos = 5;
-		_param.elitismo = false;
+		_param.elitismo = true;
 		_param.bloating = true;
 		_param.contractividad = false;
 		_param.probCruce = 0.65;
@@ -42,9 +42,9 @@ public:
 		_param.paralelizar = true;
 
 		std::vector<std::string> sel = {
+			"Torneo",
 			"Estocastica",
-			"Ruleta",
-			"Torneo"
+			"Ruleta"			
 		};
 
 		std::vector<std::string> cru = {
@@ -52,10 +52,10 @@ public:
 		};
 
 		std::vector<std::string> mut = {
+			"Combinada",
 			"Arbol",
 			"Funcion",
-			"Terminal",
-			"Combinada"
+			"Terminal"
 		};
 
 		std::vector<std::string> lab = {
@@ -73,6 +73,7 @@ public:
 			"Met. Mutacion",
 			"Eval. Paralela"
 		};
+
 		sf::Vector2f textFieldsSize(100,20);
 
 		_font.loadFromFile("arial.ttf");
@@ -92,6 +93,28 @@ public:
 			t.setString(lab[i]);
 			pos.y += textFieldsSize.y*1.5;
 			_labels.push_back(t);
+		}
+
+		pos.x = 250;
+		pos.y = 5;
+		for (size_t i = 0; i < Operacion::OpCount; ++i){
+			sf::Text t;
+			t.setFont(_font);
+			t.setCharacterSize(15);
+			t.setFillColor(sf::Color::Black);
+			t.setPosition(pos);
+			t.setString(opToString(Operacion(i)));
+			pos.y += textFieldsSize.y*1.5;
+			_labelsOps.push_back(t);
+		}
+		pos.x = 250 + 110;
+		pos.y = 5;
+		for (size_t i = 0; i < Operacion::OpCount; ++i){
+			sf::CheckButton cb(pos, 15);
+			cb.toogleMarked();
+			pos.y += textFieldsSize.y*1.5;
+			_param.addOp(Operacion(i));
+			_cbOps.push_back(cb);
 		}
 
 
@@ -180,6 +203,18 @@ public:
 				_cbContr.toogleMarked();
 				_param.elitismo = _cbContr.isMarked();
 			}
+			for (size_t i = 0; i < Operacion::OpCount; ++i){
+				if (_cbOps[i].isPointInside(sf::Vector2i(pos))){
+					_cbOps[i].toogleMarked();
+					if (_cbOps[i].isMarked()){
+						_param.addOp(Operacion(i));
+					}
+					else{
+						_param.delOp(Operacion(i));
+					}
+				}
+			}
+
 			_tfProbCru.setSelected(_tfProbCru.contains(pos));
 			_tfProbMut.setSelected(_tfProbMut.contains(pos));
 			_cbSel.setSelected(_cbSel.contains(pos));
@@ -332,16 +367,16 @@ public:
 			_cbSel.setSelectedIndex(_cbSel.getMarkedIndex());
 			switch (_cbSel.getSelectedIndex()){
 			case 0:
-				_param.seleccion = new seleccionEstocastica();
-				break;
-			case 1:
-				_param.seleccion = new seleccionRuleta();
-				break;
-			case 2:
 				_param.seleccion = new seleccionTorneo();
 				break;
-			default:
+			case 1:
 				_param.seleccion = new seleccionEstocastica();
+				break;
+			case 2:
+				_param.seleccion = new seleccionRuleta();
+				break;
+			default:
+				_param.seleccion = new seleccionTorneo();
 				break;
 			}
 			_cbCru.setSelected(false);
@@ -358,19 +393,19 @@ public:
 			_cbMut.setSelectedIndex(_cbMut.getMarkedIndex());
 			switch (_cbMut.getSelectedIndex()){
 			case 0:
-				_param.mutacion = new mutacionArbol();
-				break;
-			case 1:
-				_param.mutacion = new mutacionFuncion();
-				break;
-			case 2:
-				_param.mutacion = new mutacionTerminal();
-				break;
-			case 3:
 				_param.mutacion = new mutacionCombinada();
 				break;
-			default:
+			case 1:
 				_param.mutacion = new mutacionArbol();
+				break;
+			case 2:
+				_param.mutacion = new mutacionFuncion();
+				break;
+			case 3:
+				_param.mutacion = new mutacionTerminal();
+				break;
+			default:
+				_param.mutacion = new mutacionCombinada();
 
 			}
 		}
@@ -400,6 +435,12 @@ private:
 		target.draw(_cbCru, states);
 		target.draw(_cbMut, states);
 		target.draw(_cbParal, states);
+		for (sf::Text t : _labelsOps){
+			target.draw(t, states);
+		}
+		for (sf::CheckButton cb : _cbOps){
+			target.draw(cb, states);
+		}
 		if (_cbSel.isSelected()) target.draw(_cbSel, states);
 		if (_cbCru.isSelected()) target.draw(_cbCru, states);
 		if (_cbMut.isSelected()) target.draw(_cbMut, states);
@@ -412,6 +453,9 @@ private:
 
 	sf::Font _font;
 	std::vector<sf::Text> _labels;
+
+	std::vector<sf::Text> _labelsOps;
+	std::vector<sf::CheckButton> _cbOps;
 
 	TextField _tfPob;
 	TextField _tfGen;

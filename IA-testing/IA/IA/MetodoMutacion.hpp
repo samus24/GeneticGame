@@ -6,19 +6,19 @@
 
 class metodoMutacion {
 public:
-	virtual void mutar(Cromosoma* c, TipoArbol tipo) = 0;
+	virtual void mutar(Cromosoma* c, TipoArbol tipo, std::set<Operacion> opValidas) = 0;
 	virtual std::string toString() = 0;
 };
 
 class mutacionArbol : public metodoMutacion {
 public:
-	void mutar(Cromosoma* c, TipoArbol tipo) {
+	void mutar(Cromosoma* c, TipoArbol tipo, std::set<Operacion> opValidas) {
 		Arbol arb = c->getGenotipo(tipo);
 		arb.reparaReferencias();
 		Nodo n;
 		n = arb.getNodoFuncionAleatorio();
 		if (n.getPadre() != nullptr || n.getNumNodos() == 1) {
-			Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos(), tipo);
+			Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos(), tipo, opValidas);
 			if (n.getPadre() != nullptr)
 				n.getPadre()->addHijo(nuevo, n.getPos());
 			arb.reparaReferencias();
@@ -35,7 +35,7 @@ public:
 
 class mutacionFuncion : public metodoMutacion {
 public:
-	void mutar(Cromosoma* c, TipoArbol tipo) {
+	void mutar(Cromosoma* c, TipoArbol tipo, std::set<Operacion> opValidas) {
 		Arbol arb = c->getGenotipo(tipo);
 		arb.reparaReferencias();
 		Nodo n;
@@ -45,7 +45,7 @@ public:
 				// Solo se pueden intercambiar nodos con 2 hijos, el resto son terminales o no hay mas con los mismos hijos
 				Operacion elem;
 				do{
-					elem = Nodo::getNoTerminalAleatorio(tipo);
+					elem = Nodo::getNoTerminalAleatorio(tipo, opValidas);
 				} while (elem == n.getElem() || GRADOS[elem] != 2);
 				n.setElem(elem);
 				arb.actualizaNumNodos();
@@ -61,14 +61,14 @@ public:
 
 class mutacionTerminal : public metodoMutacion {
 public:
-	void mutar(Cromosoma* c, TipoArbol tipo) {
+	void mutar(Cromosoma* c, TipoArbol tipo, std::set<Operacion> opValidas) {
 		Arbol arb = c->getGenotipo(tipo);
 		Nodo n;
 		n = arb.getTerminalAleatorio();
 		if (n.getPadre() != nullptr) {
 			Operacion elem;
 			do{
-				elem = Nodo::getTerminalAleatorio(tipo);
+				elem = Nodo::getTerminalAleatorio(tipo, opValidas);
 			} while (elem == n.getElem());
 			n.setElem(elem);
 			arb.actualizaNumNodos();
@@ -83,7 +83,7 @@ public:
 
 class mutacionCombinada : public metodoMutacion {
 public:
-	void mutar(Cromosoma* c, TipoArbol tipo) {
+	void mutar(Cromosoma* c, TipoArbol tipo, std::set<Operacion> opValidas) {
 		Arbol arb = c->getGenotipo(tipo);
 		arb.reparaReferencias();
 		Nodo n;
@@ -91,7 +91,7 @@ public:
 		if (r == 0) {
 			n = arb.getNodoFuncionAleatorio();
 			if (n.getPadre() != nullptr || n.getNumNodos() == 1) {
-				Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos(), tipo);
+				Nodo nuevo = arb.creaArbol(n.getPadre(), &n, arb.getProfMin(), arb.getProfMax(), n.getPos(), tipo, opValidas);
 				if (n.getPadre() != nullptr)
 					n.getPadre()->addHijo(nuevo, n.getPos());
 				arb.reparaReferencias();
@@ -105,7 +105,7 @@ public:
 					// Solo se pueden intercambiar nodos con 2 hijos, el resto son terminales o no hay mas con los mismos hijos
 					Operacion elem;
 					do{
-						elem = Nodo::getNoTerminalAleatorio(tipo);
+						elem = Nodo::getNoTerminalAleatorio(tipo, opValidas);
 					} while (elem == n.getElem() || GRADOS[elem] != 2);
 					n.setElem(elem);
 					arb.actualizaNumNodos();
@@ -118,7 +118,7 @@ public:
 			if (n.getPadre() != nullptr) {
 				Operacion elem;
 				do{
-					elem = Nodo::getTerminalAleatorio(tipo);
+					elem = Nodo::getTerminalAleatorio(tipo, opValidas);
 				} while (elem == n.getElem());
 				n.setElem(elem);
 				arb.actualizaNumNodos();

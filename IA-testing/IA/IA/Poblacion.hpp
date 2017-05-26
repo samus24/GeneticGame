@@ -16,11 +16,11 @@ public:
 
 	poblacion() {}
 
-	void generaPoblacionAleatoria(int tam, int profMin, int profMax) {
+	void generaPoblacionAleatoria(int tam, int profMin, int profMax, std::set<Operacion> opValidas) {
 		this->_tam = tam;
 		this->individuos = new Cromosoma[tam];
 		for (std::size_t i = 0; i < tam; ++i) {
-			this->individuos[i].crear(profMin, profMax);// = Cromosoma(profMin, profMax);
+			this->individuos[i].crear(profMin, profMax, opValidas);// = Cromosoma(profMin, profMax);
 		}
 	}
 
@@ -42,17 +42,17 @@ public:
 		});
 	}
 
-	void bloating(unsigned int maxNodos, std::set<unsigned int> marcados){
+	void bloating(unsigned int maxNodos, std::set<unsigned int> marcados, std::set<Operacion> opValidas){
 		for (size_t i = 0; i < _tam; ++i){
-			if (individuos[i].bloating(maxNodos)){
+			if (individuos[i].bloating(maxNodos, opValidas)){
 				marcados.insert(i);
 			}
 		}
 	}
 
-	void eliminaIntrones(std::set<unsigned int> marcados){
+	void eliminaIntrones(std::set<unsigned int> marcados, std::set<Operacion> opValidas){
 		for (size_t i = 0; i < _tam; ++i){
-			if (individuos[i].eliminaIntrones()){
+			if (individuos[i].eliminaIntrones(opValidas)){
 				marcados.insert(i);
 			}
 		}

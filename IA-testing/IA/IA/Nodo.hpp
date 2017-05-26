@@ -14,24 +14,26 @@ enum TipoArbol{
 
 enum Operacion {
 	// No Terminales
-		SiDetectado,	// Patrulla
-		SiBloqueado,	// Patrulla
-		ProgN2,			// Comun
-		ProgN3,			// Comun
-		//ProgN4,		// Comun
-		VidaJugador,	// Ataque
-		SiRango,		// Ataque
-		VidaIA,			// Ataque
+	SiDetectado,	// Patrulla
+	SiBloqueado,	// Patrulla
+	ProgN2,			// Comun
+	ProgN3,			// Comun
+	//ProgN4,		// Comun
+	VidaJugador,	// Ataque
+	SiRango,		// Ataque
+	VidaIA,			// Ataque
 	// Terminales
-		CambiarEst,		// Patrulla
-		Avanza,			// patrulla
-		GiraIz,			// patrulla
-		GiraDer,		// patrulla
-		BloquearN,		// Ataque
-		Atacar,			// Ataque
-		Alejar,			// Ataque
-		Acercar,		// Ataque
-		Curar,			// Ataque
+	CambiarEst,		// Patrulla
+	Avanza,			// patrulla
+	GiraIz,			// patrulla
+	GiraDer,		// patrulla
+	BloquearN,		// Ataque
+	Atacar,			// Ataque
+	Alejar,			// Ataque
+	Acercar,		// Ataque
+	Curar,			// Ataque
+
+	OpCount
 };
 
 std::string opToString(Operacion op){
@@ -212,24 +214,24 @@ public:
 		return 0.f;
 	}
 
-	bool bloating(int pMax, int nivel, TipoArbol tipo) {
+	bool bloating(int pMax, int nivel, TipoArbol tipo, std::set<Operacion> opValidas) {
 		bool cambios = false;
 		if (nivel == pMax) {
 			this->_hijos = nullptr;
-			Operacion op = Nodo::getTerminalAleatorio(tipo);
+			Operacion op = Nodo::getTerminalAleatorio(tipo, opValidas);
 			this->_elem = op;
 			this->_nHijos = 0;
 			cambios = true;
 		}
 		else {
 			for (std::size_t i = 0; i < this->_nHijos; ++i) {
-				cambios |= this->_hijos[i].bloating(pMax, nivel + 1, tipo);
+				cambios |= this->_hijos[i].bloating(pMax, nivel + 1, tipo, opValidas);
 			}
 		}
 		return cambios;
 	}
 
-	bool eliminaIntrones(TipoArbol tipo) {
+	bool eliminaIntrones(TipoArbol tipo, std::set<Operacion> opValidas) {
 		bool cambios = false;
 		Operacion hijoA;
 		Operacion hijoB;
@@ -250,7 +252,7 @@ public:
 			hijoB = this->_hijos[1]._elem;
 			if (hijoA == Operacion::GiraDer) {
 				if (hijoB == Operacion::GiraIz) {
-					Operacion op = Nodo::getTerminalAleatorio(tipo);
+					Operacion op = Nodo::getTerminalAleatorio(tipo, opValidas);
 					this->_elem = op;
 					this->_hijos = nullptr;
 					this->_nHijos = 0;
@@ -259,7 +261,7 @@ public:
 			}
 			else if (hijoB == Operacion::GiraDer) {
 				if (hijoA == Operacion::GiraIz) {
-					Operacion op = Nodo::getTerminalAleatorio(tipo);
+					Operacion op = Nodo::getTerminalAleatorio(tipo, opValidas);
 					this->_elem = op;
 					this->_hijos = nullptr;
 					this->_nHijos = 0;
@@ -268,7 +270,7 @@ public:
 			}
 			else if (hijoA == Operacion::Acercar) {
 				if (hijoB == Operacion::Alejar) {
-					Operacion op = Nodo::getTerminalAleatorio(tipo);
+					Operacion op = Nodo::getTerminalAleatorio(tipo, opValidas);
 					this->_elem = op;
 					this->_hijos = nullptr;
 					this->_nHijos = 0;
@@ -277,7 +279,7 @@ public:
 			}
 			else if (hijoB == Operacion::Alejar) {
 				if (hijoA == Operacion::Acercar) {
-					Operacion op = Nodo::getTerminalAleatorio(tipo);
+					Operacion op = Nodo::getTerminalAleatorio(tipo, opValidas);
 					this->_elem = op;
 					this->_hijos = nullptr;
 					this->_nHijos = 0;
@@ -285,14 +287,14 @@ public:
 				}
 			}
 			else {
-				cambios |= this->_hijos[0].eliminaIntrones(tipo);
-				cambios |= this->_hijos[1].eliminaIntrones(tipo);
+				cambios |= this->_hijos[0].eliminaIntrones(tipo, opValidas);
+				cambios |= this->_hijos[1].eliminaIntrones(tipo, opValidas);
 			}
 			break;
 		case Operacion::ProgN3:
-			cambios |= this->_hijos[0].eliminaIntrones(tipo);
-			cambios |= this->_hijos[1].eliminaIntrones(tipo);
-			cambios |= this->_hijos[2].eliminaIntrones(tipo);
+			cambios |= this->_hijos[0].eliminaIntrones(tipo, opValidas);
+			cambios |= this->_hijos[1].eliminaIntrones(tipo, opValidas);
+			cambios |= this->_hijos[2].eliminaIntrones(tipo, opValidas);
 			break;
 			/*case Operacion::ProgN4:
 			this->_hijos[0].eliminaIntrones();
@@ -331,8 +333,8 @@ public:
 				cambios = true;
 			}
 			else {
-				cambios |= this->_hijos[0].eliminaIntrones(tipo);
-				cambios |= this->_hijos[1].eliminaIntrones(tipo);
+				cambios |= this->_hijos[0].eliminaIntrones(tipo, opValidas);
+				cambios |= this->_hijos[1].eliminaIntrones(tipo, opValidas);
 			}
 			break;
 		case Operacion::SiDetectado:
@@ -366,8 +368,8 @@ public:
 				cambios = true;
 			}
 			else {
-				cambios |= this->_hijos[0].eliminaIntrones(tipo);
-				cambios |= this->_hijos[1].eliminaIntrones(tipo);
+				cambios |= this->_hijos[0].eliminaIntrones(tipo, opValidas);
+				cambios |= this->_hijos[1].eliminaIntrones(tipo, opValidas);
 			}
 			break;
 		case Operacion::SiRango:
@@ -401,8 +403,8 @@ public:
 				cambios = true;
 			}
 			else {
-				cambios |= this->_hijos[0].eliminaIntrones(tipo);
-				cambios |= this->_hijos[1].eliminaIntrones(tipo);
+				cambios |= this->_hijos[0].eliminaIntrones(tipo, opValidas);
+				cambios |= this->_hijos[1].eliminaIntrones(tipo, opValidas);
 			}
 			break;
 		default:
@@ -486,51 +488,71 @@ public:
 		}
 	}
 public:
-	static Operacion getTerminalAleatorio(){
-		return (Operacion)myRandom::getRandom(7, 13);
+	static Operacion getTerminalAleatorio(std::set<Operacion> opValidas){
+		Operacion o;
+		do{
+			o = (Operacion)myRandom::getRandom(7, 13);
+		} while (opValidas.find(o) == opValidas.end());
+		return o;
 	}
 
-	static Operacion getNoTerminalAleatorio(){
-		return (Operacion)myRandom::getRandom(0, 6);
+	static Operacion getNoTerminalAleatorio(std::set<Operacion> opValidas){
+		Operacion o;
+		do{
+			o = (Operacion)myRandom::getRandom(0,6);
+		} while (opValidas.find(o) == opValidas.end());
+		return o;
 	}
 
-	static Operacion getElementoAleatorio(){
-		return (Operacion)myRandom::getRandom(0, 13);
+	static Operacion getElementoAleatorio(std::set<Operacion> opValidas){
+		Operacion o;
+		do{
+			o = (Operacion)myRandom::getRandom(0, 13);
+		} while (opValidas.find(o) == opValidas.end());
+		return o;
 	}
 
-	static Operacion getTerminalAleatorio(TipoArbol tipo){
-		if (tipo == Ataque){
-			return (Operacion)myRandom::getRandom(Operacion::BloquearN, Operacion::Curar);
-		}
-		else{// if (tipo == Patrulla){
-			return (Operacion)myRandom::getRandom(Operacion::CambiarEst, Operacion::GiraDer);
-		}
+	static Operacion getTerminalAleatorio(TipoArbol tipo, std::set<Operacion> opValidas){
+		Operacion o;
+		do{
+			if (tipo == Ataque){
+				o = (Operacion)myRandom::getRandom(Operacion::BloquearN, Operacion::Curar);
+			}
+			else{// if (tipo == Patrulla){
+				o = (Operacion)myRandom::getRandom(Operacion::CambiarEst, Operacion::GiraDer);
+			}
+		} while (opValidas.find(o) == opValidas.end());
+		return o;
 	}
 
-	static Operacion getNoTerminalAleatorio(TipoArbol tipo){
-		if (tipo == Ataque){
-			return (Operacion)myRandom::getRandom(Operacion::ProgN2, Operacion::VidaIA);
-		}
-		else{// if (tipo == Patrulla){
-			return (Operacion)myRandom::getRandom(Operacion::SiDetectado, Operacion::ProgN3);
-		}
+	static Operacion getNoTerminalAleatorio(TipoArbol tipo, std::set<Operacion> opValidas){
+		Operacion o;
+		do{
+			if (tipo == Ataque){
+				o = (Operacion)myRandom::getRandom(Operacion::ProgN2, Operacion::VidaIA);
+			}
+			else{// if (tipo == Patrulla){
+				o = (Operacion)myRandom::getRandom(Operacion::SiDetectado, Operacion::ProgN3);
+			}
+		} while (opValidas.find(o) == opValidas.end());
+		return o;
 	}
 
-	static Operacion getElementoAleatorio(TipoArbol tipo){
-		if (tipo == Ataque){
-			Operacion elem;
-			do{
-				elem = (Operacion)myRandom::getRandom(Operacion::ProgN2, Operacion::Curar);
-			} while (elem == Operacion::CambiarEst || elem == Operacion::Avanza || elem == Operacion::GiraDer || elem == Operacion::GiraIz);
-			return elem;
-		}
-		else{// if (tipo == Patrulla){
-			Operacion elem;
-			do{
-				elem = (Operacion)myRandom::getRandom(Operacion::SiDetectado, Operacion::GiraDer);
-			} while (elem == Operacion::VidaJugador || elem == Operacion::SiRango || elem == Operacion::VidaIA);
-			return elem;
-		}
+	static Operacion getElementoAleatorio(TipoArbol tipo, std::set<Operacion> opValidas){
+		Operacion elem;
+		do{
+			if (tipo == Ataque){
+				do{
+					elem = (Operacion)myRandom::getRandom(Operacion::ProgN2, Operacion::Curar);
+				} while (elem == Operacion::CambiarEst || elem == Operacion::Avanza || elem == Operacion::GiraDer || elem == Operacion::GiraIz);
+			}
+			else{// if (tipo == Patrulla){
+				do{
+					elem = (Operacion)myRandom::getRandom(Operacion::SiDetectado, Operacion::GiraDer);
+				} while (elem == Operacion::VidaJugador || elem == Operacion::SiRango || elem == Operacion::VidaIA);
+			}
+		} while (opValidas.find(elem) == opValidas.end());
+		return elem;
 	}
 
 

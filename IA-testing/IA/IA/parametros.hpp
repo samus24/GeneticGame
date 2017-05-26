@@ -1,6 +1,7 @@
 #ifndef PARAMETROS_HPP
 #define PARAMETROS_HPP
 
+#include "Nodo.hpp"
 #include "metodoCruce.hpp"
 #include "metodoMutacion.hpp"
 #include "metodoSeleccion.hpp"
@@ -23,6 +24,7 @@ public:
 	metodoSeleccion* seleccion;
 
 	bool paralelizar;
+	std::set<Operacion> opValidas;
 
 	Parametros(){
 
@@ -49,6 +51,18 @@ public:
 		this->mutacion = mutacion;
 		this->seleccion = seleccion;
 		this->paralelizar = paralelizar;
+	}
+
+	void addOp(Operacion o){
+		opValidas.insert(o);
+	}
+
+	bool delOp(Operacion o){
+		if (opValidas.find(o) != opValidas.end()){
+			opValidas.erase(o);
+			return true;
+		}
+		return false;
 	}
 };
 

@@ -31,9 +31,9 @@ public:
 		_descartado = false;
 	}
 
-	Cromosoma(int profMin, int profMax) {
-		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
-		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
+	Cromosoma(int profMin, int profMax, std::set<Operacion> opValidas) {
+		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla, opValidas);
+		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque, opValidas);
 		double pesos[6] = { 0.2, 0.1, 0.35, 0.05, 0.2, 0.05 };
 		for (size_t i = 0; i < 6; ++i){
 			_pesos[i] = pesos[i];
@@ -43,9 +43,9 @@ public:
 		_descartado = false;
 	}
 
-	void crear(int profMin, int profMax){
-		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla);
-		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque);
+	void crear(int profMin, int profMax, std::set<Operacion> opValidas){
+		this->_genotipo[0].creaArbolAleatorio(profMin, profMax, TipoArbol::Patrulla, opValidas);
+		this->_genotipo[1].creaArbolAleatorio(profMin, profMax, TipoArbol::Ataque, opValidas);
 		double pesos[6] = { 0.2, 0.1, 0.35, 0.05, 0.2, 0.05 };
 		for (size_t i = 0; i < 6; ++i){
 			_pesos[i] = pesos[i];
@@ -96,10 +96,10 @@ public:
 		return _genotipo[pos].getNodoFuncionAleatorio();
 	}
 
-	bool bloating(int prof) {
+	bool bloating(int prof, std::set<Operacion> opValidas) {
 		bool cambios = false;
 		for (std::size_t i = 0; i < 2; ++i) {
-			cambios |= _genotipo[i].bloating(prof, (TipoArbol)i);
+			cambios |= _genotipo[i].bloating(prof, (TipoArbol)i, opValidas);
 		}
 		return cambios;
 	}
@@ -154,10 +154,10 @@ public:
 		return _adaptacion;
 	}
 
-	bool eliminaIntrones() {
+	bool eliminaIntrones(std::set<Operacion> opValidas) {
 		bool cambios = false;
 		for (std::size_t i = 0; i < 2; ++i) {
-			cambios |= _genotipo[i].eliminaIntrones((TipoArbol)i);
+			cambios |= _genotipo[i].eliminaIntrones((TipoArbol)i, opValidas);
 		}
 		return cambios;
 	}

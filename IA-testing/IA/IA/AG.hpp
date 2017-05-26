@@ -42,7 +42,7 @@ public:
 		_crono.iniciaMedida("global", std::chrono::high_resolution_clock::now());
 
 		_crono.iniciaMedida("init", std::chrono::high_resolution_clock::now());
-		_pob.generaPoblacionAleatoria(_param.tamPob, _param.minNodos, _param.maxNodos);
+		_pob.generaPoblacionAleatoria(_param.tamPob, _param.minNodos, _param.maxNodos, _param.opValidas);
 		_crono.finalizaMedida("init", std::chrono::high_resolution_clock::now());
 		for (size_t i = 0; i < _obsCrom.size(); ++i){
 			_pob.addCromosomaObserver(*_obsCrom.at(i));
@@ -81,10 +81,10 @@ public:
 			_crono.finalizaMedida("mutacion", std::chrono::high_resolution_clock::now());
 
 			if (_param.bloating){
-				_pob.bloating(_param.maxNodos, _marcados);
+				_pob.bloating(_param.maxNodos, _marcados, _param.opValidas);
 			}
 
-			_pob.eliminaIntrones(_marcados);
+			_pob.eliminaIntrones(_marcados, _param.opValidas);
 
 			std::cout << "Hay " << _marcados.size() << " marcados en la generacion " << _generacion << std::endl;
 
@@ -254,7 +254,7 @@ private:
 
 		for (int i = 0; i < actualPos; ++i){
 			_marcados.insert(seleccionados[i]);
-			_param.mutacion->mutar(&_pob.individuos[seleccionados[i]], tipo);
+			_param.mutacion->mutar(&_pob.individuos[seleccionados[i]], tipo, _param.opValidas);
 		}
 	}
 
