@@ -177,6 +177,11 @@ public:
 
 	void onAGTerminado(Cromosoma mejor, double total, double tmSel, double tmCruce, double tmMut, double tInit, double tmEval, poblacion pob){
 		sf::Lock lock(_mutex);
+		Arbol arbPatrulla = mejor.getGenotipo(0);
+		Arbol arbAtaque = mejor.getGenotipo(1);
+		_visorPatrulla.update(arbPatrulla, TipoArbol::Patrulla);
+		_visorAtaque.update(arbAtaque, TipoArbol::Ataque);
+
 		_mejor = mejor;
 		_plotter.setEjeX(_ejeX);
 

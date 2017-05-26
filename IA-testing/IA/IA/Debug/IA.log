@@ -1,4 +1,4 @@
-﻿Build started 26/05/2017 11:54:53.
+﻿Build started 26/05/2017 12:00:00.
      1>Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CheckButton.cpp main.cpp ScrollBar.cpp
@@ -176,4 +176,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.35
+Time Elapsed 00:00:04.46
