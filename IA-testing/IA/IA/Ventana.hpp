@@ -26,9 +26,10 @@ public:
 		_tabPane(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, 25)),
 		_plotter(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_logger(sf::Vector2f(_window.getSize().x * 0.8, 75), sf::Vector2f(_window.getSize().x * 0.19, 400)),
-		_botonRun(sf::Vector2f(_window.getSize().x * 0.8, 10), sf::Vector2f(100, 50), "RUN", sf::Color(100, 200, 200)),
-		_botonSim(sf::Vector2f(_window.getSize().x * 0.8 + 110, 10), sf::Vector2f(100, 50), "VER SIM", sf::Color(120, 10, 10)),
-		_progress(sf::Vector2f(_window.getSize().x *0.8, 550), sf::Vector2f(_window.getSize().x * 0.1, 30)),
+		_botonRun(sf::Vector2f(_window.getSize().x * 0.8, 10), sf::Vector2f(_window.getSize().x * 0.07, 50), "RUN", sf::Color(100, 200, 200)),
+		_botonSim(sf::Vector2f(_window.getSize().x * 0.88, 10), sf::Vector2f(_window.getSize().x * 0.07, 50), "VER SIM", sf::Color(120, 10, 10)),
+		_botonSave(sf::Vector2f(_window.getSize().x * 0.8, 500), sf::Vector2f(_window.getSize().x * 0.07, 50), "SAVE", sf::Color(120, 10, 10)),
+		_progress(sf::Vector2f(_window.getSize().x *0.8, _window.getSize().y *0.8), sf::Vector2f(_window.getSize().x * 0.1, 30)),
 		_simViewer(sf::Vector2f(0, 0), sf::Vector2f(_window.getSize().x * 0.75, _window.getSize().y)),
 		_visorPatrulla(sf::Vector2f(20, 20), sf::Vector2f(800-40, 400)),
 		_visorAtaque(sf::Vector2f(20, 420), sf::Vector2f(800-40, 400)),
@@ -36,6 +37,7 @@ public:
 		_hiloAG(&Ventana::ejecutaAG, this),
 		_hiloParam(&Ventana::ventanaParam, this)
 	{
+		save = false;
 		_font.loadFromFile("arial.ttf");
 		_ctrl = &c;
 		_generacion = 0;
@@ -51,6 +53,8 @@ public:
 		_labelAux.setPosition(sf::Vector2f(200, 0));
 		_labelAux.setString("<-- Seleccionar la pestaña SimView para ver TODAS las evaluaciones (con boton VER SIM activado)\nPulsar E al finalizar para ver evaluacion del mejor");
 		_labelAux.setCharacterSize(14);
+
+		tx.create(_windowTrees.getSize().x, _windowTrees.getSize().y);
 
 		_windowParam.setActive(false);
 		_hiloParam.launch();
@@ -89,6 +93,7 @@ public:
 					sf::Vector2f point = sf::Vector2f(sf::Mouse::getPosition(_window));
 					if (_botonRun.contains(point)){
 						if (!running){
+							_botonSave.setColor(sf::Color(120, 10, 10));
 							_plotter.removeAllData();
 							_ejeX.clear();
 							_valorMedia.clear();
@@ -103,6 +108,12 @@ public:
 							_ctrl->setParametros(p);
 							_hiloAG.launch();
 							_nuevo = true;
+						}
+					}
+					else if (_botonSave.contains(point)){
+						if (_botonSave.getColor() != sf::Color(120, 10, 10)){
+							save = true;
+							_logger.append("Resultados guardados\n");
 						}
 					}
 					else if (_botonSim.contains(point)){
@@ -130,6 +141,7 @@ public:
 					}
 					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
 						if (!running){
+							_botonSave.setColor(sf::Color(120, 10, 10));
 							_plotter.removeAllData();
 							_ejeX.clear();
 							_valorMedia.clear();
@@ -153,6 +165,7 @@ public:
 			_window.draw(_logger);
 			_window.draw(_botonRun);
 			_window.draw(_botonSim);
+			_window.draw(_botonSave);
 			_window.draw(_progress);
 			_window.draw(_tabPane);
 			_window.draw(_labelAux);
@@ -204,34 +217,7 @@ public:
 		
 		finalizada = true;
 
-		time_t t = time(0);   // get time now
-		struct tm now;
-		localtime_s(&now, &t);
-
-		std::string date = "[" + std::to_string(now.tm_year + 1900) + "-" + std::to_string(now.tm_mon + 1) + "-" + std::to_string(now.tm_mday) + "][" + std::to_string(now.tm_hour) + "-" + std::to_string(now.tm_min) + "-" + std::to_string(now.tm_sec) + "]";
-		std::string pathPlotter = "Resultados/" + date + "grafica.png";
-		std::string pathArbol = "Resultados/" + date + "arbol.png";
-
 		_ventParam.setLocked(false);
-
-		/*
-		sf::Texture tx;
-		tx.create(_windowTrees.getSize().x, _windowTrees.getSize().y);
-		_visorPatrulla.update(mejor.getGenotipo(0), TipoArbol::Patrulla);
-		_visorAtaque.update(mejor.getGenotipo(1), TipoArbol::Ataque);
-
-		_windowTrees.clear(sf::Color::White);
-		_windowTrees.draw(_plotter);
-		tx.update(_windowTrees);
-		sf::Image imPlotter = tx.copyToImage();
-		imPlotter.saveToFile(pathPlotter);
-
-		_windowTrees.clear(sf::Color::White);
-		_windowTrees.draw(_visorPatrulla);
-		_windowTrees.draw(visorArbolA);
-		tx.update(_windowTrees);
-		sf::Image imArbol = tx.copyToImage();
-		imArbol.saveToFile(pathArbol);*/
 	}
 
 	void onSimulacionIniciada(const Cromosoma* c){
@@ -279,11 +265,35 @@ private:
 		_windowTrees.clear(sf::Color(127,127,127));
 		while (_window.isOpen())
 		{
+			_windowTrees.setActive(!finalizada);
 			_windowTrees.setVisible(finalizada);
 			sf::Event event;
 			while (_windowTrees.pollEvent(event));
 
 			sf::Lock lock(_mutex);
+			if (save){
+				time_t t = time(0);   // get time now
+				struct tm now;
+				localtime_s(&now, &t);
+
+				std::string date = "[" + std::to_string(now.tm_year + 1900) + "-" + std::to_string(now.tm_mon + 1) + "-" + std::to_string(now.tm_mday) + "][" + std::to_string(now.tm_hour) + "-" + std::to_string(now.tm_min) + "-" + std::to_string(now.tm_sec) + "]";
+				std::string pathPlotter = "Resultados/" + date + "grafica.png";
+				std::string pathArbol = "Resultados/" + date + "arbol.png";
+				_windowTrees.clear(sf::Color::White);
+				_windowTrees.draw(_plotter);
+				tx.update(_windowTrees);
+				sf::Image imPlotter = tx.copyToImage();
+				imPlotter.saveToFile(pathPlotter);
+
+				_windowTrees.clear(sf::Color::White);
+				_windowTrees.draw(_visorPatrulla);
+				_windowTrees.draw(_visorAtaque);
+				tx.update(_windowTrees);
+				sf::Image imArbol = tx.copyToImage();
+				imArbol.saveToFile(pathArbol);
+				_windowTrees.setActive(false);
+				save = false;
+			}
 			_windowTrees.clear(sf::Color(127, 127, 127));
 			_windowTrees.draw(_visorPatrulla);
 			_windowTrees.draw(_visorAtaque);
@@ -317,6 +327,7 @@ private:
 			running = true;
 			_ctrl->run();
 			running = false;
+			_botonSave.setColor(sf::Color(100, 200, 200));
 		}
 	}
 
@@ -330,6 +341,7 @@ private:
 	Logger _logger;
 	TextButton _botonRun;
 	TextButton _botonSim;
+	TextButton _botonSave;
 	SimulationViewer _simViewer;
 	Cromosoma _mejor;
 	Controlador* _ctrl;
@@ -343,6 +355,8 @@ private:
 	TreeViewer _visorPatrulla;
 	TreeViewer _visorAtaque;
 
+	sf::Texture tx;
+
 	sf::Text _labelAux;
 
 	sf::Thread _hiloParam;
@@ -354,6 +368,7 @@ private:
 	bool running;
 
 	bool finalizada;
+	bool save;
 };
 
 #endif
