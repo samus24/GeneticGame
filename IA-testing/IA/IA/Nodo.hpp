@@ -233,8 +233,10 @@ public:
 
 	bool eliminaIntrones(TipoArbol tipo, std::set<Operacion> opValidas) {
 		bool cambios = false;
+		Operacion padre;
 		Operacion hijoA;
 		Operacion hijoB;
+		Operacion hijoC;
 		bool esTerminal;
 		switch (this->_elem) {
 		case Operacion::Atacar:
@@ -286,6 +288,12 @@ public:
 					cambios = true;
 				}
 			}
+			else if (hijoA == Operacion::CambiarEst) {
+				this->_elem = Operacion::CambiarEst;
+				this->_hijos = nullptr;
+				this->_nHijos = 0;
+				cambios = true;
+			}
 			else {
 				cambios |= this->_hijos[0].eliminaIntrones(tipo, opValidas);
 				cambios |= this->_hijos[1].eliminaIntrones(tipo, opValidas);
@@ -330,6 +338,12 @@ public:
 				hijo->setNhijos(nieto->getNhijos());
 				hijo->setNumNodos(nieto->getNumNodos());
 				hijo->setHijos(nieto->getHijos());
+				cambios = true;
+			}
+			else if (hijoA == Operacion::CambiarEst) {
+				this->_elem = Operacion::CambiarEst;
+				this->_hijos = nullptr;
+				this->_nHijos = 0;
 				cambios = true;
 			}
 			else {
@@ -407,6 +421,39 @@ public:
 				cambios |= this->_hijos[1].eliminaIntrones(tipo, opValidas);
 			}
 			break;
+		case Operacion::VidaIA:
+		case Operacion::VidaJugador:
+			padre = this->_elem;
+			hijoA = this->_hijos[0]._elem;
+			hijoB = this->_hijos[1]._elem;
+			hijoC = this->_hijos[2]._elem;
+			if (padre == hijoA){
+				Nodo* hijo = &this->_hijos[0];
+				Nodo *nieto = &hijo->getHijos()[0];
+				hijo->setElem(nieto->getElem());
+				hijo->setNhijos(nieto->getNhijos());
+				hijo->setNumNodos(nieto->getNumNodos());
+				hijo->setHijos(nieto->getHijos());
+				cambios = true;
+			}
+			if (padre == hijoB){
+				Nodo* hijo = &this->_hijos[1];
+				Nodo *nieto = &hijo->getHijos()[1];
+				hijo->setElem(nieto->getElem());
+				hijo->setNhijos(nieto->getNhijos());
+				hijo->setNumNodos(nieto->getNumNodos());
+				hijo->setHijos(nieto->getHijos());
+				cambios = true;
+			}
+			if (padre == hijoC){
+				Nodo* hijo = &this->_hijos[2];
+				Nodo *nieto = &hijo->getHijos()[2];
+				hijo->setElem(nieto->getElem());
+				hijo->setNhijos(nieto->getNhijos());
+				hijo->setNumNodos(nieto->getNumNodos());
+				hijo->setHijos(nieto->getHijos());
+				cambios = true;
+			}
 		default:
 			break;
 		}

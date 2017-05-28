@@ -1,0 +1,65 @@
+
+
+NUEVA EJECUCION
+Gen 0:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+ -- AG Finalizado --
+Mejor individuo: 0.000000
+Arbol patrulla: ProgN3[0], SiBloqueado[1], SiBloqueado[2], Avanza[3], CambiarEst[4], Avanza[5], SiBloqueado[6], ProgN2[7], Avanza[8], GiraIz[9], ProgN3[10], GiraIz[11], ProgN2[12], SiBloqueado[13], SiDetectado[14], CambiarEst[15], CambiarEst[16], CambiarEst[17], Avanza[18], GiraIz[19], GiraIz[20]
+Arbol ataque: ProgN2[0], VidaIA[1], VidaJugador[2], Alejar[3], Curar[4], ProgN2[5], Curar[6], ProgN3[7], Curar[8], Atacar[9], BloquearN[10], Acercar[11], VidaJugador[12], VidaJugador[13], Acercar[14], BloquearN[15], Acercar[16], BloquearN[17], Atacar[18], BloquearN[19]
+
+Notas
+Punt. exploracion: 0.000000
+Punt. Ataque: 0.000000
+Punt. Distancia: 0.000000
+Punt. turnos golpeo: 0.000000
+Tiempos de ejecucion
+Tiempo total de ej: 10.897623 seg
+Tiempo inicializacion: 56.003200 ms
+Tiempo medio seleccion: 1.000100 ms
+Tiempo medio cruce: 3.000200 ms
+Tiempo medio mutacion: 8.000400 ms
+Tiempo medio evaluacion: 5.373807 seg
+
+
+Datos de Poblacion
+Individuo 0: 0.000000
+Arbol patrulla: ProgN2[0], ProgN3[1], ProgN3[2], GiraDer[3], SiBloqueado[4], Avanza[5], GiraIz[6], GiraDer[7], GiraDer[8], GiraIz[9], GiraDer[10]
+Arbol ataque: VidaIA[0], ProgN3[1], Acercar[2], BloquearN[3], ProgN3[4], VidaIA[5], Alejar[6], ProgN3[7], Curar[8], Curar[9], VidaJugador[10], BloquearN[11], VidaIA[12], Curar[13], BloquearN[14], BloquearN[15], VidaIA[16], BloquearN[17], Curar[18], Curar[19], Curar[20], ProgN3[21], Atacar[22], Alejar[23], Atacar[24], Alejar[25], BloquearN[26], Curar[27]
+
+Individuo 1: 0.000000
+Arbol patrulla: SiBloqueado[0], ProgN2[1], SiDetectado[2], GiraIz[3], Avanza[4], ProgN2[5], GiraDer[6], GiraDer[7], ProgN2[8], Avanza[9], ProgN3[10], Avanza[11], Avanza[12], GiraIz[13]
+Arbol ataque: VidaJugador[0], VidaIA[1], BloquearN[2], VidaIA[3], Acercar[4], Curar[5], ProgN3[6], VidaIA[7], Atacar[8], ProgN2[9], Atacar[10], ProgN3[11], Atacar[12], Acercar[13], Alejar[14], Curar[15], BloquearN[16], Acercar[17], VidaIA[18], Atacar[19], ProgN2[20], Alejar[21], Atacar[22], Curar[23], Curar[24], Acercar[25]
+
+Individuo 2: 0.000000
+Arbol patrulla: ProgN2[0], ProgN3[1], ProgN3[2], GiraDer[3], SiBloqueado[4], Avanza[5], ProgN3[6], GiraDer[7], GiraDer[8], GiraIz[9], GiraDer[10], GiraIz[11], SiDetectado[12], GiraIz[13], ProgN3[14], GiraDer[15], CambiarEst[16], GiraDer[17], CambiarEst[18]
+Arbol ataque: VidaIA[0], ProgN3[1], Acercar[2], BloquearN[3], ProgN3[4], VidaIA[5], Alejar[6], ProgN3[7], Curar[8], Curar[9], VidaJugador[10], BloquearN[11], VidaIA[12], Curar[13], BloquearN[14], BloquearN[15], VidaIA[16], BloquearN[17], Curar[18], Curar[19], Curar[20], Curar[21], Acercar[22], Acercar[23], BloquearN[24]
+
+Individuo 3: 0.000000
+Arbol patrulla: ProgN3[0], SiBloqueado[1], SiBloqueado[2], Avanza[3], CambiarEst[4], Avanza[5], Avanza[6], SiBloqueado[7], GiraDer[8], Avanza[9]
+Arbol ataque: ProgN2[0], VidaIA[1], VidaJugador[2], Alejar[3], Curar[4], ProgN2[5], ProgN3[6], ProgN3[7], Curar[8], Atacar[9], BloquearN[10], Alejar[11], Curar[12], Atacar[13], Acercar[14], VidaJugador[15], VidaJugador[16], Acercar[17], BloquearN[18], Acercar[19], BloquearN[20], Atacar[21], BloquearN[22]
+
+Individuo 4: 0.000000
+Arbol patrulla: SiBloqueado[0], SiDetectado[1], SiDetectado[2], Avanza[3], ProgN2[4], GiraDer[5], ProgN2[6], Avanza[7], CambiarEst[8], ProgN3[9], CambiarEst[10], GiraIz[11], GiraDer[12], CambiarEst[13]
+Arbol ataque: ProgN3[0], ProgN2[1], ProgN2[2], Atacar[3], Alejar[4], BloquearN[5], VidaJugador[6], VidaJugador[7], ProgN3[8], SiRango[9], Acercar[10], ProgN2[11], VidaIA[12], VidaIA[13], Atacar[14], ProgN3[15], VidaJugador[16], Alejar[17], BloquearN[18], Curar[19], BloquearN[20], Alejar[21], Alejar[22], BloquearN[23], Curar[24], BloquearN[25], Acercar[26], Acercar[27], BloquearN[28], Atacar[29], BloquearN[30], Curar[31], Acercar[32]
+
+Individuo 5: 0.000000
+Arbol patrulla: ProgN2[0], SiDetectado[1], Avanza[2], GiraDer[3], SiBloqueado[4], SiDetectado[5], Avanza[6], ProgN2[7], GiraDer[8], Avanza[9], CambiarEst[10]
+Arbol ataque: ProgN3[0], SiRango[1], VidaJugador[2], VidaJugador[3], ProgN2[4], BloquearN[5], SiRango[6], VidaIA[7], Atacar[8], VidaIA[9], SiRango[10], SiRango[11], SiRango[12], Acercar[13], ProgN2[14], Atacar[15], Curar[16], SiRango[17], Alejar[18], ProgN3[19], Alejar[20], BloquearN[21], ProgN2[22], Acercar[23], Curar[24], Alejar[25], Acercar[26], Acercar[27], Curar[28], VidaIA[29], Alejar[30], Acercar[31], Alejar[32], Acercar[33], Alejar[34], Acercar[35], Atacar[36], Atacar[37], Curar[38], BloquearN[39]
+
+Individuo 6: 0.000000
+Arbol patrulla: SiDetectado[0], ProgN3[1], SiDetectado[2], ProgN2[3], GiraDer[4], CambiarEst[5], GiraIz[6], SiDetectado[7], Avanza[8], GiraDer[9], GiraIz[10], Avanza[11]
+Arbol ataque: VidaJugador[0], ProgN3[1], BloquearN[2], ProgN3[3], VidaJugador[4], VidaIA[5], SiRango[6], BloquearN[7], BloquearN[8], Alejar[9], VidaJugador[10], VidaIA[11], ProgN3[12], BloquearN[13], Atacar[14], Curar[15], Acercar[16], Atacar[17], VidaJugador[18], Atacar[19], VidaIA[20], Curar[21], Atacar[22], Alejar[23], Atacar[24], Alejar[25], Alejar[26], BloquearN[27], Atacar[28], Atacar[29], Alejar[30], Atacar[31], Atacar[32]
+
+Individuo 7: 0.000000
+Arbol patrulla: SiBloqueado[0], ProgN2[1], Avanza[2], SiDetectado[3], CambiarEst[4], GiraDer[5], GiraIz[6]
+Arbol ataque: ProgN2[0], ProgN3[1], VidaIA[2], Atacar[3], VidaJugador[4], Atacar[5], Atacar[6], ProgN2[7], ProgN2[8], SiRango[9], Alejar[10], Alejar[11], SiRango[12], VidaIA[13], BloquearN[14], BloquearN[15], BloquearN[16], VidaJugador[17], BloquearN[18], Alejar[19], SiRango[20], VidaJugador[21], Curar[22], Acercar[23], Curar[24], Atacar[25], Acercar[26], Curar[27], BloquearN[28], Curar[29], Atacar[30]
+
+Individuo 8: 0.000000
+Arbol patrulla: SiBloqueado[0], ProgN2[1], Avanza[2], ProgN3[3], CambiarEst[4], ProgN3[5], GiraDer[6], CambiarEst[7], ProgN2[8], GiraDer[9], CambiarEst[10], CambiarEst[11], GiraIz[12]
+Arbol ataque: ProgN2[0], ProgN3[1], VidaIA[2], Atacar[3], VidaJugador[4], Atacar[5], Atacar[6], ProgN2[7], ProgN2[8], SiRango[9], Alejar[10], Alejar[11], SiRango[12], ProgN3[13], BloquearN[14], BloquearN[15], BloquearN[16], VidaJugador[17], BloquearN[18], Alejar[19], BloquearN[20], BloquearN[21], Acercar[22], Atacar[23], Curar[24], Curar[25]
+
+Individuo 9: 0.000000
+Arbol patrulla: SiBloqueado[0], ProgN2[1], Avanza[2], ProgN2[3], CambiarEst[4], Avanza[5], GiraDer[6]
+Arbol ataque: ProgN2[0], ProgN3[1], VidaIA[2], Atacar[3], VidaJugador[4], Atacar[5], Atacar[6], ProgN2[7], ProgN2[8], SiRango[9], Alejar[10], Alejar[11], SiRango[12], ProgN3[13], BloquearN[14], BloquearN[15], BloquearN[16], VidaJugador[17], BloquearN[18], Alejar[19], BloquearN[20], BloquearN[21], Acercar[22], Curar[23], Alejar[24], Alejar[25]
+

@@ -1,181 +1,182 @@
-﻿Build started 26/05/2017 12:39:21.
-     1>Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" on node 2 (Rebuild target(s)).
+﻿Compilación iniciada a las 29/05/2017 0:01:41.
+     1>Proyecto "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" en el nodo 2 (Rebuild destinos).
      1>ClCompile:
-         C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CheckButton.cpp main.cpp ScrollBar.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CheckButton.cpp main.cpp ScrollBar.cpp
          ScrollBar.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\scrollbar.cpp(73): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\scrollbar.cpp(73): warning C4244: 'return' : conversión de 'float' a 'int'; posible pérdida de datos
          main.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(80): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(82): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(145): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(170): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(171): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(136): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(164): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(227): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(418): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(451): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(457): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(475): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(485): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(65): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(70): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(120): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(138): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(180): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(198): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(297): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(201): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(445): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(453): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(524): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(525): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(540): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(541): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(576): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(584): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(22): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(28): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(46): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(54): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(62): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(22): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(32): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(49): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(58): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(75): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(124): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ag.hpp(65): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ag.hpp(102): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(105): warning C4018: '<=' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(106): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(107): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(111): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(112): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(144): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\progressbar.hpp(15): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\progressbar.hpp(45): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\progressbar.hpp(56): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(26): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(27): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(29): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(30): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(31): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(44): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(46): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(87): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(88): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(93): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(128): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\tabpane.hpp(15): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\tabpane.hpp(22): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\tabpane.hpp(23): warning C4244: '+=' : conversion from 'const float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(27): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(75): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(76): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(78): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(79): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(80): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(83): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(89): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(97): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(178): warning C4244: 'initializing' : conversion from 'const float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(189): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(190): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(212): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(212): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(213): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(214): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(217): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(217): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(218): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(219): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(222): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(222): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(223): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(224): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(227): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(227): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(228): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(229): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(232): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(233): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(240): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(240): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(246): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(246): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(247): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(248): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(251): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(251): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(252): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(253): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(256): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(256): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(257): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(258): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(261): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(261): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(262): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(263): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(266): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(266): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(293): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(294): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(295): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(296): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\textfield.hpp(22): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\textfield.hpp(29): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\textfield.hpp(37): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\textfield.hpp(43): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\checkbutton.hpp(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(24): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(28): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(35): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(42): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(51): warning C4244: '=' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(94): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(107): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(115): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(125): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(129): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(133): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(137): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(140): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(143): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(146): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(150): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(154): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(161): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(168): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(175): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(330): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(340): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(350): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(26): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(27): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(27): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(28): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(29): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(30): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(31): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(32): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(32): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\filelogger.hpp(62): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(80): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(82): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(145): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(170): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\mapa.hpp(171): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(136): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(164): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(227): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(465): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(498): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(504): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(522): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\nodo.hpp(532): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(65): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(70): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(120): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(138): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(180): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(198): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\arbol.hpp(297): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(201): warning C4244: 'inicializando' : conversión de 'double' a 'int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(445): warning C4018: '>' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(453): warning C4018: '>' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(524): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(525): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(540): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(541): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(576): warning C4018: '>' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\cromosoma.hpp(584): warning C4018: '>' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(22): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(28): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(46): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(54): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\poblacion.hpp(62): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(22): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(32): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(49): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(58): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(75): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\metodoseleccion.hpp(124): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ag.hpp(66): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ag.hpp(103): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(105): warning C4018: '<=' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(106): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(107): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(111): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(112): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\plotter.hpp(144): warning C4244: 'argumento' : conversión de 'const double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\progressbar.hpp(15): warning C4244: 'inicializando' : conversión de 'double' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\progressbar.hpp(45): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\progressbar.hpp(56): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(26): warning C4244: 'argumento' : conversión de 'const unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(27): warning C4244: 'argumento' : conversión de 'const unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(29): warning C4244: 'inicializando' : conversión de 'double' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(30): warning C4244: 'argumento' : conversión de 'const unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(31): warning C4244: 'argumento' : conversión de 'const unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(44): warning C4244: '=' : conversión de 'float' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(46): warning C4244: '=' : conversión de 'double' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(87): warning C4244: 'inicializando' : conversión de 'double' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(88): warning C4244: '=' : conversión de 'double' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(93): warning C4244: '=' : conversión de 'float' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\logger.hpp(128): warning C4244: 'inicializando' : conversión de 'double' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\tabpane.hpp(15): warning C4244: '=' : conversión de 'float' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\tabpane.hpp(22): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\tabpane.hpp(23): warning C4244: '+=' : conversión de 'const float' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(27): warning C4244: 'argumento' : conversión de 'float' a 'int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(75): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(76): warning C4244: 'inicializando' : conversión de 'double' a 'int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(78): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(79): warning C4244: 'inicializando' : conversión de 'float' a 'int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(80): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(83): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\treeviewer.hpp(89): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(97): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(178): warning C4244: 'inicializando' : conversión de 'const float' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(189): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(190): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(212): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(212): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(213): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(214): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(217): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(217): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(218): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(219): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(222): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(222): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(223): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(224): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(227): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(227): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(228): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(229): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(232): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(233): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(240): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(240): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(246): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(246): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(247): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(248): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(251): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(251): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(252): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(253): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(256): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(256): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(257): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(258): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(261): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(261): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(262): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(263): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(266): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(266): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(293): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(294): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(295): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\simulationviewer.hpp(296): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\textfield.hpp(22): warning C4244: '=' : conversión de 'float' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\textfield.hpp(29): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\textfield.hpp(37): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\textfield.hpp(43): warning C4244: '=' : conversión de 'float' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\checkbutton.hpp(3): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(24): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(28): warning C4244: '=' : conversión de 'float' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(35): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(42): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\combobox.hpp(51): warning C4244: '=' : conversión de 'float' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(94): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(107): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(115): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(125): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(129): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(133): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(137): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(140): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(143): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(146): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(150): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(154): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(161): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(168): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(175): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(330): warning C4018: '>=' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(340): warning C4018: '>=' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventanaparametros.hpp(350): warning C4018: '>=' : no coinciden signed/unsigned
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(26): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(27): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(27): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(28): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(29): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(30): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(31): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(32): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(33): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\ventana.hpp(33): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\filelogger.hpp(62): warning C4018: '<' : no coinciden signed/unsigned
          CheckButton.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\checkbutton.hpp(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\checkbutton.cpp(6): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\checkbutton.cpp(7): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\checkbutton.cpp(20): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\ia-testing\ia\ia\checkbutton.cpp(57): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-         Generating Code...
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\checkbutton.hpp(3): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\checkbutton.cpp(6): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\checkbutton.cpp(7): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\checkbutton.cpp(20): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\alvaro\documents\github\geneticgame\ia-testing\ia\ia\checkbutton.cpp(57): warning C4244: 'argumento' : conversión de 'double' a 'float'; posible pérdida de datos
+         Generando código...
        Link:
-         C:\software\programacion\MSVStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.exe" /INCREMENTAL /NOLOGO "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-graphics-d.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-window-d.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisfile.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisenc.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbis.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\openal32.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\ogg.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\jpeg.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\freetype.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\flac.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-system-d.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\sfml-main-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.lib" /MACHINE:X86 Debug\CheckButton.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.exe" /INCREMENTAL /NOLOGO "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-graphics-d.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-window.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-window-d.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisfile.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisenc.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbis.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\openal32.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\ogg.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\jpeg.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\freetype.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\flac.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-system-d.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\sfml-main-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.lib" /MACHINE:X86 Debug\CheckButton.obj
          Debug\main.obj
          Debug\ScrollBar.obj
-         IA.vcxproj -> C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.exe
-     1>Done Building Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" (Rebuild target(s)).
+         IA.vcxproj -> C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\Debug\IA.exe
+     1>Compilación del proyecto terminada "C:\Users\Alvaro\Documents\GitHub\GeneticGame\IA-testing\IA\IA\IA.vcxproj" (Rebuild destinos).
 
-Build succeeded.
+Compilación correcta.
 
-Time Elapsed 00:00:04.31
+Tiempo transcurrido 00:00:04.66

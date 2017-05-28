@@ -50,6 +50,7 @@ public:
 		_crono.iniciaMedida("evalua", std::chrono::high_resolution_clock::now());
 		_pob.evalua(maps, _param.paralelizar);
 		_crono.finalizaMedida("evalua", std::chrono::high_resolution_clock::now());
+		_pob.individuos[0].getCopia(_elMejor);
 
 		mediaAnterior = evaluarPoblacion();
 
