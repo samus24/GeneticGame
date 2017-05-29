@@ -300,9 +300,18 @@ public:
 			}
 			break;
 		case Operacion::ProgN3:
-			cambios |= this->_hijos[0].eliminaIntrones(tipo, opValidas);
-			cambios |= this->_hijos[1].eliminaIntrones(tipo, opValidas);
-			cambios |= this->_hijos[2].eliminaIntrones(tipo, opValidas);
+			hijoA = this->_hijos[0]._elem;
+			if (hijoA == Operacion::CambiarEst) {
+				this->_elem = Operacion::CambiarEst;
+				this->_hijos = nullptr;
+				this->_nHijos = 0;
+				cambios = true;
+			}
+			else{
+				cambios |= this->_hijos[0].eliminaIntrones(tipo, opValidas);
+				cambios |= this->_hijos[1].eliminaIntrones(tipo, opValidas);
+				cambios |= this->_hijos[2].eliminaIntrones(tipo, opValidas);
+			}
 			break;
 			/*case Operacion::ProgN4:
 			this->_hijos[0].eliminaIntrones();
@@ -340,12 +349,7 @@ public:
 				hijo->setHijos(nieto->getHijos());
 				cambios = true;
 			}
-			else if (hijoA == Operacion::CambiarEst) {
-				this->_elem = Operacion::CambiarEst;
-				this->_hijos = nullptr;
-				this->_nHijos = 0;
-				cambios = true;
-			}
+			
 			else {
 				cambios |= this->_hijos[0].eliminaIntrones(tipo, opValidas);
 				cambios |= this->_hijos[1].eliminaIntrones(tipo, opValidas);
