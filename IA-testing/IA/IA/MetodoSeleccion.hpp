@@ -32,6 +32,7 @@ class seleccionEstocastica : public metodoSeleccion {
 		for (std::size_t i = 0; i < pob->_tam; ++i) {
 			pob->individuos[seleccionados[i]].getCopia(nuevaPob[i]);
 		}
+		delete[] pob->individuos;
 		pob->individuos = nuevaPob;
 	}
 
@@ -124,6 +125,7 @@ class seleccionTorneo : public metodoSeleccion {
 		for (std::size_t i = 0; i < pob->_tam; ++i) {
 			pob->individuos[seleccionados[i]].getCopia(nuevaPob[i]);
 		}
+		delete[] pob->individuos;
 		pob->individuos = nuevaPob;
 	}
 

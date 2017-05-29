@@ -24,15 +24,15 @@ public:
 		}
 	}
 
-	void evalua(std::vector<Mapa> m, bool paralelizar) {
+	void evalua(std::vector<Mapa> m, bool paralelizar, std::vector<ICromosomaObserver*> _obs) {
 		for (std::size_t i = 0; i < _tam; ++i) {
-			this->individuos[i].evalua(m, paralelizar);
+			this->individuos[i].evalua(m, paralelizar, _obs);
 		}
 	}
 
-	void evaluaMarcados(std::vector<Mapa> m, std::set<unsigned int> marcados, bool paralelizar) {
+	void evaluaMarcados(std::vector<Mapa> m, std::set<unsigned int> marcados, bool paralelizar, std::vector<ICromosomaObserver*> _obs) {
 		for (auto it = marcados.begin(); it != marcados.end(); ++it){
-			this->individuos[(*it)].evalua(m, paralelizar);
+			this->individuos[(*it)].evalua(m, paralelizar, _obs);
 		}
 	}
 
@@ -55,12 +55,6 @@ public:
 			if (individuos[i].eliminaIntrones(opValidas)){
 				marcados.insert(i);
 			}
-		}
-	}
-
-	void addCromosomaObserver(ICromosomaObserver& o){
-		for (std::size_t i = 0; i < _tam; ++i) {
-			this->individuos[i].addObserver(o);
 		}
 	}
 };

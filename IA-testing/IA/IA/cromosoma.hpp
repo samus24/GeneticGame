@@ -104,19 +104,19 @@ public:
 		return cambios;
 	}
 
-	double evalua(std::vector<Mapa> maps, bool paralelizado) {
+	double evalua(std::vector<Mapa> maps, bool paralelizado, std::vector<ICromosomaObserver*> _obs) {
 		int x, y;
 		
 		double mediaTotal = 0;
 
-		notifySimulacionInciada();
+		notifySimulacionInciada(_obs);
 		if (paralelizado){
 			std::vector<std::packaged_task<double(Mapa, int, int)>> hilos;
 			std::vector<std::future<double>> medias;
 			for (std::size_t i = 0; i < maps.size(); ++i) {
 				x = maps[i].getX();
 				y = maps[i].getY();
-				medias.push_back(std::move(std::async(&Cromosoma::evaluaMapa, this, maps[i], x, y, true)));
+				medias.push_back(std::move(std::async(&Cromosoma::evaluaMapa, this, maps[i], x, y, true, _obs)));
 			}
 			
 			for (std::size_t i = 0; i < medias.size(); ++i){
@@ -131,7 +131,7 @@ public:
 			for (std::size_t i = 0; i < maps.size(); ++i) {
 				x = maps[i].getX();
 				y = maps[i].getY();
-				medias.push_back(evaluaMapa(maps[i], x, y, false));
+				medias.push_back(evaluaMapa(maps[i], x, y, false, _obs));
 			}
 
 			for (std::size_t i = 0; i < medias.size(); ++i){
@@ -150,7 +150,7 @@ public:
 		
 		_adaptacion = mediaTotal;
 
-		notifySimulacionTerminada();
+		notifySimulacionTerminada(_obs);
 		return _adaptacion;
 	}
 
@@ -174,10 +174,6 @@ public:
 		return _descartado;
 	}
 
-	void addObserver(ICromosomaObserver& obs){
-		_obs.push_back(&obs);
-	}
-
 	void getCopia(Cromosoma &ret) const{
 		Arbol ap, aa;
 		_genotipo[0].getCopia(ap);
@@ -189,14 +185,11 @@ public:
 		ret.setPunt(_punt);
 		ret.setPuntAcum(_puntAcum);
 		ret.setAdaptacion(_adaptacion);
-		for (size_t i = 0; i < _obs.size(); ++i){
-			ret.addObserver(*(_obs[i]));
-		}
 	}
 
 private:
 
-	double evaluaMapa(Mapa m, int posX, int posY, bool paralelizado) {
+	double evaluaMapa(Mapa m, int posX, int posY, bool paralelizado, std::vector<ICromosomaObserver*> _obs) {
 		double dim = m.getHeight() * m.getWidth();
 		int maxTurnos = (dim*30/100); //Los turnos son el 30% del total de casillas del mapa
 
@@ -335,7 +328,7 @@ private:
 				break;
 			}
 			if(turnosIni != enemigo.turnos) mueveJugador(jugador, enemigo, m);
-			if(!paralelizado) notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
+			if(!paralelizado) notifyTurno(_obs, jugador, enemigo, m, explorado, andado, andadoAtaque);
 		}
 
 		enemigo.turnosPatrulla = enemigo.turnos;
@@ -480,7 +473,7 @@ private:
 				for (size_t i = 0; i < 3 && enemigo.heridas < 3; ++i) {
 					mueveJugador(jugador, enemigo, m);
 					enemigo.turnos++;
-					if (!paralelizado) notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
+					if (!paralelizado) notifyTurno(_obs, jugador, enemigo, m, explorado, andado, andadoAtaque);
 				}
 				if (enemigo.heridas > 0 && enemigo.heridas < 3) {
 					enemigo.heridas--;
@@ -494,7 +487,7 @@ private:
 				break;
 			}
 			if (turnosIni != enemigo.turnos) mueveJugador(jugador, enemigo, m);
-			if (!paralelizado) notifyTurno(jugador, enemigo, m, explorado, andado, andadoAtaque);
+			if (!paralelizado) notifyTurno(_obs, jugador, enemigo, m, explorado, andado, andadoAtaque);
 		}
 
 		double evaluacion = 0;
@@ -656,25 +649,25 @@ private:
 		return;
 	}
 
-	void notifySimulacionInciada() const{
+	void notifySimulacionInciada(std::vector<ICromosomaObserver*> _obs) const{
 		for (ICromosomaObserver* i : _obs){
 			i->onSimulacionIniciada(this);
 		}
 	}
 
-	void notifyMapaTerminado(double fitness, double factorPatrulla, int cExpl, int cAndadas,int turnosQueValen, double factorAtaque, int cAndadasAtaque, int golpesEvitados, int golpes, int encontradoAtaque, int turnosAtaque, int intentos,  double distancia, int turnosGolpeo) const{
+	void notifyMapaTerminado(std::vector<ICromosomaObserver*> _obs, double fitness, double factorPatrulla, int cExpl, int cAndadas, int turnosQueValen, double factorAtaque, int cAndadasAtaque, int golpesEvitados, int golpes, int encontradoAtaque, int turnosAtaque, int intentos, double distancia, int turnosGolpeo) const{
 		for (ICromosomaObserver* i : _obs){
 			i->onMapaTerminado(fitness, factorPatrulla, cExpl, cAndadas, turnosQueValen, factorAtaque, cAndadasAtaque, golpesEvitados, golpes, encontradoAtaque, turnosAtaque, intentos, distancia, turnosGolpeo);
 		}
 	}
 
-	void notifyTurno(npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado, Mapa andadoAtaque) const{
+	void notifyTurno(std::vector<ICromosomaObserver*> _obs, npc jugador, npc enemigo, Mapa m, Mapa explorado, Mapa andado, Mapa andadoAtaque) const{
 		for (ICromosomaObserver* i : _obs){
 			i->onTurno(this, jugador, enemigo, m, explorado, andado, andadoAtaque);
 		}
 	}
 
-	void notifySimulacionTerminada() const{
+	void notifySimulacionTerminada(std::vector<ICromosomaObserver*> _obs) const{
 		for (ICromosomaObserver* i : _obs){
 			i->onSimulacionTerminada(this);
 		}
@@ -690,7 +683,7 @@ private:
 
 	bool _descartado;
 
-	std::vector<ICromosomaObserver*> _obs;
+	//std::vector<ICromosomaObserver*> _obs;
 };
 
 #endif

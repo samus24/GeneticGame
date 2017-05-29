@@ -254,8 +254,12 @@ public:
 private:
 
 	void evaluaMejor(){
-		if (finalizada)
-			_mejor.evalua(_ctrl->getMapas(), false);
+		if (finalizada){
+			std::vector<ICromosomaObserver*> obs;
+			obs.push_back(this);
+			_mejor.evalua(_ctrl->getMapas(), false, obs);
+		}
+			
 	}
 
 	void ventanaArboles(){
