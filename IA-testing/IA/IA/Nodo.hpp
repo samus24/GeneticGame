@@ -116,6 +116,13 @@ public:
 		*/
 	}
 
+	~Nodo(){
+		this->_padre = nullptr;
+		for (size_t i = 0; i < _nHijos; ++i){
+			delete &(_hijos[i]);
+		}
+	}
+
 
 	bool addHijo(Operacion h, int pos) {
 		if (pos >= _nHijos) return false;
@@ -137,6 +144,16 @@ public:
 			h.getHijos()[i].setPadre(&this->_hijos[pos]);
 		}
 		return true;
+	}
+
+	void eliminarHijos(){
+		if (_hijos != nullptr){
+			for (size_t i = 0; i < _nHijos; ++i){
+				delete &(_hijos[i]);
+			}
+		}
+		this->_nHijos = 0;
+		this->_hijos = nullptr;
 	}
 
 
@@ -256,8 +273,7 @@ public:
 				if (hijoB == Operacion::GiraIz) {
 					Operacion op = Nodo::getTerminalAleatorio(tipo, opValidas);
 					this->_elem = op;
-					this->_hijos = nullptr;
-					this->_nHijos = 0;
+					this->eliminarHijos();
 					cambios = true;
 				}
 			}
@@ -265,8 +281,7 @@ public:
 				if (hijoA == Operacion::GiraIz) {
 					Operacion op = Nodo::getTerminalAleatorio(tipo, opValidas);
 					this->_elem = op;
-					this->_hijos = nullptr;
-					this->_nHijos = 0;
+					this->eliminarHijos();
 					cambios = true;
 				}
 			}
@@ -274,8 +289,7 @@ public:
 				if (hijoB == Operacion::Alejar) {
 					Operacion op = Nodo::getTerminalAleatorio(tipo, opValidas);
 					this->_elem = op;
-					this->_hijos = nullptr;
-					this->_nHijos = 0;
+					this->eliminarHijos();
 					cambios = true;
 				}
 			}
@@ -283,15 +297,13 @@ public:
 				if (hijoA == Operacion::Acercar) {
 					Operacion op = Nodo::getTerminalAleatorio(tipo, opValidas);
 					this->_elem = op;
-					this->_hijos = nullptr;
-					this->_nHijos = 0;
+					this->eliminarHijos();
 					cambios = true;
 				}
 			}
 			else if (hijoA == Operacion::CambiarEst) {
 				this->_elem = Operacion::CambiarEst;
-				this->_hijos = nullptr;
-				this->_nHijos = 0;
+				this->eliminarHijos();
 				cambios = true;
 			}
 			else {
@@ -303,8 +315,7 @@ public:
 			hijoA = this->_hijos[0]._elem;
 			if (hijoA == Operacion::CambiarEst) {
 				this->_elem = Operacion::CambiarEst;
-				this->_hijos = nullptr;
-				this->_nHijos = 0;
+				this->eliminarHijos();
 				cambios = true;
 			}
 			else{
@@ -325,8 +336,7 @@ public:
 			esTerminal = Nodo::esOperacionTerminal(hijoA);
 			if (hijoA == hijoB && esTerminal) {
 				this->_elem = hijoA;
-				this->_hijos = nullptr;
-				this->_nHijos = 0;
+				this->eliminarHijos();
 				cambios = true;
 			}
 			else if (hijoA == this->_elem){
@@ -361,8 +371,7 @@ public:
 			esTerminal = Nodo::esOperacionTerminal(hijoA);
 			if (hijoA == hijoB && esTerminal) {
 				this->_elem = hijoA;
-				this->_hijos = nullptr;
-				this->_nHijos = 0;
+				this->eliminarHijos();
 				cambios = true;
 			}
 			else if (hijoA == this->_elem){
@@ -396,8 +405,7 @@ public:
 			esTerminal = Nodo::esOperacionTerminal(hijoA);
 			if (hijoA == hijoB && esTerminal) {
 				this->_elem = hijoA;
-				this->_hijos = nullptr;
-				this->_nHijos = 0;
+				this->eliminarHijos();
 				cambios = true;
 			}
 			else if (hijoA == this->_elem){
