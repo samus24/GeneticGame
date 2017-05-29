@@ -21,6 +21,17 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="LivingEntity.cpp" />
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Entity.hpp" />
+    <ClInclude Include="LivingEntity.hpp" />
+    <ClInclude Include="myRandom.hpp" />
+    <ClInclude Include="PowerUp.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B626B938-3332-4FE6-8E01-487DA9F8FF6B}</ProjectGuid>
     <RootNamespace>Juego</RootNamespace>
