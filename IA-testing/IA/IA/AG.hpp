@@ -53,6 +53,7 @@ public:
 		mediaAnterior = evaluarPoblacion();
 
 		std::cout << _pob._tam << " individuos evaluados en " << (_crono.getMediaAsMilli("evalua") / 1000.f) << "seg, comienza el AG" << std::endl;
+		_crono.limpiaMedida("evalua");
 
 		while (_generacion < _param.iteraciones){
 			_marcados.clear();
@@ -95,6 +96,7 @@ public:
 			_crono.finalizaMedida("evalua", std::chrono::high_resolution_clock::now());
 
 			std::cout << "La media de evaluacion de pob es de " << (_crono.getMediaAsMilli("evalua") / 1000.f) << "seg" << std::endl;
+			_crono.limpiaMedida("evalua");
 
 			if (_param.elitismo){
 				_pob.ordenar();
