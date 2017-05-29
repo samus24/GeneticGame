@@ -2,6 +2,7 @@
 #define POWERUP_HPP
 
 #include "myRandom.hpp"
+#include "LivingEntity.hpp"
 
 class PowerUp {
 public:

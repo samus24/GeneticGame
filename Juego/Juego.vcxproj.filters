@@ -21,6 +21,14 @@
     <ClInclude Include="LivingEntity.hpp">
       <Filter>Entities</Filter>
     </ClInclude>
+    <ClInclude Include="Chest.hpp">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.hpp" />
+    <ClInclude Include="Portal.hpp">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Entities">

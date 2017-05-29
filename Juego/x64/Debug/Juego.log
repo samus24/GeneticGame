@@ -1,0 +1,22 @@
+﻿Compilación iniciada a las 29/05/2017 22:24:31.
+     1>Proyecto "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\Juego.vcxproj" en el nodo 2 (Rebuild destinos).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-audio.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /Zi /nologo /W3 /WX- /sdl /Od /D HAS_SFML /D HAS_SFML /D HAS_SFML /D HAS_SFML /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Entity.cpp LivingEntity.cpp Main.cpp
+         Main.cpp
+     1>c:\users\alvaro\documents\github\geneticgame\juego\Chest.hpp(20): warning C4244: '+=' : conversión de 'const float' a 'int'; posible pérdida de datos
+         LivingEntity.cpp
+     1>LivingEntity.cpp(57): warning C4244: 'inicializando' : conversión de 'float' a 'int'; posible pérdida de datos
+     1>LivingEntity.cpp(58): warning C4244: '=' : conversión de 'const int' a 'float'; posible pérdida de datos
+     1>LivingEntity.cpp(59): warning C4244: 'return' : conversión de 'float' a 'unsigned int'; posible pérdida de datos
+         Entity.cpp
+         Generando código...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\x64\Debug\Juego.exe" /INCREMENTAL /NOLOGO "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-audio.2.4.0.0\build\native\../..//build/native/lib/x64\v120\Debug\dynamic\sfml-audio-d.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/lib/x64\v120\Debug\dynamic\sfml-graphics-d.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-window.2.4.0.0\build\native\../..//build/native/lib/x64\v120\Debug\dynamic\sfml-window-d.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/x64\vorbisfile.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/x64\vorbisenc.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/x64\vorbis.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/x64\openal32.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/x64\ogg.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/x64\jpeg.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/x64\freetype.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/x64\flac.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/x64\v120\Debug\dynamic\sfml-system-d.lib" "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/x64\v120\Debug\sfml-main-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\x64\Debug\Juego.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\x64\Debug\Juego.lib" /MACHINE:X64 x64\Debug\Entity.obj
+         x64\Debug\LivingEntity.obj
+         x64\Debug\Main.obj
+         Juego.vcxproj -> C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\x64\Debug\Juego.exe
+     1>Compilación del proyecto terminada "C:\Users\Alvaro\Documents\GitHub\GeneticGame\Juego\Juego.vcxproj" (Rebuild destinos).
+
+Compilación correcta.
+
+Tiempo transcurrido 00:00:02.55
