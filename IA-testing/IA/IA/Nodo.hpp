@@ -117,10 +117,6 @@ public:
 	}
 
 	~Nodo(){
-		this->_padre = nullptr;
-		for (size_t i = 0; i < _nHijos; ++i){
-			delete &(_hijos[i]);
-		}
 	}
 
 
@@ -148,9 +144,7 @@ public:
 
 	void eliminarHijos(){
 		if (_hijos != nullptr){
-			for (size_t i = 0; i < _nHijos; ++i){
-				delete &(_hijos[i]);
-			}
+				delete[] _hijos;
 		}
 		this->_nHijos = 0;
 		this->_hijos = nullptr;
