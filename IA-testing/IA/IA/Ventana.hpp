@@ -5,6 +5,7 @@
 #include <thread>
 #include <fstream>
 #include <sstream>
+#include <direct.h>
 #include "Plotter.hpp"
 #include "ProgressBar.hpp"
 #include "Logger.hpp"
@@ -195,6 +196,8 @@ public:
 		_visorPatrulla.update(arbPatrulla, TipoArbol::Patrulla);
 		_visorAtaque.update(arbAtaque, TipoArbol::Ataque);
 
+		_pobFinal = pob;
+
 		_mejor = mejor;
 		_plotter.setEjeX(_ejeX);
 
@@ -295,6 +298,23 @@ private:
 				tx.update(_windowTrees);
 				sf::Image imArbol = tx.copyToImage();
 				imArbol.saveToFile(pathArbol);
+
+				sf::Image im;
+				std::string path;
+				for (size_t i = 0; i < _pobFinal._tam; ++i){
+					_windowTrees.clear(sf::Color::White);
+					_visorPatrulla.update(_pobFinal.individuos[i].getGenotipo(0), TipoArbol::Patrulla);
+					_visorAtaque.update(_pobFinal.individuos[i].getGenotipo(1), TipoArbol::Ataque);
+					_windowTrees.draw(_visorPatrulla);
+					_windowTrees.draw(_visorAtaque);
+					tx.update(_windowTrees);
+					im = tx.copyToImage();
+					path = "Resultados/Poblacion" + date;
+					_mkdir(path.c_str());
+					path += "/individuo-" + ((i < 10) ? "0" + std::to_string(i) : std::to_string(i)) + ".png";
+					im.saveToFile(path);
+				}
+
 				_windowTrees.setActive(false);
 				save = false;
 			}
@@ -348,6 +368,7 @@ private:
 	TextButton _botonSave;
 	SimulationViewer _simViewer;
 	Cromosoma _mejor;
+	poblacion _pobFinal;
 	Controlador* _ctrl;
 	unsigned int _generacion;
 	std::vector<double> _ejeX;

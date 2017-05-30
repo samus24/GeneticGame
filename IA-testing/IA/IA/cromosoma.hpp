@@ -557,6 +557,9 @@ private:
 			else if(n == 2){
 				op = Operacion::BloquearN;
 			}
+			else if(n == 3){
+				op = Operacion::Alejar;
+			}
 		}
 		else if (r == 0) {
 			op = Operacion::Avanza;
@@ -609,6 +612,14 @@ private:
 				}
 				else {
 					enemigo.golpesEvitados++;
+				}
+			}
+			break;
+		case Alejar:
+			x = 0; y = 0;
+			if (jugador.getCasillaDetras(x, y)) {
+				if (!m.estaBloqueado(x, y) && !enemigo.estaEn(x, y)) {
+					jugador.retroceder();
 				}
 			}
 			break;
