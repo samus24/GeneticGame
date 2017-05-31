@@ -9,7 +9,7 @@ GameState::GameState(StateStack& stack, Context context)
 	std::cout << "Arrancando" << std::endl;
 	Parametros p;
 	p.tamPob = 30;							// Tamano de la poblacion
-	p.iteraciones = 60;						// Numero maximo de generaciones
+	p.iteraciones = 20;						// Numero maximo de generaciones
 	p.minNodos = 10;						// Numero minimo de nodos iniciales
 	p.maxNodos = 40;						// Numero maximo de nodos iniciales
 	p.densidad = 0.03;						// Densidad de aristas inciales
@@ -47,6 +47,16 @@ bool GameState::handleEvent(const sf::Event& event)
 {
 	if (event.type == sf::Event::KeyReleased)
 	{
+		if (event.key.code == sf::Keyboard::D){
+			_dungeon.setSelectedRoom(_dungeon.getSelectedRoom() + 1);
+			Dungeon::Matrix room = _dungeon.getRoom(_dungeon.getSelectedRoom());
+			_tiles.load("Media/Textures/TileMap.png", TILESIZE, room.getCells(), room.width, room.height);
+		}
+		else if (event.key.code == sf::Keyboard::A){
+			_dungeon.setSelectedRoom(_dungeon.getSelectedRoom() - 1);
+			Dungeon::Matrix room = _dungeon.getRoom(_dungeon.getSelectedRoom());
+			_tiles.load("Media/Textures/TileMap.png", TILESIZE, room.getCells(), room.width, room.height);
+		}
 		
 	}
 	return false;
