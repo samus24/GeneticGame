@@ -3,6 +3,7 @@
 
 #include "State.hpp"
 #include "Dungeon.hpp"
+#include "TileMap.hpp"
 
 class GameState : public State {
 public:
@@ -13,7 +14,8 @@ public:
 	virtual bool			handleEvent(const sf::Event& event);
 
 private:
-	
+	Dungeon _dungeon;
+	TileMap _tiles;
 };
 
 #endif

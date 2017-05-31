@@ -5,13 +5,23 @@
 
 MenuState::MenuState(StateStack& stack, Context context)
 	: State(stack, context)
-	, _selectedButton(-1)
+	, _selectedButton(0)
 {
+	mFooter.setFont(context.fonts->get(Fonts::Alagard));
+	mFooter.setCharacterSize(15);
+	mFooter.setPosition(WINDOW_WIDTH*0.6, WINDOW_HEIGHT*0.95);
+	mFooter.setString("developed by @alseether and @samus24");
 	sf::Texture& texture = context.textures->get(Textures::TitleScreen);
 	mBackgroundSprite.setTexture(texture);
 
+	sf::Texture& texture2 = context.textures->get(Textures::Title);
+	mTitle.setTexture(texture2);
+
+	mTitle.setScale(0.8,0.8);
+	mTitle.setPosition(WINDOW_WIDTH*0.53, WINDOW_HEIGHT*0.2);
+
 	_buttonPlay = std::make_shared<Button>(*context.fonts, *context.textures);
-	_buttonPlay->setPosition(100, 250);
+	_buttonPlay->setPosition(WINDOW_WIDTH*0.54, WINDOW_HEIGHT*0.5);
 	_buttonPlay->setText("Play");
 	_buttonPlay->setCallback([this]()
 	{
@@ -19,9 +29,10 @@ MenuState::MenuState(StateStack& stack, Context context)
 		auto gameState = std::make_shared<GameState>(*_stack, _context);
 		requestStackPush(gameState);
 	});
+	_buttonPlay->select();
 
 	_buttonExit = std::make_shared<Button>(*context.fonts, *context.textures);
-	_buttonExit->setPosition(100, 300);
+	_buttonExit->setPosition(WINDOW_WIDTH*0.54, WINDOW_HEIGHT*0.6);
 	_buttonExit->setText("Exit");
 	_buttonExit->setCallback([this]()
 	{
@@ -37,6 +48,8 @@ void MenuState::draw()
 	window.setView(window.getDefaultView());
 
 	window.draw(mBackgroundSprite);
+	window.draw(mTitle);
+	window.draw(mFooter);
 	window.draw(*_buttonPlay);
 	window.draw(*_buttonExit);
 }

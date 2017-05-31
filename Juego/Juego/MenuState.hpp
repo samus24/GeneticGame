@@ -15,6 +15,8 @@ public:
 
 private:
 	sf::Sprite				mBackgroundSprite;
+	sf::Sprite				mTitle;
+	sf::Text				mFooter;
 	std::shared_ptr<Button> _buttonPlay;
 	std::shared_ptr<Button> _buttonExit;
 

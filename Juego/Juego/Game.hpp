@@ -24,7 +24,9 @@ public:
 		_fonts.load(Fonts::Pixel, "Media/pixel.ttf");
 
 		_textures.load(Textures::TitleScreen, "Media/Textures/TitleScreen.png");
-		_textures.load(Textures::ButtonNormal, "Media/Textures/ButtonNormal.png");
+		_textures.load(Textures::Title, "Media/Textures/title.png");
+		_textures.load(Textures::GUI, "Media/Textures/GUI.png");
+		_textures.load(Textures::TileMap, "Media/Textures/TileMap.png");
 		auto menuState = std::make_shared<MenuState>(_stateStack, State::Context(_window, _textures, _fonts));
 		_stateStack.pushState(menuState);
 	}

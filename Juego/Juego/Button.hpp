@@ -21,12 +21,14 @@ public:
 public:
 	Button(const FontHolder& fonts, const TextureHolder& textures) : 
 		mCallback()
-		, mTexture(textures.get(Textures::ButtonNormal))
+		, mTexture(textures.get(Textures::GUI))
 		, mSprite()
 		, mText("", fonts.get(Fonts::Alagard), 18)
 		, mIsToggle(false)
+		, mIsSelected(false)
 	{
 		mSprite.setTexture(mTexture);
+		mSprite.setTextureRect(BUTTONNORMAL1RECT);
 
 		sf::FloatRect bounds = mSprite.getLocalBounds();
 		mText.setPosition(bounds.width / 2.f, bounds.height / 2.f);
@@ -51,13 +53,13 @@ public:
 
 	void select(){
 		mIsSelected = true;
-		mSprite.setColor(sf::Color::Blue);
+		mSprite.setTextureRect(BUTTONSELECTED1RECT);
 	}
 
 	void deselect(){
 		mIsSelected = false;
 
-		mSprite.setColor(sf::Color::Transparent);
+		mSprite.setTextureRect(BUTTONNORMAL1RECT);
 	}
 
 	void activate(){
@@ -65,7 +67,6 @@ public:
 
 		// If we are toggle then we should show that the button is pressed and thus "toggled".
 		if (mIsToggle){
-			mSprite.rotate(180);
 			mSprite.setColor(sf::Color::Yellow);
 		}
 				
@@ -78,14 +79,13 @@ public:
 	}
 	void deactivate(){
 		mIsActive = false;
-		mSprite.rotate(180);
 		if (mIsToggle)
 		{
 			// Reset texture to right one depending on if we are selected or not.
 			if (mIsSelected)
-				mSprite.setColor(sf::Color::Blue);
+				mSprite.setTextureRect(BUTTONSELECTED1RECT);
 			else
-				mSprite.setColor(sf::Color::Transparent);
+				mSprite.setTextureRect(BUTTONNORMAL1RECT);
 		}
 	}
 

@@ -13,13 +13,10 @@ namespace Textures
 {
 	enum ID
 	{
-		Eagle,
-		Raptor,
-		Desert,
 		TitleScreen,
-		ButtonNormal,
-		ButtonSelected,
-		ButtonPressed
+		Title,
+		GUI,
+		TileMap
 	};
 }
 

@@ -96,6 +96,33 @@
     <ClInclude Include="Dungeon.hpp">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Grafo.hpp">
+      <Filter>Header Files\Genetic</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen.hpp">
+      <Filter>Header Files\Genetic</Filter>
+    </ClInclude>
+    <ClInclude Include="AG.hpp">
+      <Filter>Header Files\Genetic</Filter>
+    </ClInclude>
+    <ClInclude Include="Parametros.hpp">
+      <Filter>Header Files\Genetic</Filter>
+    </ClInclude>
+    <ClInclude Include="Poblacion.hpp">
+      <Filter>Header Files\Genetic</Filter>
+    </ClInclude>
+    <ClInclude Include="Cromosoma.hpp">
+      <Filter>Header Files\Genetic</Filter>
+    </ClInclude>
+    <ClInclude Include="MetodoCruce.hpp">
+      <Filter>Header Files\Genetic</Filter>
+    </ClInclude>
+    <ClInclude Include="MetodoMutacion.hpp">
+      <Filter>Header Files\Genetic</Filter>
+    </ClInclude>
+    <ClInclude Include="MetodoSeleccion.hpp">
+      <Filter>Header Files\Genetic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

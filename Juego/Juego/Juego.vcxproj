@@ -84,15 +84,24 @@
     <None Include="ResourceHolder.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AG.hpp" />
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="Chest.hpp" />
+    <ClInclude Include="Cromosoma.hpp" />
     <ClInclude Include="Dungeon.hpp" />
     <ClInclude Include="Entity.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GameState.hpp" />
+    <ClInclude Include="Gen.hpp" />
+    <ClInclude Include="Grafo.hpp" />
     <ClInclude Include="LivingEntity.hpp" />
     <ClInclude Include="MenuState.hpp" />
+    <ClInclude Include="MetodoCruce.hpp" />
+    <ClInclude Include="MetodoMutacion.hpp" />
+    <ClInclude Include="MetodoSeleccion.hpp" />
     <ClInclude Include="myRandom.hpp" />
+    <ClInclude Include="Parametros.hpp" />
+    <ClInclude Include="Poblacion.hpp" />
     <ClInclude Include="Portal.hpp" />
     <ClInclude Include="PowerUp.hpp" />
     <ClInclude Include="ResourceHolder.hpp" />
