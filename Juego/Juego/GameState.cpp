@@ -5,11 +5,12 @@
 
 GameState::GameState(StateStack& stack, Context context)
 	: State(stack, context)
+	//_player(context.textures->get(Textures::Player), 3, 3, 1, 1)
 {
 	std::cout << "Arrancando" << std::endl;
 	Parametros p;
 	p.tamPob = 30;							// Tamano de la poblacion
-	p.iteraciones = 20;						// Numero maximo de generaciones
+	p.iteraciones = 60;						// Numero maximo de generaciones
 	p.minNodos = 10;						// Numero minimo de nodos iniciales
 	p.maxNodos = 40;						// Numero maximo de nodos iniciales
 	p.densidad = 0.03;						// Densidad de aristas inciales
@@ -24,7 +25,9 @@ GameState::GameState(StateStack& stack, Context context)
 	AG ag(p);
 	Cromosoma mejor = ag.ejecuta();
 	std::cout << "Terminado" << std::endl;
+	std::cout << mejor.getRolesSala()[RolSala::Inicio] << std::endl;
 	_dungeon.generateRooms(mejor);
+	std::cout << _dungeon.getSelectedRoom() << std::endl;
 	Dungeon::Matrix room = _dungeon.getRoom(_dungeon.getSelectedRoom());
 	_tiles.load("Media/Textures/TileMap.png", TILESIZE, room.getCells(), room.width, room.height);
 

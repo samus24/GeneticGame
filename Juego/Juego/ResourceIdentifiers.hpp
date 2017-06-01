@@ -16,7 +16,9 @@ namespace Textures
 		TitleScreen,
 		Title,
 		GUI,
-		TileMap
+		TileMap,
+		Player,
+		Enemy
 	};
 }
 

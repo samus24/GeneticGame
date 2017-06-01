@@ -2,6 +2,8 @@
 #define TILEMAP_HPP
 
 #include <SFML/Graphics.hpp>
+#include "Dungeon.hpp"
+#include "Utils.hpp"
 
 class TileMap : public sf::Drawable, public sf::Transformable
 {
@@ -17,13 +19,26 @@ public:
 		m_vertices.setPrimitiveType(sf::Quads);
 		m_vertices.resize(width * height * 4);
 
+		sf::Vector2f origin((WINDOW_WIDTH - (width * TILESIZE.x)) / 2.f, (WINDOW_HEIGHT - (height * TILESIZE.y)) / 2.f);
+
 		// populate the vertex array, with one quad per tile
 		for (unsigned int i = 0; i < width; ++i)
 			for (unsigned int j = 0; j < height; ++j)
 			{
 				// get the current tile number
 				int tileNumber = tiles[i][j];
-				if (tileNumber >= 0){
+				int key = -1;
+				if (tileNumber == Dungeon::WALL){
+					key++;
+					for (size_t k = 1; k <= 4; ++k) {
+						if (hasWall(k, tiles, i, j, width, height)) {
+							key *= 10;
+							key += k;
+						}
+					}
+
+				}
+				else if (tileNumber >= 0){
 					tileNumber = 0;
 				}
 				else{
@@ -34,14 +49,21 @@ public:
 				int tu = tileNumber % (m_tileset.getSize().x / tileSize.x);
 				int tv = tileNumber / (m_tileset.getSize().x / tileSize.x);
 
+				if (key != -1) {
+					sf::IntRect wallCoords;
+					wallCoords = WALLTILE.at(key);
+					tu = wallCoords.left / TILESIZE.x;
+					tv = wallCoords.top / TILESIZE.y;
+				}
+
 				// get a pointer to the current tile's quad
 				sf::Vertex* quad = &m_vertices[(i + j * width) * 4];
 
 				// define its 4 corners
-				quad[0].position = sf::Vector2f(i * tileSize.x, j * tileSize.y);
-				quad[1].position = sf::Vector2f((i + 1) * tileSize.x, j * tileSize.y);
-				quad[2].position = sf::Vector2f((i + 1) * tileSize.x, (j + 1) * tileSize.y);
-				quad[3].position = sf::Vector2f(i * tileSize.x, (j + 1) * tileSize.y);
+				quad[0].position = origin + sf::Vector2f(i * tileSize.x, j * tileSize.y);
+				quad[1].position = origin + sf::Vector2f((i + 1) * tileSize.x, j * tileSize.y);
+				quad[2].position = origin + sf::Vector2f((i + 1) * tileSize.x, (j + 1) * tileSize.y);
+				quad[3].position = origin + sf::Vector2f(i * tileSize.x, (j + 1) * tileSize.y);
 
 				// define its 4 texture coordinates
 				quad[0].texCoords = sf::Vector2f(tu * tileSize.x, tv * tileSize.y);
@@ -54,6 +76,25 @@ public:
 	}
 
 private:
+
+	bool hasWall(int orientation, int** tiles, int x, int y, unsigned int width, unsigned int height) const{
+		switch (orientation)
+		{
+		case 1:
+			return (y!=0) && (tiles[x][y - 1] == Dungeon::WALL);
+		case 2:
+			return (x != 0) && (tiles[x - 1][y] == Dungeon::WALL);
+		case 3:
+			return (y != height - 1) && (tiles[x][y + 1] == Dungeon::WALL);
+		case 4:
+			return (x != width - 1) && (tiles[x + 1][y] == Dungeon::WALL);
+		default:
+			return false;
+		}
+	}
+
+
+
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{

@@ -79,16 +79,58 @@ public:
 		return _selectedRoom;
 	}
 
+	static const int EMPTY = -1;
+	static const int CLOSED_CHEST = -2;
+	static const int WALL = -3;
+	static const int OPENED_CHEST = -4;
+	static const int SPAWNPORTAL = -5;
+	static const int KEYBLOCK = -6;
+	static const int ENDPORTAL = -7;
+
 private:
 	Matrix fillRoom(Gen g, std::set<unsigned int> neighbours, RolSala rol){
-		Matrix ret(g.getAncho(), g.getAlto());
+		Matrix ret(g.getAncho()+2, g.getAlto()+2);
 		std::vector<std::pair<int, int>> portals = portalPlaces(g.getAncho(), g.getAlto(), neighbours.size());
 		auto it = neighbours.begin();
 		for (size_t i = 0; i < neighbours.size(); ++i, it++){
-			ret.setCell(portals[i].first, portals[i].second, *it);
+			ret.setCell(portals[i].first+1, portals[i].second+1, *it);
 		}
+		int max = std::max(ret.width, ret.height);
+		for (size_t i = 0; i < max; ++i){
+			if (i < g.getAncho() + 2){
+				ret.setCell(i, 0, Dungeon::WALL);
+				ret.setCell(i, g.getAlto() + 1, Dungeon::WALL);
+			}
+			if (i < g.getAlto() + 2){
+				ret.setCell(0, i, Dungeon::WALL);
+				ret.setCell(g.getAncho() + 1, i, Dungeon::WALL);
+			}
+		}
+		generateChests(ret, g.getCofres());
 		generateWalls(ret);
+
+		if (rol == RolSala::Inicio){
+			ret.setCell(ret.width / 2.f, ret.height / 2.f, Dungeon::SPAWNPORTAL);
+		}
+		else if (rol == RolSala::Llave){
+			ret.setCell(ret.width / 2.f, ret.height / 2.f, Dungeon::KEYBLOCK);
+		}
+		else if (rol == RolSala::Fin){
+			ret.setCell(ret.width / 2.f, ret.height / 2.f, Dungeon::ENDPORTAL);
+		}
 		return ret;
+	}
+
+	void generateChests(Matrix &m, unsigned int nChests){
+		while (nChests > 0){
+			int x, y;
+			do{
+				x = myRandom::getRandom(1u, m.width - 1);
+				y = myRandom::getRandom(1u, m.height - 1);
+			} while (m[x][y] == Dungeon::WALL || m[x][y] > 0 || m[x][y] == Dungeon::CLOSED_CHEST);
+			m.setCell(x, y, Dungeon::CLOSED_CHEST);
+			nChests--;
+		}
 	}
 
 	void generateWalls(Matrix &m){
@@ -96,24 +138,24 @@ private:
 		unsigned int wall;
 		unsigned int posInWall;
 		unsigned int wallLength;
-		double probContinue = 0.6;
+		double probContinue = 0.8;
 		for (size_t i = 0; i < nWalls; ++i){
 			probContinue = 0.2;
 			int x, y, incX, incY;
 			wall = myRandom::getRandom(0, 3);
 			do{
-				posInWall = myRandom::getRandom(1u, (wall % 2 == 0) ? m.width - 2 : m.height - 2);
+				posInWall = myRandom::getRandom(2u, (wall % 2 == 0) ? m.width - 3 : m.height - 3);
 				if (wall == 0){
-					x = posInWall; y = 0; incX = 0; incY = 1;
+					x = posInWall; y = 1; incX = 0; incY = 1;
 				}
 				else if (wall == 1){
-					x = 0; y = posInWall; incX = 1; incY = 0;
+					x = 1; y = posInWall; incX = 1; incY = 0;
 				}
 				else if (wall == 2){
-					x = posInWall; y = m.height - 1; incX = 0; incY = -1;
+					x = posInWall; y = m.height - 2; incX = 0; incY = -1;
 				}
 				else if (wall == 3){
-					x = m.width - 1; y = posInWall; incX = -1; incY = 0;
+					x = m.width - 2; y = posInWall; incX = -1; incY = 0;
 				}
 			} while (m[x][y] >= 0 || m[x][y] == Dungeon::WALL);
 			wallLength = myRandom::getRandom(2, (wall % 2 == 0) ? int(m.height*0.8) : int(m.width*0.8));
@@ -138,7 +180,7 @@ private:
 
 	void createWall(int &x, int &y, int incX, int incY, unsigned int length, Matrix &m){
 		for (size_t j = 0; j < length; ++j){
-			if (j == 0 && wallsBeside(x, y, m) > 4){
+			if (j == 0 && wallsBeside(x, y, m) >= 4){
 				break;
 			}
 			if (j > 0 && wallsBeside(x, y, m) > 1){
@@ -160,7 +202,7 @@ private:
 					if (x+i < 0 || x+i >= m.width || y+j < 0 || y+j >= m.height){
 						ret++;
 					}
-					else if (m[x + i][y + j] == Dungeon::WALL || m[x + i][y + j] == Dungeon::CHEST){
+					else if (m[x + i][y + j] == Dungeon::WALL || m[x + i][y + j] == Dungeon::CLOSED_CHEST){
 						ret++;
 					}
 				}
@@ -207,11 +249,6 @@ private:
 	static const int LEFT = 1;
 	static const int DOWN = 2;
 	static const int RIGHT = 3;
-
-	static const int EMPTY = -1;
-	static const int CHEST = -2;
-	static const int WALL = -3;
-	static const int ENEMY = -4;
 
 	std::vector<Matrix> _rooms;
 	size_t _selectedRoom;

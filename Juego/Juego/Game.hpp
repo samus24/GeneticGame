@@ -70,7 +70,7 @@ private:
 	}
 
 	void render(){
-		_window.clear(sf::Color::White);
+		_window.clear(sf::Color::Black);
 		_stateStack.draw();
 		_window.display();
 	}
