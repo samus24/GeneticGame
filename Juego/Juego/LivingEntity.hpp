@@ -3,7 +3,7 @@
 
 #include "Entity.hpp"
 
-class LivingEntity : protected Entity{
+class LivingEntity : public Entity{
 public:
 	LivingEntity(const sf::Texture& texture);
 
@@ -27,9 +27,10 @@ public:
 
 	unsigned int increaseAttack(int incr);
 
-private:
+
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
+private:
 	unsigned int maxHP;
 	unsigned int hp;
 	unsigned int speed;

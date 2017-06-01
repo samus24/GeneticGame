@@ -4,13 +4,27 @@
 #include "Utils.hpp"
 
 GameState::GameState(StateStack& stack, Context context)
-	: State(stack, context)
-	//_player(context.textures->get(Textures::Player), 3, 3, 1, 1)
+	: State(stack, context),
+	_playerHasKey(false),
+	_player(context.textures->get(Textures::Player), 3, 3, 1, 1)
 {
+	sf::Texture& texture = context.textures->get(Textures::Title);
+	_buttonMenu.setTexture(texture);
+
+	_buttonMenu.setScale(0.4, 0.4);
+	_buttonMenu.setPosition(10, 10);
+
+	sf::Texture& texture2 = context.textures->get(Textures::Key);
+	_key.setTexture(texture2);
+	_key.setTextureRect(LOCKED_KEY);
+
+	_key.setScale(0.6, 0.6);
+	_key.setPosition(WINDOW_WIDTH - LOCKED_KEY.width, WINDOW_HEIGHT - LOCKED_KEY.height);
+
 	std::cout << "Arrancando" << std::endl;
 	Parametros p;
 	p.tamPob = 30;							// Tamano de la poblacion
-	p.iteraciones = 60;						// Numero maximo de generaciones
+	p.iteraciones = 30;						// Numero maximo de generaciones
 	p.minNodos = 10;						// Numero minimo de nodos iniciales
 	p.maxNodos = 40;						// Numero maximo de nodos iniciales
 	p.densidad = 0.03;						// Densidad de aristas inciales
@@ -25,12 +39,14 @@ GameState::GameState(StateStack& stack, Context context)
 	AG ag(p);
 	Cromosoma mejor = ag.ejecuta();
 	std::cout << "Terminado" << std::endl;
-	std::cout << mejor.getRolesSala()[RolSala::Inicio] << std::endl;
 	_dungeon.generateRooms(mejor);
-	std::cout << _dungeon.getSelectedRoom() << std::endl;
 	Dungeon::Matrix room = _dungeon.getRoom(_dungeon.getSelectedRoom());
 	_tiles.load("Media/Textures/TileMap.png", TILESIZE, room.getCells(), room.width, room.height);
-
+	sf::Vector2f origin((WINDOW_WIDTH - (room.width * TILESIZE.x)) / 2.f, (WINDOW_HEIGHT - (room.height * TILESIZE.y)) / 2.f);
+	sf::Vector2f center(room.width / 2.f, room.height / 2.f);
+	center.x *= TILESIZE.x;
+	center.y *= TILESIZE.y;
+	_player.setPosition(origin + center);
 }
 
 void GameState::draw()
@@ -39,6 +55,9 @@ void GameState::draw()
 
 	window.setView(window.getDefaultView());
 	window.draw(_tiles);
+	window.draw(_buttonMenu);
+	window.draw(_key);
+	window.draw(_player);
 }
 
 bool GameState::update(sf::Time)
@@ -60,7 +79,15 @@ bool GameState::handleEvent(const sf::Event& event)
 			Dungeon::Matrix room = _dungeon.getRoom(_dungeon.getSelectedRoom());
 			_tiles.load("Media/Textures/TileMap.png", TILESIZE, room.getCells(), room.width, room.height);
 		}
-		
+		else if (event.key.code == sf::Keyboard::S){
+			_player.move(sf::Vector2f(0, TILESIZE.y));
+		}
+		else if (event.key.code == sf::Keyboard::W){
+			_player.move(sf::Vector2f(0, -int(TILESIZE.y)));
+		}
+		else if (event.key.code == sf::Keyboard::Q){
+			_key.setTextureRect(UNLOCKED_KEY);
+		}
 	}
 	return false;
 }

@@ -17,7 +17,11 @@ public:
 private:
 	Dungeon _dungeon;
 	TileMap _tiles;
-	//LivingEntity _player;
+	LivingEntity _player;
+
+	sf::Sprite _buttonMenu;
+	bool _playerHasKey;
+	sf::Sprite _key;
 };
 
 #endif

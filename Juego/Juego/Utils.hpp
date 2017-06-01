@@ -9,12 +9,15 @@ const int WINDOW_HEIGHT = 600;
 const sf::Vector2f WINDOW_RES(WINDOW_WIDTH, WINDOW_HEIGHT);
 
 const sf::Vector2u TILESIZE(16,16);
+const sf::IntRect  TILE0(0, 0, 16, 16);
 
 const sf::Vector2f BUTTONSIZE(280, 60);
 const sf::IntRect  BUTTONSELECTED1RECT(15, 125, BUTTONSIZE.x, BUTTONSIZE.y);
 const sf::IntRect  BUTTONNORMAL1RECT(15, 203, BUTTONSIZE.x, BUTTONSIZE.y);
 const sf::IntRect  BUTTONSELECTED2RECT(15, 281, BUTTONSIZE.x, BUTTONSIZE.y);
 const sf::IntRect  BUTTON2NORMALRECT(15, 359, BUTTONSIZE.x, BUTTONSIZE.y);
+const sf::IntRect  LOCKED_KEY(0, 0, 64, 64);
+const sf::IntRect  UNLOCKED_KEY(64, 0, 64, 64);
 
 const std::unordered_map<int, sf::IntRect> WALLTILE = {
 	{ 0, sf::IntRect(32, 48, TILESIZE.x, TILESIZE.y)},
@@ -33,18 +36,6 @@ const std::unordered_map<int, sf::IntRect> WALLTILE = {
 	{ 134, sf::IntRect(48, 48, TILESIZE.x, TILESIZE.y) },
 	{ 234, sf::IntRect(64, 32, TILESIZE.x, TILESIZE.y) },
 	{ 1234, sf::IntRect(64, 48, TILESIZE.x, TILESIZE.y) }
-};
-
-class TEXTURE_HOLDER{
-	TEXTURE_HOLDER(){
-		if (!t.loadFromFile("Textura.png")){
-			exit(-1);
-		}
-	}
-
-
-
-	sf::Texture t;
 };
 
 void centerOrigin(sf::Sprite& sprite);

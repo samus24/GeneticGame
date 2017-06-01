@@ -62,9 +62,11 @@ public:
 					break;
 				}
 			}
+			if (rol == RolSala::Inicio){
+				_selectedRoom = i;
+			}
 			_rooms.push_back(fillRoom(itNodes->second, itAdj->second, rol));
 		}
-		_selectedRoom = rolesSala[RolSala::Inicio];
 	}
 	
 	void setSelectedRoom(size_t i){

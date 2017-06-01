@@ -18,7 +18,9 @@ namespace Textures
 		GUI,
 		TileMap,
 		Player,
-		Enemy
+		Enemy,
+		Key,
+		PlayerMods
 	};
 }
 

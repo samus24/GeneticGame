@@ -1,38 +1,38 @@
 #include "Entity.hpp"
 
 Entity::Entity(const sf::Texture& texture):
-	sprite(texture)
+	sprite(texture, TILE0)
 {
-	pos.x = 0;
-	pos.y = 0;
+	sf::Transformable::setPosition(sf::Vector2f(0,0));
 	size.x = 1;
 	size.y = 1;
 }
 
 Entity::Entity(const sf::Texture& texture, sf::Vector2i pos, sf::Vector2i size):
-	sprite(texture)
+	sprite(texture, TILE0)
 {
-	this->pos = pos;
+	sf::Transformable::setPosition(sf::Vector2f(pos));
 	this->size = size;
 }
 
 Entity::Entity(const sf::Texture& texture, unsigned int x, unsigned int y, unsigned int sizeX, unsigned int sizeY):
-	sprite(texture)
+	sprite(texture, TILE0)
 {
-	pos.x = x;
-	pos.y = y;
+	sf::Transformable::setPosition(sf::Vector2f(x,y));
 	size.x = sizeX;
 	size.y = sizeY;
 }
 
-void Entity::setPos(sf::Vector2i pos){
-	this->pos = pos;
+void Entity::setPosition(sf::Vector2f pos){
+	sf::Transformable::setPosition(pos);
+	sprite.setPosition(pos);
 }
 
-sf::Vector2i Entity::getPos() const{
-	return pos;
+sf::Vector2f Entity::getPosition() const{
+	return sf::Transformable::getPosition();
 }
 
-void Entity::move(sf::Vector2i vec){
-	pos += vec;		// Comprobar rango negativo
+void Entity::move(sf::Vector2f vec){
+	sf::Transformable::move(vec);
+	sprite.setPosition(this->getPosition());
 }

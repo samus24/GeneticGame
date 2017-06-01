@@ -2,6 +2,7 @@
 #define ENTITY_HPP
 
 #include <SFML/Graphics.hpp>
+#include "Utils.hpp"
 
 class Entity :public sf::Drawable, public sf::Transformable{
 public:
@@ -11,17 +12,16 @@ public:
 
 	Entity(const sf::Texture& texture, unsigned int x, unsigned int y, unsigned int sizeX, unsigned int sizeY);
 
-	void setPos(sf::Vector2i pos);
+	void setPosition(sf::Vector2f pos);
 
-	sf::Vector2i getPos() const;
+	sf::Vector2f getPosition() const;
 
-	void move(sf::Vector2i vec);
+	void move(sf::Vector2f vec);
 
-private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
 
 protected:
-	sf::Vector2i pos;
+	//sf::Vector2i pos;
 	sf::Vector2i size;
 	sf::Sprite sprite;
 };

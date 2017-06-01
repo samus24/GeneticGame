@@ -27,6 +27,8 @@ public:
 		_textures.load(Textures::Title, "Media/Textures/title.png");
 		_textures.load(Textures::GUI, "Media/Textures/GUI.png");
 		_textures.load(Textures::TileMap, "Media/Textures/TileMap.png");
+		_textures.load(Textures::Key, "Media/Textures/llave.png");
+		_textures.load(Textures::Player, "Media/Textures/Player.png");
 		auto menuState = std::make_shared<MenuState>(_stateStack, State::Context(_window, _textures, _fonts));
 		_stateStack.pushState(menuState);
 	}
