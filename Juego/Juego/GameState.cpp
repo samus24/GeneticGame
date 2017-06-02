@@ -46,7 +46,7 @@ GameState::GameState(StateStack& stack, Context context)
 	std::cout << "Terminado" << std::endl;
 	_dungeon.generateRooms(mejor);
 	Dungeon::Matrix room = _dungeon.getRoom(_dungeon.getSelectedRoom());
-	_tiles.load("Media/Textures/TileMap.png", TILESIZE, room.getCells(), room.width, room.height);
+	_tiles.load(TILEPATH, TILESIZE, room.getCells(), room.width, room.height);
 	sf::Vector2f spawnCoords = _tiles.getCoordsFromCell(room.width / 2, room.height / 2);
 	_player.setPosition(spawnCoords);
 
@@ -67,7 +67,30 @@ void GameState::draw()
 
 bool GameState::update(sf::Time dt)
 {
-	_player.update(dt);
+	auto playerPos = _tiles.getCellFromCoords(_player.getCenter().x, _player.getCenter().y);
+	int portal = _dungeon.getCell(playerPos);
+	if (portal >= 0){
+		int lastRoom = _dungeon.getSelectedRoom();
+		_dungeon.setSelectedRoom(portal);
+		auto room = _dungeon.getRoom(portal);
+		_tiles.load(TILEPATH, TILESIZE, room.getCells(), room.width, room.height);
+		auto teleportCell = _dungeon.getCellWith(lastRoom);
+		_player.setPosition(_tiles.getCoordsFromCell(teleportCell));
+	}
+	else{
+		sf::Vector2f pos = _player.getPosition();
+		_player.update(dt);
+		auto corners = _player.getCorners();
+		for (auto c : corners){
+			auto cell = _tiles.getCellFromCoords(c);
+			if (Dungeon::isLocked(_dungeon.getCell(cell))){
+				_player.setPosition(pos);
+				_player.setSpeed(sf::Vector2f(0, 0));
+				break;
+			}
+		}
+	}
+	
 	return true;
 }
 
@@ -80,8 +103,6 @@ bool GameState::handleEvent(const sf::Event& event)
 			sf::Vector2f actualSpeed = _player.getSpeed();
 			actualSpeed.x = std::max(NORMALSPEED, std::abs(actualSpeed.x));
 			_player.setSpeed(actualSpeed);
-			cell = _tiles.getCellFromCoords(_player.getPosition());
-			if ()
 		}
 		else if (event.key.code == sf::Keyboard::A){
 			sf::Vector2f actualSpeed = _player.getSpeed();

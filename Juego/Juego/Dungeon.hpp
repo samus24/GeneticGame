@@ -69,6 +69,19 @@ public:
 			_rooms.push_back(fillRoom(itNodes->second, itAdj->second, rol));
 		}
 	}
+
+	sf::Vector2u getCellWith(int portal) const{
+		Matrix r = _rooms[_selectedRoom];
+		for (size_t i = 0; i < r.width; ++i){
+			for (size_t j = 0; j < r.height; ++j){
+				if (r[i][j] == portal){
+					return sf::Vector2u(i, j);
+				}
+			}
+		}
+		return sf::Vector2u(r.width, r.height);
+
+	}
 	
 	void setSelectedRoom(size_t i){
 		_selectedRoom = i;
@@ -77,13 +90,24 @@ public:
 	Matrix getRoom(size_t i){
 		return _rooms[i];
 	}
+	int getCell(sf::Vector2u c) const{
+		return getCell(c.x, c.y);
+	}
 
 	int getCell(size_t x, size_t y) const{
-		// HACER ESTO !!
+		Matrix r = _rooms[_selectedRoom];
+		if (x < 0 || x >= r.width || y < 0 || y >= r.height){
+			return -1000;
+		}
+		return r[x][y];
 	}
 
 	size_t getSelectedRoom() const{
 		return _selectedRoom;
+	}
+
+	static bool isLocked(int id){
+		return (id == CLOSED_CHEST) || (id == WALL) || (id == OPENED_CHEST);
 	}
 
 	static const int EMPTY = -1;

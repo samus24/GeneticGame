@@ -32,6 +32,29 @@ sf::Vector2f Entity::getPosition() const{
 	return sf::Transformable::getPosition();
 }
 
+sf::IntRect Entity::getBounds() const{
+	sf::Vector2f pos = this->getPosition();
+	return sf::IntRect(pos.x, pos.y, size.x, size.y);
+}
+
+std::vector<sf::Vector2f> Entity::getCorners() const{
+	std::vector<sf::Vector2f> corners;
+	sf::Vector2f pos = getPosition();
+	corners.push_back(pos);
+	pos.x += TILESIZE.x - 1;
+	corners.push_back(pos);
+	pos.x -= TILESIZE.x - 1;
+	pos.y += TILESIZE.y - 1;
+	corners.push_back(pos);
+	pos.x += TILESIZE.x - 1;
+	corners.push_back(pos);
+	return corners;
+}
+
+sf::Vector2f Entity::getCenter() const{
+	return sf::Transformable::getPosition() + sf::Vector2f(size.x * 0.5, size.y * 0.5);
+}
+
 void Entity::move(sf::Vector2f vec){
 	sf::Transformable::move(vec);
 	sprite.setPosition(this->getPosition());

@@ -77,6 +77,14 @@ public:
 		return true;
 	}
 
+	sf::IntRect getBoundsFromCell(size_t x, size_t y) const{
+		sf::Vector2f corner = getCoordsFromCell(x, y);
+		return sf::IntRect(corner.x, corner.y, TILESIZE.x, TILESIZE.y);
+	}
+	sf::Vector2f getCoordsFromCell(sf::Vector2u cell) const{
+		return getCoordsFromCell(cell.x, cell.y);
+	}
+
 	sf::Vector2f getCoordsFromCell(size_t x, size_t y) const{
 		const sf::Vertex* quad = &m_vertices[(x + y * _width) * 4];
 		return quad[0].position;

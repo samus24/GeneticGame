@@ -21,6 +21,8 @@ const sf::IntRect  UNLOCKED_KEY(64, 0, 64, 64);
 
 const float NORMALSPEED = 50;
 
+const std::string TILEPATH = "Media/Textures/TileMap.png";
+
 const std::unordered_map<int, sf::IntRect> WALLTILE = {
 	{ 0, sf::IntRect(32, 48, TILESIZE.x, TILESIZE.y)},
 	{ 1, sf::IntRect(16, 48, TILESIZE.x, TILESIZE.y) },

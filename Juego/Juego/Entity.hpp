@@ -16,6 +16,12 @@ public:
 
 	sf::Vector2f getPosition() const;
 
+	sf::Vector2f getCenter() const;
+
+	sf::IntRect getBounds() const;
+
+	std::vector<sf::Vector2f> getCorners() const;
+
 	void move(sf::Vector2f vec);
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
