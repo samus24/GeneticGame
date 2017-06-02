@@ -11,7 +11,8 @@ LivingEntity::LivingEntity(const sf::Texture& texture, unsigned int maxHP, unsig
 	maxHP(maxHP),
 	hp(hp),
 	speed(speed),
-	attack(attack)
+	attack(attack),
+	timePerFrame(TIMEPERFRAME)
 {
 }
 
@@ -32,6 +33,18 @@ unsigned int LivingEntity::increaseHealth(int incr){
 
 void LivingEntity::setSpeed(sf::Vector2f speed){
 	this->speed = speed;
+	if (speed.x > 0){
+		sprite.setTextureRect(RIGHTRECT);
+	}
+	else if (speed.x < 0){
+		sprite.setTextureRect(LEFTRECT);
+	}
+	else if (speed.y > 0){
+		sprite.setTextureRect(DOWNRECT);
+	}
+	else if (speed.y < 0){
+		sprite.setTextureRect(UPRECT);
+	}
 }
 
 sf::Vector2f LivingEntity::getSpeed() const{
@@ -40,6 +53,18 @@ sf::Vector2f LivingEntity::getSpeed() const{
 
 sf::Vector2f LivingEntity::increaseSpeed(float incr){
 	speed *= incr;
+	if (speed.x > 0){
+		sprite.setTextureRect(RIGHTRECT);
+	}
+	else if (speed.x < 0){
+		sprite.setTextureRect(LEFTRECT);
+	}
+	else if (speed.y > 0){
+		sprite.setTextureRect(DOWNRECT);
+	}
+	else if (speed.y < 0){
+		sprite.setTextureRect(UPRECT);
+	}
 	return speed;
 }
 
@@ -58,6 +83,14 @@ unsigned int LivingEntity::increaseAttack(int incr){
 }
 
 void LivingEntity::update(sf::Time dt){
+	timePerFrame -= dt;
+	if (speed != sf::Vector2f(0,0) && timePerFrame <= sf::Time::Zero){
+		auto r = sprite.getTextureRect();
+		r.left += TILESIZE.x;
+		if (r.left >= TILESIZE.x * NSPRITES) r.left = 0;
+		sprite.setTextureRect(r);
+		timePerFrame = TIMEPERFRAME;
+	}
 	move(speed * dt.asSeconds());
 }
 

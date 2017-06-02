@@ -19,9 +19,19 @@ const sf::IntRect  BUTTON2NORMALRECT(15, 359, BUTTONSIZE.x, BUTTONSIZE.y);
 const sf::IntRect  LOCKED_KEY(0, 0, 64, 64);
 const sf::IntRect  UNLOCKED_KEY(64, 0, 64, 64);
 
-const float NORMALSPEED = 50;
+const sf::IntRect UPRECT(0, 48, TILESIZE.x, TILESIZE.y);
+const sf::IntRect DOWNRECT(0, 0, TILESIZE.x, TILESIZE.y);
+const sf::IntRect LEFTRECT(0, 16, TILESIZE.x, TILESIZE.y);
+const sf::IntRect RIGHTRECT(0, 32, TILESIZE.x, TILESIZE.y);
+
+const float NORMALSPEED = 70;
 
 const std::string TILEPATH = "Media/Textures/TileMap.png";
+
+const sf::Time TPCOOLDOWN = sf::seconds(3);
+const sf::Time TIMEPERFRAME = sf::milliseconds(300);
+
+const int NSPRITES = 4;
 
 const std::unordered_map<int, sf::IntRect> WALLTILE = {
 	{ 0, sf::IntRect(32, 48, TILESIZE.x, TILESIZE.y)},

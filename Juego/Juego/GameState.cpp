@@ -6,7 +6,8 @@
 GameState::GameState(StateStack& stack, Context context)
 	: State(stack, context),
 	_playerHasKey(false),
-	_player(context.textures->get(Textures::Player), 3, 3, sf::Vector2f(0,0), 1)
+	_player(context.textures->get(Textures::Player), 3, 3, sf::Vector2f(0,0), 1),
+	_tpCoolDown(TPCOOLDOWN)
 {
 	_debugInfo.setFont(context.fonts->get(Fonts::Main));
 	_debugInfo.setFillColor(sf::Color::White);
@@ -69,15 +70,20 @@ bool GameState::update(sf::Time dt)
 {
 	auto playerPos = _tiles.getCellFromCoords(_player.getCenter().x, _player.getCenter().y);
 	int portal = _dungeon.getCell(playerPos);
-	if (portal >= 0){
+	if (portal >= 0 && _tpCoolDown == sf::Time::Zero){
 		int lastRoom = _dungeon.getSelectedRoom();
 		_dungeon.setSelectedRoom(portal);
 		auto room = _dungeon.getRoom(portal);
 		_tiles.load(TILEPATH, TILESIZE, room.getCells(), room.width, room.height);
 		auto teleportCell = _dungeon.getCellWith(lastRoom);
 		_player.setPosition(_tiles.getCoordsFromCell(teleportCell));
+		_tpCoolDown = TPCOOLDOWN;
 	}
 	else{
+		_tpCoolDown -= dt;
+		if (_tpCoolDown <= sf::Time::Zero){
+			_tpCoolDown = sf::Time::Zero;
+		}
 		sf::Vector2f pos = _player.getPosition();
 		_player.update(dt);
 		auto corners = _player.getCorners();
@@ -102,22 +108,22 @@ bool GameState::handleEvent(const sf::Event& event)
 		if (event.key.code == sf::Keyboard::D){
 			sf::Vector2f actualSpeed = _player.getSpeed();
 			actualSpeed.x = std::max(NORMALSPEED, std::abs(actualSpeed.x));
-			_player.setSpeed(actualSpeed);
+			if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
 		}
 		else if (event.key.code == sf::Keyboard::A){
 			sf::Vector2f actualSpeed = _player.getSpeed();
 			actualSpeed.x = std::min(-NORMALSPEED, -std::abs(actualSpeed.x));
-			_player.setSpeed(actualSpeed);
+			if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
 		}
 		else if (event.key.code == sf::Keyboard::S){
 			sf::Vector2f actualSpeed = _player.getSpeed();
 			actualSpeed.y = std::max(NORMALSPEED, std::abs(actualSpeed.y));
-			_player.setSpeed(actualSpeed);
+			if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
 		}
 		else if (event.key.code == sf::Keyboard::W){
 			sf::Vector2f actualSpeed = _player.getSpeed();
 			actualSpeed.y = std::min(-NORMALSPEED, -std::abs(actualSpeed.y));
-			_player.setSpeed(actualSpeed);
+			if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
 		}
 		else if (event.key.code == sf::Keyboard::Q){
 			_key.setTextureRect(UNLOCKED_KEY);
@@ -137,7 +143,7 @@ bool GameState::handleEvent(const sf::Event& event)
 		}
 	
 		else if (event.key.code == sf::Keyboard::Q){
-			_key.setTextureRect(UNLOCKED_KEY);
+			_key.setTextureRect(LOCKED_KEY);
 		}
 	}
 	return false;

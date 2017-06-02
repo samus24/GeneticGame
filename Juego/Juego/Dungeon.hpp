@@ -13,6 +13,12 @@ public:
 		size_t height;
 		int** cells;
 
+		Matrix(){
+			width = 0;
+			height = 0;
+			cells = nullptr;
+		}
+
 		Matrix(size_t width, size_t height){
 			this->width = width;
 			this->height = height;
@@ -39,10 +45,23 @@ public:
 		int* operator[](unsigned int i) const{
 			return cells[i];
 		}
+
+		std::string toString() const{
+			std::string ret = "";
+			for (size_t i = 0; i < width; ++i){
+				for (size_t j = 0; j < height; ++j){
+					ret += std::to_string(cells[i][j]);
+				}
+				ret += "\n";
+			}
+			return ret;
+		}
 	};
 
 public:
-	Dungeon(){
+	Dungeon() :
+		_rooms()
+	{
 
 	}
 
@@ -54,7 +73,7 @@ public:
 		auto itAdj = adj.begin();
 		RolSala rol = RolSala::RolCount;
 		std::vector<unsigned int> rolesSala = c.getRolesSala();
-		_selectedRoom = 0;
+		_selectedRoom = rolesSala[RolSala::Inicio];
 		for (size_t i = 0; i < g.size(); ++i, itNodes++, itAdj++){
 			rol = RolSala::RolCount;
 			for (size_t j = 0; j < rolesSala.size(); ++j){
@@ -63,15 +82,12 @@ public:
 					break;
 				}
 			}
-			if (rol == RolSala::Inicio){
-				_selectedRoom = i;
-			}
-			_rooms.push_back(fillRoom(itNodes->second, itAdj->second, rol));
+			_rooms[itNodes->first] = fillRoom(itNodes->second, itAdj->second, rol);
 		}
 	}
 
 	sf::Vector2u getCellWith(int portal) const{
-		Matrix r = _rooms[_selectedRoom];
+		Matrix r = _rooms.at(_selectedRoom);
 		for (size_t i = 0; i < r.width; ++i){
 			for (size_t j = 0; j < r.height; ++j){
 				if (r[i][j] == portal){
@@ -95,7 +111,7 @@ public:
 	}
 
 	int getCell(size_t x, size_t y) const{
-		Matrix r = _rooms[_selectedRoom];
+		Matrix r = _rooms.at(_selectedRoom);
 		if (x < 0 || x >= r.width || y < 0 || y >= r.height){
 			return -1000;
 		}
@@ -284,7 +300,7 @@ private:
 	static const int DOWN = 2;
 	static const int RIGHT = 3;
 
-	std::vector<Matrix> _rooms;
+	std::unordered_map<unsigned int,Matrix> _rooms;
 	size_t _selectedRoom;
 };
 

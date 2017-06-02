@@ -24,6 +24,7 @@ private:
 	sf::Sprite _key;
 
 	sf::Text _debugInfo;
+	sf::Time _tpCoolDown;
 };
 
 #endif

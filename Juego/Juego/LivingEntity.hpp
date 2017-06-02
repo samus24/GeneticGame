@@ -37,10 +37,7 @@ private:
 	sf::Vector2f speed;
 	float attack;
 
-	sf::IntRect _upRect;
-	sf::IntRect _downRect;
-	sf::IntRect _leftRect;
-	sf::IntRect _rightRect;
+	sf::Time timePerFrame;
 
 };
 
