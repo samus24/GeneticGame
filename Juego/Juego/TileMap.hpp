@@ -15,6 +15,8 @@ public:
 		if (!m_tileset.loadFromFile(tileset))
 			return false;
 
+		_width = width;
+		_height = height;
 		// resize the vertex array to fit the level size
 		m_vertices.setPrimitiveType(sf::Quads);
 		m_vertices.resize(width * height * 4);
@@ -75,6 +77,34 @@ public:
 		return true;
 	}
 
+	sf::Vector2f getCoordsFromCell(size_t x, size_t y) const{
+		const sf::Vertex* quad = &m_vertices[(x + y * _width) * 4];
+		return quad[0].position;
+	}
+
+	sf::Vector2u getCellFromCoords(sf::Vector2f coords) const{
+		return getCellFromCoords(coords.x, coords.y);
+	}
+
+	sf::Vector2u getCellFromCoords(float x, float y) const{
+		const sf::Vertex* quad;
+		sf::IntRect r;
+		r.width = TILESIZE.x;
+		r.height = TILESIZE.y;
+		for (unsigned int i = 0; i < _width; ++i)
+			for (unsigned int j = 0; j < _height; ++j)
+			{
+				quad = &m_vertices[(i + j * _width) * 4];
+				r.left = quad[0].position.x;
+				r.top = quad[0].position.y;
+				if (r.contains(sf::Vector2i(x, y))){
+					return sf::Vector2u(i, j);
+				}
+			}
+
+		return sf::Vector2u(_width, _height);
+	}
+
 private:
 
 	bool hasWall(int orientation, int** tiles, int x, int y, unsigned int width, unsigned int height) const{
@@ -109,6 +139,8 @@ private:
 	}
 
 	sf::VertexArray m_vertices;
+	size_t _width;
+	size_t _height;
 	sf::Texture m_tileset;
 };
 

@@ -7,7 +7,7 @@ class LivingEntity : public Entity{
 public:
 	LivingEntity(const sf::Texture& texture);
 
-	LivingEntity(const sf::Texture& texture, unsigned int maxHP, unsigned int hp, unsigned int speed, float attack);
+	LivingEntity(const sf::Texture& texture, unsigned int maxHP, unsigned int hp, sf::Vector2f speed, float attack);
 
 	void setHealth(unsigned int hp);
 
@@ -15,11 +15,11 @@ public:
 
 	unsigned int increaseHealth(int incr);
 
-	void setSpeed(unsigned int speed);
+	void setSpeed(sf::Vector2f speed);
 
-	unsigned int getSpeed() const;
+	sf::Vector2f getSpeed() const;
 
-	unsigned int increaseSpeed(int incr);
+	sf::Vector2f increaseSpeed(float incr);
 
 	void setAttack(float attack);
 
@@ -27,15 +27,20 @@ public:
 
 	unsigned int increaseAttack(int incr);
 
+	void update(sf::Time dt);
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 private:
 	unsigned int maxHP;
 	unsigned int hp;
-	unsigned int speed;
+	sf::Vector2f speed;
 	float attack;
 
+	sf::IntRect _upRect;
+	sf::IntRect _downRect;
+	sf::IntRect _leftRect;
+	sf::IntRect _rightRect;
 
 };
 

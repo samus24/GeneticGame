@@ -27,7 +27,7 @@ public:
 			e.increaseAttack(1);
 			break;
 		case Type::BoostSpeed:
-			e.increaseSpeed(1);
+			e.increaseSpeed(1.2);
 			break;
 		default:
 			break;

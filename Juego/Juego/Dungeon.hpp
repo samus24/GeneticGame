@@ -54,6 +54,7 @@ public:
 		auto itAdj = adj.begin();
 		RolSala rol = RolSala::RolCount;
 		std::vector<unsigned int> rolesSala = c.getRolesSala();
+		_selectedRoom = 0;
 		for (size_t i = 0; i < g.size(); ++i, itNodes++, itAdj++){
 			rol = RolSala::RolCount;
 			for (size_t j = 0; j < rolesSala.size(); ++j){
@@ -75,6 +76,10 @@ public:
 
 	Matrix getRoom(size_t i){
 		return _rooms[i];
+	}
+
+	int getCell(size_t x, size_t y) const{
+		// HACER ESTO !!
 	}
 
 	size_t getSelectedRoom() const{
@@ -166,7 +171,7 @@ private:
 				cont = false;
 				createWall(x, y, incX, incY, wallLength, m);
 				if (probContinue > myRandom::getRandom(0.f, 1.f)){
-					probContinue /= 3;
+					probContinue /= 2;
 					wallLength = myRandom::getRandom(1, int(std::ceil(wallLength*0.8)));
 					cont = true;
 					std::swap(incX, incY);
@@ -174,7 +179,8 @@ private:
 						incX = -incX;
 						incY = -incY;
 					}
-
+					x += incX;
+					y += incY;
 				}
 			} while (cont);
 		}
@@ -192,6 +198,8 @@ private:
 			x += incX;
 			y += incY;
 		}
+		x -= incX;
+		y -= incY;
 	}
 
 	int wallsBeside(int x, int y,const Matrix &m){
@@ -200,8 +208,8 @@ private:
 		y -= 1;
 		for (size_t i = 0; i < 3; ++i){
 			for (size_t j = 0; j < 3; ++j){
-				if (i != 1 && j != 1){
-					if (x+i < 0 || x+i >= m.width || y+j < 0 || y+j >= m.height){
+				if (!(i == 1 && j == 1)){
+					if (x + i < 0 || x + i >= m.width || y + j < 0 || y + j >= m.height){
 						ret++;
 					}
 					else if (m[x + i][y + j] == Dungeon::WALL || m[x + i][y + j] == Dungeon::CLOSED_CHEST){

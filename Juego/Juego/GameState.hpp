@@ -22,6 +22,8 @@ private:
 	sf::Sprite _buttonMenu;
 	bool _playerHasKey;
 	sf::Sprite _key;
+
+	sf::Text _debugInfo;
 };
 
 #endif
