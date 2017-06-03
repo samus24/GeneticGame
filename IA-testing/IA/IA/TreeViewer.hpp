@@ -105,7 +105,7 @@ private:
 			ret.setFillColor(sf::Color::Yellow);
 		}
 		else{
-			ret.setFillColor(sf::Color::Black);
+			ret.setFillColor(sf::Color::White);
 		}
 		ret.setCharacterSize(12);
 		ret.setString(texto);
