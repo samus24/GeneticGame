@@ -1,0 +1,38 @@
+
+
+NUEVA EJECUCION
+Gen 0:
+Fitness mejor: 643.995647; Fitness medio: 641.007691
+Gen 1:
+Fitness mejor: 643.995647; Fitness medio: 636.361433
+ -- AG Finalizado --
+Mejor individuo: 643.995647
+Arbol patrulla: ProgN3[0], ProgN3[1], CambiarEst[2], GiraIz[3], CambiarEst[4], SiDetectado[5], GiraIz[6], SiDetectado[7], SiDetectado[8], GiraIz[9], Avanza[10], CambiarEst[11], GiraDer[12]
+Arbol ataque: SiRango[0], ProgN3[1], SiBloqueado[2], SiRango[3], Avanza[4], SiBloqueado[5], GiraDer[6], Retroceder[7], Atacar[8], SiRango[9], GiraIz[10], GiraDer[11], Avanza[12], Retroceder[13]
+
+Notas
+Punt. exploracion: -361.666667
+Punt. Ataque: 20.166667
+Punt. Distancia: 14.504353
+Tiempos de ejecucion
+Tiempo total de ej: 193.853000 seg
+Tiempo inicializacion: 10.000000 ms
+Tiempo medio seleccion: 0.500000 ms
+Tiempo medio cruce: 0.500000 ms
+Tiempo medio mutacion: 0.500000 ms
+Tiempo medio evaluacion: 64.574667 seg
+
+
+Datos de Poblacion
+Individuo 0: 638.109632
+Arbol patrulla: ProgN3[0], ProgN3[1], CambiarEst[2], GiraIz[3], CambiarEst[4], SiDetectado[5], GiraIz[6], CambiarEst[7], CambiarEst[8]
+Arbol ataque: SiRango[0], ProgN3[1], SiBloqueado[2], SiRango[3], Avanza[4], SiBloqueado[5], GiraDer[6], Retroceder[7], Atacar[8], Avanza[9], Retroceder[10], GiraDer[11]
+
+Individuo 1: 626.979019
+Arbol patrulla: ProgN3[0], ProgN3[1], CambiarEst[2], GiraIz[3], CambiarEst[4], SiDetectado[5], GiraIz[6], CambiarEst[7], Avanza[8]
+Arbol ataque: SiRango[0], ProgN3[1], SiBloqueado[2], SiRango[3], Avanza[4], SiBloqueado[5], GiraDer[6], GiraIz[7], Atacar[8], Avanza[9], GiraIz[10], GiraDer[11]
+
+Individuo 2: 643.995647
+Arbol patrulla: ProgN3[0], ProgN3[1], CambiarEst[2], GiraIz[3], CambiarEst[4], SiDetectado[5], GiraIz[6], CambiarEst[7], GiraDer[8]
+Arbol ataque: SiRango[0], ProgN3[1], SiBloqueado[2], SiRango[3], Avanza[4], SiBloqueado[5], GiraDer[6], Retroceder[7], Atacar[8], Avanza[9], GiraIz[10], GiraDer[11]
+

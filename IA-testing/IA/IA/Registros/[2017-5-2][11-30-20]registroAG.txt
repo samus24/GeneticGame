@@ -1,0 +1,39 @@
+
+
+NUEVA EJECUCION
+Gen 0:
+Fitness mejor: 0.023266; Fitness medio: 0.007755
+ -- AG Finalizado --
+Mejor individuo: 0.023266
+Arbol patrulla: SiDetectado[0], ProgN3[1], GiraIz[2], SiBloqueado[3], SiDetectado[4], ProgN3[5], CambiarEst[6], Avanza[7], Avanza[8], GiraIz[9], CambiarEst[10], Avanza[11], GiraIz[12]
+Arbol ataque: SiRango[0], GiraIz[1], Atacar[2]
+
+Notas
+Punt. exploracion: 0.076638(0.022992 sobre el total)
+Punt. andar: 0.001372(0.000274 sobre el total)
+Punt. golpes intentados: 0.000000(0.000000 sobre el total)
+Punt. golpes evitados: 0.000000(0.000000 sobre el total)
+Punt. daño al jugador: 0.000000(0.000000 sobre el total)
+
+Tiempos de ejecucion
+Tiempo total de ej: 255.287602 seg
+Tiempo inicializacion: 2.000100 ms
+Tiempo medio seleccion: 0.000000 ms
+Tiempo medio cruce: 0.000000 ms
+Tiempo medio mutacion: 1.000000 ms
+Tiempo medio evaluacion: 127.637800 seg
+
+
+Datos de Poblacion
+Individuo 0: 0.000000(descartado)
+Arbol patrulla: SiDetectado[0], CambiarEst[1], ProgN3[2], SiDetectado[3], GiraDer[4], CambiarEst[5], CambiarEst[6], GiraDer[7]
+Arbol ataque: SiRango[0], Retroceder[1], SiBloqueado[2], Avanza[3], ProgN3[4], Atacar[5], Retroceder[6], GiraDer[7]
+
+Individuo 1: 0.023266
+Arbol patrulla: SiDetectado[0], ProgN3[1], GiraIz[2], SiBloqueado[3], SiDetectado[4], ProgN3[5], CambiarEst[6], Avanza[7], Avanza[8], GiraIz[9], CambiarEst[10], Avanza[11], GiraIz[12]
+Arbol ataque: SiRango[0], GiraIz[1], Atacar[2]
+
+Individuo 2: 0.000000(descartado)
+Arbol patrulla: ProgN3[0], GiraDer[1], GiraDer[2], SiBloqueado[3], ProgN3[4], GiraIz[5], CambiarEst[6], CambiarEst[7], GiraIz[8]
+Arbol ataque: SiJugador[0], GiraIz[1], GiraDer[2]
+

@@ -1,0 +1,13 @@
+
+
+NUEVA EJECUCION
+Fitness Individuo: 0.000000(descartado)
+Arbol patrulla: SiBloqueado[0], GiraIz[1], GiraIz[2]
+Arbol ataque: ProgN2[0], SiRango[1], Atacar[2], GiraDer[3], Atacar[4]
+Notas
+Punt. exploracion: 0.000000(0.000000 sobre el total)
+Punt. andar: 0.000000(0.000000 sobre el total)
+Punt. golpes intentados: 0.000000(0.000000 sobre el total)
+Punt. golpes evitados: 0.000000(0.000000 sobre el total)
+Punt. daño al jugador: 0.000000(0.000000 sobre el total)
+

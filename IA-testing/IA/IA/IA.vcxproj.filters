@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de código fuente">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo">
+      <UniqueIdentifier>{e8ac4508-45d6-42d0-af76-efb66bd9e057}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\vista">
+      <UniqueIdentifier>{c3425798-0449-4e0c-aab5-cefae28b28cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\controlador">
+      <UniqueIdentifier>{312a08fa-0e28-4735-92fc-a102c5165b8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\ag">
+      <UniqueIdentifier>{2acfd170-09f6-4bd1-ace7-4ac5c65d3854}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\cromosomas">
+      <UniqueIdentifier>{5e8bc8b9-b0b1-41bc-9b6b-740a1bd06e4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\cruce">
+      <UniqueIdentifier>{73eb4085-2d3b-4ec3-93c5-19e39de74eba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\mutacion">
+      <UniqueIdentifier>{17cb4504-598d-4925-855f-bab09e4b538d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\seleccion">
+      <UniqueIdentifier>{1d72f27a-4e60-4c32-851d-2a49aaf0fa70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\arbol">
+      <UniqueIdentifier>{25b9c0d7-2794-447e-b623-c26961769142}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\modelo\utiles">
+      <UniqueIdentifier>{31f2bf53-7195-4d8c-911d-8b54ba8130a9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+<<<<<<< HEAD:AG/AG/AG.vcxproj.filters
+    <ClCompile Include="ScrollBar.cpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
+=======
+    <ClCompile Include="main.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollBar.cpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckButton.cpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClCompile>
+>>>>>>> refs/remotes/origin/IA-Testing:IA-testing/IA/IA/IA.vcxproj.filters
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AG.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
+    </ClInclude>
+    <ClInclude Include="poblacion.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
+    </ClInclude>
+    <ClInclude Include="metodoCruce.hpp">
+      <Filter>Archivos de encabezado\modelo\cruce</Filter>
+    </ClInclude>
+    <ClInclude Include="MetodoMutacion.hpp">
+      <Filter>Archivos de encabezado\modelo\mutacion</Filter>
+    </ClInclude>
+    <ClInclude Include="MetodoSeleccion.hpp">
+      <Filter>Archivos de encabezado\modelo\seleccion</Filter>
+    </ClInclude>
+    <ClInclude Include="Arbol.hpp">
+      <Filter>Archivos de encabezado\modelo\arbol</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodo.hpp">
+      <Filter>Archivos de encabezado\modelo\arbol</Filter>
+    </ClInclude>
+    <ClInclude Include="npc.hpp">
+      <Filter>Archivos de encabezado\modelo\arbol</Filter>
+    </ClInclude>
+    <ClInclude Include="Mapa.hpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoriaCromosoma.hpp">
+      <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
+    </ClInclude>
+    <ClInclude Include="controlador.hpp">
+      <Filter>Archivos de encabezado\controlador</Filter>
+    </ClInclude>
+    <ClInclude Include="iagobserver.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
+    </ClInclude>
+    <ClInclude Include="parametros.hpp">
+      <Filter>Archivos de encabezado\modelo\ag</Filter>
+    </ClInclude>
+    <ClInclude Include="Cronometro.hpp">
+      <Filter>Archivos de encabezado\modelo\utiles</Filter>
+    </ClInclude>
+    <ClInclude Include="myrandom.hpp">
+      <Filter>Archivos de encabezado\modelo\utiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Cromosoma.hpp">
+      <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
+    </ClInclude>
+    <ClInclude Include="VistaTerminal.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="Components.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="Plotter.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressBar.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollBar.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="TabPane.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="Ventana.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationViewer.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="ICromosomaObserver.hpp">
+      <Filter>Archivos de encabezado\modelo\cromosomas</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeViewer.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="FileLogger.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckButton.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="VentanaParametros.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="TextField.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="ComboBox.hpp">
+      <Filter>Archivos de encabezado\vista</Filter>
+    </ClInclude>
+    <ClInclude Include="Testbench.hpp">
+      <Filter>Archivos de encabezado\utiles</Filter>
+    </ClInclude>
+    <ClInclude Include="IObserverCruce.hpp">
+      <Filter>Archivos de encabezado\modelo\cruce</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

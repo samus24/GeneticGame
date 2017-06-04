@@ -1,0 +1,19 @@
+
+
+NUEVA EJECUCION
+Fitness Individuo: -219.155252
+Arbol patrulla: ProgN3[0], ProgN3[1], ProgN3[2], ProgN3[3], Avanza[4], SiBloqueado[5], GiraDer[6], GiraIz[7], ProgN3[8], ProgN3[9], GiraDer[10], CambiarEst[11], ProgN3[12], GiraDer[13], CambiarEst[14], GiraDer[15], SiDetectado[16], ProgN3[17], SiDetectado[18], SiBloqueado[19], CambiarEst[20], CambiarEst[21], GiraIz[22], GiraDer[23], Avanza[24], CambiarEst[25], ProgN3[26], CambiarEst[27], GiraIz[28], Avanza[29], Avanza[30], GiraDer[31], Avanza[32], ProgN2[33], Avanza[34], ProgN3[35], ProgN3[36], SiDetectado[37], Avanza[38], GiraIz[39], Avanza[40], Avanza[41], CambiarEst[42], SiBloqueado[43], GiraDer[44], CambiarEst[45], Avanza[46], GiraDer[47]
+Arbol ataque: ProgN3[0], SiBloqueado[1], SiJugador[2], SiBloqueado[3], Atacar[4], SiRango[5], Retroceder[6], SiJugador[7], SiRango[8], ProgN2[9], Atacar[10], Atacar[11], BloquearN[12], ProgN2[13], Retroceder[14], Avanza[15], BloquearN[16], BloquearN[17], BloquearN[18], ProgN3[19], GiraDer[20], Atacar[21], SiBloqueado[22], ProgN2[23], GiraDer[24], Avanza[25], Avanza[26]
+Notas
+Punt. exploracion: -361.666667
+Punt. Ataque: 1.000000
+Punt. distancia: 13.038586
+Punt. turnos golpeo: 282.500000
+Fitness Individuo: -55.788028
+Arbol patrulla: ProgN3[0], ProgN3[1], ProgN2[2], SiBloqueado[3], Avanza[4], CambiarEst[5], Avanza[6], SiDetectado[7], SiDetectado[8], GiraDer[9], ProgN3[10], SiBloqueado[11], ProgN2[12], GiraDer[13], GiraIz[14], CambiarEst[15], Avanza[16], CambiarEst[17], ProgN2[18], ProgN3[19], ProgN3[20], ProgN2[21], SiBloqueado[22], GiraIz[23], SiBloqueado[24], GiraIz[25], Avanza[26], ProgN2[27], GiraDer[28], GiraDer[29], SiDetectado[30], Avanza[31], ProgN2[32], Avanza[33], GiraDer[34], GiraIz[35], GiraDer[36], GiraDer[37], GiraIz[38], CambiarEst[39], GiraDer[40], ProgN3[41], GiraDer[42], GiraDer[43], Avanza[44]
+Arbol ataque: ProgN2[0], SiBloqueado[1], Avanza[2], ProgN2[3], BloquearN[4], SiRango[5], GiraDer[6], Avanza[7], ProgN2[8], ProgN2[9], Avanza[10], BloquearN[11], SiBloqueado[12], GiraDer[13], SiBloqueado[14], BloquearN[15], BloquearN[16]
+Notas
+Punt. exploracion: -361.666667
+Punt. Ataque: 76.333333
+Punt. distancia: 9.888028
+Punt. turnos golpeo: 360.666667
