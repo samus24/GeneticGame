@@ -1,0 +1,192 @@
+Adap mejor: 0,809448
+Tejec: 134,083669
+Adap mejor: 0,87049
+Tejec: 115,565610
+Adap mejor: 0,864312
+Tejec: 37,611151
+Adap mejor: 0,782421
+Tejec: 122,206990
+Adap mejor: 0,748945
+Tejec: 100,149728
+Adap mejor: 0,707434
+Tejec: 62,571579
+Adap mejor: 0,703846
+Tejec: 176,607101
+Adap mejor: 0,732315
+Tejec: 217,359432
+Adap mejor: 0,853823
+Tejec: 88,407057
+Adap mejor: 0,861918
+Tejec: 70,264019
+Adap mejor: 0,859705
+Tejec: 85,672900
+Adap mejor: 0,714421
+Tejec: 196,165220
+Adap mejor: 0,731497
+Tejec: 402,790038
+Adap mejor: 0,780482
+Tejec: 296,687970
+Adap mejor: 0,764401
+Tejec: 95,733476
+Adap mejor: 0,704409
+Tejec: 197,645305
+Adap mejor: 0,756308
+Tejec: 81,945687
+Adap mejor: 0,774096
+Tejec: 113,660501
+Adap mejor: 0,712436
+Tejec: 264,928153
+Adap mejor: 0,79519
+Tejec: 276,998843
+Adap mejor: 0,802346
+Tejec: 187,871746
+Adap mejor: 0,734471
+Tejec: 150,924632
+Adap mejor: 0,697166
+Tejec: 220,839631
+Adap mejor: 0,787368
+Tejec: 164,412404
+Adap mejor: 0,741579
+Tejec: 108,684216
+Adap mejor: 0,718421
+Tejec: 77,958459
+Adap mejor: 0,699721
+Tejec: 128,277337
+Adap mejor: 0,79809
+Tejec: 73,309193
+Adap mejor: 0,738807
+Tejec: 206,082787
+Adap mejor: 0,712856
+Tejec: 79,703559
+Adap mejor: 0,827312
+Tejec: 130,497464
+Adap mejor: 0,804689
+Tejec: 179,358259
+Adap mejor: 0,855577
+Tejec: 65,985774
+Adap mejor: 0,845148
+Tejec: 103,205903
+Adap mejor: 0,775658
+Tejec: 87,441001
+Adap mejor: 0,693295
+Tejec: 143,348199
+Adap mejor: 0,871981
+Tejec: 28,147610
+Adap mejor: 0,855597
+Tejec: 151,363657
+Adap mejor: 0,826744
+Tejec: 232,155279
+Adap mejor: 0,793223
+Tejec: 126,388229
+Adap mejor: 0,719779
+Tejec: 242,516871
+Adap mejor: 0,784439
+Tejec: 207,307857
+Adap mejor: 0,842894
+Tejec: 128,461348
+Adap mejor: 0,857379
+Tejec: 92,128269
+Adap mejor: 0,813719
+Tejec: 351,590110
+Adap mejor: 0,742126
+Tejec: 386,187089
+Adap mejor: 0,764334
+Tejec: 239,365691
+Adap mejor: 0,882173
+Tejec: 215,126305
+Adap mejor: 0,75706
+Tejec: 115,729619
+Adap mejor: 0,793682
+Tejec: 148,678504
+Adap mejor: 0,747185
+Tejec: 173,816942
+Adap mejor: 0,846099
+Tejec: 101,016778
+Adap mejor: 0,852256
+Tejec: 109,951289
+Adap mejor: 0,735534
+Tejec: 97,227561
+Adap mejor: 0,799145
+Tejec: 200,289456
+Adap mejor: 0,823021
+Tejec: 175,568042
+Adap mejor: 0,852442
+Tejec: 94,977432
+Adap mejor: 0,870734
+Tejec: 104,387971
+Adap mejor: 0,864095
+Tejec: 182,043412
+Adap mejor: 0,689153
+Tejec: 157,079984
+Adap mejor: 0,807015
+Tejec: 220,212595
+Adap mejor: 0,855729
+Tejec: 166,523525
+Adap mejor: 0,744693
+Tejec: 168,574642
+Adap mejor: 0,739031
+Tejec: 234,510413
+Adap mejor: 0,78137
+Tejec: 302,807320
+Adap mejor: 0,776791
+Tejec: 314,886010
+Adap mejor: 0,781831
+Tejec: 235,478469
+Adap mejor: 0,766176
+Tejec: 353,104196
+Adap mejor: 0,702881
+Tejec: 284,833291
+Adap mejor: 0,745333
+Tejec: 666,048096
+Adap mejor: 0,831819
+Tejec: 208,495925
+Adap mejor: 0,898231
+Tejec: 127,797310
+Adap mejor: 0,739825
+Tejec: 253,368492
+Adap mejor: 0,771645
+Tejec: 118,829797
+Adap mejor: 0,747614
+Tejec: 103,886942
+Adap mejor: 0,815232
+Tejec: 152,679733
+Adap mejor: 0,785347
+Tejec: 125,618185
+Adap mejor: 0,746364
+Tejec: 90,877198
+Adap mejor: 0,742194
+Tejec: 193,146047
+Adap mejor: 0,895695
+Tejec: 94,532407
+Adap mejor: 0,832966
+Tejec: 174,323971
+Adap mejor: 0,867687
+Tejec: 110,767336
+Adap mejor: 0,765454
+Tejec: 131,578526
+Adap mejor: 0,699564
+Tejec: 266,182225
+Adap mejor: 0,85492
+Tejec: 220,550615
+Adap mejor: 0,68407
+Tejec: 100,109726
+Adap mejor: 0,747679
+Tejec: 313,526933
+Adap mejor: 0,731916
+Tejec: 238,207625
+Adap mejor: 0,725154
+Tejec: 223,120762
+Adap mejor: 0,855685
+Tejec: 99,982719
+Adap mejor: 0,774157
+Tejec: 262,696025
+Adap mejor: 0,723932
+Tejec: 219,075530
+Adap mejor: 0,767157
+Tejec: 354,066252
+Adap mejor: 0,85864
+Tejec: 116,648672
+Adap mejor: 0,784865
+Tejec: 255,031587
+Adap mejor: 0,781549
+Tejec: 292,719743

@@ -3,7 +3,10 @@
 
 #include "AG.hpp"
 #include "IAGObserver.hpp"
+<<<<<<< HEAD:IA-testing/IA/IA/controlador.hpp
 #include "ICromosomaObserver.hpp"
+=======
+>>>>>>> refs/remotes/origin/master:AG/AG/Controlador.hpp
 
 class Controlador {
 public:
@@ -16,6 +19,7 @@ public:
 		return _ag->ejecuta();
 	}
 
+<<<<<<< HEAD:IA-testing/IA/IA/controlador.hpp
 	void addObserver(IAGObserver& o){
 		_ag->addObserver(o);
 	}
@@ -32,6 +36,19 @@ public:
 		_ag->setParametros(p);
 	}
 
+=======
+	void updateParam(Parametros p, ParametrosEval pEval){
+		_ag->updateParam(p, pEval);
+	}
+
+	void addObserver(IAGObserver& o){
+		_ag->addObserver(o);
+	}
+
+	void addObserverCruce(IObserverCruce& o){
+		_ag->addObserverCruce(o);
+	}
+>>>>>>> refs/remotes/origin/master:AG/AG/Controlador.hpp
 private:
 	AG* _ag;
 
