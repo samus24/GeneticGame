@@ -15,6 +15,8 @@ public:
 	virtual bool			handleEvent(const sf::Event& event);
 
 private:
+	void updatePlayerHealth();
+
 	Dungeon _dungeon;
 	TileMap _tiles;
 	LivingEntity _player;

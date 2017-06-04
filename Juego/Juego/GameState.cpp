@@ -7,7 +7,7 @@
 GameState::GameState(StateStack& stack, Context context)
 	: State(stack, context),
 	_playerHasKey(false),
-	_player(context.textures->get(Textures::Player), 3, 3, sf::Vector2f(0,0), 1),
+	_player(context.textures->get(Textures::Player), MAX_HEALTH, 3, sf::Vector2f(0,0), 1),
 	_tpCoolDown(TPCOOLDOWN),
 	_damageCoolDown(DAMAGECOOLDOWN)
 {
@@ -66,7 +66,7 @@ GameState::GameState(StateStack& stack, Context context)
 	std::cout << "Terminado" << std::endl;
 	_dungeon.generateRooms(mejor);
 	Dungeon::Matrix room = _dungeon.getRoom(_dungeon.getSelectedRoom());
-	_tiles.load(TILEPATH, TILESIZE, room.getCells(), room.width, room.height);
+	_tiles.load(TILEPATH, TILESIZE, room, room.width, room.height);
 	sf::Vector2f spawnCoords = _tiles.getCoordsFromCell(room.width / 2, room.height / 2);
 	_player.setPosition(spawnCoords);
 	_roomNo.setString("Room " + std::to_string(_dungeon.getSelectedRoom()));
@@ -97,25 +97,19 @@ bool GameState::update(sf::Time dt)
 		int lastRoom = _dungeon.getSelectedRoom();
 		_dungeon.setSelectedRoom(portal);
 		auto room = _dungeon.getRoom(portal);
-		_tiles.load(TILEPATH, TILESIZE, room.getCells(), room.width, room.height);
+		_tiles.load(TILEPATH, TILESIZE, room, room.width, room.height);
 		auto teleportCell = _dungeon.getCellWith(lastRoom);
 		_player.setPosition(_tiles.getCoordsFromCell(teleportCell));
 		_roomNo.setString("Room " + std::to_string(_dungeon.getSelectedRoom()));
+		std::cout << room.toString() << std::endl;
 		_tpCoolDown = TPCOOLDOWN;
 	}
 	else if (portal == Dungeon::KEYBLOCK){
 		_dungeon.setCell(playerPos, Dungeon::EMPTY);
+		auto room = _dungeon.getRoom(_dungeon.getSelectedRoom());
+		_tiles.load(TILEPATH, TILESIZE, room, room.width, room.height);
+		_key.setTextureRect(UNLOCKED_KEY);
 		_playerHasKey = true;
-	}
-	else if (portal == Dungeon::ENDPORTAL){
-		_damageCoolDown -= dt;
-		if (_playerHasKey){
-			// Load a new dungeon
-		}
-		else if(_damageCoolDown <= sf::Time::Zero){
-			_player.increaseHealth(-1);
-			_damageCoolDown = DAMAGECOOLDOWN;
-		}
 	}
 	else{
 		_tpCoolDown -= dt;
@@ -154,6 +148,17 @@ bool GameState::update(sf::Time dt)
 
 				break;
 			}
+		}
+	}
+	if (portal == Dungeon::ENDPORTAL){
+		_damageCoolDown -= dt;
+		if (_playerHasKey){
+			// Load a new dungeon
+		}
+		else if (_damageCoolDown <= sf::Time::Zero){
+			_player.increaseHealth(-1);
+			updatePlayerHealth();
+			_damageCoolDown = DAMAGECOOLDOWN;
 		}
 	}
 	
@@ -204,4 +209,15 @@ bool GameState::handleEvent(const sf::Event& event)
 		}
 	}
 	return false;
+}
+
+void GameState::updatePlayerHealth(){
+	for (size_t i = 0; i < MAX_HEALTH; ++i){
+		if (i < _player.getHealth()){
+			_playerHealth[i].setTextureRect(FULL_HEART);
+		}
+		else{
+			_playerHealth[i].setTextureRect(EMPTY_HEART);
+		}
+	}
 }

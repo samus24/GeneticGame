@@ -29,6 +29,8 @@ const sf::IntRect RIGHTRECT(0, 32, TILESIZE.x, TILESIZE.y);
 
 const float NORMALSPEED = 70;
 
+const int MAX_HEALTH = 3;
+
 const std::string TILEPATH = "Media/Textures/TileMap.png";
 
 const sf::Time TPCOOLDOWN = sf::seconds(3);

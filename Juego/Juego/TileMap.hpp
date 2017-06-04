@@ -9,7 +9,7 @@ class TileMap : public sf::Drawable, public sf::Transformable
 {
 public:
 
-	bool load(const std::string& tileset, sf::Vector2u tileSize, int** tiles, unsigned int width, unsigned int height)
+	bool load(const std::string& tileset, sf::Vector2u tileSize, Dungeon::Matrix tiles, unsigned int width, unsigned int height)
 	{
 		// load the tileset texture
 		if (!m_tileset.loadFromFile(tileset))
@@ -28,7 +28,7 @@ public:
 			for (unsigned int j = 0; j < height; ++j)
 			{
 				// get the current tile number
-				int tileNumber = tiles[i][j];
+				int tileNumber = tiles.cells[i][j];
 				int key = -1;
 				if (tileNumber == Dungeon::WALL){
 					key++;
@@ -115,7 +115,7 @@ public:
 
 private:
 
-	bool hasWall(int orientation, int** tiles, int x, int y, unsigned int width, unsigned int height) const{
+	bool hasWall(int orientation, Dungeon::Matrix tiles, int x, int y, unsigned int width, unsigned int height) const{
 		switch (orientation)
 		{
 		case 1:
