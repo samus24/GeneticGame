@@ -17,12 +17,19 @@ public:
 private:
 	void updatePlayerHealth();
 
+	void generateEnemies(int nEnemies);
+
+	Cromosoma _mejor;
 	Dungeon _dungeon;
 	TileMap _tiles;
 	LivingEntity _player;
 
+	std::vector<LivingEntity> enemies;
+
 	sf::Sprite _buttonMenu;
 	bool _playerHasKey;
+	bool _isPlayerAttack;
+	bool _hasReleasedAttack;
 	sf::Sprite _key;
 	sf::Text _roomNo;
 

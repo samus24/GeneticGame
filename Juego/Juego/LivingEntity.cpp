@@ -12,7 +12,12 @@ LivingEntity::LivingEntity(const sf::Texture& texture, unsigned int maxHP, unsig
 	hp(hp),
 	speed(speed),
 	attack(attack),
-	timePerFrame(TIMEPERFRAME)
+	timePerFrame(TIMEPERFRAME),
+	_facing(Facing::SOUTH),
+	speedPuTime(sf::Time::Zero),
+	attackPuTime(sf::Time::Zero),
+	speedIncr(1),
+	attackIncr(1)
 {
 }
 
@@ -34,37 +39,50 @@ unsigned int LivingEntity::increaseHealth(int incr){
 void LivingEntity::setSpeed(sf::Vector2f speed){
 	this->speed = speed;
 	if (speed.x > 0){
+		_facing = Facing::EAST;
 		sprite.setTextureRect(RIGHTRECT);
 	}
 	else if (speed.x < 0){
+		_facing = Facing::WEST;
 		sprite.setTextureRect(LEFTRECT);
 	}
 	else if (speed.y > 0){
+		_facing = Facing::SOUTH;
 		sprite.setTextureRect(DOWNRECT);
 	}
 	else if (speed.y < 0){
+		_facing = Facing::NORTH;
 		sprite.setTextureRect(UPRECT);
 	}
+}
+
+LivingEntity::Facing LivingEntity::getFacing() const{
+	return _facing;
 }
 
 sf::Vector2f LivingEntity::getSpeed() const{
 	return speed;
 }
 
-sf::Vector2f LivingEntity::increaseSpeed(float incr){
+sf::Vector2f LivingEntity::increaseSpeed(float incr, sf::Time t){
 	speed *= incr;
 	if (speed.x > 0){
+		_facing = Facing::EAST;
 		sprite.setTextureRect(RIGHTRECT);
 	}
 	else if (speed.x < 0){
+		_facing = Facing::WEST;
 		sprite.setTextureRect(LEFTRECT);
 	}
 	else if (speed.y > 0){
+		_facing = Facing::SOUTH;
 		sprite.setTextureRect(DOWNRECT);
 	}
 	else if (speed.y < 0){
+		_facing = Facing::NORTH;
 		sprite.setTextureRect(UPRECT);
 	}
+	speedPuTime = t;
 	return speed;
 }
 
@@ -76,14 +94,17 @@ float LivingEntity::getAttack() const{
 	return attack;
 }
 
-unsigned int LivingEntity::increaseAttack(int incr){
+unsigned int LivingEntity::increaseAttack(int incr, sf::Time t){
 	int sum = attack + incr;
 	attack = std::max(sum, 0);
+	attackPuTime = t;
 	return attack;
 }
 
 void LivingEntity::update(sf::Time dt){
 	timePerFrame -= dt;
+	if (speedPuTime > sf::Time::Zero) speedPuTime -= dt;
+	attackPuTime -= dt;
 	if (speed != sf::Vector2f(0,0) && timePerFrame <= sf::Time::Zero){
 		auto r = sprite.getTextureRect();
 		r.left += TILESIZE.x;
@@ -92,9 +113,22 @@ void LivingEntity::update(sf::Time dt){
 		timePerFrame = TIMEPERFRAME;
 	}
 	move(speed * dt.asSeconds());
+	if (speedPuTime < sf::Time::Zero){
+		setSpeed(getSpeed() / speedIncr);
+		speedIncr = 1;
+		speedPuTime = sf::Time::Zero;
+	}
+	if (attackPuTime <= sf::Time::Zero){
+		setAttack(getAttack() / attackIncr);
+		attackIncr = 1;
+	}
 }
 
 void LivingEntity::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 	states.transform *= getTransform();
 	target.draw(sprite);
+}
+
+void LivingEntity::setTextureRect(sf::IntRect r){
+	sprite.setTextureRect(r);
 }

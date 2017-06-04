@@ -27,9 +27,14 @@ const sf::IntRect DOWNRECT(0, 0, TILESIZE.x, TILESIZE.y);
 const sf::IntRect LEFTRECT(0, 16, TILESIZE.x, TILESIZE.y);
 const sf::IntRect RIGHTRECT(0, 32, TILESIZE.x, TILESIZE.y);
 
+const sf::IntRect ATTACKDOWN(0, 64, TILESIZE.x, TILESIZE.y);
+const sf::IntRect ATTACKUP(48, 64, TILESIZE.x, TILESIZE.y);
+const sf::IntRect ATTACKRIGHT(16, 64, TILESIZE.x, TILESIZE.y);
+const sf::IntRect ATTACKLEFT(32, 64, TILESIZE.x, TILESIZE.y);
+
 const float NORMALSPEED = 70;
 
-const int MAX_HEALTH = 3;
+const int MAX_HEALTH = 6;
 
 const std::string TILEPATH = "Media/Textures/TileMap.png";
 

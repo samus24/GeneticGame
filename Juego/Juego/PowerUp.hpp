@@ -18,16 +18,16 @@ public:
 		_type = Type(myRandom::getRandom(0, int(Type::TypesCount) - 1));
 	}
 
-	void applyBoost(LivingEntity e){
+	void applyBoost(LivingEntity &e){
 		switch (_type){
 		case Type::BoostHealth:
 			e.increaseHealth(1);
 			break;
 		case Type::BoostAttack:
-			e.increaseAttack(1);
+			e.increaseAttack(1, sf::seconds(10));
 			break;
 		case Type::BoostSpeed:
-			e.increaseSpeed(1.2);
+			e.increaseSpeed(2, sf::seconds(10));
 			break;
 		default:
 			break;

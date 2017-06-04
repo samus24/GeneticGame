@@ -1,4 +1,5 @@
 #include "GameState.hpp"
+#include "PowerUp.hpp"
 #include "PauseState.hpp"
 #include "ResourceHolder.hpp"
 #include "AG.hpp"
@@ -7,6 +8,8 @@
 GameState::GameState(StateStack& stack, Context context)
 	: State(stack, context),
 	_playerHasKey(false),
+	_isPlayerAttack(false),
+	_hasReleasedAttack(true),
 	_player(context.textures->get(Textures::Player), MAX_HEALTH, 3, sf::Vector2f(0,0), 1),
 	_tpCoolDown(TPCOOLDOWN),
 	_damageCoolDown(DAMAGECOOLDOWN)
@@ -35,8 +38,8 @@ GameState::GameState(StateStack& stack, Context context)
 	_key.setPosition(WINDOW_WIDTH - LOCKED_KEY.width, WINDOW_HEIGHT - LOCKED_KEY.height);
 
 	sf::Texture& texture3 = context.textures->get(Textures::PlayerMods);
-	sf::Vector2f pos(WINDOW_WIDTH - (FULL_HEART.width*1.5 * _player.getHealth()), WINDOW_HEIGHT - FULL_HEART.height*1.5);
-	for (size_t i = 0; i < _player.getHealth(); ++i){
+	sf::Vector2f pos(WINDOW_WIDTH - (FULL_HEART.width*1.5 * MAX_HEALTH), WINDOW_HEIGHT - FULL_HEART.height*1.5);
+	for (size_t i = 0; i < MAX_HEALTH; ++i){
 		sf::Sprite s;
 		s.setTexture(texture3);
 		s.setTextureRect(FULL_HEART);
@@ -45,6 +48,7 @@ GameState::GameState(StateStack& stack, Context context)
 		pos.x += FULL_HEART.width * 1.5;
 		_playerHealth.push_back(s);
 	}
+	updatePlayerHealth();
 
 	std::cout << "Arrancando" << std::endl;
 	Parametros p;
@@ -62,14 +66,16 @@ GameState::GameState(StateStack& stack, Context context)
 	p.cruce = new CruceMonopunto();			// Metodo de cruce (Ver "MetodoCruce.hpp")
 	p.mutacion = new MutacionCombinada();		// Metodo de mutacion (Ver "MetodoMutacion.hpp")
 	AG ag(p);
-	Cromosoma mejor = ag.ejecuta();
+	_mejor = ag.ejecuta();
 	std::cout << "Terminado" << std::endl;
-	_dungeon.generateRooms(mejor);
+	_dungeon.generateRooms(_mejor);
 	Dungeon::Matrix room = _dungeon.getRoom(_dungeon.getSelectedRoom());
 	_tiles.load(TILEPATH, TILESIZE, room, room.width, room.height);
 	sf::Vector2f spawnCoords = _tiles.getCoordsFromCell(room.width / 2, room.height / 2);
 	_player.setPosition(spawnCoords);
 	_roomNo.setString("Room " + std::to_string(_dungeon.getSelectedRoom()));
+	_mejor.getMejorCC().getNodos();
+	generateEnemies(_mejor.getMejorCC().getNodos()[_dungeon.getSelectedRoom()].getEnemigos());
 }
 
 void GameState::draw()
@@ -80,6 +86,10 @@ void GameState::draw()
 	window.draw(_tiles);
 	window.draw(_buttonMenu);
 	window.draw(_key);
+	for (auto e : enemies){
+		window.draw(e);
+	}
+
 	window.draw(_player);
 
 	for (auto s : _playerHealth){
@@ -101,7 +111,7 @@ bool GameState::update(sf::Time dt)
 		auto teleportCell = _dungeon.getCellWith(lastRoom);
 		_player.setPosition(_tiles.getCoordsFromCell(teleportCell));
 		_roomNo.setString("Room " + std::to_string(_dungeon.getSelectedRoom()));
-		std::cout << room.toString() << std::endl;
+		generateEnemies(_mejor.getMejorCC().getNodos()[_dungeon.getSelectedRoom()].getEnemigos());
 		_tpCoolDown = TPCOOLDOWN;
 	}
 	else if (portal == Dungeon::KEYBLOCK){
@@ -161,6 +171,40 @@ bool GameState::update(sf::Time dt)
 			_damageCoolDown = DAMAGECOOLDOWN;
 		}
 	}
+
+	if (_isPlayerAttack){
+		switch (_player.getFacing()){
+		case LivingEntity::Facing::NORTH:
+			playerPos.y -= 1;
+			_player.setTextureRect(ATTACKUP);
+			break;
+		case LivingEntity::Facing::WEST:
+			playerPos.x -= 1;
+			_player.setTextureRect(ATTACKLEFT);
+			break;
+		case LivingEntity::Facing::SOUTH:
+			playerPos.y += 1;
+			_player.setTextureRect(ATTACKDOWN);
+			break;
+		case LivingEntity::Facing::EAST:
+			playerPos.x += 1;
+			_player.setTextureRect(ATTACKRIGHT);
+			break;
+		}
+		portal = _dungeon.getCell(playerPos);
+		if (portal == Dungeon::CLOSED_CHEST){
+			_dungeon.setCell(playerPos, Dungeon::OPENED_CHEST);
+			PowerUp pu;
+			pu.applyBoost(_player);
+			updatePlayerHealth();
+			auto room = _dungeon.getRoom(_dungeon.getSelectedRoom());
+			_tiles.load(TILEPATH, TILESIZE, room, room.width, room.height);
+		}
+		else{
+			// Check entities
+		}
+		_isPlayerAttack = false;
+	}
 	
 	return true;
 }
@@ -194,6 +238,10 @@ bool GameState::handleEvent(const sf::Event& event)
 			auto pauseState = std::make_shared<PauseState>(*_stack, _context);
 			requestStackPush(pauseState);
 		}
+		else if (event.key.code == sf::Keyboard::K && _hasReleasedAttack){
+			_isPlayerAttack = true;
+			_hasReleasedAttack = false;
+		}
 	}
 	else if (event.type == sf::Event::KeyReleased)
 	{
@@ -207,6 +255,10 @@ bool GameState::handleEvent(const sf::Event& event)
 			actualSpeed.y = 0;
 			_player.setSpeed(actualSpeed);
 		}
+		else if (event.key.code == sf::Keyboard::K){
+			_hasReleasedAttack = true;
+			_player.setSpeed(_player.getSpeed());
+		}
 	}
 	return false;
 }
@@ -219,5 +271,20 @@ void GameState::updatePlayerHealth(){
 		else{
 			_playerHealth[i].setTextureRect(EMPTY_HEART);
 		}
+	}
+}
+
+void GameState::generateEnemies(int nEnemies){
+	enemies.clear();
+	auto room = _dungeon.getRoom(_dungeon.getSelectedRoom());
+	int x, y;
+	for (size_t i = 0; i < nEnemies; ++i){
+		do{
+			x = myRandom::getRandom(1u, room.width - 2);
+			y = myRandom::getRandom(1u, room.height - 2);
+		} while (Dungeon::isLocked(room[x][y]));
+		LivingEntity e(getContext().textures->get(Textures::Enemy), 3, 3, sf::Vector2f(0,0), 1);
+		e.setPosition(_tiles.getCoordsFromCell(x,y));
+		enemies.push_back(e);
 	}
 }
