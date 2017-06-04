@@ -1,5 +1,0 @@
-
-
-NUEVA EJECUCION
-Gen 0:
-Fitness mejor: 29.000000; Fitness medio: 17.020000

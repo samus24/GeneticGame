@@ -1,0 +1,69 @@
+
+
+NUEVA EJECUCION
+Gen 0:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 1:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 2:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 3:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 4:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 5:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 6:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 7:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 8:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 9:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 10:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 11:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 12:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 13:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 14:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 15:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 16:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 17:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 18:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 19:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 20:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 21:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 22:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 23:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 24:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 25:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 26:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 27:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 28:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 29:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 30:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 31:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 32:
+Fitness mejor: 0.000000; Fitness medio: 0.000000

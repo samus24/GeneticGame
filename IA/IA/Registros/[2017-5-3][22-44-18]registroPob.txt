@@ -1,0 +1,13 @@
+
+
+NUEVA EJECUCION
+Fitness Individuo: 0.000000
+Arbol patrulla: SiDetectado[0], ProgN3[1], ProgN2[2], CambiarEst[3], ProgN2[4], SiDetectado[5], Avanza[6], GiraIz[7], Avanza[8], Avanza[9], Avanza[10], GiraDer[11]
+Arbol ataque: SiBloqueado[0], SiJugador[1], ProgN2[2], ProgN3[3], BloquearN[4], SiRango[5], SiRango[6], BloquearN[7], Avanza[8], GiraDer[9], Retroceder[10], Atacar[11], Atacar[12], Avanza[13]
+Notas
+Punt. exploracion: 0.000000(0.000000 sobre el total)
+Punt. andar: 0.000000(0.000000 sobre el total)
+Punt. golpes intentados: 0.000000(0.000000 sobre el total)
+Punt. golpes evitados: 0.000000(0.000000 sobre el total)
+Punt. daño al jugador: 0.000000(0.000000 sobre el total)
+

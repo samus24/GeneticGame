@@ -1,0 +1,35 @@
+
+
+NUEVA EJECUCION
+Fitness Individuo: 127.442652
+Arbol patrulla: ProgN2[0], GiraDer[1], GiraDer[2]
+Arbol ataque: VidaJugador[0], Alejar[1], BloquearN[2], Alejar[3]
+Notas
+Punt. exploracion: -362.666667
+Punt. Ataque: 0.000000
+Punt. distancia: 9.890681
+Punt. turnos golpeo: 0.000000
+Fitness Individuo: 97.522655
+Arbol patrulla: SiBloqueado[0], GiraDer[1], Avanza[2]
+Arbol ataque: VidaIA[0], Atacar[1], Atacar[2], Alejar[3]
+Notas
+Punt. exploracion: -468.000000
+Punt. Ataque: 0.000000
+Punt. distancia: 13.477345
+Punt. turnos golpeo: 0.000000
+Fitness Individuo: 111.628354
+Arbol patrulla: SiDetectado[0], GiraIz[1], GiraDer[2]
+Arbol ataque: ProgN3[0], Acercar[1], Atacar[2], Acercar[3]
+Notas
+Punt. exploracion: -410.333333
+Punt. Ataque: 0.000000
+Punt. distancia: 20.938312
+Punt. turnos golpeo: 0.000000
+Fitness Individuo: 126.175410
+Arbol patrulla: SiBloqueado[0], CambiarEst[1], Avanza[2]
+Arbol ataque: VidaIA[0], Curar[1], Atacar[2], Alejar[3]
+Notas
+Punt. exploracion: -20.000000
+Punt. Ataque: 23.833333
+Punt. distancia: 19.507923
+Punt. turnos golpeo: 352.166667

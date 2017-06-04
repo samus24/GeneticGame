@@ -1,0 +1,13 @@
+
+
+NUEVA EJECUCION
+Gen 0:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 1:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 2:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 3:
+Fitness mejor: 0.000000; Fitness medio: 0.000000
+Gen 4:
+Fitness mejor: 0.000000; Fitness medio: 0.000000

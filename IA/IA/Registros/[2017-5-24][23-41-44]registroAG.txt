@@ -1,0 +1,423 @@
+
+
+NUEVA EJECUCION
+Gen 0:
+Fitness mejor: 1936.803642; Fitness medio: 437.598353
+Gen 1:
+Fitness mejor: 2076.372678; Fitness medio: 523.304336
+Gen 2:
+Fitness mejor: 2618.539345; Fitness medio: 444.422691
+Gen 3:
+Fitness mejor: 3143.872678; Fitness medio: 567.432142
+Gen 4:
+Fitness mejor: 3143.872678; Fitness medio: 644.117378
+Gen 5:
+Fitness mejor: 3143.872678; Fitness medio: 998.397021
+Gen 6:
+Fitness mejor: 3143.872678; Fitness medio: 861.417749
+Gen 7:
+Fitness mejor: 3143.872678; Fitness medio: 1270.422577
+Gen 8:
+Fitness mejor: 3143.872678; Fitness medio: 945.753894
+Gen 9:
+Fitness mejor: 3143.872678; Fitness medio: 1280.845989
+Gen 10:
+Fitness mejor: 3143.872678; Fitness medio: 1008.760753
+Gen 11:
+Fitness mejor: 3143.872678; Fitness medio: 1136.503277
+Gen 12:
+Fitness mejor: 3143.872678; Fitness medio: 1311.043897
+Gen 13:
+Fitness mejor: 3143.872678; Fitness medio: 1543.786058
+Gen 14:
+Fitness mejor: 3143.872678; Fitness medio: 1514.211334
+Gen 15:
+Fitness mejor: 4096.333333; Fitness medio: 1623.662317
+Gen 16:
+Fitness mejor: 4096.333333; Fitness medio: 1577.501297
+Gen 17:
+Fitness mejor: 4096.333333; Fitness medio: 1558.170225
+Gen 18:
+Fitness mejor: 4096.333333; Fitness medio: 1668.790195
+Gen 19:
+Fitness mejor: 5357.500000; Fitness medio: 2476.411907
+Gen 20:
+Fitness mejor: 5357.500000; Fitness medio: 1900.179526
+Gen 21:
+Fitness mejor: 6233.500000; Fitness medio: 2088.354218
+Gen 22:
+Fitness mejor: 7529.500000; Fitness medio: 2409.508023
+Gen 23:
+Fitness mejor: 8424.166667; Fitness medio: 1969.404953
+Gen 24:
+Fitness mejor: 8424.166667; Fitness medio: 1962.230327
+Gen 25:
+Fitness mejor: 8424.166667; Fitness medio: 2208.271410
+Gen 26:
+Fitness mejor: 8424.166667; Fitness medio: 2810.295262
+Gen 27:
+Fitness mejor: 8424.166667; Fitness medio: 2532.214435
+Gen 28:
+Fitness mejor: 8424.166667; Fitness medio: 2349.735763
+Gen 29:
+Fitness mejor: 8424.166667; Fitness medio: 2290.253782
+Gen 30:
+Fitness mejor: 8424.166667; Fitness medio: 2281.785631
+Gen 31:
+Fitness mejor: 8424.166667; Fitness medio: 2805.744565
+Gen 32:
+Fitness mejor: 8424.166667; Fitness medio: 2582.080328
+Gen 33:
+Fitness mejor: 8424.166667; Fitness medio: 2017.737995
+Gen 34:
+Fitness mejor: 8424.166667; Fitness medio: 2894.557869
+Gen 35:
+Fitness mejor: 8424.166667; Fitness medio: 2396.799203
+Gen 36:
+Fitness mejor: 8424.166667; Fitness medio: 2401.971843
+Gen 37:
+Fitness mejor: 8424.166667; Fitness medio: 2976.214525
+Gen 38:
+Fitness mejor: 8424.166667; Fitness medio: 2076.682330
+Gen 39:
+Fitness mejor: 8424.166667; Fitness medio: 1894.388699
+Gen 40:
+Fitness mejor: 8424.166667; Fitness medio: 2372.668843
+Gen 41:
+Fitness mejor: 8424.166667; Fitness medio: 2195.415425
+Gen 42:
+Fitness mejor: 8424.166667; Fitness medio: 2430.803422
+Gen 43:
+Fitness mejor: 8424.166667; Fitness medio: 2359.247918
+Gen 44:
+Fitness mejor: 8424.166667; Fitness medio: 2226.502639
+Gen 45:
+Fitness mejor: 8424.166667; Fitness medio: 2282.716528
+Gen 46:
+Fitness mejor: 8424.166667; Fitness medio: 2305.025604
+Gen 47:
+Fitness mejor: 8424.166667; Fitness medio: 2313.905639
+Gen 48:
+Fitness mejor: 8424.166667; Fitness medio: 2533.199258
+Gen 49:
+Fitness mejor: 8424.166667; Fitness medio: 2406.090935
+Gen 50:
+Fitness mejor: 8424.166667; Fitness medio: 2792.937897
+Gen 51:
+Fitness mejor: 8424.166667; Fitness medio: 2714.523078
+Gen 52:
+Fitness mejor: 8424.166667; Fitness medio: 2427.094346
+Gen 53:
+Fitness mejor: 8424.166667; Fitness medio: 2278.982454
+Gen 54:
+Fitness mejor: 8424.166667; Fitness medio: 2704.574837
+Gen 55:
+Fitness mejor: 8424.166667; Fitness medio: 3110.243737
+Gen 56:
+Fitness mejor: 8424.166667; Fitness medio: 2882.474868
+Gen 57:
+Fitness mejor: 8424.166667; Fitness medio: 2787.087956
+Gen 58:
+Fitness mejor: 8424.166667; Fitness medio: 2363.945348
+Gen 59:
+Fitness mejor: 8424.166667; Fitness medio: 2035.323963
+Gen 60:
+Fitness mejor: 8424.166667; Fitness medio: 2618.422222
+Gen 61:
+Fitness mejor: 8424.166667; Fitness medio: 2534.612850
+Gen 62:
+Fitness mejor: 8424.166667; Fitness medio: 2351.630295
+Gen 63:
+Fitness mejor: 8424.166667; Fitness medio: 1802.713240
+Gen 64:
+Fitness mejor: 8424.166667; Fitness medio: 1886.451076
+Gen 65:
+Fitness mejor: 8424.166667; Fitness medio: 2557.635633
+Gen 66:
+Fitness mejor: 8424.166667; Fitness medio: 2819.349186
+Gen 67:
+Fitness mejor: 8424.166667; Fitness medio: 2397.256855
+Gen 68:
+Fitness mejor: 8424.166667; Fitness medio: 2294.580932
+Gen 69:
+Fitness mejor: 8424.166667; Fitness medio: 2605.901018
+Gen 70:
+Fitness mejor: 8424.166667; Fitness medio: 2553.536135
+Gen 71:
+Fitness mejor: 8424.166667; Fitness medio: 2524.480229
+Gen 72:
+Fitness mejor: 8424.166667; Fitness medio: 2661.521960
+Gen 73:
+Fitness mejor: 8424.166667; Fitness medio: 2561.971890
+Gen 74:
+Fitness mejor: 8424.166667; Fitness medio: 2621.434531
+Gen 75:
+Fitness mejor: 8424.166667; Fitness medio: 2510.530699
+Gen 76:
+Fitness mejor: 8424.166667; Fitness medio: 2207.927679
+Gen 77:
+Fitness mejor: 8424.166667; Fitness medio: 2119.712713
+Gen 78:
+Fitness mejor: 8424.166667; Fitness medio: 2181.016397
+Gen 79:
+Fitness mejor: 8424.166667; Fitness medio: 2367.044462
+Gen 80:
+Fitness mejor: 8424.166667; Fitness medio: 2536.794834
+Gen 81:
+Fitness mejor: 8424.166667; Fitness medio: 2528.285305
+Gen 82:
+Fitness mejor: 8424.166667; Fitness medio: 2402.652375
+Gen 83:
+Fitness mejor: 8424.166667; Fitness medio: 2615.502348
+Gen 84:
+Fitness mejor: 8424.166667; Fitness medio: 2610.562352
+Gen 85:
+Fitness mejor: 8424.166667; Fitness medio: 2844.066005
+Gen 86:
+Fitness mejor: 8424.166667; Fitness medio: 2910.162419
+Gen 87:
+Fitness mejor: 8424.166667; Fitness medio: 2786.385286
+Gen 88:
+Fitness mejor: 8424.166667; Fitness medio: 2395.868171
+Gen 89:
+Fitness mejor: 8424.166667; Fitness medio: 2545.421102
+Gen 90:
+Fitness mejor: 8424.166667; Fitness medio: 2621.428402
+Gen 91:
+Fitness mejor: 8424.166667; Fitness medio: 2811.085401
+Gen 92:
+Fitness mejor: 8424.166667; Fitness medio: 2487.587668
+Gen 93:
+Fitness mejor: 8424.166667; Fitness medio: 2248.068706
+Gen 94:
+Fitness mejor: 8424.166667; Fitness medio: 2523.025813
+Gen 95:
+Fitness mejor: 8424.166667; Fitness medio: 2380.630717
+Gen 96:
+Fitness mejor: 8424.166667; Fitness medio: 2432.373938
+Gen 97:
+Fitness mejor: 8424.166667; Fitness medio: 2301.768241
+Gen 98:
+Fitness mejor: 8424.166667; Fitness medio: 2417.668347
+Gen 99:
+Fitness mejor: 8424.166667; Fitness medio: 2510.540005
+ -- AG Finalizado --
+Mejor individuo: 8424.166667
+Arbol patrulla: ProgN3[0], SiDetectado[1], SiDetectado[2], ProgN2[3], CambiarEst[4], Avanza[5], Avanza[6], GiraIz[7], SiDetectado[8], SiDetectado[9], CambiarEst[10], GiraIz[11], CambiarEst[12], GiraDer[13]
+Arbol ataque: ProgN3[0], VidaIA[1], Atacar[2], Acercar[3], ProgN2[4], Acercar[5], Alejar[6], Atacar[7], VidaIA[8], Atacar[9], BloquearN[10], Atacar[11]
+
+Notas
+Punt. exploracion: 0.000000
+Punt. Ataque: 0.000000
+Punt. Distancia: 0.000000
+Punt. turnos golpeo: 0.000000
+Tiempos de ejecucion
+Tiempo total de ej: 1741.665618 seg
+Tiempo inicializacion: 207.011800 ms
+Tiempo medio seleccion: 4.770277 ms
+Tiempo medio cruce: 10.450598 ms
+Tiempo medio mutacion: 11.750668 ms
+Tiempo medio evaluacion: 17.179695 seg
+
+
+Datos de Poblacion
+Individuo 0: 2656.670516
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], Avanza[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], GiraDer[8], SiBloqueado[9], ProgN3[10], ProgN3[11], GiraIz[12], GiraDer[13], CambiarEst[14], Avanza[15], Avanza[16], ProgN2[17], Avanza[18], Avanza[19], CambiarEst[20], GiraDer[21]
+Arbol ataque: ProgN3[0], ProgN2[1], Atacar[2], ProgN2[3], ProgN2[4], SiRango[5], Atacar[6], SiRango[7], Atacar[8], Atacar[9], VidaIA[10], Atacar[11], VidaIA[12], Acercar[13], Acercar[14], Atacar[15], BloquearN[16], Acercar[17], Atacar[18], BloquearN[19]
+
+Individuo 1: 3159.473253
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], ProgN2[10], SiBloqueado[11], ProgN3[12], ProgN3[13], GiraDer[14], CambiarEst[15], GiraIz[16], GiraDer[17], CambiarEst[18], Avanza[19], Avanza[20], SiDetectado[21], Avanza[22], Avanza[23], Avanza[24], GiraIz[25]
+Arbol ataque: ProgN3[0], ProgN2[1], Atacar[2], ProgN2[3], ProgN2[4], SiRango[5], Atacar[6], BloquearN[7], Atacar[8], Atacar[9], VidaIA[10], Atacar[11], Atacar[12], Atacar[13], BloquearN[14]
+
+Individuo 2: 1962.207107
+Arbol patrulla: ProgN3[0], ProgN2[1], GiraDer[2], SiDetectado[3], SiDetectado[4], Avanza[5], CambiarEst[6], Avanza[7], Avanza[8], SiBloqueado[9], GiraIz[10], GiraDer[11]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], Atacar[3], Atacar[4], Atacar[5], SiRango[6], Atacar[7], Atacar[8]
+
+Individuo 3: 554.540440
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], CambiarEst[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], GiraIz[8], SiBloqueado[9], ProgN3[10], ProgN3[11], GiraIz[12], GiraDer[13], CambiarEst[14], Avanza[15], CambiarEst[16], CambiarEst[17], ProgN3[18], Avanza[19], GiraIz[20], GiraDer[21], Avanza[22]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], ProgN2[3], Atacar[4], Atacar[5], SiRango[6], SiRango[7], BloquearN[8], Atacar[9], Atacar[10], Atacar[11], BloquearN[12]
+
+Individuo 4: 4123.540440
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraIz[10], SiBloqueado[11], ProgN3[12], ProgN3[13], GiraIz[14], GiraDer[15], CambiarEst[16], Avanza[17], CambiarEst[18], ProgN3[19], ProgN3[20], Avanza[21], CambiarEst[22], Avanza[23], CambiarEst[24], CambiarEst[25], GiraIz[26], CambiarEst[27]
+Arbol ataque: ProgN3[0], ProgN2[1], VidaIA[2], ProgN2[3], Alejar[4], Atacar[5], Atacar[6], Atacar[7], SiRango[8], SiRango[9], BloquearN[10], Atacar[11], Atacar[12], ProgN2[13], BloquearN[14], Alejar[15], Atacar[16]
+
+Individuo 5: 3375.707107
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiBloqueado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraIz[10], GiraDer[11], ProgN3[12], ProgN3[13], CambiarEst[14], Avanza[15], Avanza[16], GiraIz[17], Avanza[18], Avanza[19]
+Arbol ataque: ProgN3[0], ProgN2[1], Atacar[2], ProgN2[3], ProgN2[4], SiRango[5], Atacar[6], SiRango[7], BloquearN[8], Atacar[9], VidaIA[10], Atacar[11], VidaIA[12], Atacar[13], Acercar[14], Acercar[15], BloquearN[16], Acercar[17], Atacar[18], BloquearN[19]
+
+Individuo 6: 197.939515
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], CambiarEst[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], SiBloqueado[8], SiBloqueado[9], SiDetectado[10], ProgN3[11], ProgN3[12], Avanza[13], GiraIz[14], GiraDer[15], CambiarEst[16], Avanza[17], CambiarEst[18], Avanza[19], Avanza[20], GiraDer[21], CambiarEst[22], CambiarEst[23]
+Arbol ataque: ProgN3[0], Atacar[1], Atacar[2], Atacar[3]
+
+Individuo 7: 3191.473253
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiBloqueado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraIz[10], GiraDer[11], ProgN3[12], ProgN3[13], CambiarEst[14], Avanza[15], Avanza[16], GiraIz[17], Avanza[18], Avanza[19]
+Arbol ataque: ProgN3[0], ProgN2[1], Atacar[2], ProgN2[3], ProgN2[4], SiRango[5], Atacar[6], SiRango[7], Atacar[8], Atacar[9], VidaIA[10], Atacar[11], VidaIA[12], Atacar[13], Acercar[14], Acercar[15], BloquearN[16], Acercar[17], Atacar[18], Atacar[19]
+
+Individuo 8: 4932.207107
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], SiBloqueado[10], SiBloqueado[11], SiDetectado[12], ProgN3[13], GiraDer[14], CambiarEst[15], GiraIz[16], GiraDer[17], CambiarEst[18], Avanza[19], CambiarEst[20], Avanza[21], Avanza[22]
+Arbol ataque: ProgN3[0], BloquearN[1], Atacar[2], BloquearN[3]
+
+Individuo 9: 1292.373773
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], SiBloqueado[8], SiBloqueado[9], GiraDer[10], SiBloqueado[11], ProgN3[12], Avanza[13], GiraDer[14], CambiarEst[15], GiraIz[16], GiraDer[17], GiraIz[18], GiraDer[19], Avanza[20], Avanza[21], ProgN2[22], Avanza[23], GiraDer[24]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], Atacar[3], Atacar[4], Atacar[5], SiRango[6], Atacar[7], Atacar[8]
+
+Individuo 10: 616.707107
+Arbol patrulla: ProgN3[0], ProgN3[1], SiDetectado[2], SiDetectado[3], ProgN2[4], ProgN3[5], ProgN3[6], Avanza[7], GiraIz[8], CambiarEst[9], Avanza[10], GiraIz[11], GiraIz[12], CambiarEst[13], Avanza[14], GiraDer[15], ProgN2[16], ProgN2[17], SiDetectado[18], SiBloqueado[19], Avanza[20], GiraDer[21], SiBloqueado[22], CambiarEst[23], GiraDer[24], GiraDer[25], Avanza[26], Avanza[27], CambiarEst[28]
+Arbol ataque: ProgN3[0], BloquearN[1], VidaIA[2], Atacar[3], ProgN2[4], Atacar[5], SiRango[6], Atacar[7], Acercar[8], Atacar[9], Atacar[10]
+
+Individuo 11: 2892.639919
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], Avanza[6], GiraIz[7], CambiarEst[8], Avanza[9], SiBloqueado[10], SiBloqueado[11], ProgN3[12], GiraIz[13], GiraIz[14], GiraDer[15], GiraIz[16], GiraIz[17], GiraDer[18]
+Arbol ataque: ProgN3[0], Atacar[1], ProgN3[2], BloquearN[3], SiRango[4], Atacar[5], Alejar[6], BloquearN[7], Atacar[8]
+
+Individuo 12: 1243.139919
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], ProgN2[8], Avanza[9], SiBloqueado[10], SiBloqueado[11], SiDetectado[12], ProgN3[13], Avanza[14], Avanza[15], GiraDer[16], CambiarEst[17], GiraIz[18], GiraDer[19], CambiarEst[20], Avanza[21], CambiarEst[22], Avanza[23], Avanza[24]
+Arbol ataque: ProgN3[0], Atacar[1], Atacar[2], Acercar[3]
+
+Individuo 13: 1801.792893
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], SiDetectado[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraIz[10], SiBloqueado[11], Avanza[12], SiBloqueado[13], ProgN3[14], ProgN3[15], GiraIz[16], GiraDer[17], CambiarEst[18], Avanza[19], CambiarEst[20], Avanza[21], Avanza[22], GiraIz[23], Avanza[24], Avanza[25]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], ProgN2[3], Atacar[4], Atacar[5], SiRango[6], SiRango[7], ProgN2[8], Atacar[9], Atacar[10], ProgN2[11], Atacar[12], SiRango[13], SiRango[14], SiRango[15], Atacar[16], VidaIA[17], Atacar[18], BloquearN[19], Atacar[20], Acercar[21], Atacar[22], Alejar[23], Atacar[24], Curar[25]
+
+Individuo 14: 2337.207107
+Arbol patrulla: ProgN3[0], SiBloqueado[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], Avanza[6], GiraIz[7], CambiarEst[8], Avanza[9], CambiarEst[10], ProgN3[11], ProgN3[12], GiraIz[13], SiDetectado[14], Avanza[15], GiraDer[16], CambiarEst[17], GiraDer[18], CambiarEst[19]
+Arbol ataque: ProgN3[0], Atacar[1], ProgN3[2], BloquearN[3], SiRango[4], Atacar[5], ProgN2[6], BloquearN[7], Atacar[8], ProgN2[9], SiRango[10], Atacar[11], Atacar[12], VidaIA[13], Atacar[14], Curar[15], Curar[16], Atacar[17]
+
+Individuo 15: 3391.707107
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraDer[10], SiBloqueado[11], ProgN3[12], ProgN3[13], GiraIz[14], GiraDer[15], CambiarEst[16], Avanza[17], Avanza[18], SiDetectado[19], Avanza[20], Avanza[21], Avanza[22], GiraDer[23]
+Arbol ataque: ProgN3[0], Alejar[1], Atacar[2], ProgN2[3], Atacar[4], BloquearN[5]
+
+Individuo 16: 3644.707107
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraDer[10], SiBloqueado[11], ProgN3[12], Avanza[13], GiraIz[14], GiraDer[15], SiDetectado[16], Avanza[17], ProgN2[18], GiraIz[19], Avanza[20], GiraDer[21], Avanza[22]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], Atacar[3], Atacar[4], Atacar[5], SiRango[6], Atacar[7], Curar[8]
+
+Individuo 17: 2803.040440
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraIz[10], SiBloqueado[11], ProgN3[12], ProgN3[13], GiraIz[14], GiraDer[15], CambiarEst[16], Avanza[17], CambiarEst[18], CambiarEst[19], ProgN3[20], Avanza[21], Avanza[22], CambiarEst[23], Avanza[24]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], ProgN2[3], Atacar[4], Atacar[5], SiRango[6], SiRango[7], BloquearN[8], Atacar[9], Atacar[10], ProgN2[11], BloquearN[12], Alejar[13], Atacar[14]
+
+Individuo 18: 385.373773
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], CambiarEst[3], SiDetectado[4], Avanza[5], SiBloqueado[6], GiraIz[7], CambiarEst[8], SiBloqueado[9], CambiarEst[10], ProgN3[11], GiraIz[12], GiraDer[13], CambiarEst[14], GiraIz[15], GiraIz[16]
+Arbol ataque: ProgN3[0], Atacar[1], SiRango[2], Atacar[3], BloquearN[4], Atacar[5]
+
+Individuo 19: 2533.707107
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], SiBloqueado[6], GiraIz[7], CambiarEst[8], Avanza[9], CambiarEst[10], SiBloqueado[11], GiraIz[12], ProgN3[13], GiraIz[14], GiraDer[15], CambiarEst[16], GiraIz[17], ProgN2[18], GiraDer[19], GiraIz[20]
+Arbol ataque: ProgN3[0], Atacar[1], SiRango[2], Atacar[3], BloquearN[4], Atacar[5]
+
+Individuo 20: 3648.707107
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], ProgN2[10], SiBloqueado[11], SiDetectado[12], ProgN3[13], CambiarEst[14], Avanza[15], GiraIz[16], GiraDer[17], ProgN2[18], GiraIz[19], CambiarEst[20], GiraDer[21], Avanza[22], Avanza[23], CambiarEst[24]
+Arbol ataque: ProgN3[0], Atacar[1], SiRango[2], Atacar[3], ProgN2[4], BloquearN[5], Alejar[6], Atacar[7]
+
+Individuo 21: 588.707107
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraIz[10], CambiarEst[11], ProgN3[12], ProgN3[13], CambiarEst[14], Avanza[15], CambiarEst[16], CambiarEst[17], ProgN3[18], Avanza[19], GiraIz[20], GiraDer[21], GiraIz[22]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], ProgN2[3], Atacar[4], Atacar[5], SiRango[6], Atacar[7], BloquearN[8], Atacar[9], Atacar[10]
+
+Individuo 22: 2662.040440
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], CambiarEst[10], Avanza[11], SiDetectado[12], ProgN3[13], CambiarEst[14], Avanza[15], CambiarEst[16], SiDetectado[17], Avanza[18], GiraDer[19], CambiarEst[20]
+Arbol ataque: ProgN3[0], Atacar[1], Atacar[2], BloquearN[3]
+
+Individuo 23: 2334.639919
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], Avanza[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], GiraIz[8], SiBloqueado[9], ProgN3[10], ProgN3[11], GiraIz[12], GiraDer[13], CambiarEst[14], Avanza[15], CambiarEst[16], CambiarEst[17], ProgN3[18], Avanza[19], CambiarEst[20], CambiarEst[21], CambiarEst[22]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], ProgN2[3], Atacar[4], Atacar[5], SiRango[6], SiRango[7], BloquearN[8], Atacar[9], Atacar[10], ProgN2[11], BloquearN[12], Alejar[13], Atacar[14]
+
+Individuo 24: 1701.207107
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], ProgN3[3], SiDetectado[4], Avanza[5], SiBloqueado[6], GiraIz[7], SiDetectado[8], ProgN2[9], Avanza[10], SiBloqueado[11], SiBloqueado[12], CambiarEst[13], ProgN3[14], ProgN3[15], GiraIz[16], SiBloqueado[17], GiraDer[18], CambiarEst[19], GiraIz[20], GiraIz[21], Avanza[22], CambiarEst[23], GiraIz[24], GiraDer[25], CambiarEst[26], GiraDer[27], Avanza[28], Avanza[29], GiraIz[30]
+Arbol ataque: ProgN3[0], Atacar[1], Atacar[2], SiRango[3], BloquearN[4], Atacar[5]
+
+Individuo 25: 2124.334429
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], CambiarEst[10], Avanza[11], SiDetectado[12], ProgN3[13], CambiarEst[14], Avanza[15], CambiarEst[16], Avanza[17], Avanza[18]
+Arbol ataque: ProgN3[0], Atacar[1], Atacar[2], BloquearN[3]
+
+Individuo 26: 2254.040440
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], SiBloqueado[6], GiraIz[7], CambiarEst[8], Avanza[9], CambiarEst[10], SiBloqueado[11], CambiarEst[12], ProgN3[13], GiraIz[14], GiraDer[15], CambiarEst[16], GiraIz[17], GiraIz[18]
+Arbol ataque: ProgN3[0], Atacar[1], Atacar[2], Atacar[3]
+
+Individuo 27: 2781.873773
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraIz[10], SiBloqueado[11], ProgN3[12], ProgN3[13], GiraIz[14], GiraDer[15], CambiarEst[16], Avanza[17], GiraDer[18], Avanza[19], SiBloqueado[20], SiDetectado[21], GiraDer[22], Avanza[23], Avanza[24], CambiarEst[25]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], ProgN2[3], Atacar[4], Atacar[5], SiRango[6], SiRango[7], ProgN2[8], Atacar[9], Atacar[10], ProgN2[11], Atacar[12], SiRango[13], SiRango[14], SiRango[15], Atacar[16], VidaIA[17], Atacar[18], BloquearN[19], Atacar[20], BloquearN[21], Atacar[22], Curar[23], BloquearN[24], Acercar[25]
+
+Individuo 28: 3398.873773
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraIz[10], SiBloqueado[11], ProgN3[12], ProgN3[13], GiraIz[14], GiraDer[15], CambiarEst[16], Avanza[17], Avanza[18], GiraIz[19], Avanza[20], Avanza[21]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], ProgN2[3], Atacar[4], Atacar[5], SiRango[6], SiRango[7], ProgN2[8], Atacar[9], Atacar[10], ProgN2[11], Atacar[12], SiRango[13], Acercar[14], BloquearN[15], Atacar[16], VidaIA[17], Atacar[18], Acercar[19], BloquearN[20], Curar[21]
+
+Individuo 29: 728.040440
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], Avanza[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], GiraDer[8], SiBloqueado[9], ProgN3[10], ProgN3[11], GiraIz[12], GiraDer[13], CambiarEst[14], Avanza[15], Avanza[16], ProgN2[17], Avanza[18], Avanza[19], Avanza[20], GiraDer[21]
+Arbol ataque: ProgN3[0], ProgN2[1], Atacar[2], ProgN2[3], ProgN2[4], SiRango[5], Atacar[6], SiRango[7], Atacar[8], Atacar[9], VidaIA[10], Atacar[11], VidaIA[12], Atacar[13], Acercar[14], Atacar[15], BloquearN[16], Acercar[17], Atacar[18], BloquearN[19]
+
+Individuo 30: 755.102082
+Arbol patrulla: ProgN3[0], ProgN2[1], GiraIz[2], Avanza[3], SiDetectado[4], Avanza[5], SiBloqueado[6], SiBloqueado[7], ProgN3[8], Avanza[9], GiraIz[10], GiraDer[11], GiraDer[12], GiraDer[13], CambiarEst[14]
+Arbol ataque: ProgN3[0], Atacar[1], Atacar[2], Atacar[3]
+
+Individuo 31: 3414.905399
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], Avanza[6], GiraIz[7], CambiarEst[8], Avanza[9], SiBloqueado[10], SiBloqueado[11], ProgN3[12], GiraIz[13], GiraIz[14], GiraDer[15], GiraDer[16], Avanza[17], GiraIz[18]
+Arbol ataque: ProgN3[0], Atacar[1], ProgN3[2], BloquearN[3], SiRango[4], Atacar[5], Alejar[6], BloquearN[7], Atacar[8]
+
+Individuo 32: 3207.873773
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], SiBloqueado[10], SiBloqueado[11], ProgN3[12], SiDetectado[13], GiraIz[14], GiraDer[15], GiraIz[16], GiraDer[17], CambiarEst[18], Avanza[19], Avanza[20], Avanza[21], GiraIz[22]
+Arbol ataque: ProgN3[0], ProgN2[1], Atacar[2], ProgN2[3], ProgN2[4], SiRango[5], Atacar[6], SiRango[7], Atacar[8], Atacar[9], VidaIA[10], Atacar[11], VidaIA[12], Atacar[13], Acercar[14], Atacar[15], BloquearN[16], Acercar[17], Atacar[18], BloquearN[19]
+
+Individuo 33: 4305.707107
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], Avanza[10], SiBloqueado[11], CambiarEst[12], GiraIz[13], GiraIz[14], GiraDer[15]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], Atacar[3], Atacar[4], Atacar[5], SiRango[6], Atacar[7], Atacar[8]
+
+Individuo 34: 1193.873773
+Arbol patrulla: ProgN3[0], ProgN2[1], ProgN3[2], SiDetectado[3], SiDetectado[4], Avanza[5], GiraIz[6], Avanza[7], Avanza[8], CambiarEst[9], Avanza[10], SiBloqueado[11], SiBloqueado[12], ProgN3[13], GiraIz[14], GiraIz[15], GiraDer[16], CambiarEst[17], GiraDer[18], GiraIz[19]
+Arbol ataque: ProgN3[0], Atacar[1], ProgN3[2], BloquearN[3], Atacar[4], Atacar[5], Alejar[6]
+
+Individuo 35: 1881.195262
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], SiBloqueado[6], GiraIz[7], GiraIz[8], Avanza[9], GiraDer[10], SiBloqueado[11], CambiarEst[12], ProgN3[13], GiraIz[14], GiraDer[15], ProgN2[16], GiraIz[17], CambiarEst[18], Avanza[19], GiraDer[20]
+Arbol ataque: ProgN3[0], Atacar[1], Atacar[2], Atacar[3]
+
+Individuo 36: 2479.028595
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], SiBloqueado[10], SiBloqueado[11], SiDetectado[12], ProgN3[13], GiraDer[14], CambiarEst[15], GiraIz[16], GiraDer[17], CambiarEst[18], Avanza[19], CambiarEst[20], Avanza[21], Avanza[22]
+Arbol ataque: ProgN3[0], BloquearN[1], Atacar[2], Atacar[3]
+
+Individuo 37: 3982.383061
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], SiDetectado[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraDer[10], SiBloqueado[11], GiraIz[12], SiBloqueado[13], GiraIz[14], GiraDer[15], GiraDer[16], GiraIz[17]
+Arbol ataque: ProgN3[0], ProgN2[1], Atacar[2], ProgN2[3], SiRango[4], SiRango[5], Atacar[6], BloquearN[7], BloquearN[8], Atacar[9], VidaIA[10], Atacar[11], Acercar[12], Atacar[13], BloquearN[14]
+
+Individuo 38: 3820.540440
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], Avanza[6], GiraIz[7], CambiarEst[8], Avanza[9], SiBloqueado[10], SiBloqueado[11], ProgN3[12], GiraIz[13], GiraIz[14], GiraDer[15], GiraDer[16], GiraDer[17], CambiarEst[18]
+Arbol ataque: ProgN3[0], Atacar[1], ProgN3[2], BloquearN[3], ProgN2[4], Atacar[5], Alejar[6], Atacar[7], Atacar[8]
+
+Individuo 39: 4113.873773
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], SiBloqueado[6], GiraIz[7], CambiarEst[8], Avanza[9], CambiarEst[10], SiBloqueado[11], CambiarEst[12], ProgN3[13], GiraIz[14], GiraDer[15], GiraDer[16], GiraIz[17], GiraIz[18]
+Arbol ataque: ProgN3[0], Atacar[1], SiRango[2], Atacar[3], BloquearN[4], Atacar[5]
+
+Individuo 40: 3801.207107
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], ProgN2[8], Avanza[9], SiBloqueado[10], SiBloqueado[11], SiDetectado[12], ProgN3[13], ProgN2[14], Avanza[15], GiraDer[16], CambiarEst[17], GiraIz[18], GiraDer[19], CambiarEst[20], Avanza[21], CambiarEst[22], Avanza[23], Avanza[24], CambiarEst[25], Avanza[26]
+Arbol ataque: ProgN3[0], Atacar[1], Atacar[2], Acercar[3]
+
+Individuo 41: 3031.707107
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraDer[10], SiBloqueado[11], ProgN3[12], Avanza[13], GiraIz[14], GiraDer[15], CambiarEst[16], Avanza[17], GiraDer[18]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], Atacar[3], Atacar[4], Atacar[5], SiRango[6], Atacar[7], Curar[8]
+
+Individuo 42: 5997.776142
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], SiBloqueado[6], GiraIz[7], CambiarEst[8], Avanza[9], CambiarEst[10], SiBloqueado[11], CambiarEst[12], ProgN3[13], GiraIz[14], GiraDer[15], CambiarEst[16], GiraIz[17], GiraIz[18]
+Arbol ataque: ProgN3[0], Atacar[1], SiRango[2], Atacar[3], BloquearN[4], Atacar[5]
+
+Individuo 43: 0.000000
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], CambiarEst[3], SiBloqueado[4], Avanza[5], ProgN2[6], GiraIz[7], GiraIz[8], GiraDer[9], ProgN3[10], ProgN3[11], CambiarEst[12], Avanza[13], Avanza[14], GiraIz[15], Avanza[16], Avanza[17]
+Arbol ataque: ProgN3[0], ProgN2[1], Atacar[2], ProgN2[3], ProgN2[4], SiRango[5], Atacar[6], SiRango[7], Atacar[8], Atacar[9], VidaIA[10], Atacar[11], VidaIA[12], Atacar[13], Acercar[14], Acercar[15], SiRango[16], Acercar[17], Atacar[18], BloquearN[19], Acercar[20], Alejar[21]
+
+Individuo 44: 1850.069036
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], Avanza[3], SiBloqueado[4], Avanza[5], ProgN2[6], GiraIz[7], GiraIz[8], GiraDer[9], ProgN3[10], ProgN3[11], CambiarEst[12], Avanza[13], Avanza[14], GiraIz[15], Avanza[16], Avanza[17]
+Arbol ataque: ProgN3[0], VidaIA[1], Atacar[2], ProgN2[3], ProgN2[4], ProgN2[5], Atacar[6], Atacar[7], SiRango[8], VidaJugador[9], VidaIA[10], Acercar[11], Atacar[12], VidaIA[13], Atacar[14], SiRango[15], VidaIA[16], VidaIA[17], Curar[18], BloquearN[19], Acercar[20], Acercar[21], Atacar[22], BloquearN[23], Alejar[24], BloquearN[25], Atacar[26], Alejar[27], BloquearN[28], Alejar[29], Curar[30], Curar[31]
+
+Individuo 45: 2942.373773
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], SiBloqueado[10], SiBloqueado[11], SiDetectado[12], ProgN3[13], GiraDer[14], CambiarEst[15], GiraIz[16], GiraDer[17], CambiarEst[18], Avanza[19], CambiarEst[20], Avanza[21], Avanza[22]
+Arbol ataque: ProgN3[0], BloquearN[1], Atacar[2], Atacar[3]
+
+Individuo 46: 2565.752453
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], ProgN3[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraIz[10], SiBloqueado[11], GiraDer[12], ProgN3[13], ProgN2[14], GiraIz[15], GiraDer[16], GiraDer[17], GiraDer[18], Avanza[19], Avanza[20], Avanza[21]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], ProgN2[3], Atacar[4], Atacar[5], SiRango[6], SiRango[7], BloquearN[8], Atacar[9], Atacar[10], ProgN2[11], BloquearN[12], Alejar[13], Atacar[14]
+
+Individuo 47: 3286.373773
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiBloqueado[4], Avanza[5], ProgN2[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraIz[10], GiraDer[11], ProgN3[12], ProgN3[13], CambiarEst[14], Avanza[15], Avanza[16], ProgN3[17], Avanza[18], Avanza[19], GiraDer[20], GiraIz[21], CambiarEst[22]
+Arbol ataque: ProgN3[0], ProgN2[1], Atacar[2], ProgN2[3], ProgN2[4], SiRango[5], Atacar[6], SiRango[7], Atacar[8], Atacar[9], VidaIA[10], Atacar[11], VidaIA[12], Atacar[13], Acercar[14], Acercar[15], BloquearN[16], Acercar[17], Atacar[18], BloquearN[19]
+
+Individuo 48: 388.707107
+Arbol patrulla: ProgN3[0], ProgN2[1], ProgN2[2], SiDetectado[3], SiDetectado[4], Avanza[5], CambiarEst[6], GiraIz[7], CambiarEst[8], Avanza[9], GiraDer[10], SiBloqueado[11], GiraIz[12], GiraDer[13]
+Arbol ataque: ProgN3[0], ProgN2[1], VidaIA[2], ProgN2[3], Atacar[4], Atacar[5], ProgN2[6], Atacar[7], SiRango[8], Atacar[9], VidaIA[10], Atacar[11], SiRango[12], Atacar[13], Atacar[14], Atacar[15], Atacar[16], SiRango[17], BloquearN[18], Atacar[19], Atacar[20], Atacar[21]
+
+Individuo 49: 3189.930964
+Arbol patrulla: ProgN3[0], ProgN2[1], SiDetectado[2], SiDetectado[3], SiDetectado[4], Avanza[5], CambiarEst[6], GiraIz[7], CambiarEst[8], Avanza[9], Avanza[10], SiBloqueado[11], GiraIz[12], GiraDer[13]
+Arbol ataque: ProgN3[0], Atacar[1], VidaIA[2], Atacar[3], Atacar[4], Atacar[5], SiRango[6], Atacar[7], Atacar[8]
+

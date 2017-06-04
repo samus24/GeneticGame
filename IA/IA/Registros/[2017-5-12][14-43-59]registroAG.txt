@@ -1,0 +1,19 @@
+
+
+NUEVA EJECUCION
+Gen 0:
+Fitness mejor: 0.031332; Fitness medio: 0.015098
+Gen 1:
+Fitness mejor: 0.048293; Fitness medio: 0.022948
+Gen 2:
+Fitness mejor: 0.048293; Fitness medio: 0.025296
+Gen 3:
+Fitness mejor: 0.051908; Fitness medio: 0.028848
+Gen 4:
+Fitness mejor: 0.051908; Fitness medio: 0.021492
+Gen 5:
+Fitness mejor: 0.051908; Fitness medio: 0.024342
+Gen 6:
+Fitness mejor: 0.103212; Fitness medio: 0.037137
+Gen 7:
+Fitness mejor: 0.103212; Fitness medio: 0.030557

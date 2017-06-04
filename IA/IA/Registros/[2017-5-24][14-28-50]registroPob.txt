@@ -1,0 +1,271 @@
+
+
+NUEVA EJECUCION
+Fitness Individuo: -1019.333333
+Arbol patrulla: SiBloqueado[0], SiBloqueado[1], ProgN2[2], GiraDer[3], SiDetectado[4], Avanza[5], CambiarEst[6], ProgN2[7], SiDetectado[8], ProgN2[9], GiraIz[10], GiraIz[11], SiDetectado[12], Avanza[13], GiraIz[14], GiraIz[15], GiraIz[16]
+Arbol ataque: ProgN2[0], VidaJugador[1], VidaIA[2], SiRango[3], Acercar[4], ProgN2[5], ProgN3[6], Atacar[7], VidaIA[8], Acercar[9], BloquearN[10], VidaJugador[11], Atacar[12], BloquearN[13], Atacar[14], Curar[15], Curar[16], Curar[17], BloquearN[18], Acercar[19], Atacar[20], ProgN2[21], Alejar[22], Acercar[23]
+Notas
+Punt. exploracion: -361.500000
+Punt. Ataque: 27.333333
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 48.000000
+Fitness Individuo: -272.069036
+Arbol patrulla: SiBloqueado[0], ProgN2[1], SiBloqueado[2], GiraDer[3], Avanza[4], GiraIz[5], SiBloqueado[6], ProgN2[7], SiBloqueado[8], GiraDer[9], CambiarEst[10], GiraDer[11], ProgN2[12], Avanza[13], GiraIz[14]
+Arbol ataque: SiRango[0], VidaJugador[1], Atacar[2], ProgN2[3], BloquearN[4], Alejar[5], Curar[6], VidaIA[7], Acercar[8], Atacar[9], BloquearN[10]
+Notas
+Punt. exploracion: -331.500000
+Punt. Ataque: 0.000000
+Punt. distancia: 1.069036
+Punt. turnos golpeo: 0.000000
+Fitness Individuo: 301.166667
+Arbol patrulla: SiDetectado[0], ProgN2[1], SiDetectado[2], ProgN2[3], SiBloqueado[4], SiDetectado[5], SiDetectado[6], CambiarEst[7], GiraIz[8], Avanza[9], CambiarEst[10], ProgN2[11], SiBloqueado[12], GiraIz[13], GiraIz[14], Avanza[15], Avanza[16], Avanza[17], GiraIz[18]
+Arbol ataque: ProgN2[0], ProgN2[1], Alejar[2], SiRango[3], VidaIA[4], SiRango[5], BloquearN[6], BloquearN[7], SiRango[8], Alejar[9], VidaJugador[10], VidaIA[11], Alejar[12], BloquearN[13], Atacar[14], BloquearN[15], Curar[16], BloquearN[17], Atacar[18], Curar[19]
+Notas
+Punt. exploracion: 360.500000
+Punt. Ataque: 7.666667
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 32.333333
+Fitness Individuo: -513.000000
+Arbol patrulla: SiBloqueado[0], ProgN3[1], ProgN3[2], GiraIz[3], ProgN3[4], SiDetectado[5], ProgN2[6], GiraDer[7], GiraDer[8], Avanza[9], SiDetectado[10], Avanza[11], Avanza[12], GiraDer[13], GiraIz[14], CambiarEst[15], CambiarEst[16], SiBloqueado[17], GiraDer[18], CambiarEst[19]
+Arbol ataque: SiRango[0], VidaJugador[1], ProgN3[2], Curar[3], Atacar[4], Alejar[5], Atacar[6], BloquearN[7], Curar[8]
+Notas
+Punt. exploracion: -360.666667
+Punt. Ataque: 1.666667
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 70.166667
+Fitness Individuo: -528.500000
+Arbol patrulla: ProgN2[0], ProgN3[1], SiBloqueado[2], CambiarEst[3], Avanza[4], GiraDer[5], SiDetectado[6], Avanza[7], ProgN3[8], GiraIz[9], CambiarEst[10], ProgN2[11], GiraDer[12], CambiarEst[13], CambiarEst[14]
+Arbol ataque: SiRango[0], VidaJugador[1], Curar[2], BloquearN[3], ProgN2[4], VidaJugador[5], Alejar[6], Acercar[7], SiRango[8], VidaJugador[9], ProgN3[10], VidaIA[11], Alejar[12], Atacar[13], BloquearN[14], Acercar[15], ProgN3[16], Curar[17], Curar[18], Acercar[19], Curar[20], Curar[21], Curar[22], Atacar[23], Alejar[24]
+Notas
+Punt. exploracion: -361.666667
+Punt. Ataque: 1.000000
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 59.000000
+Fitness Individuo: -704.666667
+Arbol patrulla: SiDetectado[0], SiDetectado[1], ProgN2[2], GiraIz[3], Avanza[4], GiraIz[5], ProgN3[6], CambiarEst[7], CambiarEst[8], ProgN2[9], ProgN3[10], CambiarEst[11], GiraDer[12], GiraDer[13], GiraIz[14]
+Arbol ataque: VidaIA[0], ProgN3[1], ProgN2[2], ProgN3[3], SiRango[4], Atacar[5], Curar[6], Atacar[7], Acercar[8], Curar[9], Alejar[10], Alejar[11], BloquearN[12], BloquearN[13]
+Notas
+Punt. exploracion: -372.500000
+Punt. Ataque: 34.166667
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 78.166667
+Fitness Individuo: -475.666667
+Arbol patrulla: ProgN3[0], SiDetectado[1], ProgN2[2], GiraIz[3], Avanza[4], SiBloqueado[5], ProgN2[6], SiBloqueado[7], GiraDer[8], CambiarEst[9], GiraDer[10], ProgN3[11], Avanza[12], CambiarEst[13], CambiarEst[14], CambiarEst[15], Avanza[16]
+Arbol ataque: ProgN3[0], SiRango[1], Acercar[2], Alejar[3], SiRango[4], SiRango[5], ProgN2[6], SiRango[7], BloquearN[8], BloquearN[9], Curar[10], ProgN3[11], Alejar[12], Acercar[13], Acercar[14], BloquearN[15], BloquearN[16]
+Notas
+Punt. exploracion: -380.333333
+Punt. Ataque: 7.833333
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 48.166667
+Fitness Individuo: -252.833333
+Arbol patrulla: SiBloqueado[0], ProgN3[1], SiBloqueado[2], GiraIz[3], ProgN2[4], Avanza[5], SiBloqueado[6], ProgN3[7], GiraDer[8], GiraIz[9], GiraIz[10], SiBloqueado[11], GiraIz[12], Avanza[13], GiraIz[14], GiraDer[15], SiBloqueado[16], GiraDer[17], CambiarEst[18]
+Arbol ataque: VidaIA[0], VidaIA[1], Atacar[2], SiRango[3], Curar[4], VidaIA[5], Curar[6], Curar[7], BloquearN[8], VidaIA[9], Acercar[10], Atacar[11], ProgN2[12], Atacar[13], VidaJugador[14], Atacar[15], Alejar[16], BloquearN[17], BloquearN[18], Curar[19]
+Notas
+Punt. exploracion: -308.833333
+Punt. Ataque: 0.000000
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 0.000000
+Fitness Individuo: -838.235702
+Arbol patrulla: ProgN2[0], SiBloqueado[1], ProgN2[2], GiraIz[3], CambiarEst[4], GiraDer[5], SiDetectado[6], GiraDer[7], GiraIz[8]
+Arbol ataque: ProgN2[0], VidaIA[1], BloquearN[2], BloquearN[3], Curar[4], ProgN3[5], Atacar[6], SiRango[7], Alejar[8], ProgN3[9], BloquearN[10], BloquearN[11], Curar[12], Curar[13]
+Notas
+Punt. exploracion: -361.666667
+Punt. Ataque: 66.166667
+Punt. distancia: 1.069036
+Punt. turnos golpeo: 215.000000
+Fitness Individuo: -871.833333
+Arbol patrulla: ProgN3[0], SiDetectado[1], ProgN2[2], GiraDer[3], CambiarEst[4], SiBloqueado[5], ProgN3[6], ProgN2[7], GiraDer[8], GiraIz[9], Avanza[10], CambiarEst[11], GiraDer[12], Avanza[13], GiraIz[14]
+Arbol ataque: ProgN2[0], ProgN3[1], Atacar[2], VidaJugador[3], SiRango[4], ProgN3[5], Alejar[6], VidaJugador[7], SiRango[8], Acercar[9], ProgN2[10], Atacar[11], Atacar[12], Acercar[13], SiRango[14], ProgN3[15], Alejar[16], Curar[17], Atacar[18], Alejar[19], Acercar[20], Atacar[21], Atacar[22], Alejar[23], Acercar[24], BloquearN[25]
+Notas
+Punt. exploracion: -374.166667
+Punt. Ataque: 33.500000
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 42.000000
+Fitness Individuo: -218.333333
+Arbol patrulla: SiBloqueado[0], ProgN3[1], ProgN3[2], GiraIz[3], ProgN2[4], Avanza[5], GiraIz[6], Avanza[7], GiraIz[8], GiraDer[9], GiraIz[10]
+Arbol ataque: VidaIA[0], VidaIA[1], Atacar[2], SiRango[3], Curar[4], VidaIA[5], Curar[6], Curar[7], BloquearN[8], Acercar[9], Acercar[10], Atacar[11]
+Notas
+Punt. exploracion: -291.833333
+Punt. Ataque: 0.000000
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 0.000000
+Fitness Individuo: -554.333333
+Arbol patrulla: SiBloqueado[0], ProgN2[1], SiBloqueado[2], GiraDer[3], Avanza[4], GiraDer[5], SiBloqueado[6], GiraDer[7], ProgN2[8], CambiarEst[9], Avanza[10]
+Arbol ataque: SiRango[0], VidaJugador[1], Atacar[2], ProgN2[3], BloquearN[4], Alejar[5], Curar[6], VidaIA[7], VidaIA[8], Atacar[9], BloquearN[10], BloquearN[11], BloquearN[12], Atacar[13]
+Notas
+Punt. exploracion: -361.666667
+Punt. Ataque: 1.333333
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 65.333333
+Fitness Individuo: 720.833333
+Arbol patrulla: SiDetectado[0], ProgN2[1], SiDetectado[2], ProgN2[3], SiBloqueado[4], GiraIz[5], GiraIz[6], CambiarEst[7], GiraIz[8], Avanza[9], CambiarEst[10]
+Arbol ataque: ProgN2[0], ProgN2[1], Alejar[2], SiRango[3], Curar[4], SiRango[5], BloquearN[6], VidaJugador[7], VidaIA[8], Curar[9], BloquearN[10], Atacar[11], BloquearN[12], Atacar[13], Curar[14]
+Notas
+Punt. exploracion: 340.833333
+Punt. Ataque: 3.500000
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 0.000000
+Fitness Individuo: -234.372678
+Arbol patrulla: SiBloqueado[0], ProgN3[1], ProgN3[2], GiraIz[3], ProgN2[4], Avanza[5], GiraIz[6], Avanza[7], GiraIz[8], GiraDer[9], GiraIz[10]
+Arbol ataque: VidaIA[0], VidaIA[1], Atacar[2], VidaIA[3], Curar[4], VidaIA[5], Curar[6], VidaJugador[7], SiRango[8], ProgN2[9], VidaIA[10], Acercar[11], Atacar[12], Curar[13], BloquearN[14], ProgN3[15], Acercar[16], Acercar[17], Curar[18], Atacar[19], ProgN2[20], Atacar[21], VidaJugador[22], Alejar[23], Curar[24], ProgN3[25], Curar[26], BloquearN[27], BloquearN[28], Atacar[29], Curar[30], BloquearN[31], Acercar[32], Alejar[33]
+Notas
+Punt. exploracion: -299.500000
+Punt. Ataque: 0.000000
+Punt. distancia: 1.206011
+Punt. turnos golpeo: 0.000000
+Fitness Individuo: -618.666667
+Arbol patrulla: ProgN3[0], SiDetectado[1], ProgN2[2], GiraIz[3], Avanza[4], SiBloqueado[5], ProgN2[6], SiBloqueado[7], GiraDer[8], CambiarEst[9], ProgN2[10], ProgN3[11], Avanza[12], CambiarEst[13], GiraDer[14], CambiarEst[15], CambiarEst[16], CambiarEst[17], Avanza[18]
+Arbol ataque: ProgN3[0], SiRango[1], Acercar[2], Alejar[3], ProgN2[4], SiRango[5], Curar[6], ProgN3[7], BloquearN[8], Atacar[9], BloquearN[10], BloquearN[11], Atacar[12]
+Notas
+Punt. exploracion: -372.500000
+Punt. Ataque: 16.166667
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 39.166667
+Fitness Individuo: -205.971405
+Arbol patrulla: SiBloqueado[0], ProgN3[1], ProgN3[2], GiraIz[3], ProgN2[4], Avanza[5], GiraIz[6], Avanza[7], GiraIz[8], GiraDer[9], GiraIz[10]
+Arbol ataque: VidaIA[0], VidaIA[1], Atacar[2], SiRango[3], Curar[4], VidaIA[5], Curar[6], Curar[7], BloquearN[8], VidaIA[9], Acercar[10], Atacar[11], ProgN2[12], Atacar[13], VidaJugador[14], BloquearN[15], Curar[16], Acercar[17], Acercar[18], Atacar[19]
+Notas
+Punt. exploracion: -285.166667
+Punt. Ataque: 0.000000
+Punt. distancia: 1.304738
+Punt. turnos golpeo: 0.000000
+Fitness Individuo: -510.333333
+Arbol patrulla: ProgN3[0], SiDetectado[1], ProgN2[2], GiraIz[3], Avanza[4], SiBloqueado[5], ProgN2[6], SiBloqueado[7], GiraDer[8], CambiarEst[9], GiraDer[10], ProgN3[11], Avanza[12], CambiarEst[13], CambiarEst[14], CambiarEst[15], Avanza[16]
+Arbol ataque: ProgN3[0], SiRango[1], Acercar[2], Alejar[3], ProgN2[4], SiRango[5], Curar[6], ProgN3[7], BloquearN[8], BloquearN[9], Acercar[10], Curar[11], Alejar[12]
+Notas
+Punt. exploracion: -370.333333
+Punt. Ataque: 10.333333
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 70.833333
+Fitness Individuo: 291.333333
+Arbol patrulla: SiDetectado[0], ProgN2[1], SiDetectado[2], ProgN2[3], SiBloqueado[4], GiraIz[5], GiraIz[6], CambiarEst[7], GiraIz[8], Avanza[9], CambiarEst[10]
+Arbol ataque: ProgN2[0], ProgN2[1], Alejar[2], SiRango[3], VidaIA[4], SiRango[5], BloquearN[6], BloquearN[7], SiRango[8], Alejar[9], VidaJugador[10], VidaIA[11], Alejar[12], BloquearN[13], Atacar[14], Alejar[15], Acercar[16], Curar[17], Alejar[18], BloquearN[19]
+Notas
+Punt. exploracion: 351.000000
+Punt. Ataque: 13.666667
+Punt. distancia: 1.333333
+Punt. turnos golpeo: 62.000000
+Fitness Individuo: -459.500000
+Arbol patrulla: SiBloqueado[0], ProgN3[1], ProgN3[2], GiraIz[3], ProgN3[4], SiDetectado[5], ProgN2[6], GiraDer[7], GiraDer[8], GiraDer[9], SiDetectado[10], Avanza[11], Avanza[12], GiraDer[13], GiraIz[14], CambiarEst[15], CambiarEst[16], SiBloqueado[17], Avanza[18], GiraIz[19]
+Arbol ataque: SiRango[0], Alejar[1], ProgN3[2], Atacar[3], BloquearN[4], Curar[5]
+Notas
+Punt. exploracion: -360.666667
+Punt. Ataque: 1.000000
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 45.666667
+Fitness Individuo: -213.569036
+Arbol patrulla: SiBloqueado[0], ProgN2[1], SiBloqueado[2], GiraDer[3], Avanza[4], ProgN2[5], SiBloqueado[6], Avanza[7], CambiarEst[8], GiraDer[9], ProgN2[10], GiraIz[11], GiraIz[12]
+Arbol ataque: SiRango[0], VidaJugador[1], Atacar[2], ProgN2[3], BloquearN[4], Alejar[5], Curar[6], VidaIA[7], Acercar[8], Atacar[9], BloquearN[10]
+Notas
+Punt. exploracion: -288.166667
+Punt. Ataque: 0.000000
+Punt. distancia: 1.069036
+Punt. turnos golpeo: 0.000000
+
+Nueva Generacion 0
+Fitness Individuo: 239.333333
+Arbol patrulla: SiDetectado[0], ProgN2[1], GiraIz[2], ProgN2[3], SiBloqueado[4], CambiarEst[5], GiraIz[6], Avanza[7], CambiarEst[8]
+Arbol ataque: ProgN2[0], ProgN2[1], Alejar[2], SiRango[3], VidaIA[4], SiRango[5], BloquearN[6], BloquearN[7], SiRango[8], Alejar[9], VidaJugador[10], VidaIA[11], Alejar[12], BloquearN[13], Curar[14], BloquearN[15], BloquearN[16], Atacar[17], Curar[18], Acercar[19]
+Notas
+Punt. exploracion: 330.166667
+Punt. Ataque: 7.500000
+Punt. distancia: 1.333333
+Punt. turnos golpeo: 20.833333
+Fitness Individuo: 289.166667
+Arbol patrulla: SiDetectado[0], ProgN2[1], GiraIz[2], ProgN2[3], SiBloqueado[4], CambiarEst[5], GiraIz[6], Avanza[7], CambiarEst[8]
+Arbol ataque: ProgN2[0], ProgN2[1], Alejar[2], SiRango[3], Curar[4], SiRango[5], BloquearN[6], VidaJugador[7], VidaIA[8], Alejar[9], Curar[10], Acercar[11], Acercar[12], BloquearN[13], Alejar[14]
+Notas
+Punt. exploracion: 353.500000
+Punt. Ataque: 0.166667
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 3.500000
+Fitness Individuo: 760.097631
+Arbol patrulla: SiDetectado[0], ProgN2[1], GiraIz[2], ProgN2[3], SiBloqueado[4], CambiarEst[5], GiraIz[6], Avanza[7], GiraIz[8]
+Arbol ataque: ProgN2[0], SiRango[1], Alejar[2], SiRango[3], BloquearN[4], VidaJugador[5], VidaIA[6], Curar[7], BloquearN[8], Atacar[9], BloquearN[10], Atacar[11], Curar[12]
+Notas
+Punt. exploracion: 322.666667
+Punt. Ataque: 13.666667
+Punt. distancia: 1.069036
+Punt. turnos golpeo: 0.000000
+Fitness Individuo: 233.666667
+Arbol patrulla: SiDetectado[0], ProgN2[1], GiraIz[2], ProgN2[3], SiBloqueado[4], CambiarEst[5], GiraIz[6], Avanza[7], CambiarEst[8]
+Arbol ataque: ProgN2[0], ProgN2[1], Alejar[2], ProgN2[3], Curar[4], SiRango[5], Curar[6], SiRango[7], BloquearN[8], Acercar[9], Curar[10]
+Notas
+Punt. exploracion: 325.833333
+Punt. Ataque: 0.000000
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 1.333333
+Fitness Individuo: -550.166667
+Arbol patrulla: SiBloqueado[0], ProgN3[1], ProgN3[2], GiraIz[3], Avanza[4], Avanza[5], GiraIz[6], Avanza[7], CambiarEst[8]
+Arbol ataque: VidaIA[0], VidaIA[1], Atacar[2], VidaIA[3], Curar[4], VidaIA[5], Curar[6], VidaJugador[7], SiRango[8], ProgN2[9], Alejar[10], Acercar[11], Atacar[12], Curar[13], BloquearN[14], ProgN3[15], Acercar[16], Acercar[17], Curar[18], Atacar[19], Alejar[20], Curar[21], ProgN3[22], Atacar[23], Alejar[24], Alejar[25]
+Notas
+Punt. exploracion: -360.500000
+Punt. Ataque: 0.666667
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 38.500000
+Fitness Individuo: 292.500000
+Arbol patrulla: SiDetectado[0], ProgN2[1], GiraIz[2], ProgN2[3], SiBloqueado[4], CambiarEst[5], CambiarEst[6], Avanza[7], CambiarEst[8]
+Arbol ataque: ProgN2[0], ProgN2[1], Alejar[2], SiRango[3], Curar[4], SiRango[5], BloquearN[6], VidaJugador[7], VidaIA[8], BloquearN[9], Alejar[10], Curar[11], Acercar[12], Curar[13], Atacar[14]
+Notas
+Punt. exploracion: 351.666667
+Punt. Ataque: 0.833333
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 8.666667
+Fitness Individuo: 381.333333
+Arbol patrulla: SiDetectado[0], ProgN2[1], GiraIz[2], ProgN2[3], SiBloqueado[4], ProgN3[5], ProgN2[6], Avanza[7], CambiarEst[8], SiBloqueado[9], CambiarEst[10], SiDetectado[11], Avanza[12], GiraIz[13], Avanza[14], Avanza[15], GiraDer[16], GiraIz[17]
+Arbol ataque: ProgN2[0], ProgN2[1], VidaIA[2], SiRango[3], Curar[4], ProgN2[5], Atacar[6], VidaJugador[7], VidaJugador[8], BloquearN[9], Curar[10], BloquearN[11], BloquearN[12], Atacar[13], Curar[14], BloquearN[15], Alejar[16], BloquearN[17]
+Notas
+Punt. exploracion: 322.833333
+Punt. Ataque: 2.166667
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 2.833333
+Fitness Individuo: 251.065741
+Arbol patrulla: SiDetectado[0], ProgN2[1], GiraIz[2], ProgN2[3], SiDetectado[4], CambiarEst[5], GiraIz[6], SiDetectado[7], SiBloqueado[8], GiraIz[9], CambiarEst[10], ProgN3[11], ProgN3[12], Avanza[13], GiraDer[14], GiraDer[15], GiraDer[16], GiraDer[17], Avanza[18]
+Arbol ataque: ProgN2[0], ProgN2[1], Alejar[2], SiRango[3], VidaIA[4], SiRango[5], BloquearN[6], Curar[7], SiRango[8], Alejar[9], VidaJugador[10], VidaIA[11], Alejar[12], BloquearN[13], Acercar[14], Alejar[15], Curar[16], Curar[17], Curar[18], BloquearN[19]
+Notas
+Punt. exploracion: 313.666667
+Punt. Ataque: 0.666667
+Punt. distancia: 1.434259
+Punt. turnos golpeo: 4.833333
+Fitness Individuo: 834.333333
+Arbol patrulla: SiDetectado[0], ProgN2[1], GiraIz[2], ProgN2[3], SiBloqueado[4], CambiarEst[5], GiraIz[6], Avanza[7], CambiarEst[8]
+Arbol ataque: ProgN2[0], ProgN2[1], Alejar[2], SiRango[3], Curar[4], SiRango[5], BloquearN[6], VidaJugador[7], VidaIA[8], Alejar[9], Alejar[10], Atacar[11], BloquearN[12], Acercar[13], Alejar[14]
+Notas
+Punt. exploracion: 352.000000
+Punt. Ataque: 5.333333
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 0.000000
+Fitness Individuo: 275.264298
+Arbol patrulla: SiDetectado[0], ProgN2[1], GiraIz[2], ProgN2[3], SiBloqueado[4], CambiarEst[5], GiraIz[6], Avanza[7], CambiarEst[8]
+Arbol ataque: ProgN2[0], ProgN2[1], Alejar[2], SiRango[3], Curar[4], SiRango[5], BloquearN[6], VidaJugador[7], ProgN3[8], Curar[9], Atacar[10], Curar[11], BloquearN[12], Atacar[13], Curar[14]
+Notas
+Punt. exploracion: 326.166667
+Punt. Ataque: 0.000000
+Punt. distancia: 1.069036
+Punt. turnos golpeo: 1.500000
+
+Nueva Generacion 1
+Fitness Individuo: 722.333333
+Arbol patrulla: SiDetectado[0], ProgN2[1], GiraIz[2], ProgN2[3], SiBloqueado[4], CambiarEst[5], GiraIz[6], Avanza[7], CambiarEst[8]
+Arbol ataque: ProgN2[0], ProgN2[1], Alejar[2], SiRango[3], BloquearN[4], SiRango[5], BloquearN[6], VidaJugador[7], VidaIA[8], Atacar[9], BloquearN[10], Atacar[11], Acercar[12], Acercar[13], Alejar[14]
+Notas
+Punt. exploracion: 350.166667
+Punt. Ataque: 26.333333
+Punt. distancia: 1.166667
+Punt. turnos golpeo: 0.000000
+Fitness Individuo: 281.500000
+Arbol patrulla: SiDetectado[0], ProgN2[1], GiraIz[2], ProgN2[3], SiBloqueado[4], CambiarEst[5], GiraIz[6], Avanza[7], CambiarEst[8]
+Arbol ataque: ProgN2[0], ProgN2[1], Alejar[2], SiRango[3], Curar[4], SiRango[5], BloquearN[6], VidaJugador[7], VidaIA[8], Alejar[9], Atacar[10], Curar[11], Acercar[12], Alejar[13], Acercar[14]
+Notas
+Punt. exploracion: 349.500000
+Punt. Ataque: 0.500000
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 5.666667
+Fitness Individuo: 44.666667
+Arbol patrulla: SiDetectado[0], ProgN2[1], GiraIz[2], ProgN2[3], SiBloqueado[4], SiBloqueado[5], GiraIz[6], Avanza[7], CambiarEst[8], Avanza[9], CambiarEst[10]
+Arbol ataque: ProgN2[0], ProgN2[1], Alejar[2], SiRango[3], Curar[4], SiRango[5], BloquearN[6], VidaJugador[7], VidaIA[8], Curar[9], BloquearN[10], Curar[11], Curar[12], Curar[13], Curar[14]
+Notas
+Punt. exploracion: 69.833333
+Punt. Ataque: 1.333333
+Punt. distancia: 1.000000
+Punt. turnos golpeo: 6.333333
