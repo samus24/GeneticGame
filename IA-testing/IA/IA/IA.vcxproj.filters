@@ -45,7 +45,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD:IA-testing/IA/IA/IA.vcxproj.filters
     <ClCompile Include="main.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
@@ -55,12 +54,6 @@
     <ClCompile Include="CheckButton.cpp">
       <Filter>Archivos de encabezado\vista</Filter>
     </ClCompile>
-=======
-    <ClCompile Include="ScrollBar.cpp">
-      <Filter>Archivos de encabezado\vista</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp" />
->>>>>>> refs/remotes/origin/master:AG/AG/AG.vcxproj.filters
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AG.hpp">
@@ -161,12 +154,6 @@
     </ClInclude>
     <ClInclude Include="ComboBox.hpp">
       <Filter>Archivos de encabezado\vista</Filter>
-    </ClInclude>
-    <ClInclude Include="Testbench.hpp">
-      <Filter>Archivos de encabezado\utiles</Filter>
-    </ClInclude>
-    <ClInclude Include="IObserverCruce.hpp">
-      <Filter>Archivos de encabezado\modelo\cruce</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

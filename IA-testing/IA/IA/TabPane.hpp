@@ -66,10 +66,6 @@ private:
 				target.draw(_tabButtons[i], states);
 			}
 			target.draw(_tabButtons[_tabToShow], states);	// Redraw selected button to be in front
-<<<<<<< HEAD:IA-testing/IA/IA/TabPane.hpp
-=======
-			target.draw(*(_tabs[_tabToShow]), states);
->>>>>>> refs/remotes/origin/master:AG/AG/TabPane.hpp
 		}
 	}
 
