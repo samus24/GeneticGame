@@ -101,6 +101,7 @@
     <ClInclude Include="MetodoSeleccion.hpp" />
     <ClInclude Include="myRandom.hpp" />
     <ClInclude Include="Parametros.hpp" />
+    <ClInclude Include="PauseState.hpp" />
     <ClInclude Include="Poblacion.hpp" />
     <ClInclude Include="Portal.hpp" />
     <ClInclude Include="PowerUp.hpp" />
@@ -117,6 +118,7 @@
     <ClCompile Include="LivingEntity.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuState.cpp" />
+    <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateStack.cpp" />
     <ClCompile Include="Utils.cpp" />

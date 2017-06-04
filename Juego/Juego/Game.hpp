@@ -29,6 +29,7 @@ public:
 		_textures.load(Textures::TileMap, "Media/Textures/TileMap.png");
 		_textures.load(Textures::Key, "Media/Textures/llave.png");
 		_textures.load(Textures::Player, "Media/Textures/Player.png");
+		_textures.load(Textures::PlayerMods, "Media/Textures/hearts.png");
 		auto menuState = std::make_shared<MenuState>(_stateStack, State::Context(_window, _textures, _fonts));
 		_stateStack.pushState(menuState);
 	}

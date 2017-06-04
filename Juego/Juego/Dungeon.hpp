@@ -109,6 +109,9 @@ public:
 	int getCell(sf::Vector2u c) const{
 		return getCell(c.x, c.y);
 	}
+	void setCell(sf::Vector2u c, int value){
+		_rooms[_selectedRoom].setCell(c.x, c.y, value);
+	}
 
 	int getCell(size_t x, size_t y) const{
 		Matrix r = _rooms.at(_selectedRoom);

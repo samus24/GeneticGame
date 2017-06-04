@@ -18,6 +18,9 @@ const sf::IntRect  BUTTONSELECTED2RECT(15, 281, BUTTONSIZE.x, BUTTONSIZE.y);
 const sf::IntRect  BUTTON2NORMALRECT(15, 359, BUTTONSIZE.x, BUTTONSIZE.y);
 const sf::IntRect  LOCKED_KEY(0, 0, 64, 64);
 const sf::IntRect  UNLOCKED_KEY(64, 0, 64, 64);
+const sf::IntRect  FULL_HEART(0, 0, 16, 16);
+const sf::IntRect  HALF_HEART(16, 0, 16, 16);
+const sf::IntRect  EMPTY_HEART(32, 0, 16, 16);
 
 const sf::IntRect UPRECT(0, 48, TILESIZE.x, TILESIZE.y);
 const sf::IntRect DOWNRECT(0, 0, TILESIZE.x, TILESIZE.y);
@@ -29,6 +32,7 @@ const float NORMALSPEED = 70;
 const std::string TILEPATH = "Media/Textures/TileMap.png";
 
 const sf::Time TPCOOLDOWN = sf::seconds(3);
+const sf::Time DAMAGECOOLDOWN = sf::seconds(1);
 const sf::Time TIMEPERFRAME = sf::milliseconds(300);
 
 const int NSPRITES = 4;

@@ -22,9 +22,14 @@ private:
 	sf::Sprite _buttonMenu;
 	bool _playerHasKey;
 	sf::Sprite _key;
+	sf::Text _roomNo;
+
+	std::vector<sf::Sprite> _playerHealth;
 
 	sf::Text _debugInfo;
 	sf::Time _tpCoolDown;
+
+	sf::Time _damageCoolDown;
 };
 
 #endif

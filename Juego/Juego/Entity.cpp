@@ -41,12 +41,12 @@ std::vector<sf::Vector2f> Entity::getCorners() const{
 	std::vector<sf::Vector2f> corners;
 	sf::Vector2f pos = getPosition();
 	corners.push_back(pos);
-	pos.x += TILESIZE.x - 1;
+	pos.x += TILESIZE.x - 2;
 	corners.push_back(pos);
-	pos.x -= TILESIZE.x - 1;
-	pos.y += TILESIZE.y - 1;
+	pos.x -= TILESIZE.x - 2;
+	pos.y += TILESIZE.y - 2;
 	corners.push_back(pos);
-	pos.x += TILESIZE.x - 1;
+	pos.x += TILESIZE.x - 2;
 	corners.push_back(pos);
 	return corners;
 }
