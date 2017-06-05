@@ -17,7 +17,7 @@ LivingEntity::LivingEntity(const sf::Texture& texture, unsigned int maxHP, unsig
 	speedPuTime(sf::Time::Zero),
 	attackPuTime(sf::Time::Zero),
 	speedIncr(1),
-	attackIncr(1)
+	attackIncr(0)
 {
 }
 
@@ -38,6 +38,7 @@ unsigned int LivingEntity::increaseHealth(int incr){
 
 void LivingEntity::setSpeed(sf::Vector2f speed){
 	this->speed = speed;
+	if(std::abs(speed.x) <= NORMALSPEED && std::abs(speed.y) <= NORMALSPEED) this->speed *= speedIncr;
 	if (speed.x > 0){
 		_facing = Facing::EAST;
 		sprite.setTextureRect(RIGHTRECT);
@@ -66,6 +67,7 @@ sf::Vector2f LivingEntity::getSpeed() const{
 
 sf::Vector2f LivingEntity::increaseSpeed(float incr, sf::Time t){
 	speed *= incr;
+	speedIncr = incr;
 	if (speed.x > 0){
 		_facing = Facing::EAST;
 		sprite.setTextureRect(RIGHTRECT);
@@ -98,6 +100,7 @@ unsigned int LivingEntity::increaseAttack(int incr, sf::Time t){
 	int sum = attack + incr;
 	attack = std::max(sum, 0);
 	attackPuTime = t;
+	attackIncr = incr;
 	return attack;
 }
 
@@ -119,8 +122,8 @@ void LivingEntity::update(sf::Time dt){
 		speedPuTime = sf::Time::Zero;
 	}
 	if (attackPuTime <= sf::Time::Zero){
-		setAttack(getAttack() / attackIncr);
-		attackIncr = 1;
+		setAttack(getAttack() - attackIncr);
+		attackIncr = 0;
 	}
 }
 
@@ -157,4 +160,16 @@ sf::IntRect LivingEntity::getAttackZone() const{
 		bounds.left += TILESIZE.x;
 		return bounds;
 	}
+}
+
+void LivingEntity::setSpriteColor(sf::Color c){
+	sprite.setColor(c);
+}
+
+sf::Time LivingEntity::getSpeedPuTime() const{
+	return speedPuTime;
+}
+
+sf::Time LivingEntity::getAttackPuTime() const{
+	return attackPuTime;
 }

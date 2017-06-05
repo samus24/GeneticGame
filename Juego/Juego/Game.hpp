@@ -25,6 +25,7 @@ public:
 
 		_textures.load(Textures::TitleScreen, "Media/Textures/TitleScreen.png");
 		_textures.load(Textures::LoadingScreen, "Media/Textures/Loading.png");
+		_textures.load(Textures::GameOverScreen, "Media/Textures/GameOver.png");
 		_textures.load(Textures::Title, "Media/Textures/title.png");
 		_textures.load(Textures::GUI, "Media/Textures/GUI.png");
 		_textures.load(Textures::TileMap, "Media/Textures/TileMap.png");

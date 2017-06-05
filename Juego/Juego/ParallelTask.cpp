@@ -32,7 +32,7 @@ void ParallelTask::runTask()
 {
 	_generaciones = 0;
 	_p.tamPob = 30;							// Tamano de la poblacion
-	_p.iteraciones = 60;					// Numero maximo de generaciones
+	_p.iteraciones = 30;					// Numero maximo de generaciones
 	_p.minNodos = 10;						// Numero minimo de nodos iniciales
 	_p.maxNodos = 40;						// Numero maximo de nodos iniciales
 	_p.densidad = 0.03;						// Densidad de aristas inciales

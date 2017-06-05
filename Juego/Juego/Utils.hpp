@@ -21,6 +21,8 @@ const sf::IntRect  UNLOCKED_KEY(64, 0, 64, 64);
 const sf::IntRect  FULL_HEART(0, 0, 16, 16);
 const sf::IntRect  HALF_HEART(16, 0, 16, 16);
 const sf::IntRect  EMPTY_HEART(32, 0, 16, 16);
+const sf::IntRect  ATTACK_BOOST(48, 0, 16, 16);
+const sf::IntRect  SPEED_BOOST(64, 0, 16, 16);
 
 const sf::IntRect UPRECT(0, 48, TILESIZE.x, TILESIZE.y);
 const sf::IntRect DOWNRECT(0, 0, TILESIZE.x, TILESIZE.y);
@@ -41,11 +43,13 @@ const std::string TILEPATH = "Media/Textures/TileMap.png";
 const sf::Time TPCOOLDOWN = sf::seconds(3);
 const sf::Time DAMAGECOOLDOWN = sf::milliseconds(300);
 const sf::Time TIMEPERFRAME = sf::milliseconds(300);
+const sf::Time IMPERVIOUSTIME = sf::milliseconds(300);
+const sf::Time DECISIONTIME = sf::milliseconds(300);
 
 const int NSPRITES = 4;
 const std::vector<std::string> LOADINGMSG = {
 	"Loading Resources",
-	"You are about to enter in a dangerous world\n       Prepare yourself to reach the end \n   whilst brave enemies try to destroy you.",
+	"You are about to enter in a dangerous world\n    Prepare yourself to fight for your life \n   whilst brave enemies try to destroy you.",
 	"Thank you Mario! But our princess is in another castle."
 };
 

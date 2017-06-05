@@ -27,7 +27,7 @@ public:
 			e.increaseAttack(1, sf::seconds(10));
 			break;
 		case Type::BoostSpeed:
-			e.increaseSpeed(2, sf::seconds(10));
+			e.increaseSpeed(1.5, sf::seconds(10));
 			break;
 		default:
 			break;

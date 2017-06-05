@@ -42,7 +42,13 @@ public:
 
 	void setTextureRect(sf::IntRect r);
 
+	void setSpriteColor(sf::Color c);
+
 	sf::IntRect getAttackZone() const;
+
+	sf::Time getSpeedPuTime() const;
+
+	sf::Time getAttackPuTime() const;
 
 private:
 	unsigned int maxHP;

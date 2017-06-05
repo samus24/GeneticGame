@@ -21,7 +21,7 @@ public:
 		m_vertices.setPrimitiveType(sf::Quads);
 		m_vertices.resize(width * height * 4);
 
-		sf::Vector2f origin((WINDOW_WIDTH - (width * TILESIZE.x)) / 2.f, (WINDOW_HEIGHT - (height * TILESIZE.y)) / 2.f);
+		_origin = sf::Vector2f((WINDOW_WIDTH - (width * TILESIZE.x)) / 2.f, (WINDOW_HEIGHT - (height * TILESIZE.y)) / 2.f);
 
 		// populate the vertex array, with one quad per tile
 		for (unsigned int i = 0; i < width; ++i)
@@ -62,10 +62,10 @@ public:
 				sf::Vertex* quad = &m_vertices[(i + j * width) * 4];
 
 				// define its 4 corners
-				quad[0].position = origin + sf::Vector2f(i * tileSize.x, j * tileSize.y);
-				quad[1].position = origin + sf::Vector2f((i + 1) * tileSize.x, j * tileSize.y);
-				quad[2].position = origin + sf::Vector2f((i + 1) * tileSize.x, (j + 1) * tileSize.y);
-				quad[3].position = origin + sf::Vector2f(i * tileSize.x, (j + 1) * tileSize.y);
+				quad[0].position = _origin + sf::Vector2f(i * tileSize.x, j * tileSize.y);
+				quad[1].position = _origin + sf::Vector2f((i + 1) * tileSize.x, j * tileSize.y);
+				quad[2].position = _origin + sf::Vector2f((i + 1) * tileSize.x, (j + 1) * tileSize.y);
+				quad[3].position = _origin + sf::Vector2f(i * tileSize.x, (j + 1) * tileSize.y);
 
 				// define its 4 texture coordinates
 				quad[0].texCoords = sf::Vector2f(tu * tileSize.x, tv * tileSize.y);
@@ -95,22 +95,14 @@ public:
 	}
 
 	sf::Vector2u getCellFromCoords(float x, float y) const{
-		const sf::Vertex* quad;
-		sf::IntRect r;
-		r.width = TILESIZE.x;
-		r.height = TILESIZE.y;
-		// Investigar si esto se puede sustituir por una formula
-		for (unsigned int i = 0; i < _width; ++i)
-			for (unsigned int j = 0; j < _height; ++j)
-			{
-				quad = &m_vertices[(i + j * _width) * 4];
-				r.left = quad[0].position.x;
-				r.top = quad[0].position.y;
-				if (r.contains(sf::Vector2i(x, y))){
-					return sf::Vector2u(i, j);
-				}
-			}
+		sf::Vector2f coord(x, y);
+		coord -= _origin;
 
+		coord.x /= TILESIZE.x;
+		coord.y /= TILESIZE.y;
+		if (coord.x < _width && coord.y < _height){
+			return sf::Vector2u(coord);
+		}
 		return sf::Vector2u(_width, _height);
 	}
 
@@ -151,6 +143,7 @@ private:
 	size_t _width;
 	size_t _height;
 	sf::Texture m_tileset;
+	sf::Vector2f _origin;
 };
 
 #endif

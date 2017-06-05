@@ -1,4 +1,5 @@
 #include "GameState.hpp"
+#include "GameOverState.hpp"
 #include "PowerUp.hpp"
 #include "PauseState.hpp"
 #include "LoadingState.hpp"
@@ -9,6 +10,7 @@ GameState::GameState(StateStack& stack, Context context)
 	: State(stack, context),
 	_playerHasKey(false),
 	_isPlayerAttack(false),
+	_isPlayerBlocking(false),
 	_hasReleasedAttack(true),
 	_player(context.textures->get(Textures::Player), MAX_HEALTH, 3, sf::Vector2f(0,0), 1),
 	_tpCoolDown(TPCOOLDOWN),
@@ -38,6 +40,14 @@ GameState::GameState(StateStack& stack, Context context)
 	_key.setPosition(WINDOW_WIDTH - LOCKED_KEY.width, WINDOW_HEIGHT - LOCKED_KEY.height);
 
 	sf::Texture& texture3 = context.textures->get(Textures::PlayerMods);
+	_attackBoost.setTexture(texture3);
+	_speedBoost.setTexture(texture3);
+	_attackBoost.setTextureRect(ATTACK_BOOST);
+	_speedBoost.setTextureRect(SPEED_BOOST);
+	_attackBoost.scale(2.f, 2.f);
+	_speedBoost.scale(2.f, 2.f);
+	_attackBoost.setPosition(WINDOW_WIDTH - LOCKED_KEY.width*2, WINDOW_HEIGHT - LOCKED_KEY.height);
+	_speedBoost.setPosition(WINDOW_WIDTH - LOCKED_KEY.width*1.5, WINDOW_HEIGHT - LOCKED_KEY.height);
 	sf::Vector2f pos(WINDOW_WIDTH - (FULL_HEART.width*1.5 * MAX_HEALTH), WINDOW_HEIGHT - FULL_HEART.height*1.5);
 	for (size_t i = 0; i < MAX_HEALTH; ++i){
 		sf::Sprite s;
@@ -71,6 +81,12 @@ void GameState::draw()
 	window.draw(_tiles);
 	window.draw(_buttonMenu);
 	window.draw(_key);
+	if (_player.getAttackPuTime() > sf::Time::Zero){
+		window.draw(_attackBoost);
+	}
+	if (_player.getSpeedPuTime() > sf::Time::Zero){
+		window.draw(_speedBoost);
+	}
 	for (auto e : enemies){
 		window.draw(e);
 	}
@@ -86,6 +102,11 @@ void GameState::draw()
 
 bool GameState::update(sf::Time dt)
 {
+	if (_player.getHealth() <= 0){
+		requestStackPop();
+		auto gameOverState = std::make_shared<GameOverState>(*_stack, _context);
+		requestStackPush(gameOverState);
+	}
 	_tpCoolDown -= dt;
 	if (_tpCoolDown <= sf::Time::Zero){
 		_tpCoolDown = sf::Time::Zero;
@@ -93,11 +114,13 @@ bool GameState::update(sf::Time dt)
 	sf::Vector2f pos = _player.getPosition();
 	_player.update(dt);
 	auto playerBounds = _player.getBounds();
-	for (auto e : enemies){
-		if (playerBounds.intersects(e.getBounds())){
+	auto it = enemies.begin();
+	while(it != enemies.end()){
+		it->update(dt, _player);
+		if (playerBounds.intersects(it->getBounds())){
 			_player.setPosition(pos);
-			return true;
 		}
+		++it;
 	}
 	auto playerPos = _tiles.getCellFromCoords(_player.getCenter().x, _player.getCenter().y);
 	int portal = _dungeon.getCell(playerPos);
@@ -239,22 +262,22 @@ bool GameState::handleEvent(const sf::Event& event)
 	if (event.type == sf::Event::KeyPressed)
 	{
 		sf::Vector2u cell;
-		if (event.key.code == sf::Keyboard::D){
+		if (event.key.code == sf::Keyboard::D && !_isPlayerBlocking){
 			sf::Vector2f actualSpeed = _player.getSpeed();
 			actualSpeed.x = std::max(NORMALSPEED, std::abs(actualSpeed.x));
 			if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
 		}
-		else if (event.key.code == sf::Keyboard::A){
+		else if (event.key.code == sf::Keyboard::A && !_isPlayerBlocking){
 			sf::Vector2f actualSpeed = _player.getSpeed();
 			actualSpeed.x = std::min(-NORMALSPEED, -std::abs(actualSpeed.x));
 			if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
 		}
-		else if (event.key.code == sf::Keyboard::S){
+		else if (event.key.code == sf::Keyboard::S && !_isPlayerBlocking){
 			sf::Vector2f actualSpeed = _player.getSpeed();
 			actualSpeed.y = std::max(NORMALSPEED, std::abs(actualSpeed.y));
 			if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
 		}
-		else if (event.key.code == sf::Keyboard::W){
+		else if (event.key.code == sf::Keyboard::W && !_isPlayerBlocking){
 			sf::Vector2f actualSpeed = _player.getSpeed();
 			actualSpeed.y = std::min(-NORMALSPEED, -std::abs(actualSpeed.y));
 			if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
@@ -263,9 +286,13 @@ bool GameState::handleEvent(const sf::Event& event)
 			auto pauseState = std::make_shared<PauseState>(*_stack, _context);
 			requestStackPush(pauseState);
 		}
-		else if (event.key.code == sf::Keyboard::K && _hasReleasedAttack){
+		else if (event.key.code == sf::Keyboard::K && _hasReleasedAttack && !_isPlayerBlocking){
 			_isPlayerAttack = true;
 			_hasReleasedAttack = false;
+		}
+		else if (event.key.code == sf::Keyboard::L && _hasReleasedAttack){
+			_isPlayerBlocking = true;
+			_player.setSpriteColor(sf::Color::Cyan);
 		}
 	}
 	else if (event.type == sf::Event::KeyReleased)
@@ -283,6 +310,10 @@ bool GameState::handleEvent(const sf::Event& event)
 		else if (event.key.code == sf::Keyboard::K){
 			_hasReleasedAttack = true;
 			_player.setSpeed(_player.getSpeed());
+		}
+		else if (event.key.code == sf::Keyboard::L){
+			_isPlayerBlocking = false;
+			_player.setSpriteColor(sf::Color::White);
 		}
 	}
 	return false;
@@ -308,8 +339,7 @@ void GameState::generateEnemies(int nEnemies){
 			x = myRandom::getRandom(1u, room.width - 2);
 			y = myRandom::getRandom(1u, room.height - 2);
 		} while (Dungeon::isLocked(room[x][y]));
-		LivingEntity e(getContext().textures->get(Textures::Enemy), 3, 3, sf::Vector2f(0,0), 1);
-		e.setPosition(_tiles.getCoordsFromCell(x,y));
-		enemies.push_back(e);
+		enemies.emplace_back(getContext().textures->get(Textures::Enemy), 3, 3, sf::Vector2f(0, 0), 1);
+		enemies.at(i).setPosition(_tiles.getCoordsFromCell(x, y));
 	}
 }

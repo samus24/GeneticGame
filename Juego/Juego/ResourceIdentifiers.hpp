@@ -15,6 +15,7 @@ namespace Textures
 	{
 		TitleScreen,
 		LoadingScreen,
+		GameOverScreen,
 		Title,
 		GUI,
 		TileMap,
