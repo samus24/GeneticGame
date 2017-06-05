@@ -1,8 +1,8 @@
 #include "GameState.hpp"
 #include "PowerUp.hpp"
 #include "PauseState.hpp"
+#include "LoadingState.hpp"
 #include "ResourceHolder.hpp"
-#include "AG.hpp"
 #include "Utils.hpp"
 
 GameState::GameState(StateStack& stack, Context context)
@@ -49,25 +49,10 @@ GameState::GameState(StateStack& stack, Context context)
 		_playerHealth.push_back(s);
 	}
 	updatePlayerHealth();
+}
 
-	std::cout << "Arrancando" << std::endl;
-	Parametros p;
-	p.tamPob = 30;							// Tamano de la poblacion
-	p.iteraciones = 30;						// Numero maximo de generaciones
-	p.minNodos = 10;						// Numero minimo de nodos iniciales
-	p.maxNodos = 40;						// Numero maximo de nodos iniciales
-	p.densidad = 0.03;						// Densidad de aristas inciales
-	p.elitismo = false;						// Elitismo (guarda a los mejores)
-	p.bloating = true;						// Bloating	(evita grafos demasiado grandes)
-	p.contractividad = false;				// Contractividad (descarta generaciones malas)
-	p.probCruce = 0.6;						// Probabilidad de cruce
-	p.probMutacion = 0.02;					// Probabilidad de mutacion
-	p.seleccion = new SeleccionTorneo();	// Metodo de seleccion (Ver "MetodoSeleccion.hpp")
-	p.cruce = new CruceMonopunto();			// Metodo de cruce (Ver "MetodoCruce.hpp")
-	p.mutacion = new MutacionCombinada();		// Metodo de mutacion (Ver "MetodoMutacion.hpp")
-	AG ag(p);
-	_mejor = ag.ejecuta();
-	std::cout << "Terminado" << std::endl;
+void GameState::loadDungeon(Cromosoma mejor){
+	_mejor = mejor;
 	_dungeon.generateRooms(_mejor);
 	Dungeon::Matrix room = _dungeon.getRoom(_dungeon.getSelectedRoom());
 	_tiles.load(TILEPATH, TILESIZE, room, room.width, room.height);
@@ -101,6 +86,19 @@ void GameState::draw()
 
 bool GameState::update(sf::Time dt)
 {
+	_tpCoolDown -= dt;
+	if (_tpCoolDown <= sf::Time::Zero){
+		_tpCoolDown = sf::Time::Zero;
+	}
+	sf::Vector2f pos = _player.getPosition();
+	_player.update(dt);
+	auto playerBounds = _player.getBounds();
+	for (auto e : enemies){
+		if (playerBounds.intersects(e.getBounds())){
+			_player.setPosition(pos);
+			return true;
+		}
+	}
 	auto playerPos = _tiles.getCellFromCoords(_player.getCenter().x, _player.getCenter().y);
 	int portal = _dungeon.getCell(playerPos);
 	if (portal >= 0 && _tpCoolDown == sf::Time::Zero){
@@ -122,12 +120,6 @@ bool GameState::update(sf::Time dt)
 		_playerHasKey = true;
 	}
 	else{
-		_tpCoolDown -= dt;
-		if (_tpCoolDown <= sf::Time::Zero){
-			_tpCoolDown = sf::Time::Zero;
-		}
-		sf::Vector2f pos = _player.getPosition();
-		_player.update(dt);
 		auto corners = _player.getCorners();
 		for (auto c : corners){
 			auto cell = _tiles.getCellFromCoords(c);
@@ -163,7 +155,11 @@ bool GameState::update(sf::Time dt)
 	if (portal == Dungeon::ENDPORTAL){
 		_damageCoolDown -= dt;
 		if (_playerHasKey){
-			// Load a new dungeon
+			requestStackPop();
+			auto loadState = std::make_shared<LoadingState>(*_stack, _context);
+			unsigned int rand = myRandom::getRandom(0u, LOADINGMSG.size() - 1);
+			loadState->launch(LOADINGMSG[rand]);
+			requestStackPush(loadState);
 		}
 		else if (_damageCoolDown <= sf::Time::Zero){
 			_player.increaseHealth(-1);
@@ -201,7 +197,36 @@ bool GameState::update(sf::Time dt)
 			_tiles.load(TILEPATH, TILESIZE, room, room.width, room.height);
 		}
 		else{
-			// Check entities
+			sf::IntRect attackZone = _player.getAttackZone();
+			auto it = enemies.begin();
+			while (it != enemies.end()){
+				if (attackZone.intersects(it->getBounds())){
+					auto posP = _player.getCenter();
+					auto posE = it->getCenter();
+					auto v = posE - posP;
+					v /= 2.f;
+					it->move(v);
+					auto corners = it->getCorners();
+					for (auto c : corners){
+						auto cell = _tiles.getCellFromCoords(c);
+						if (Dungeon::isLocked(_dungeon.getCell(cell))){
+							v = -v;
+							it->move(v);
+							break;
+						}
+					}
+
+					if (it->increaseHealth(-_player.getAttack()) <= 0){
+						it = enemies.erase(it);
+					}
+					else{
+						++it;
+					}
+				}
+				else{
+					++it;
+				}
+			}
 		}
 		_isPlayerAttack = false;
 	}

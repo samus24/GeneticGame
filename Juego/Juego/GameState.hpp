@@ -14,6 +14,8 @@ public:
 	virtual bool			update(sf::Time dt);
 	virtual bool			handleEvent(const sf::Event& event);
 
+	void loadDungeon(Cromosoma mejor);
+
 private:
 	void updatePlayerHealth();
 

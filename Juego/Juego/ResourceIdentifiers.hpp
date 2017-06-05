@@ -14,6 +14,7 @@ namespace Textures
 	enum ID
 	{
 		TitleScreen,
+		LoadingScreen,
 		Title,
 		GUI,
 		TileMap,

@@ -99,6 +99,7 @@ public:
 		sf::IntRect r;
 		r.width = TILESIZE.x;
 		r.height = TILESIZE.y;
+		// Investigar si esto se puede sustituir por una formula
 		for (unsigned int i = 0; i < _width; ++i)
 			for (unsigned int j = 0; j < _height; ++j)
 			{

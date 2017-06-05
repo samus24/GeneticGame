@@ -41,6 +41,9 @@ public:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 	void setTextureRect(sf::IntRect r);
+
+	sf::IntRect getAttackZone() const;
+
 private:
 	unsigned int maxHP;
 	unsigned int hp;

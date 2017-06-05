@@ -126,6 +126,15 @@
     <ClInclude Include="PauseState.hpp">
       <Filter>Header Files\States</Filter>
     </ClInclude>
+    <ClInclude Include="LoadingState.hpp">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="ParallelTask.hpp">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="IAGObserver.hpp">
+      <Filter>Header Files\Genetic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -154,6 +163,12 @@
     </ClCompile>
     <ClCompile Include="PauseState.cpp">
       <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="ParallelTask.cpp">
+      <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

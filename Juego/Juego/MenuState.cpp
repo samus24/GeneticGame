@@ -1,5 +1,5 @@
 #include "MenuState.hpp"
-#include "GameState.hpp"
+#include "LoadingState.hpp"
 #include "Button.hpp"
 #include "ResourceHolder.hpp"
 
@@ -26,8 +26,9 @@ MenuState::MenuState(StateStack& stack, Context context)
 	_buttonPlay->setCallback([this]()
 	{
 		requestStackPop();
-		auto gameState = std::make_shared<GameState>(*_stack, _context);
-		requestStackPush(gameState);
+		auto loadState = std::make_shared<LoadingState>(*_stack, _context);
+		loadState->launch(LOADINGMSG[1]);
+		requestStackPush(loadState);
 	});
 	_buttonPlay->select();
 

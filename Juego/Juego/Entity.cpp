@@ -4,8 +4,8 @@ Entity::Entity(const sf::Texture& texture):
 	sprite(texture, TILE0)
 {
 	sf::Transformable::setPosition(sf::Vector2f(0,0));
-	size.x = 1;
-	size.y = 1;
+	size.x = TILESIZE.x;
+	size.y = TILESIZE.y;
 }
 
 Entity::Entity(const sf::Texture& texture, sf::Vector2i pos, sf::Vector2i size):

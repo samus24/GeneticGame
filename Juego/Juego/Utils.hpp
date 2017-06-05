@@ -39,10 +39,15 @@ const int MAX_HEALTH = 6;
 const std::string TILEPATH = "Media/Textures/TileMap.png";
 
 const sf::Time TPCOOLDOWN = sf::seconds(3);
-const sf::Time DAMAGECOOLDOWN = sf::seconds(1);
+const sf::Time DAMAGECOOLDOWN = sf::milliseconds(300);
 const sf::Time TIMEPERFRAME = sf::milliseconds(300);
 
 const int NSPRITES = 4;
+const std::vector<std::string> LOADINGMSG = {
+	"Loading Resources",
+	"You are about to enter in a dangerous world\n       Prepare yourself to reach the end \n   whilst brave enemies try to destroy you.",
+	"Thank you Mario! But our princess is in another castle."
+};
 
 const std::unordered_map<int, sf::IntRect> WALLTILE = {
 	{ 0, sf::IntRect(32, 48, TILESIZE.x, TILESIZE.y)},

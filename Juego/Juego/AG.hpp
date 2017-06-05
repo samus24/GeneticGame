@@ -4,6 +4,7 @@
 #include "myRandom.hpp"
 #include "Poblacion.hpp"
 #include "Cromosoma.hpp"
+#include "IAGObserver.hpp"
 #include "Parametros.hpp"
 
 class AG {
@@ -67,6 +68,7 @@ public:
 				if (mediaAnterior < mediaActual){
 					mediaAnterior = mediaActual;
 					_generacion++;
+					notifyGeneracionTerminada();
 				}
 				else{
 					_genDescartadas++;
@@ -77,13 +79,17 @@ public:
 			}
 			else{
 				_generacion++;
+				notifyGeneracionTerminada();
 			}
 
 		}	// Fin while generaciones
+		notifyAGTerminado(_elMejor);
 		return _elMejor;
 	}
 
-
+	void addObserver(IAGObserver& o){
+		_obs.push_back(&o);
+	}
 
 private:
 
@@ -166,6 +172,18 @@ private:
 		}
 	}
 
+	void notifyGeneracionTerminada(){
+		for (IAGObserver* o : _obs){
+			o->onGeneracionTerminada(_elMejor);
+		}
+	}
+
+	void notifyAGTerminado(Cromosoma mejor){
+		for (IAGObserver* o : _obs){
+			o->onAGTerminado(mejor);
+		}
+	}
+
 	unsigned int _generacion;
 	unsigned int _genDescartadas;
 	Poblacion _pob;
@@ -173,6 +191,8 @@ private:
 	unsigned int _indexMejor;
 	Cromosoma _elMejor;
 	std::set<unsigned int> _marcados;
+
+	std::vector<IAGObserver*> _obs;
 };
 
 #endif

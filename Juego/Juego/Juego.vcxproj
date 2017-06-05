@@ -94,12 +94,15 @@
     <ClInclude Include="GameState.hpp" />
     <ClInclude Include="Gen.hpp" />
     <ClInclude Include="Grafo.hpp" />
+    <ClInclude Include="IAGObserver.hpp" />
     <ClInclude Include="LivingEntity.hpp" />
+    <ClInclude Include="LoadingState.hpp" />
     <ClInclude Include="MenuState.hpp" />
     <ClInclude Include="MetodoCruce.hpp" />
     <ClInclude Include="MetodoMutacion.hpp" />
     <ClInclude Include="MetodoSeleccion.hpp" />
     <ClInclude Include="myRandom.hpp" />
+    <ClInclude Include="ParallelTask.hpp" />
     <ClInclude Include="Parametros.hpp" />
     <ClInclude Include="PauseState.hpp" />
     <ClInclude Include="Poblacion.hpp" />
@@ -116,8 +119,10 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="LivingEntity.cpp" />
+    <ClCompile Include="LoadingState.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuState.cpp" />
+    <ClCompile Include="ParallelTask.cpp" />
     <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateStack.cpp" />

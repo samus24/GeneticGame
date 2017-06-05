@@ -132,3 +132,29 @@ void LivingEntity::draw(sf::RenderTarget& target, sf::RenderStates states) const
 void LivingEntity::setTextureRect(sf::IntRect r){
 	sprite.setTextureRect(r);
 }
+
+sf::IntRect LivingEntity::getAttackZone() const{
+	sf::IntRect bounds = getBounds();
+	switch (_facing){
+	case Facing::NORTH:
+		bounds.top -= TILESIZE.y;
+		bounds.left -= TILESIZE.x / 2.f;
+		bounds.width += TILESIZE.x;
+		return bounds;
+	case Facing::WEST:
+		bounds.top -= TILESIZE.y /2.f;
+		bounds.height += TILESIZE.y;
+		bounds.left -= TILESIZE.x;
+		return bounds;
+	case Facing::SOUTH:
+		bounds.top += TILESIZE.y;
+		bounds.left -= TILESIZE.x / 2.f;
+		bounds.width += TILESIZE.x;
+		return bounds;
+	case Facing::EAST:
+		bounds.top -= TILESIZE.y / 2.f;
+		bounds.height += TILESIZE.y;
+		bounds.left += TILESIZE.x;
+		return bounds;
+	}
+}
