@@ -13,7 +13,7 @@ LivingEntity::LivingEntity(const sf::Texture& texture, unsigned int maxHP, unsig
 	speed(speed),
 	attack(attack),
 	timePerFrame(TIMEPERFRAME),
-	_facing(Facing::SOUTH),
+	_facing(Facing(myRandom::getRandom(Facing::NORTH, Facing::EAST))),
 	speedPuTime(sf::Time::Zero),
 	attackPuTime(sf::Time::Zero),
 	speedIncr(1),
@@ -59,6 +59,10 @@ void LivingEntity::setSpeed(sf::Vector2f speed){
 
 LivingEntity::Facing LivingEntity::getFacing() const{
 	return _facing;
+}
+
+void LivingEntity::setFacing(Facing f){
+	_facing = f;
 }
 
 sf::Vector2f LivingEntity::getSpeed() const{

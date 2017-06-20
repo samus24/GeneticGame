@@ -20,6 +20,8 @@ public:
 
 	sf::IntRect getBounds() const;
 
+	sf::FloatRect getFloatBounds() const;
+
 	std::vector<sf::Vector2f> getCorners() const;
 
 	void move(sf::Vector2f vec);

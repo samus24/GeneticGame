@@ -113,12 +113,35 @@ bool GameState::update(sf::Time dt)
 	}
 	sf::Vector2f pos = _player.getPosition();
 	_player.update(dt);
+	sf::Vector2f enemyPos;
 	auto playerBounds = _player.getBounds();
 	auto it = enemies.begin();
 	while(it != enemies.end()){
-		it->update(dt, _player);
+		enemyPos = it->getPosition();
+		it->update(dt, _player, _dungeon, _tiles);
 		if (playerBounds.intersects(it->getBounds())){
-			_player.setPosition(pos);
+			it->setPosition(enemyPos);
+		}
+		auto corners = it->getCorners();
+		for (auto c : corners){
+			auto cell = _tiles.getCellFromCoords(c);
+			if (Dungeon::isLocked(_dungeon.getCell(cell))){
+				it->setPosition(enemyPos);
+				break;
+			}
+		}
+		if (it->_isAttacking){
+			auto atZone = it->getAttackZone();
+			if (atZone.intersects(_player.getBounds())){
+				if (!_isPlayerBlocking){
+					auto posP = _player.getCenter();
+					auto posE = it->getCenter();
+					auto v = posP - posE;
+					v /= 2.f;
+					_player.move(v);
+					_player.increaseHealth(-it->getAttack());
+				}
+			}
 		}
 		++it;
 	}
@@ -223,7 +246,7 @@ bool GameState::update(sf::Time dt)
 			sf::IntRect attackZone = _player.getAttackZone();
 			auto it = enemies.begin();
 			while (it != enemies.end()){
-				if (attackZone.intersects(it->getBounds())){
+				if (attackZone.intersects(it->getBounds()) && !it->_isBlocking){
 					auto posP = _player.getCenter();
 					auto posE = it->getCenter();
 					auto v = posE - posP;

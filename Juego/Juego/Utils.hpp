@@ -44,7 +44,8 @@ const sf::Time TPCOOLDOWN = sf::seconds(3);
 const sf::Time DAMAGECOOLDOWN = sf::milliseconds(300);
 const sf::Time TIMEPERFRAME = sf::milliseconds(300);
 const sf::Time IMPERVIOUSTIME = sf::milliseconds(300);
-const sf::Time DECISIONTIME = sf::milliseconds(300);
+const sf::Time DECISIONTIME = sf::milliseconds(200);
+const sf::Time HEALTIME = sf::seconds(3);
 
 const int NSPRITES = 4;
 const std::vector<std::string> LOADINGMSG = {

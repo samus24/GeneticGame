@@ -56,6 +56,10 @@ public:
 			}
 			return ret;
 		}
+
+		bool validCoordinates(int x, int y) const{
+			return !(x < 0 || x >= width || y < 0 || y >= height);
+		}
 	};
 
 public:
@@ -105,6 +109,10 @@ public:
 
 	Matrix getRoom(size_t i){
 		return _rooms[i];
+	}
+
+	Matrix getRoom(size_t i) const{
+		return _rooms.at(i);
 	}
 	int getCell(sf::Vector2u c) const{
 		return getCell(c.x, c.y);

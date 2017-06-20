@@ -37,6 +37,11 @@ sf::IntRect Entity::getBounds() const{
 	return sf::IntRect(pos.x, pos.y, size.x, size.y);
 }
 
+sf::FloatRect Entity::getFloatBounds() const{
+	sf::Vector2f pos = this->getPosition();
+	return sf::FloatRect(pos.x, pos.y, size.x, size.y);
+}
+
 std::vector<sf::Vector2f> Entity::getCorners() const{
 	std::vector<sf::Vector2f> corners;
 	sf::Vector2f pos = getPosition();

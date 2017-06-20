@@ -2,6 +2,7 @@
 #define LIVINGENTITY_HPP
 
 #include "Entity.hpp"
+#include "myRandom.hpp"
 
 class LivingEntity : public Entity{
 public:
@@ -33,6 +34,8 @@ public:
 	float getAttack() const;
 
 	Facing getFacing() const;
+
+	void setFacing(Facing f);
 
 	unsigned int increaseAttack(int incr, sf::Time t);
 

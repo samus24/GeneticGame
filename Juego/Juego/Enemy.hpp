@@ -3,49 +3,140 @@
 
 #include <functional>
 #include <memory>
+#include <queue>
 
 #include "LivingEntity.hpp"
+#include "Dungeon.hpp"
+#include "TileMap.hpp"
 
 class Enemy : public LivingEntity{
+private:
+	enum Actions{
+		ChangeState,
+		Forward,
+		Backward,
+		Right,
+		Left,
+		Advance,
+		Attack,
+		Block,
+		Heal
+	};
 public:
-	void AI1(LivingEntity player){
-		auto posP = player.getCenter();
-		auto posE = getCenter();
-		auto v = posP - posE;
-		if (v.x > 0) v.x = NORMALSPEED;
-		else if (v.x < 0) v.x = -NORMALSPEED;
-		if (v.y > 0) v.y = NORMALSPEED;
-		else if (v.y < 0) v.y = -NORMALSPEED;
-		setSpeed(v);
-	}
+	bool _isAttacking;
+	bool _isBlocking;
 
-	void AI2(LivingEntity player){
-
-	}
-
-	void AI3(LivingEntity player){
-
-	}
-
-public:
 	Enemy(const sf::Texture& texture);
 
 	Enemy(const sf::Texture& texture, unsigned int maxHP, unsigned int hp, sf::Vector2f speed, float attack);
 
-	virtual void update(sf::Time dt, LivingEntity player);
+	virtual void update(sf::Time dt, LivingEntity player, const Dungeon &dungeon, const TileMap &tiles);
 
-	void setAI(std::function<void(LivingEntity)> ai);
-	
+	void setAI(unsigned int ai);
+
+	void ai(LivingEntity player, const Dungeon &dungeon, const TileMap &tiles);
+
 private:
+	bool isPlayerInFront(LivingEntity player, const Dungeon &dungeon, const TileMap &tiles) const;
+
+	bool isBlocked(const Dungeon &dungeon, const TileMap &tiles) const;
+
+	bool isPlayerInRange(LivingEntity player, const Dungeon &dungeon, const TileMap &tiles) const;
+
+	void changeState();
+
+	void attack();
+
+	void block();
+
+	void heal();
+
+	void forward();
+
+	void backward();
+
+	void turnLeft();
+
+	void turnRight();
+
+	void getCloserTo(LivingEntity player, const Dungeon &dungeon, const TileMap &tiles);
+	
+	void executeAction(Actions a, LivingEntity player, const Dungeon &dungeon, const TileMap &tiles);
+private:
+
 	bool _playerDetected;
-	bool _isAtacking;
-	bool _isBlocking;
 
 	sf::Time _impervious;
 	sf::Time _decision;
+	sf::Time _heal;
 
-	std::function<void(LivingEntity)> _ai;
+	unsigned int _ai;
+
+	std::queue<Actions> _actions;
 
 };
+
+class Coord{
+public:
+	unsigned int x;
+	unsigned int y;
+
+	Coord(){
+		x = 0;
+		y = 0;
+	}
+
+	Coord(sf::Vector2u p){
+		this->x = p.x;
+		this->y = p.y;
+	}
+
+	Coord(unsigned int x, unsigned int y){
+		this->x = x;
+		this->y = y;
+	}
+
+	bool operator== (const Coord& other) const{
+		return (this->x == other.x && this->y == other.y);
+	}
+	bool operator!= (const Coord& other) const{
+		return !(*this == other);
+	}
+
+	double distancia(Coord dest){
+		return std::sqrt((x - dest.x)*(x - dest.x) + (y - dest.y)*(y - dest.y));
+	}
+};
+
+class CoordHash{
+public:
+	size_t operator()(const Coord & key) const // <-- don't forget const
+	{
+		size_t hashVal = 0;
+		hashVal += (key.x * 1000);
+		hashVal += key.y;
+		return hashVal;
+	}
+};
+
+class Casilla{
+public:
+	double dist;
+	Coord pos;
+
+	Casilla(double dist, Coord pos) :
+		pos(pos)
+	{
+		this->dist = dist;
+	}
+};
+
+class Compare{
+public:
+	bool operator()(Casilla a, Casilla b) const{
+		return a.dist > b.dist;
+	}
+};
+
 
 #endif
