@@ -12,7 +12,10 @@ GameOverState::GameOverState(StateStack& stack, Context context)
 	_text.setCharacterSize(60);
 	_text.setString("GAME OVER");
 	centerOrigin(_text);
-	_text.setPosition(WINDOW_WIDTH*0.5, WINDOW_HEIGHT*0.4);
+	_text.setPosition(WINDOW_WIDTH*0.5, WINDOW_HEIGHT*0.3);
+
+	_statsText.setFont(context.fonts->get(Fonts::Alagard));
+	_statsText.setCharacterSize(30);
 
 	sf::Texture& texture = context.textures->get(Textures::GameOverScreen);
 	_bgSprite.setTexture(texture);
@@ -49,6 +52,7 @@ void GameOverState::draw()
 
 	window.draw(_bgSprite);
 	window.draw(_text);
+	window.draw(_statsText);
 	window.draw(*_buttonRestart);
 	window.draw(*_buttonExit);
 }
@@ -91,4 +95,17 @@ bool GameOverState::handleEvent(const sf::Event& event)
 		}
 	}
 	return false;
+}
+
+void GameOverState::setPlayerStats(Stats s){
+	_playerStats = s;
+	std::string str = "Points: " + std::to_string(_playerStats.rawPoints) + "\n";
+	str += "Time: " + std::to_string((int)_playerStats.timeAlive.asSeconds()) + "s\n";
+	_statsText.setString(str);
+	centerOrigin(_statsText);
+	_statsText.setPosition(WINDOW_WIDTH*0.5, WINDOW_HEIGHT*0.45);
+}
+
+Stats GameOverState::getPlayerStats() const{
+	return _playerStats;
 }

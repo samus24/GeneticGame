@@ -26,11 +26,15 @@ public:
 	bool _isAttacking;
 	bool _isBlocking;
 
-	Enemy(const sf::Texture& texture);
+	Enemy(const sf::Texture& texture, const sf::Texture& attackTexture);
 
-	Enemy(const sf::Texture& texture, unsigned int maxHP, unsigned int hp, sf::Vector2f speed, float attack);
+	Enemy(const sf::Texture& texture, const sf::Texture& attackTexture, unsigned int maxHP, unsigned int hp, sf::Vector2f speed, float attack);
 
 	virtual void update(sf::Time dt, LivingEntity player, const Dungeon &dungeon, const TileMap &tiles);
+
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+
+	virtual unsigned int increaseHealth(int incr);
 
 	void setAI(unsigned int ai);
 
@@ -69,6 +73,9 @@ private:
 	sf::Time _impervious;
 	sf::Time _decision;
 	sf::Time _heal;
+	sf::Time _attack;
+
+	sf::Sprite _attackBall;
 
 	unsigned int _ai;
 

@@ -7,6 +7,7 @@
 #include <SFML/Graphics/Text.hpp>
 
 #include "ParallelTask.hpp"
+#include "Stats.hpp"
 
 
 class LoadingState : public State
@@ -19,6 +20,8 @@ public:
 	virtual bool			handleEvent(const sf::Event& event);
 
 	void					setCompletion(float percent);
+	void					setPlayerStats(Stats s);
+	Stats					getPlayerStats() const;
 
 	void launch(std::string msg);
 
@@ -29,6 +32,8 @@ private:
 	sf::RectangleShape		mProgressBar;
 
 	ParallelTask			mLoadingTask;
+
+	Stats					playerStats;
 };
 
 #endif

@@ -27,6 +27,7 @@ MenuState::MenuState(StateStack& stack, Context context)
 	{
 		requestStackPop();
 		auto loadState = std::make_shared<LoadingState>(*_stack, _context);
+		loadState->setPlayerStats(Stats());
 		loadState->launch(LOADINGMSG[1]);
 		requestStackPush(loadState);
 	});

@@ -29,7 +29,14 @@ unsigned int LivingEntity::getHealth() const{
 	return hp;
 }
 
+unsigned int LivingEntity::getMaxHealth() const{
+	return maxHP;
+}
+
 unsigned int LivingEntity::increaseHealth(int incr){
+	if (incr < 0){
+		this->setSpriteColor(sf::Color::Red);
+	}
 	int sum = hp + incr;
 	sum = std::max(sum, 0);
 	hp = std::min(maxHP, unsigned int(sum));

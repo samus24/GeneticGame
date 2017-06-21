@@ -114,6 +114,7 @@
     <ClInclude Include="ResourceIdentifiers.hpp" />
     <ClInclude Include="State.hpp" />
     <ClInclude Include="StateStack.hpp" />
+    <ClInclude Include="Stats.hpp" />
     <ClInclude Include="TileMap.hpp" />
     <ClInclude Include="Utils.hpp" />
   </ItemGroup>

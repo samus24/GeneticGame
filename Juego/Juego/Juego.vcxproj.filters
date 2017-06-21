@@ -141,6 +141,9 @@
     <ClInclude Include="Enemy.hpp">
       <Filter>Header Files\Game\Entities</Filter>
     </ClInclude>
+    <ClInclude Include="Stats.hpp">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

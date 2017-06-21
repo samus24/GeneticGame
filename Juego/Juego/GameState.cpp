@@ -26,6 +26,11 @@ GameState::GameState(StateStack& stack, Context context)
 	_roomNo.setCharacterSize(20);
 	_roomNo.setPosition(WINDOW_WIDTH*0.9, 0);
 
+	_statsText.setFont(context.fonts->get(Fonts::Alagard));
+	_statsText.setFillColor(sf::Color::White);
+	_statsText.setCharacterSize(20);
+	_statsText.setPosition(10, 80);
+
 	sf::Texture& texture = context.textures->get(Textures::Title);
 	_buttonMenu.setTexture(texture);
 
@@ -97,14 +102,18 @@ void GameState::draw()
 		window.draw(s);
 	}
 	window.draw(_roomNo);
+	window.draw(_statsText);
 	window.draw(_debugInfo);
 }
 
 bool GameState::update(sf::Time dt)
 {
+	_player.setSpriteColor(sf::Color::White);
+	_playerStats.timeAlive += dt;
 	if (_player.getHealth() <= 0){
 		requestStackPop();
 		auto gameOverState = std::make_shared<GameOverState>(*_stack, _context);
+		gameOverState->setPlayerStats(_playerStats);
 		requestStackPush(gameOverState);
 	}
 	_tpCoolDown -= dt;
@@ -137,7 +146,7 @@ bool GameState::update(sf::Time dt)
 					auto posP = _player.getCenter();
 					auto posE = it->getCenter();
 					auto v = posP - posE;
-					v /= 2.f;
+					v /= 3.f;
 					_player.move(v);
 					_player.increaseHealth(-it->getAttack());
 				}
@@ -147,7 +156,7 @@ bool GameState::update(sf::Time dt)
 	}
 	auto playerPos = _tiles.getCellFromCoords(_player.getCenter().x, _player.getCenter().y);
 	int portal = _dungeon.getCell(playerPos);
-	if (portal >= 0 && _tpCoolDown == sf::Time::Zero){
+	if (portal >= 0 && _tpCoolDown == sf::Time::Zero && enemies.size() <= 0){
 		int lastRoom = _dungeon.getSelectedRoom();
 		_dungeon.setSelectedRoom(portal);
 		auto room = _dungeon.getRoom(portal);
@@ -163,6 +172,7 @@ bool GameState::update(sf::Time dt)
 		auto room = _dungeon.getRoom(_dungeon.getSelectedRoom());
 		_tiles.load(TILEPATH, TILESIZE, room, room.width, room.height);
 		_key.setTextureRect(UNLOCKED_KEY);
+		_playerStats.rawPoints += KEYPOINTS;
 		_playerHasKey = true;
 	}
 	else{
@@ -201,9 +211,12 @@ bool GameState::update(sf::Time dt)
 	if (portal == Dungeon::ENDPORTAL){
 		_damageCoolDown -= dt;
 		if (_playerHasKey){
+			_playerStats.rawPoints += DUNGEONPOINTS;
+			_playerStats.dungeonsCompleted++;
 			requestStackPop();
 			auto loadState = std::make_shared<LoadingState>(*_stack, _context);
 			unsigned int rand = myRandom::getRandom(0u, LOADINGMSG.size() - 1);
+			loadState->setPlayerStats(_playerStats);
 			loadState->launch(LOADINGMSG[rand]);
 			requestStackPush(loadState);
 		}
@@ -235,6 +248,7 @@ bool GameState::update(sf::Time dt)
 		}
 		portal = _dungeon.getCell(playerPos);
 		if (portal == Dungeon::CLOSED_CHEST){
+			_playerStats.rawPoints += CHESTPOINTS;
 			_dungeon.setCell(playerPos, Dungeon::OPENED_CHEST);
 			PowerUp pu;
 			pu.applyBoost(_player);
@@ -261,8 +275,9 @@ bool GameState::update(sf::Time dt)
 							break;
 						}
 					}
-
 					if (it->increaseHealth(-_player.getAttack()) <= 0){
+						_playerStats.rawPoints += KILLPOINTS;
+						_playerStats.killedEnemies++;
 						it = enemies.erase(it);
 					}
 					else{
@@ -276,6 +291,12 @@ bool GameState::update(sf::Time dt)
 		}
 		_isPlayerAttack = false;
 	}
+	std::string s = "Points: " + std::to_string(_playerStats.rawPoints) + "\n";
+	s += "Kills: " + std::to_string(_playerStats.killedEnemies) + "\n";
+	s += "Dungeons: " + std::to_string(_playerStats.dungeonsCompleted) + "\n";
+	s += "Alive: " + std::to_string((int)_playerStats.timeAlive.asSeconds()) + "s\n";
+
+	_statsText.setString(s);
 	
 	return true;
 }
@@ -362,7 +383,15 @@ void GameState::generateEnemies(int nEnemies){
 			x = myRandom::getRandom(1u, room.width - 2);
 			y = myRandom::getRandom(1u, room.height - 2);
 		} while (Dungeon::isLocked(room[x][y]));
-		enemies.emplace_back(getContext().textures->get(Textures::Enemy), 3, 3, sf::Vector2f(0, 0), 1);
+		enemies.emplace_back(getContext().textures->get(Textures::Enemy), getContext().textures->get(Textures::PlayerMods), 3, 3, sf::Vector2f(0, 0), 1);
 		enemies.at(i).setPosition(_tiles.getCoordsFromCell(x, y));
 	}
+}
+
+void GameState::setPlayerStats(Stats s){
+	_playerStats = s;
+}
+
+Stats GameState::getPlayerStats() const{
+	return _playerStats;
 }

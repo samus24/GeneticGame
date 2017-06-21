@@ -23,6 +23,7 @@ const sf::IntRect  HALF_HEART(16, 0, 16, 16);
 const sf::IntRect  EMPTY_HEART(32, 0, 16, 16);
 const sf::IntRect  ATTACK_BOOST(48, 0, 16, 16);
 const sf::IntRect  SPEED_BOOST(64, 0, 16, 16);
+const sf::IntRect  ATTACK_SKULL(80, 0, 16, 16);
 
 const sf::IntRect UPRECT(0, 48, TILESIZE.x, TILESIZE.y);
 const sf::IntRect DOWNRECT(0, 0, TILESIZE.x, TILESIZE.y);
@@ -43,9 +44,17 @@ const std::string TILEPATH = "Media/Textures/TileMap.png";
 const sf::Time TPCOOLDOWN = sf::seconds(3);
 const sf::Time DAMAGECOOLDOWN = sf::milliseconds(300);
 const sf::Time TIMEPERFRAME = sf::milliseconds(300);
-const sf::Time IMPERVIOUSTIME = sf::milliseconds(300);
-const sf::Time DECISIONTIME = sf::milliseconds(200);
+const sf::Time IMPERVIOUSTIME = sf::milliseconds(500);
+const sf::Time DECISIONTIME = sf::milliseconds(300);
 const sf::Time HEALTIME = sf::seconds(3);
+const sf::Time ATTACKTIME = sf::seconds(1);
+
+// POINTS
+const unsigned int KEYPOINTS = 100;
+const unsigned int KILLPOINTS = 50;
+const unsigned int CHESTPOINTS = 10;
+const unsigned int DUNGEONPOINTS = 500;
+const unsigned int ALIVEPOINTS = 1;			// Points per second alive
 
 const int NSPRITES = 4;
 const std::vector<std::string> LOADINGMSG = {

@@ -21,6 +21,8 @@ public:
 
 	unsigned int getHealth() const;
 
+	unsigned int getMaxHealth() const;
+
 	unsigned int increaseHealth(int incr);
 
 	void setSpeed(sf::Vector2f speed);

@@ -51,33 +51,53 @@ std::vector<Coord> astar(const Dungeon::Matrix &m, Coord orig, Coord dest){
 	return path;
 }
 
-Enemy::Enemy(const sf::Texture& texture):
+Enemy::Enemy(const sf::Texture& texture, const sf::Texture& attackTexture) :
 	LivingEntity(texture),
 	_playerDetected(false),
 	_isAttacking(false),
 	_isBlocking(false),
 	_decision(sf::seconds(1)),
-	_impervious(IMPERVIOUSTIME)
+	_impervious(IMPERVIOUSTIME),
+	_attack(ATTACKTIME),
+	_attackBall(attackTexture, ATTACK_SKULL)
 {
 	_ai = 0;
+	centerOrigin(_attackBall);
 }
 
-Enemy::Enemy(const sf::Texture& texture, unsigned int maxHP, unsigned int hp, sf::Vector2f speed, float attack) :
+Enemy::Enemy(const sf::Texture& texture, const sf::Texture& attackTexture, unsigned int maxHP, unsigned int hp, sf::Vector2f speed, float attack) :
 	LivingEntity(texture, maxHP, hp, speed, attack),
 	_playerDetected(false),
 	_isAttacking(false),
 	_isBlocking(false),
 	_decision(sf::seconds(1)),
-	_impervious(IMPERVIOUSTIME)
+	_impervious(IMPERVIOUSTIME),
+	_attack(ATTACKTIME),
+	_attackBall(attackTexture, ATTACK_SKULL)
 {
 	_ai = 0;
+	centerOrigin(_attackBall);
 }
 
 void Enemy::update(sf::Time dt, LivingEntity player, const Dungeon &dungeon, const TileMap &tiles){
 	_decision -= dt;
 	_heal -= dt;
+	_impervious -= dt;
+	_attack -= dt;
+	if (_heal > sf::Time::Zero){
+		this->setSpriteColor(sf::Color::Green);
+	}
+	else if (_impervious > sf::Time::Zero){
+		this->setSpriteColor(sf::Color::Red);
+	}
+	else if (_isBlocking){
+		this->setSpriteColor(sf::Color::Cyan);
+	}
+	else{
+		this->setSpriteColor(sf::Color::White);
+	}
+	_isAttacking = false;
 	if (_decision <= sf::Time::Zero){
-		_isAttacking = false;
 		_isBlocking = false;
 		if (_actions.empty())
 			ai(player, dungeon, tiles);
@@ -86,6 +106,63 @@ void Enemy::update(sf::Time dt, LivingEntity player, const Dungeon &dungeon, con
 		_decision = DECISIONTIME;
 	}
 	LivingEntity::update(dt);
+	if (_isAttacking){
+		_attackBall.setPosition(getCenter());
+		switch (this->getFacing()) {
+		case NORTH:
+			_attackBall.move(0, -(TILESIZE.y / 2.f));
+			break;
+		case SOUTH:
+			_attackBall.move(0, TILESIZE.y / 2.f);
+			break;
+		case EAST:
+			_attackBall.move(TILESIZE.x / 2.f, 0);
+			break;
+		case WEST:
+			_attackBall.move(-(TILESIZE.x / 2.f), 0);
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+unsigned int Enemy::increaseHealth(int incr){
+	if (incr < 0){
+		if (_impervious <= sf::Time::Zero){
+			if (_heal <= (HEALTIME - sf::seconds(1))){
+				_impervious = IMPERVIOUSTIME;
+				return LivingEntity::increaseHealth(incr);
+			}
+			else{
+				return this->getHealth();
+			}
+		}
+		else{
+			return this->getHealth();
+		}
+	}
+	else{
+		return LivingEntity::increaseHealth(incr);
+	}
+}
+
+void Enemy::draw(sf::RenderTarget& target, sf::RenderStates states) const{
+	sf::RectangleShape r(sf::Vector2f(TILESIZE.x, 3));
+	auto pos = this->getPosition();
+	pos.y -= 5;
+	r.setPosition(pos);
+	r.setFillColor(sf::Color::Black);
+	float lifePercentage = (this->getHealth() / (float)this->getMaxHealth());
+	sf::RectangleShape l(sf::Vector2f(TILESIZE.x * lifePercentage, 3));
+	l.setPosition(r.getPosition());
+	l.setFillColor(sf::Color::Green);
+	target.draw(r);
+	target.draw(l);
+	LivingEntity::draw(target, states);
+	if (_isAttacking){
+		target.draw(_attackBall);
+	}
 }
 
 void Enemy::setAI(unsigned int ai){
@@ -197,21 +274,27 @@ void Enemy::changeState(){
 }
 
 void Enemy::attack(){
-	this->_isAttacking = true;
+	if (_attack <= sf::Time::Zero){
+		this->_isAttacking = true;
+		_attack = ATTACKTIME;
+	}
 }
 
 void Enemy::block(){
 	this->_isBlocking = true;
+	//this->setSpriteColor(sf::Color::Cyan);
 }
 
 void Enemy::heal(){
 	if (_heal <= sf::Time::Zero){
 		this->increaseHealth(1);
+		this->setSpeed(sf::Vector2f(0,0));
 		_heal = HEALTIME;
 	}
 }
 
 void Enemy::forward(){
+	if (_heal > sf::Time::Zero) return;
 	switch (this->getFacing()) {
 	case NORTH:
 		setSpeed(sf::Vector2f(0, -NORMALSPEED));
@@ -231,6 +314,7 @@ void Enemy::forward(){
 }
 
 void Enemy::backward(){
+	if (_heal > sf::Time::Zero) return;
 	switch (this->getFacing()) {
 	case NORTH:
 		setSpeed(sf::Vector2f(0, NORMALSPEED));
@@ -250,6 +334,7 @@ void Enemy::backward(){
 }
 
 void Enemy::turnLeft(){
+	if (_heal > sf::Time::Zero) return;
 	switch (this->getFacing()) {
 	case NORTH:
 		this->setFacing(Facing::EAST);
@@ -269,6 +354,7 @@ void Enemy::turnLeft(){
 }
 
 void Enemy::turnRight(){
+	if (_heal > sf::Time::Zero) return;
 	switch (this->getFacing()) {
 	case NORTH:
 		this->setFacing(Facing::WEST);
@@ -288,6 +374,7 @@ void Enemy::turnRight(){
 }
 
 void Enemy::getCloserTo(LivingEntity player, const Dungeon &dungeon, const TileMap &tiles){
+	if (_heal > sf::Time::Zero) return;
 	auto enemyPos = tiles.getCellFromCoords(getPosition());
 	auto path = astar(dungeon.getRoom(dungeon.getSelectedRoom()), Coord(enemyPos), Coord(tiles.getCellFromCoords(player.getPosition())));
 	if (path.size() <= 1) return;

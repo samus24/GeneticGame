@@ -6,6 +6,7 @@
 #include "TileMap.hpp"
 #include "LivingEntity.hpp"
 #include "Enemy.hpp"
+#include "Stats.hpp"
 
 class GameState : public State {
 public:
@@ -14,6 +15,9 @@ public:
 	virtual void			draw();
 	virtual bool			update(sf::Time dt);
 	virtual bool			handleEvent(const sf::Event& event);
+
+	void					setPlayerStats(Stats s);
+	Stats					getPlayerStats() const;
 
 	void loadDungeon(Cromosoma mejor);
 
@@ -26,6 +30,7 @@ private:
 	Dungeon _dungeon;
 	TileMap _tiles;
 	LivingEntity _player;
+	Stats _playerStats;
 
 	std::vector<Enemy> enemies;
 
@@ -38,6 +43,7 @@ private:
 	sf::Sprite _attackBoost;
 	sf::Sprite _speedBoost;
 	sf::Text _roomNo;
+	sf::Text _statsText;
 
 	std::vector<sf::Sprite> _playerHealth;
 

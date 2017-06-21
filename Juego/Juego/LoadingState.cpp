@@ -59,6 +59,7 @@ bool LoadingState::update(sf::Time)
 		requestStackPop();
 		auto gameState = std::make_shared<GameState>(*_stack, _context);
 		gameState->loadDungeon(mLoadingTask.getMejor());
+		gameState->setPlayerStats(this->playerStats);
 		requestStackPush(gameState);
 	}
 	else
@@ -79,4 +80,12 @@ void LoadingState::setCompletion(float percent)
 		percent = 1.f;
 
 	mProgressBar.setSize(sf::Vector2f(mProgressBarBackground.getSize().x * percent, mProgressBar.getSize().y));
+}
+
+void LoadingState::setPlayerStats(Stats s){
+	playerStats = s;
+}
+
+Stats LoadingState::getPlayerStats() const{
+	return playerStats;
 }
