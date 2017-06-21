@@ -26,6 +26,8 @@ private:
 
 	sf::Text				_statsText;
 
+	sf::Sound				_loseSound;
+
 	int	_selectedButton;
 
 };

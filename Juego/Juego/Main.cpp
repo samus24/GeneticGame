@@ -1,3 +1,4 @@
+#include <SFML\Audio.hpp>
 #include "Utils.hpp"
 #include "Chest.hpp"
 #include "LivingEntity.hpp"

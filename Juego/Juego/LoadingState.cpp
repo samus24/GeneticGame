@@ -26,6 +26,9 @@ LoadingState::LoadingState(StateStack& stack, Context context)
 	mProgressBar.setSize(sf::Vector2f(200, 10));
 
 	setCompletion(0.f);
+
+	if (context.musics->get(Musics::Loading).getStatus() != sf::Sound::Status::Playing)
+		context.musics->get(Musics::Loading).play();
 }
 
 void  LoadingState::launch(std::string msg){
@@ -57,10 +60,19 @@ bool LoadingState::update(sf::Time)
 	if (mLoadingTask.isFinished())
 	{
 		requestStackPop();
-		auto gameState = std::make_shared<GameState>(*_stack, _context);
-		gameState->loadDungeon(mLoadingTask.getMejor());
-		gameState->setPlayerStats(this->playerStats);
-		requestStackPush(gameState);
+		if (mLoadingTask.getMejor().getMejorCC().size() < 5){
+			auto loadingState = std::make_shared<LoadingState>(*_stack, _context);
+			loadingState->setPlayerStats(this->playerStats);
+			loadingState->launch(LOADINGMSG[1]);
+			requestStackPush(loadingState);
+		}
+		else{
+			getContext().musics->get(Musics::Loading).stop();
+			auto gameState = std::make_shared<GameState>(*_stack, _context);
+			gameState->loadDungeon(mLoadingTask.getMejor());
+			gameState->setPlayerStats(this->playerStats);
+			requestStackPush(gameState);
+		}
 	}
 	else
 	{

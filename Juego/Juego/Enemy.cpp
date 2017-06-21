@@ -61,7 +61,7 @@ Enemy::Enemy(const sf::Texture& texture, const sf::Texture& attackTexture) :
 	_attack(ATTACKTIME),
 	_attackBall(attackTexture, ATTACK_SKULL)
 {
-	_ai = 0;
+	_ai = (myRandom::getRandom(0u,3u)) ? 1 : 0;
 	centerOrigin(_attackBall);
 }
 
@@ -75,7 +75,7 @@ Enemy::Enemy(const sf::Texture& texture, const sf::Texture& attackTexture, unsig
 	_attack(ATTACKTIME),
 	_attackBall(attackTexture, ATTACK_SKULL)
 {
-	_ai = 0;
+	_ai = (myRandom::getRandom(0u, 3u)) ? 1 : 0;
 	centerOrigin(_attackBall);
 }
 
@@ -482,9 +482,52 @@ void Enemy::ai(LivingEntity player, const Dungeon &dungeon, const TileMap &tiles
 	else{
 		if (!_playerDetected){
 			// Patrol state
+			if (isPlayerInFront(player, dungeon, tiles)){
+				_actions.push(Actions::ChangeState);
+			}
+			else{
+				if (isBlocked(dungeon, tiles)){
+					if (myRandom::getRandom(0u,1u))
+						_actions.push(Actions::Left);
+					else
+						_actions.push(Actions::Right);
+				}
+				else{
+					if (myRandom::getRandom(0u, 4u))
+						_actions.push(Actions::Forward);
+					else
+						_actions.push(Actions::Right);
+				}
+			}
 		}
 		else{
 			// Attack state
+			switch (this->getHealth()){
+			case 1:
+				_actions.push(Actions::Heal);
+				break;
+			case 2:
+				if (isPlayerInRange(player, dungeon, tiles)){
+					if (myRandom::getRandom(0u, 2u))
+						_actions.push(Actions::Attack);
+					else
+						_actions.push(Actions::Block);
+				}
+				else{
+					_actions.push(Actions::Advance);
+				}
+				break;
+			case 3:
+				if (isPlayerInRange(player, dungeon, tiles)){
+					_actions.push(Actions::Attack);
+				}
+				else{
+					_actions.push(Actions::Advance);
+				}
+				break;
+			default:
+				break;
+			}
 		}
 	}
 }

@@ -5,6 +5,7 @@
 
 #include <memory>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 class StateStack;
 
@@ -14,11 +15,13 @@ public:
 
 	struct Context
 	{
-		Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts);
+		Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, MusicHolder& musics, SoundHolder& sounds);
 
 		sf::RenderWindow*	window;
 		TextureHolder*		textures;
 		FontHolder*			fonts;
+		MusicHolder*		musics;
+		SoundHolder*		sounds;
 	};
 
 	State(StateStack& stack, Context context);

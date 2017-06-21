@@ -12,10 +12,25 @@ GameState::GameState(StateStack& stack, Context context)
 	_isPlayerAttack(false),
 	_isPlayerBlocking(false),
 	_hasReleasedAttack(true),
-	_player(context.textures->get(Textures::Player), MAX_HEALTH, 3, sf::Vector2f(0,0), 1),
+	_player(context.textures->get(Textures::Player), MAX_HEALTH, MAX_HEALTH, sf::Vector2f(0,0), 1),
 	_tpCoolDown(TPCOOLDOWN),
 	_damageCoolDown(DAMAGECOOLDOWN)
 {
+	context.musics->get(Musics::Game).play();
+
+	sf::SoundBuffer& bufferSword = context.sounds->get(Sounds::Sword);
+	_swordSound.setBuffer(bufferSword);
+	sf::SoundBuffer& bufferPortal = context.sounds->get(Sounds::Portal);
+	_portalSound.setBuffer(bufferPortal);
+	sf::SoundBuffer& bufferKey = context.sounds->get(Sounds::Key);
+	_keySound.setBuffer(bufferKey);
+	sf::SoundBuffer& bufferHurt = context.sounds->get(Sounds::Hurt);
+	_hurtSound.setBuffer(bufferHurt);
+	sf::SoundBuffer& bufferFireball = context.sounds->get(Sounds::Fireball);
+	_fireballSound.setBuffer(bufferFireball);
+	sf::SoundBuffer& bufferChest = context.sounds->get(Sounds::Chest);
+	_chestSound.setBuffer(bufferChest);
+
 	_debugInfo.setFont(context.fonts->get(Fonts::Main));
 	_debugInfo.setFillColor(sf::Color::White);
 	_debugInfo.setCharacterSize(12);
@@ -26,16 +41,25 @@ GameState::GameState(StateStack& stack, Context context)
 	_roomNo.setCharacterSize(20);
 	_roomNo.setPosition(WINDOW_WIDTH*0.9, 0);
 
+	sf::Texture& texture = context.textures->get(Textures::Title);
+	_buttonMenu.setTexture(texture);
+	_buttonMenu.setScale(0.4, 0.4);
+	_buttonMenu.setPosition(10, 10);
+
 	_statsText.setFont(context.fonts->get(Fonts::Alagard));
 	_statsText.setFillColor(sf::Color::White);
 	_statsText.setCharacterSize(20);
-	_statsText.setPosition(10, 80);
+	_statsText.setPosition(200, 10);
 
-	sf::Texture& texture = context.textures->get(Textures::Title);
-	_buttonMenu.setTexture(texture);
+	sf::Texture& textureControls = context.textures->get(Textures::Controls);
+	_controls.setTexture(textureControls);
+	_controls.setPosition(10, WINDOW_HEIGHT - textureControls.getSize().y);
 
-	_buttonMenu.setScale(0.4, 0.4);
-	_buttonMenu.setPosition(10, 10);
+	_controlsText.setFont(context.fonts->get(Fonts::Alagard));
+	_controlsText.setFillColor(sf::Color::White);
+	_controlsText.setCharacterSize(15);
+	_controlsText.setPosition(textureControls.getSize().x + 10, _controls.getPosition().y + 10);
+	_controlsText.setString("Attack\\Open Chest\n\nBlock");
 
 	sf::Texture& texture2 = context.textures->get(Textures::Key);
 	_key.setTexture(texture2);
@@ -103,14 +127,18 @@ void GameState::draw()
 	}
 	window.draw(_roomNo);
 	window.draw(_statsText);
+	window.draw(_controls);
+	window.draw(_controlsText);
 	window.draw(_debugInfo);
 }
 
 bool GameState::update(sf::Time dt)
 {
-	_player.setSpriteColor(sf::Color::White);
+	if (!_isPlayerBlocking)
+		_player.setSpriteColor(sf::Color::White);
 	_playerStats.timeAlive += dt;
 	if (_player.getHealth() <= 0){
+		getContext().musics->get(Musics::Game).stop();
 		requestStackPop();
 		auto gameOverState = std::make_shared<GameOverState>(*_stack, _context);
 		gameOverState->setPlayerStats(_playerStats);
@@ -141,6 +169,7 @@ bool GameState::update(sf::Time dt)
 		}
 		if (it->_isAttacking){
 			auto atZone = it->getAttackZone();
+			if(_fireballSound.getStatus() == sf::Sound::Status::Stopped)_fireballSound.play();
 			if (atZone.intersects(_player.getBounds())){
 				if (!_isPlayerBlocking){
 					auto posP = _player.getCenter();
@@ -149,6 +178,8 @@ bool GameState::update(sf::Time dt)
 					v /= 3.f;
 					_player.move(v);
 					_player.increaseHealth(-it->getAttack());
+					_hurtSound.play();
+					updatePlayerHealth();
 				}
 			}
 		}
@@ -157,6 +188,7 @@ bool GameState::update(sf::Time dt)
 	auto playerPos = _tiles.getCellFromCoords(_player.getCenter().x, _player.getCenter().y);
 	int portal = _dungeon.getCell(playerPos);
 	if (portal >= 0 && _tpCoolDown == sf::Time::Zero && enemies.size() <= 0){
+		_portalSound.play();
 		int lastRoom = _dungeon.getSelectedRoom();
 		_dungeon.setSelectedRoom(portal);
 		auto room = _dungeon.getRoom(portal);
@@ -168,6 +200,7 @@ bool GameState::update(sf::Time dt)
 		_tpCoolDown = TPCOOLDOWN;
 	}
 	else if (portal == Dungeon::KEYBLOCK){
+		_keySound.play();
 		_dungeon.setCell(playerPos, Dungeon::EMPTY);
 		auto room = _dungeon.getRoom(_dungeon.getSelectedRoom());
 		_tiles.load(TILEPATH, TILESIZE, room, room.width, room.height);
@@ -213,6 +246,8 @@ bool GameState::update(sf::Time dt)
 		if (_playerHasKey){
 			_playerStats.rawPoints += DUNGEONPOINTS;
 			_playerStats.dungeonsCompleted++;
+			_portalSound.play();
+			getContext().musics->get(Musics::Game).stop();
 			requestStackPop();
 			auto loadState = std::make_shared<LoadingState>(*_stack, _context);
 			unsigned int rand = myRandom::getRandom(0u, LOADINGMSG.size() - 1);
@@ -221,6 +256,7 @@ bool GameState::update(sf::Time dt)
 			requestStackPush(loadState);
 		}
 		else if (_damageCoolDown <= sf::Time::Zero){
+			_hurtSound.play();
 			_player.increaseHealth(-1);
 			updatePlayerHealth();
 			_damageCoolDown = DAMAGECOOLDOWN;
@@ -248,6 +284,7 @@ bool GameState::update(sf::Time dt)
 		}
 		portal = _dungeon.getCell(playerPos);
 		if (portal == Dungeon::CLOSED_CHEST){
+			_chestSound.play();
 			_playerStats.rawPoints += CHESTPOINTS;
 			_dungeon.setCell(playerPos, Dungeon::OPENED_CHEST);
 			PowerUp pu;
@@ -257,6 +294,7 @@ bool GameState::update(sf::Time dt)
 			_tiles.load(TILEPATH, TILESIZE, room, room.width, room.height);
 		}
 		else{
+			_swordSound.play();
 			sf::IntRect attackZone = _player.getAttackZone();
 			auto it = enemies.begin();
 			while (it != enemies.end()){
@@ -275,6 +313,7 @@ bool GameState::update(sf::Time dt)
 							break;
 						}
 					}
+					_hurtSound.play();
 					if (it->increaseHealth(-_player.getAttack()) <= 0){
 						_playerStats.rawPoints += KILLPOINTS;
 						_playerStats.killedEnemies++;
@@ -291,10 +330,10 @@ bool GameState::update(sf::Time dt)
 		}
 		_isPlayerAttack = false;
 	}
-	std::string s = "Points: " + std::to_string(_playerStats.rawPoints) + "\n";
-	s += "Kills: " + std::to_string(_playerStats.killedEnemies) + "\n";
-	s += "Dungeons: " + std::to_string(_playerStats.dungeonsCompleted) + "\n";
-	s += "Alive: " + std::to_string((int)_playerStats.timeAlive.asSeconds()) + "s\n";
+	std::string s = "Points: " + std::to_string(_playerStats.rawPoints) + "\t";
+	s += "Kills: " + std::to_string(_playerStats.killedEnemies) + "\t";
+	s += "Dungeons: " + std::to_string(_playerStats.dungeonsCompleted) + "\t";
+	s += "Alive: " + std::to_string((int)_playerStats.timeAlive.asSeconds()) + "s\t";
 
 	_statsText.setString(s);
 	
@@ -327,6 +366,7 @@ bool GameState::handleEvent(const sf::Event& event)
 			if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
 		}
 		else if (event.key.code == sf::Keyboard::Escape){
+			getContext().musics->get(Musics::Game).pause();
 			auto pauseState = std::make_shared<PauseState>(*_stack, _context);
 			requestStackPush(pauseState);
 		}

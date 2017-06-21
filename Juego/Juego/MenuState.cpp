@@ -25,6 +25,7 @@ MenuState::MenuState(StateStack& stack, Context context)
 	_buttonPlay->setText("Play");
 	_buttonPlay->setCallback([this]()
 	{
+		this->getContext().musics->get(Musics::Start).stop();
 		requestStackPop();
 		auto loadState = std::make_shared<LoadingState>(*_stack, _context);
 		loadState->setPlayerStats(Stats());
@@ -40,6 +41,8 @@ MenuState::MenuState(StateStack& stack, Context context)
 	{
 		requestStackPop();
 	});
+
+	context.musics->get(Musics::Start).play();
 
 }
 

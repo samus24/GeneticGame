@@ -34,6 +34,9 @@ private:
 
 	std::vector<Enemy> enemies;
 
+	sf::Sprite _controls;
+	sf::Text _controlsText;
+
 	sf::Sprite _buttonMenu;
 	bool _playerHasKey;
 	bool _isPlayerAttack;
@@ -51,6 +54,13 @@ private:
 	sf::Time _tpCoolDown;
 
 	sf::Time _damageCoolDown;
+
+	sf::Sound _keySound;
+	sf::Sound _portalSound;
+	sf::Sound _chestSound;
+	sf::Sound _hurtSound;
+	sf::Sound _swordSound;
+	sf::Sound _fireballSound;
 };
 
 #endif

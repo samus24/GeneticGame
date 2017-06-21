@@ -22,6 +22,7 @@ PauseState::PauseState(StateStack& stack, Context context)
 	_buttonResume->setPosition(WINDOW_WIDTH*0.33, WINDOW_HEIGHT*0.5);
 	_buttonResume->setCallback([this]()
 	{
+		getContext().musics->get(Musics::Game).play();
 		requestStackPop();
 	});
 	_buttonResume->select();
@@ -60,6 +61,7 @@ bool PauseState::handleEvent(const sf::Event& event)
 	if (event.type == sf::Event::KeyPressed)
 	{
 		if (event.key.code == sf::Keyboard::Escape){
+			getContext().musics->get(Musics::Game).play();
 			requestStackPop();
 		}
 	}

@@ -42,6 +42,9 @@ GameOverState::GameOverState(StateStack& stack, Context context)
 		requestStackPush(menuState);
 	});
 
+	sf::SoundBuffer& buffer = context.sounds->get(Sounds::Lose);
+	_loseSound.setBuffer(buffer);
+	_loseSound.play();
 }
 
 void GameOverState::draw()

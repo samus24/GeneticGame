@@ -5,6 +5,7 @@
 #include "ResourceIdentifiers.hpp"
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <memory>
 #include "StateStack.hpp"
 
@@ -17,23 +18,38 @@ class Game {
 public:
 	Game() :
 		_window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "DunGen"),
-		_stateStack(State::Context(_window, _textures, _fonts))
+		_stateStack(State::Context(_window, _textures, _fonts, _musics, _sounds))
 	{
 		_fonts.load(Fonts::Main, "Media/Sansation.ttf");
 		_fonts.load(Fonts::Alagard, "Media/alagard.ttf");
 		_fonts.load(Fonts::Pixel, "Media/pixel.ttf");
 
+		_musics.load(Musics::Start, "Media/Sounds/inicio.ogg");
+		_musics.load(Musics::Loading, "Media/Sounds/carga.ogg");
+		_musics.load(Musics::Game, "Media/Sounds/main.ogg");
+
+		_musics.get(Musics::Game).setLoop(true);
+
+		_sounds.load(Sounds::Key, "Media/Sounds/key.wav");
+		_sounds.load(Sounds::Sword, "Media/Sounds/sword.wav");
+		_sounds.load(Sounds::Portal, "Media/Sounds/portal.wav");
+		_sounds.load(Sounds::Chest, "Media/Sounds/chest.wav");
+		_sounds.load(Sounds::Hurt, "Media/Sounds/hurt.wav");
+		_sounds.load(Sounds::Fireball, "Media/Sounds/fireball.wav");
+		_sounds.load(Sounds::Lose, "Media/Sounds/Derrota.wav");
+
 		_textures.load(Textures::TitleScreen, "Media/Textures/TitleScreen.png");
 		_textures.load(Textures::LoadingScreen, "Media/Textures/Loading.png");
 		_textures.load(Textures::GameOverScreen, "Media/Textures/GameOver.png");
 		_textures.load(Textures::Title, "Media/Textures/title.png");
+		_textures.load(Textures::Controls, "Media/Textures/Controls.png");
 		_textures.load(Textures::GUI, "Media/Textures/GUI.png");
 		_textures.load(Textures::TileMap, "Media/Textures/TileMap.png");
 		_textures.load(Textures::Key, "Media/Textures/llave.png");
 		_textures.load(Textures::Player, "Media/Textures/Player.png");
 		_textures.load(Textures::PlayerMods, "Media/Textures/hearts.png");
 		_textures.load(Textures::Enemy, "Media/Textures/Enemy.png");
-		auto menuState = std::make_shared<MenuState>(_stateStack, State::Context(_window, _textures, _fonts));
+		auto menuState = std::make_shared<MenuState>(_stateStack, State::Context(_window, _textures, _fonts, _musics, _sounds));
 		_stateStack.pushState(menuState);
 	}
 
@@ -84,6 +100,8 @@ private:
 	sf::RenderWindow _window;
 	TextureHolder _textures;
 	FontHolder _fonts;
+	MusicHolder _musics;
+	SoundHolder _sounds;
 	StateStack _stateStack;
 };
 
