@@ -12,9 +12,13 @@ GameState::GameState(StateStack& stack, Context context)
 	_isPlayerAttack(false),
 	_isPlayerBlocking(false),
 	_hasReleasedAttack(true),
-	_player(context.textures->get(Textures::Player), MAX_HEALTH, MAX_HEALTH, sf::Vector2f(0,0), 1),
+	_player(context.textures->get(Textures::Player), MAX_HEALTH, MAX_HEALTH, sf::Vector2f(0, 0), 1),
 	_tpCoolDown(TPCOOLDOWN),
-	_damageCoolDown(DAMAGECOOLDOWN)
+	_damageCoolDown(DAMAGECOOLDOWN),
+	_helpTime(sf::Time::Zero),
+	_portalHelp(true),
+	_healthHelp(true),
+	_endPortalHelp(true)
 {
 	context.musics->get(Musics::Game).play();
 
@@ -30,11 +34,6 @@ GameState::GameState(StateStack& stack, Context context)
 	_fireballSound.setBuffer(bufferFireball);
 	sf::SoundBuffer& bufferChest = context.sounds->get(Sounds::Chest);
 	_chestSound.setBuffer(bufferChest);
-
-	_debugInfo.setFont(context.fonts->get(Fonts::Main));
-	_debugInfo.setFillColor(sf::Color::White);
-	_debugInfo.setCharacterSize(12);
-	_debugInfo.setPosition(0, WINDOW_HEIGHT*0.8);
 
 	_roomNo.setFont(context.fonts->get(Fonts::Alagard));
 	_roomNo.setFillColor(sf::Color::White);
@@ -60,6 +59,12 @@ GameState::GameState(StateStack& stack, Context context)
 	_controlsText.setCharacterSize(15);
 	_controlsText.setPosition(textureControls.getSize().x + 10, _controls.getPosition().y + 10);
 	_controlsText.setString("Attack\\Open Chest\n\nBlock");
+
+	_helpInfo.setFont(context.fonts->get(Fonts::Alagard));
+	_helpInfo.setFillColor(sf::Color::White);
+	_helpInfo.setCharacterSize(15);
+	sf::Vector2f helpPos(_controlsText.getPosition().x + _controlsText.getLocalBounds().width, WINDOW_HEIGHT - 20);
+	_helpInfo.setPosition(helpPos);
 
 	sf::Texture& texture2 = context.textures->get(Textures::Key);
 	_key.setTexture(texture2);
@@ -129,11 +134,17 @@ void GameState::draw()
 	window.draw(_statsText);
 	window.draw(_controls);
 	window.draw(_controlsText);
-	window.draw(_debugInfo);
+	window.draw(_helpInfo);
 }
 
 bool GameState::update(sf::Time dt)
 {
+	_helpTime -= dt;
+	if (_helpTime >= sf::Time::Zero){
+		sf::Color helpColor = _helpInfo.getFillColor();
+		helpColor.a = 255 * (_helpTime.asSeconds() / HELPTIME.asSeconds());
+		_helpInfo.setFillColor(helpColor);
+	}
 	if (!_isPlayerBlocking)
 		_player.setSpriteColor(sf::Color::White);
 	_playerStats.timeAlive += dt;
@@ -180,6 +191,11 @@ bool GameState::update(sf::Time dt)
 					_player.increaseHealth(-it->getAttack());
 					_hurtSound.play();
 					updatePlayerHealth();
+					if (_healthHelp){
+						_helpInfo.setString("Caution! If you receive enough damage you'll die.");
+						_helpTime = HELPTIME;
+						_healthHelp = false;
+					}
 				}
 			}
 		}
@@ -187,19 +203,30 @@ bool GameState::update(sf::Time dt)
 	}
 	auto playerPos = _tiles.getCellFromCoords(_player.getCenter().x, _player.getCenter().y);
 	int portal = _dungeon.getCell(playerPos);
-	if (portal >= 0 && _tpCoolDown == sf::Time::Zero && enemies.size() <= 0){
-		_portalSound.play();
-		int lastRoom = _dungeon.getSelectedRoom();
-		_dungeon.setSelectedRoom(portal);
-		auto room = _dungeon.getRoom(portal);
-		_tiles.load(TILEPATH, TILESIZE, room, room.width, room.height);
-		auto teleportCell = _dungeon.getCellWith(lastRoom);
-		_player.setPosition(_tiles.getCoordsFromCell(teleportCell));
-		_roomNo.setString("Room " + std::to_string(_dungeon.getSelectedRoom()));
-		generateEnemies(_mejor.getMejorCC().getNodos()[_dungeon.getSelectedRoom()].getEnemigos());
-		_tpCoolDown = TPCOOLDOWN;
+	if (portal >= 0 && _tpCoolDown == sf::Time::Zero){
+		if (enemies.size() <= 0){
+			_portalSound.play();
+			int lastRoom = _dungeon.getSelectedRoom();
+			_dungeon.setSelectedRoom(portal);
+			auto room = _dungeon.getRoom(portal);
+			_tiles.load(TILEPATH, TILESIZE, room, room.width, room.height);
+			auto teleportCell = _dungeon.getCellWith(lastRoom);
+			_player.setPosition(_tiles.getCoordsFromCell(teleportCell));
+			_roomNo.setString("Room " + std::to_string(_dungeon.getSelectedRoom()));
+			generateEnemies(_mejor.getMejorCC().getNodos()[_dungeon.getSelectedRoom()].getEnemigos());
+			_tpCoolDown = TPCOOLDOWN;
+		}
+		else{
+			if (_portalHelp){
+				_helpInfo.setString("You must defeat your enemies in this room to continue.");
+				_helpTime = HELPTIME;
+				_portalHelp = false;
+			}
+		}
 	}
 	else if (portal == Dungeon::KEYBLOCK){
+		_helpInfo.setString("You have the key. Now, find the exit portal!");
+		_helpTime = HELPTIME;
 		_keySound.play();
 		_dungeon.setCell(playerPos, Dungeon::EMPTY);
 		auto room = _dungeon.getRoom(_dungeon.getSelectedRoom());
@@ -208,37 +235,35 @@ bool GameState::update(sf::Time dt)
 		_playerStats.rawPoints += KEYPOINTS;
 		_playerHasKey = true;
 	}
-	else{
-		auto corners = _player.getCorners();
-		for (auto c : corners){
-			auto cell = _tiles.getCellFromCoords(c);
-			if (Dungeon::isLocked(_dungeon.getCell(cell))){
-				_player.setPosition(pos);
-				_player.setSpeed(sf::Vector2f(0, 0));
+	auto corners = _player.getCorners();
+	for (auto c : corners){
+		auto cell = _tiles.getCellFromCoords(c);
+		if (Dungeon::isLocked(_dungeon.getCell(cell))){
+			_player.setPosition(pos);
+			_player.setSpeed(sf::Vector2f(0, 0));
 
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-					sf::Vector2f actualSpeed = _player.getSpeed();
-					actualSpeed.x = std::max(NORMALSPEED, std::abs(actualSpeed.x));
-					if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
-				}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-					sf::Vector2f actualSpeed = _player.getSpeed();
-					actualSpeed.x = std::min(-NORMALSPEED, -std::abs(actualSpeed.x));
-					if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
-				}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
-					sf::Vector2f actualSpeed = _player.getSpeed();
-					actualSpeed.y = std::max(NORMALSPEED, std::abs(actualSpeed.y));
-					if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
-				}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
-					sf::Vector2f actualSpeed = _player.getSpeed();
-					actualSpeed.y = std::min(-NORMALSPEED, -std::abs(actualSpeed.y));
-					if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
-				}
-
-				break;
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+				sf::Vector2f actualSpeed = _player.getSpeed();
+				actualSpeed.x = std::max(NORMALSPEED, std::abs(actualSpeed.x));
+				if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
 			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+				sf::Vector2f actualSpeed = _player.getSpeed();
+				actualSpeed.x = std::min(-NORMALSPEED, -std::abs(actualSpeed.x));
+				if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+				sf::Vector2f actualSpeed = _player.getSpeed();
+				actualSpeed.y = std::max(NORMALSPEED, std::abs(actualSpeed.y));
+				if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+				sf::Vector2f actualSpeed = _player.getSpeed();
+				actualSpeed.y = std::min(-NORMALSPEED, -std::abs(actualSpeed.y));
+				if (actualSpeed != _player.getSpeed()) _player.setSpeed(actualSpeed);
+			}
+
+			break;
 		}
 	}
 	if (portal == Dungeon::ENDPORTAL){
@@ -256,6 +281,11 @@ bool GameState::update(sf::Time dt)
 			requestStackPush(loadState);
 		}
 		else if (_damageCoolDown <= sf::Time::Zero){
+			if (_endPortalHelp){
+				_helpInfo.setString("You must find the key to cross this portal");
+				_helpTime = HELPTIME;
+				_endPortalHelp = false;
+			}
 			_hurtSound.play();
 			_player.increaseHealth(-1);
 			updatePlayerHealth();

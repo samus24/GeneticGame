@@ -50,7 +50,12 @@ private:
 
 	std::vector<sf::Sprite> _playerHealth;
 
-	sf::Text _debugInfo;
+	sf::Text _helpInfo;
+	sf::Time _helpTime;
+	bool _portalHelp;
+	bool _healthHelp;
+	bool _endPortalHelp;
+
 	sf::Time _tpCoolDown;
 
 	sf::Time _damageCoolDown;

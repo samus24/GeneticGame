@@ -41,6 +41,7 @@ const int MAX_HEALTH = 6;
 
 const std::string TILEPATH = "Media/Textures/TileMap.png";
 
+const sf::Time HELPTIME = sf::seconds(4);
 const sf::Time TPCOOLDOWN = sf::seconds(3);
 const sf::Time DAMAGECOOLDOWN = sf::milliseconds(300);
 const sf::Time TIMEPERFRAME = sf::milliseconds(300);
