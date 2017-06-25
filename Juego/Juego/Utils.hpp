@@ -61,7 +61,13 @@ const int NSPRITES = 4;
 const std::vector<std::string> LOADINGMSG = {
 	"Loading Resources",
 	"You are about to enter in a dangerous world\n    Prepare yourself to fight for your life \n   whilst brave enemies try to destroy you.",
-	"Thank you Mario! But our princess is in another castle."
+	"Thank you Mario! But our princess is in another castle.",
+	"There are no choices.\n Nothing but a straight line.",
+	"You've met with a terrible fate, haven't you?",
+	"There's no use crying over every mistake, \n you just keep on trying until you run out of cake",
+	"We all make choices, but in the end, \n our choices make us",
+	"Mess with the best, you will die like the rest",
+	"It's dangerous to go alone! Take this"
 };
 
 const std::unordered_map<int, sf::IntRect> WALLTILE = {

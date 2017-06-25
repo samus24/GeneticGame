@@ -1,378 +1,42 @@
-﻿Build started 22/06/2017 11:46:58.
-     1>Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\Juego\Juego.vcxproj" on node 2 (Rebuild target(s)).
+﻿Compilación iniciada a las 25/06/2017 22:56:36.
+     1>Proyecto "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\Juego\Juego.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-audio.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D HAS_SFML /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Enemy.cpp Entity.cpp GameOverState.cpp GameState.cpp LivingEntity.cpp LoadingState.cpp Main.cpp MenuState.cpp ParallelTask.cpp PauseState.cpp State.cpp StateStack.cpp Utils.cpp
-         Utils.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(9): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(15): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(16): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(17): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(18): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-         StateStack.cpp
-         State.cpp
-         PauseState.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(9): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(15): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(16): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(17): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(18): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-         ParallelTask.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gen.hpp(11): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodomutacion.hpp(26): warning C4101: 'vecinos2' : unreferenced local variable
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodomutacion.hpp(234): warning C4101: 'vecinos2' : unreferenced local variable
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(21): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(24): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(29): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(49): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(51): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(57): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(74): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(105): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(126): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(131): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(134): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(140): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\ag.hpp(38): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\ag.hpp(57): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\ag.hpp(60): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\ag.hpp(138): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\ag.hpp(161): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(59): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(57) : while compiling class template member function 'Grafo<Gen>::Grafo(void)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(19) : see reference to function template instantiation 'Grafo<Gen>::Grafo(void)' being compiled
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(165) : see reference to class template instantiation 'Grafo<Gen>' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(64): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(62) : while compiling class template member function 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(40) : see reference to function template instantiation 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(71): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(295): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(246) : while compiling class template member function 'Grafo<Gen> Grafo<Gen>::unirGrafo(Grafo<Gen>,Grafo<Gen>,double)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodocruce.hpp(30) : see reference to function template instantiation 'Grafo<Gen> Grafo<Gen>::unirGrafo(Grafo<Gen>,Grafo<Gen>,double)' being compiled
+         D:\VisualStudio2013\VC\bin\CL.exe /c /I"C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-audio.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-window.2.4.0.0\build\native\../..//build/native/include/" /I"C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D HAS_SFML /D HAS_SFML /D HAS_SFML /D HAS_SFML /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MenuState.cpp
          MenuState.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(9): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(15): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(16): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(17): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(18): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gen.hpp(11): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodomutacion.hpp(26): warning C4101: 'vecinos2' : unreferenced local variable
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodomutacion.hpp(234): warning C4101: 'vecinos2' : unreferenced local variable
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(21): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(24): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(29): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(49): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(51): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(57): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(74): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(105): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(126): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(131): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(134): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(140): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\menustate.cpp(20): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(59): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(57) : while compiling class template member function 'Grafo<Gen>::Grafo(void)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(19) : see reference to function template instantiation 'Grafo<Gen>::Grafo(void)' being compiled
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(165) : see reference to class template instantiation 'Grafo<Gen>' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(64): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(62) : while compiling class template member function 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(40) : see reference to function template instantiation 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(71): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(295): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(246) : while compiling class template member function 'Grafo<Gen> Grafo<Gen>::unirGrafo(Grafo<Gen>,Grafo<Gen>,double)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodocruce.hpp(30) : see reference to function template instantiation 'Grafo<Gen> Grafo<Gen>::unirGrafo(Grafo<Gen>,Grafo<Gen>,double)' being compiled
-         Main.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(9): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(15): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(16): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(17): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(18): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-         LoadingState.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gen.hpp(11): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodomutacion.hpp(26): warning C4101: 'vecinos2' : unreferenced local variable
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodomutacion.hpp(234): warning C4101: 'vecinos2' : unreferenced local variable
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(21): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(24): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(29): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(49): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(51): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(57): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(74): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(105): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(126): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(131): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(134): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(140): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(61): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(157): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(171): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(174): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(177): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(195): warning C4244: 'initializing' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(292): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(293): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(295): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(296): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(298): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(299): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(301): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(302): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(9): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(15): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(16): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(17): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(18): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(65): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(66): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(67): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(68): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(71): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(72): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(73): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(74): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(82): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\loadingstate.cpp(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(59): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(57) : while compiling class template member function 'Grafo<Gen>::Grafo(void)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(19) : see reference to function template instantiation 'Grafo<Gen>::Grafo(void)' being compiled
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(165) : see reference to class template instantiation 'Grafo<Gen>' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(64): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(62) : while compiling class template member function 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(40) : see reference to function template instantiation 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(71): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(295): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(246) : while compiling class template member function 'Grafo<Gen> Grafo<Gen>::unirGrafo(Grafo<Gen>,Grafo<Gen>,double)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodocruce.hpp(30) : see reference to function template instantiation 'Grafo<Gen> Grafo<Gen>::unirGrafo(Grafo<Gen>,Grafo<Gen>,double)' being compiled
-         LivingEntity.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(9): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(15): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(16): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(17): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(18): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\livingentity.cpp(111): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\livingentity.cpp(112): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\livingentity.cpp(114): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\livingentity.cpp(115): warning C4244: 'return' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\livingentity.cpp(125): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\livingentity.cpp(155): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\livingentity.cpp(159): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\livingentity.cpp(165): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\livingentity.cpp(169): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-         GameState.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gen.hpp(11): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(61): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(157): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(171): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(174): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(177): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(195): warning C4244: 'initializing' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(292): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(293): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(295): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(296): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(298): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(299): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(301): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(302): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(9): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(15): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(16): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(17): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(18): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(65): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(66): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(67): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(68): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(71): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(72): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(73): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(74): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(82): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodomutacion.hpp(26): warning C4101: 'vecinos2' : unreferenced local variable
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodomutacion.hpp(234): warning C4101: 'vecinos2' : unreferenced local variable
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(21): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(24): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(29): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(49): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(51): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(57): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(74): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(105): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(126): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(131): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(134): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(140): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(45): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(55): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(60): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(73): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(74): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(83): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(83): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(84): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(84): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(85): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(92): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(145): warning C4244: '=' : conversion from 'float' to 'sf::Uint8', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(191): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(347): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(451): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(59): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(57) : while compiling class template member function 'Grafo<Gen>::Grafo(void)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(19) : see reference to function template instantiation 'Grafo<Gen>::Grafo(void)' being compiled
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(165) : see reference to class template instantiation 'Grafo<Gen>' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(64): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(62) : while compiling class template member function 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(40) : see reference to function template instantiation 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(71): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(295): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(246) : while compiling class template member function 'Grafo<Gen> Grafo<Gen>::unirGrafo(Grafo<Gen>,Grafo<Gen>,double)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodocruce.hpp(30) : see reference to function template instantiation 'Grafo<Gen> Grafo<Gen>::unirGrafo(Grafo<Gen>,Grafo<Gen>,double)' being compiled
-     1>c:\software\programacion\msvstudio2013\vc\include\xmemory0(600): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-                 c:\software\programacion\msvstudio2013\vc\include\xmemory0(723) : see reference to function template instantiation 'void std::allocator<_Ty>::construct<_Objty,Resource&,Resource&,int,int,sf::Vector2<float>,int>(_Objty *,Resource &,Resource &,int &&,int &&,sf::Vector2<float> &&,int &&)' being compiled
-                 with
-                 [
-                     _Ty=Enemy
-         ,            _Objty=Enemy
-         ,            Resource=sf::Texture
-                 ]
-                 c:\software\programacion\msvstudio2013\vc\include\xmemory0(723) : see reference to function template instantiation 'void std::allocator<_Ty>::construct<_Objty,Resource&,Resource&,int,int,sf::Vector2<float>,int>(_Objty *,Resource &,Resource &,int &&,int &&,sf::Vector2<float> &&,int &&)' being compiled
-                 with
-                 [
-                     _Ty=Enemy
-         ,            _Objty=Enemy
-         ,            Resource=sf::Texture
-                 ]
-                 c:\software\programacion\msvstudio2013\vc\include\xmemory0(872) : see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,Resource&,Resource&,int,int,sf::Vector2<float>,int>(std::allocator<_Ty> &,_Objty *,Resource &,Resource &,int &&,int &&,sf::Vector2<float> &&,int &&)' being compiled
-                 with
-                 [
-                     _Alloc=std::allocator<Enemy>
-         ,            _Ty=Enemy
-         ,            Resource=sf::Texture
-         ,            _Objty=Enemy
-                 ]
-                 c:\software\programacion\msvstudio2013\vc\include\xmemory0(872) : see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,Resource&,Resource&,int,int,sf::Vector2<float>,int>(std::allocator<_Ty> &,_Objty *,Resource &,Resource &,int &&,int &&,sf::Vector2<float> &&,int &&)' being compiled
-                 with
-                 [
-                     _Alloc=std::allocator<Enemy>
-         ,            _Ty=Enemy
-         ,            Resource=sf::Texture
-         ,            _Objty=Enemy
-                 ]
-                 c:\software\programacion\msvstudio2013\vc\include\vector(899) : see reference to function template instantiation 'void std::_Wrap_alloc<std::allocator<_Ty>>::construct<Enemy,Resource&,Resource&,int,int,sf::Vector2<float>,int>(_Ty *,Resource &,Resource &,int &&,int &&,sf::Vector2<float> &&,int &&)' being compiled
-                 with
-                 [
-                     _Ty=Enemy
-         ,            Resource=sf::Texture
-                 ]
-                 c:\software\programacion\msvstudio2013\vc\include\vector(899) : see reference to function template instantiation 'void std::_Wrap_alloc<std::allocator<_Ty>>::construct<Enemy,Resource&,Resource&,int,int,sf::Vector2<float>,int>(_Ty *,Resource &,Resource &,int &&,int &&,sf::Vector2<float> &&,int &&)' being compiled
-                 with
-                 [
-                     _Ty=Enemy
-         ,            Resource=sf::Texture
-                 ]
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(456) : see reference to function template instantiation 'void std::vector<Enemy,std::allocator<_Ty>>::emplace_back<Resource&,Resource&,int,int,sf::Vector2<float>,int>(Resource &,Resource &,int &&,int &&,sf::Vector2<float> &&,int &&)' being compiled
-                 with
-                 [
-                     _Ty=Enemy
-         ,            Resource=sf::Texture
-                 ]
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\gamestate.cpp(456) : see reference to function template instantiation 'void std::vector<Enemy,std::allocator<_Ty>>::emplace_back<Resource&,Resource&,int,int,sf::Vector2<float>,int>(Resource &,Resource &,int &&,int &&,sf::Vector2<float> &&,int &&)' being compiled
-                 with
-                 [
-                     _Ty=Enemy
-         ,            Resource=sf::Texture
-                 ]
-         GameOverState.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(9): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(15): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(16): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(17): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(18): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gen.hpp(11): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodomutacion.hpp(26): warning C4101: 'vecinos2' : unreferenced local variable
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodomutacion.hpp(234): warning C4101: 'vecinos2' : unreferenced local variable
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(21): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(24): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(29): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(49): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(51): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(57): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(74): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(105): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(126): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(131): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(134): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(140): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(59): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(57) : while compiling class template member function 'Grafo<Gen>::Grafo(void)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(19) : see reference to function template instantiation 'Grafo<Gen>::Grafo(void)' being compiled
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(165) : see reference to class template instantiation 'Grafo<Gen>' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(64): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(62) : while compiling class template member function 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(40) : see reference to function template instantiation 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(71): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(295): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(246) : while compiling class template member function 'Grafo<Gen> Grafo<Gen>::unirGrafo(Grafo<Gen>,Grafo<Gen>,double)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\metodocruce.hpp(30) : see reference to function template instantiation 'Grafo<Gen> Grafo<Gen>::unirGrafo(Grafo<Gen>,Grafo<Gen>,double)' being compiled
-         Entity.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(9): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(15): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(16): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(17): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(18): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\entity.cpp(21): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\entity.cpp(37): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\entity.cpp(42): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\entity.cpp(60): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-         Enemy.cpp
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(9): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(15): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(16): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(17): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\utils.hpp(18): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\gen.hpp(11): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(61): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(157): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(171): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(174): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(177): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(195): warning C4244: 'initializing' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(292): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(293): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(295): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(296): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(298): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(299): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(301): warning C4244: '=' : conversion from 'double' to 'unsigned int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\dungeon.hpp(302): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(65): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(66): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(67): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(68): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(71): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(72): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(73): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(74): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\tilemap.hpp(82): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\enemy.cpp(151): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\enemy.cpp(212): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\enemy.cpp(215): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\enemy.cpp(218): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\enemy.cpp(221): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(59): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(57) : while compiling class template member function 'Grafo<Gen>::Grafo(void)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(19) : see reference to function template instantiation 'Grafo<Gen>::Grafo(void)' being compiled
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(165) : see reference to class template instantiation 'Grafo<Gen>' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(64): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(62) : while compiling class template member function 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)'
-                 c:\users\usuario_local\documents\github\geneticgame\juego\juego\cromosoma.hpp(40) : see reference to function template instantiation 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)' being compiled
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\grafo.hpp(71): warning C4244: 'initializing' : conversion from 'double' to 'unsigned int', possible loss of data
-         Generating Code...
-     1>c:\users\usuario_local\documents\github\geneticgame\juego\juego\livingentity.cpp(174): warning C4715: 'LivingEntity::getAttackZone' : not all control paths return a value
-     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\utils.hpp(9): warning C4244: 'argumento' : conversión de 'const int' a 'float'; posible pérdida de datos
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\utils.hpp(15): warning C4244: 'argumento' : conversión de 'const float' a 'int'; posible pérdida de datos
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\utils.hpp(16): warning C4244: 'argumento' : conversión de 'const float' a 'int'; posible pérdida de datos
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\utils.hpp(17): warning C4244: 'argumento' : conversión de 'const float' a 'int'; posible pérdida de datos
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\utils.hpp(18): warning C4244: 'argumento' : conversión de 'const float' a 'int'; posible pérdida de datos
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\gen.hpp(11): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodomutacion.hpp(26): warning C4101: 'vecinos2' : variable local sin referencia
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodomutacion.hpp(234): warning C4101: 'vecinos2' : variable local sin referencia
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(21): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(24): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(29): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(49): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(51): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(57): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(74): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(105): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(126): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(131): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(134): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\metodoseleccion.hpp(140): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\menustate.cpp(20): warning C4305: 'argumento' : truncamiento de 'double' a 'float'
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\grafo.hpp(59): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+                 c:\users\samuel\documents\github\geneticgame\juego\juego\grafo.hpp(57) : durante la compilación de la función miembro de plantilla de clase 'Grafo<Gen>::Grafo(void)'
+                 c:\users\samuel\documents\github\geneticgame\juego\juego\cromosoma.hpp(19) : vea la referencia a la creación de instancias de plantilla de función 'Grafo<Gen>::Grafo(void)' que se está compilando
+                 c:\users\samuel\documents\github\geneticgame\juego\juego\cromosoma.hpp(165) : vea la referencia a la creación de instancias de plantilla de clase 'Grafo<Gen>' que se está compilando
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\grafo.hpp(64): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+                 c:\users\samuel\documents\github\geneticgame\juego\juego\grafo.hpp(62) : durante la compilación de la función miembro de plantilla de clase 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)'
+                 c:\users\samuel\documents\github\geneticgame\juego\juego\cromosoma.hpp(40) : vea la referencia a la creación de instancias de plantilla de función 'Grafo<Gen>::Grafo(unsigned int,unsigned int,double)' que se está compilando
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\grafo.hpp(71): warning C4244: 'inicializando' : conversión de 'double' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\samuel\documents\github\geneticgame\juego\juego\grafo.hpp(295): warning C4244: 'inicializando' : conversión de 'double' a 'unsigned int'; posible pérdida de datos
+                 c:\users\samuel\documents\github\geneticgame\juego\juego\grafo.hpp(246) : durante la compilación de la función miembro de plantilla de clase 'Grafo<Gen> Grafo<Gen>::unirGrafo(Grafo<Gen>,Grafo<Gen>,double)'
+                 c:\users\samuel\documents\github\geneticgame\juego\juego\metodocruce.hpp(30) : vea la referencia a la creación de instancias de plantilla de función 'Grafo<Gen> Grafo<Gen>::unirGrafo(Grafo<Gen>,Grafo<Gen>,double)' que se está compilando
        Link:
-         C:\software\programacion\MSVStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\Debug\Juego.exe" /INCREMENTAL /NOLOGO "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-audio.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-audio-d.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-graphics-d.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-window.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-window-d.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisfile.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisenc.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbis.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\openal32.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\ogg.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\jpeg.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\freetype.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\flac.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-system-d.lib" "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\sfml-main-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\Debug\Juego.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\Debug\Juego.lib" /MACHINE:X86 Debug\Enemy.obj
+         D:\VisualStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\Debug\Juego.exe" /INCREMENTAL /NOLOGO "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-audio.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-audio-d.lib" "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-graphics.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-graphics-d.lib" "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-window.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-window-d.lib" "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisfile.lib" "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbisenc.lib" "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\vorbis.lib" "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\openal32.lib" "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\ogg.lib" "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\jpeg.lib" "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\freetype.lib" "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\flac.lib" "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\dynamic\sfml-system-d.lib" "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\packages\sfml-system.2.4.0.0\build\native\../..//build/native/lib/Win32\v120\Debug\sfml-main-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\Debug\Juego.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\Debug\Juego.lib" /MACHINE:X86 Debug\Enemy.obj
          Debug\Entity.obj
          Debug\GameOverState.obj
          Debug\GameState.obj
@@ -385,9 +49,9 @@
          Debug\State.obj
          Debug\StateStack.obj
          Debug\Utils.obj
-         Juego.vcxproj -> C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\Debug\Juego.exe
-     1>Done Building Project "C:\Users\usuario_local\Documents\GitHub\GeneticGame\Juego\Juego\Juego.vcxproj" (Rebuild target(s)).
+         Juego.vcxproj -> C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\Debug\Juego.exe
+     1>Compilación del proyecto terminada "C:\Users\Samuel\Documents\GitHub\GeneticGame\Juego\Juego\Juego.vcxproj" (Build destinos).
 
-Build succeeded.
+Compilación correcta.
 
-Time Elapsed 00:00:12.59
+Tiempo transcurrido 00:00:01.63
