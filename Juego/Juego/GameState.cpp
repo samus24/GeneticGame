@@ -63,7 +63,7 @@ GameState::GameState(StateStack& stack, Context context)
 	_helpInfo.setFont(context.fonts->get(Fonts::Alagard));
 	_helpInfo.setFillColor(sf::Color::White);
 	_helpInfo.setCharacterSize(15);
-	sf::Vector2f helpPos(_controlsText.getPosition().x + _controlsText.getLocalBounds().width, WINDOW_HEIGHT - 20);
+	sf::Vector2f helpPos(_controlsText.getPosition().x + _controlsText.getLocalBounds().width - 50, WINDOW_HEIGHT - 20);
 	_helpInfo.setPosition(helpPos);
 
 	sf::Texture& texture2 = context.textures->get(Textures::Key);
