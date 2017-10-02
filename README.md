@@ -26,7 +26,25 @@ Constraints must be satisfied always by the Crossover and Mutation methods.
 
 Roguelike games are often placed in dungeons. A dungeon is a bunch of rooms interconnected. For this reason we choose a Graph as Chromosome. Graphs are easily cutted, combined and mutated.
 
-A dungeon should be amusing, it should be complex enough for the player to motivate him to keep playing, but is important not to generate too messy dungeons, since players can simply give up the game.
+A dungeon should be amusing, it should be complex enough for the player to motivate him to keep playing, but is important not generate too messy dungeons, since players can simply give up the game.
+
+As any game, it has to have enemies and loot, so for our game, each room will have some enemies and some loot chest (both can be zero).
+
+With this idea in mind, now we had to think about some way to evaluate a graph (a dungeon). The fitness function should be able to give high punctuation to those funny dungeons and low punctuation to boring ones.
+
+Finally, to give some sense of path to the dungeon, we decide to have 3 *special rooms* which will be important for players:
+- Start room: that room where player spawn.
+- Final room: the room the player should reach.
+- Key room: a room with a key, necessary to escape from the final room.
+
+After several tries and hours of testing, we finally found which parameters had to considerate:
+Positive aspects:
+- **Distance between special rooms**: more distance implies more difficult dungeons.
+- **Chest and enemies dispersation**: avoiding rooms with too much enemies and empty ones.
+- **Rooms sizes**: we wanted rooms with enough space for player and enemies to move.
+Negative aspects:
+- **Number of Rooms**: less rooms can sound something bad for the game, but, in combination with distance between special rooms, both tend to generate dungeons with a acceptable number of rooms (about 20-25)
+- **Interconections**: trying to reduce the number of connections that each room have with others helps to not generate so messy dungeons and helps players to make a mental map and ubicate themselves in the dungeon.
 
 ## Generating enemies AI with Genetic Programming
 
