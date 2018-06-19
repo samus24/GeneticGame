@@ -109,13 +109,13 @@ Under 1, very poor, most chests are in the same room.
 ### Rooms sizes
 For aesthetics purposes, we want our rooms look more like a portrait format, so we do an average of the *width/height* ratio. It should be > 1, so most rooms are wider than higher.
 
-This parameter has low impact in out fitness function
+This parameter has low impact in out fitness function.
 
 ### Number of rooms
-This is a tricky one! What's better, more rooms or less? With too many rooms, the dungeon could be impossible to solve, with too few, it could be boring. We decide to **minimize** this parameter. And no, we don't want boring dungeons, but here a interesting effect happens. Here the **distance between special rooms** play a special role. That parameter tend to expand the dungeon, so, if we only take in account that parameter, for it will be nice have a million rooms with special rooms as far as possible. If we minimize the number of rooms, these two parameters tense the string in opposite ways. This result quite convenient. 
+This is a tricky one! What's better, more rooms or less? With too many rooms, the dungeon could be impossible to solve, with too few, it could be boring. We decide to **minimize** this parameter. And no, we don't want boring dungeons, but here an interesting effect happens. Here the **distance between special rooms** plays a special role. That parameter tend to expand the dungeon, so, if we only take in account that parameter, for it will be nice have a million rooms with the special rooms as far as possible. If we minimize the number of rooms, these two parameters tense the string in opposite ways. This effect is quite convenient. 
 
 ### Interconnections
-We must not understimate this point. If we don't avoid too dense graphs, we could end with a messy dungeon, where all rooms are interconected and the players could not make their own *mental maps*. On the other hand, if the rooms are only connected in a linear way, the dungeon could result too easy.
+We must not understimate this point. If we don't avoid too dense graphs, we could end with a messy dungeon, where all rooms are interconnected and the players could not make their own *mental maps*. On the other hand, if the rooms are only connected in a linear way, the dungeon could result too easy.
 
 We decide to **minimize** this parameter. The way too avoid the *too linear dungeon* problem is also a side effect of the **distance between special rooms**. This avoid to have rooms grouped in pairs or tuples of low numbers (where they can have degree 2 or more without forming a proper dungeon). 
 
