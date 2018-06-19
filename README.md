@@ -40,17 +40,120 @@ Finally, to give some sense of path to the dungeon, we decide to have 3 *special
 After several tries and hours of testing, we finally found which parameters had to considerate:
 
 #### Positive aspects:
-
 - **Distance between special rooms**: more distance implies more difficult dungeons.
-- **Chest and enemies dispersation**: avoiding rooms with too much enemies and empty ones.
+- **Chests and enemies dispersation**: avoiding rooms with too much enemies and empty ones.
 - **Rooms sizes**: we wanted rooms with enough space for player and enemies to move.
 
 #### Negative aspects:
 - **Number of Rooms**: less rooms can sound something bad for the game, but, in combination with distance between special rooms, both tend to generate dungeons with a acceptable number of rooms (about 20-25)
-- **Interconections**: trying to reduce the number of connections that each room have with others helps to not generate so messy dungeons and helps players to make a mental map and ubicate themselves in the dungeon.
+- **Interconnections**: trying to reduce the number of connections that each room have with others helps to not generate so messy dungeons and helps players to make a mental map and ubicate themselves in the dungeon.
+
+### Fitness funtion in detail
+With these forementioned aspects, we could figure out some kind of fitness function which allows the GA to know how good a dungeon is. During the brainstorming and testing, we notice something very important when evaluating indivduals. As a requirement of the GA, the individuals must be randomly generated. The more variety into the population, the more probable is to find a *good enough* individual. The problem is, due to GA operator (crossover and mutation), any individual could eventually be divided into two non-interconnected graphsor, formally said, two connected components (CC).
+
+So, inside an individual, we could have two (or more) connected components. That's not really a problem! For us, one of those CC could be good enough to be a dungeon itself. With this in mind, our fitness funtion should evaluate **each CC** and the final individual score would be the best score of all CCs into the individual.
+
+Now, we can check how to evaluate each aspect.
+
+### Distance between special rooms
+The natural path for a player would be: start in a room (start room, surprisingly!), find the key room, and then reach the final room to scape the dungeon. If these three rooms are too closer, the player won't feel the need for explroe the rest of the dungeon. So we should **maximize the distance** between the special rooms.
+
+*specialRoomsDistance = distance(startRoom, keyRoom) + distance(keyRoom, finalRoom)*
+
+But with a relevant point, if the CC doesn't contain these three rooms, **this will count 0**. We cannot accept as valid a dungeon without one of these three.
+
+### Chests and enemies dispersation
+As the enemies and chests are also randomly placed, it could happen that some rooms could have a lot of enemies (or loot) and others be completely empty. So, the number of enemies/chests is not the only important thing, also the **dispersation** or separation between them is also relevant for our fitness function. This parameter is **maximized**, we want our elements to be as disperse as possible.
+
+To evaluate this parameter, we sum the average separation between each element of the game and then we average it (again).
+
+*dispersion(e) = (avg(avg(distance(i, k))*
+
+Where *e* is an element of the game (for example chests), *avg* is a average function, *i* is one element of type *e*, and k are every other elements of the type *e*
+
+This might end being quite confusing. I will try to explain with an example.
+
+[![simple dungeon][1]][1]
+
+In this example, we can see how it works. For one of those enemies in room *1*, lets call him *e1*, we calculate the distance from him to every other enemy. The distance between *e1* and the other enemy (say *e1'*) in the same room is 0. The distance with any other is 2, so:
+
+*dispersation(e1) = (0 + 2 + 2 + 2) / 4 = 1.5*
+
+So, in average, *e1* is 1.5 rooms far away to the others enemies. Applying this:
+
+- *dispersation(e1) = (0 + 2 + 2 + 2) / 4 = 1.5*
+- *dispersation(e1') = (0 + 2 + 2 + 2) / 4 = 1.5*
+- *dispersation(e2) = (2 + 2 + 2 + 2) / 4 = 2*
+- *dispersation(e3) = (2 + 2 + 2 + 2) / 4 = 2*
+- *dispersation(e4) = (2 + 2 + 2 + 2) / 4 = 2*
+
+Now, we can do an average of all these values:
+
+*dispersation(enemies) = (1.5 + 1.5 + 2 + 2 + 2) / 5 = 9 / 5 = 1.8*
+
+So, the enemy dipersation is, in average, 1.8 rooms, quite nice.
+
+On the other hand, the chest dispersation:
+
+- *dispersation(c1) = (1 + 1 + 1) / 3 = 1*
+- *dispersation(c5) = (0 + 0 + 1) / 3 = 0.33*
+- *dispersation(c5') = (0 + 0 + 1) / 3 = 0.33*
+- *dispersation(c5'') = (0 + 0 + 1) / 3 = 0.33*
+
+Consecuently, the chest dispersion is:
+
+*dispersation(chests) = (1 + 0.33 + 0.33 + 0.33) / 4 = 2 / 4 = 0.5*
+
+Under 1, very poor, most chests are in the same room.
+
+### Rooms sizes
+For aesthetics purposes, we want our rooms look more like a portrait format, so we do an average of the *width/height* ratio. It should be > 1, so most rooms are wider than higher.
+
+This parameter has low impact in out fitness function
+
+### Number of rooms
+This is a tricky one! What's better, more rooms or less? With too many rooms, the dungeon could be impossible to solve, with too few, it could be boring. We decide to **minimize** this parameter. And no, we don't want boring dungeons, but here a interesting effect happens. Here the **distance between special rooms** play a special role. That parameter tend to expand the dungeon, so, if we only take in account that parameter, for it will be nice have a million rooms with special rooms as far as possible. If we minimize the number of rooms, these two parameters tense the string in opposite ways. This result quite convenient. 
+
+### Interconnections
+We must not understimate this point. If we don't avoid too dense graphs, we could end with a messy dungeon, where all rooms are interconected and the players could not make their own *mental maps*. On the other hand, if the rooms are only connected in a linear way, the dungeon could result too easy.
+
+We decide to **minimize** this parameter. The way too avoid the *too linear dungeon* problem is also a side effect of the **distance between special rooms**. This avoid to have rooms grouped in pairs or tuples of low numbers (where they can have degree 2 or more without forming a proper dungeon). 
+
+### Results
+
+After applying this fitness function and testing during several hours, here we have some examples of the produced individuals
+
+[![individual 1][2]][2]
+
+- **Turquoise rooms**: rooms inside the best CC, aka the rooms which will be in the final dungeon.
+- **Green room**: the starting room
+- **Orange room**: the key room
+- **Red room**: the final room
+- **Blue rooms**: those rooms outside of the best CC, those ones will be discarded.
+
+- **Magenta links**: edges. Show the connections between rooms
+- **Black number**: room identifier
+- **Blue numbers**: room dimensions
+- **Green number**: number of chest in the room
+- **Red number**: number of enemies in the room
 
 ## Generating enemies AI with Genetic Programming
 
+// TODO 
+
 ## The final game
+Some screenshots of the final result
+[![game 1][3]][3]
+
+[![game 2][4]][4]
+
+
+
 
 ## Related work
+
+
+[1]: https://raw.githubusercontent.com/samus24/GeneticGame/master/images/Example1.png
+[2]: https://raw.githubusercontent.com/samus24/GeneticGame/master/images/Example2.PNG
+[3]: https://raw.githubusercontent.com/samus24/GeneticGame/master/images/Example3.PNG
+[4]: https://raw.githubusercontent.com/samus24/GeneticGame/master/images/Example4.PNG
