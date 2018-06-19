@@ -38,11 +38,14 @@ Finally, to give some sense of path to the dungeon, we decide to have 3 *special
 - Key room: a room with a key, necessary to escape from the final room.
 
 After several tries and hours of testing, we finally found which parameters had to considerate:
-Positive aspects:
+
+#### Positive aspects:
+
 - **Distance between special rooms**: more distance implies more difficult dungeons.
 - **Chest and enemies dispersation**: avoiding rooms with too much enemies and empty ones.
 - **Rooms sizes**: we wanted rooms with enough space for player and enemies to move.
-Negative aspects:
+
+#### Negative aspects:
 - **Number of Rooms**: less rooms can sound something bad for the game, but, in combination with distance between special rooms, both tend to generate dungeons with a acceptable number of rooms (about 20-25)
 - **Interconections**: trying to reduce the number of connections that each room have with others helps to not generate so messy dungeons and helps players to make a mental map and ubicate themselves in the dungeon.
 
